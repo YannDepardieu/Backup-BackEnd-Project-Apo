@@ -3,7 +3,7 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/test', async (_, res) => {
+router.get('/test', (_, res) => {
     res.status(200).json({
         name: 'API',
         version: '1.0',
