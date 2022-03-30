@@ -10,4 +10,7 @@
 #########################
 
 ### test
-GET {{ endpoint }}/api/test
+GET {{ endpoint }}/test
+
+### test
+GET {{ endpoint }}/api/
