@@ -1,14 +1,8 @@
 const { Router } = require('express');
+const backofficeController = require('../controllers/backoffice');
 
 const router = Router();
 
-router.get('/test', (_, res) => {
-    res.status(200).json({
-        name: 'Backoffice',
-        version: '1.0',
-        status: 200,
-        message: 'Bienvenue sur le Backoffice !',
-    });
-});
+router.get('/test', backofficeController.test);
 
 module.exports = router;
