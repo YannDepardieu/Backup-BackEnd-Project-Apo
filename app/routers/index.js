@@ -1,13 +1,13 @@
 const { Router } = require('express');
 
+const mainApiRouter = require('./api');
 const backofficeRouter = require('./backoffice');
-const apiRouter = require('./api');
 
 const router = Router();
 
-router.use('/backoffice', backofficeRouter);
+router.use('/main-api', mainApiRouter);
 
-router.use('/api', apiRouter);
+router.use('/backoffice', backofficeRouter);
 
 router.use((_, res) => {
     res.status(404).json({ name: 'API', version: '1.0', status: 404, message: 'not_found' });
