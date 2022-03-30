@@ -1,4 +1,4 @@
-const calc = (...numbers) => {
+module.exports = (...numbers) => {
     let result = 0;
 
     numbers.forEach((number) => {
@@ -7,5 +7,3 @@ const calc = (...numbers) => {
 
     return result;
 };
-
-module.exports = { calc };

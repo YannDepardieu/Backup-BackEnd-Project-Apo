@@ -1,10 +1,11 @@
-const { calc } = require('./index');
+const addition = require('./addition');
 
 describe('random test', () => {
     it('calc', () => {
         expect.hasAssertions();
 
-        expect(1 + 1).toBe(2);
-        expect(calc(1, 7, 8, 6)).toBe(22);
+        expect(1 + 3).toBe(4);
+
+        expect(addition(2, 6, 9)).toBe(17);
     });
 });
