@@ -1,14 +1,16 @@
 const debug = require('debug')('errorHandler');
-// On rentre dans le handler seulement si on a Throw une erreur avant, ainsi on passe le code et le message
+// We go into this function only if an error is thrown before, the code error and the error message are passed
+// to the function and that returns a custom response depending on the error type
 const errorHandler = (err, res) => {
     debug('dans handler');
-    // Dans erreur il y a plusieurs props dont "message" qui est une prop native de la class Error et
-    // "statusCode" qui est une propriété custom que l'on a étendu avec apiError à la class Error
+    // In the "err" object there are different proprieties like "message" which is native to the Error Class
+    // and "statusCode" which is a custom propriety added in the custom ApiError and BackofficeError extended
+    // from the Error native Class
     let { message } = err;
-    // SI il y a un statusCode dans err.infos alors on le met dans une variable
+    // If there is a propriety statusCode in err.infos then it is stocked into a variable of the same name
     let statusCode = err.infos?.statusCode;
 
-    // SI on a pas défini d'erreur on met 500 par défaut
+    // If there is no statusCode, a default one 500 is attributed
     if (!statusCode || Number.isNaN(Number(statusCode))) {
         statusCode = 500;
     }
@@ -17,14 +19,15 @@ const errorHandler = (err, res) => {
         // logger.error(err);
     }
 
-    // Si l'application n'est pas en développement on reste vague sur l'erreur serveur
+    // If the app is not in developpement (so in production) the response error message will be generic so we don't
+    // send to much info to the user
     if (statusCode === 500 && res.app.get('env') !== 'development') {
         message = 'Internal Server Error';
     }
 
-    // Pour récupérer cette info, il faut au début du routeur passer un middleware avec une info :
-    // router.use((_, res, next) => { res.type('html'); next(); });
-    // Sinon res.get('content-type') est undefined
+    // To get back the content-type response, two middlewares are placed on both routers to define it depending
+    // if it is the api (so json) or the backoffice (html) that response to the client
+    // Without those middlewares, res.get('content-type') stays undefined
     if (res.get('content-type').includes('html')) {
         if (res.get('content-type').includes('html')) {
             res.status(statusCode).render('error', {

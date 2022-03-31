@@ -7,11 +7,11 @@ const options = {
         description: "Blog de l'école O'clock",
     },
     baseDir: __dirname,
-    // On analyse tous les fichiers du projet
+    // Indicate which files are analysed in the project by swagger
     filesPattern: ['../routers/**/*.js', '../errors/*.js', '../models/*.js'],
-    // URL où sera disponible la page de documentation
+    // URL where the doc page will be available
     swaggerUIPath: process.env.API_DOCUMENTATION_ROUTE,
-    // Activation de la documentation à travers une route de l'API
+    // Activation of the documentation through an API route
     exposeApiDocs: true,
     apiDocsPath: '/api/docs',
 };

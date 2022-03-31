@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const debug = require('debug')('main-router');
+// const debug = require('debug')('main-router');
 
 const mainApiRouter = require('./api');
 const backofficeRouter = require('./backoffice');
@@ -11,11 +11,26 @@ router.use('/main-api', mainApiRouter);
 
 router.use('/backoffice', backofficeRouter);
 
+/**
+ * Special errors middleware in which you go only if an error is thrown (throw new Error)
+ * ExpressMiddleware signature
+ * @param {object} err Express error object
+ * @param {object} _ Express request object (not used)
+ * @param {object} res Express response object
+ * @param {function} next Express next function
+ * @returns {[object/string]} HTML or JSON error response depending on the error
+ */
 router.use((err, _, response, next) => {
-    debug('40444');
     errorHandler(err, response, next);
 });
 
+/**
+ * Final middleware that catches all wrong routes where there is no error thrown
+ * ExpressMiddleware signature
+ * @param {object} _ Express request object (not used)
+ * @param {object} res Express response object
+ * @returns {string} JSON error response
+ */
 router.use((_, res) => {
     res.status(404).json({ name: 'General', version: '1.0', status: 404, message: 'not_found' });
 });

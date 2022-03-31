@@ -8,13 +8,27 @@ const router = express.Router();
 
 router.get('/test', apiController.test);
 
+/**
+ * Middleware that put a type on the future response
+ * ExpressMiddleware signature
+ * @param {object} _ Express request object (not used)
+ * @param {object} res Express response object
+ * @param {function} next Express next function
+ * @returns {function} send to the next middleware
+ */
 router.use((_, res, next) => {
     res.type('json');
     next();
 });
 
-// Route par défaut de l'API, configurée pour toutes les méthodes (tous les verbs GET, PUT, PATCH, DELETE, POST)
-// afin de donner l'information en cas d'oubli de spéfication de la route par l'utilisateur
+/**
+ * Default API route that handle all methods (GET, PUT, PATCH, DELETE, POST) tp provide a documentation link
+ * to help front developper when they forget to specify the routes
+ * ALL v1/main-api/
+ * @summary All verbs
+ * @tags all
+ * @return {string} 200 - success response - application/json
+ */
 router.all('/', apiController.home);
 
 router.use('/api', apiRouter);

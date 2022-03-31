@@ -2,14 +2,12 @@ const debug = require('debug')('Validator:log');
 const ApiError = require('../errors/apiError');
 
 /**
- * Générateur de middleware pour la validation
- * d'un objet d'un des propriété de la requête
- * @param {string} prop - Nom de la propriété de l'objet request à valider
- * @param {Joi.object} schema - Le schema de validation du module Joi
+ * Generic middleware generator that validate an object fron a request propriety
+ * @param {string} prop - Propriety request object name that needs validation
+ * @param {Joi.object} schema - Joi module validation schema
  * @returns {Function} -
- * Renvoi un middleware pour express qui valide
- * le corp de la requête en utilisant le schema passé en paramètre.
- * Renvoi une erreur 400 si la validation échoue.
+ * Send back a middleware that validates the body of the request using the parameter schema
+ * Send back an error 400 if the validation fail
  */
 module.exports = (prop, schema) => async (request, _, next) => {
     try {

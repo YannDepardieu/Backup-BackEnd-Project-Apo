@@ -8,7 +8,7 @@ module.exports = {
         });
     },
     /**
-     * Default API controller to show documention url.
+     * Default API controller to show documentation url.
      * ExpressMiddleware signature
      * @param {object} req Express request object (not used)
      * @param {object} res Express response object
