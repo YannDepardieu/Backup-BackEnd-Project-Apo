@@ -25,6 +25,8 @@ router.use((err, _, response, next) => {
 });
 
 /**
+ * Ici il est important de laisser les 4 params même si on ne les utilise pas tous,
+ * sinon on ne rentrera pas dedans en cas d'erreur.
  * Final middleware that catches all wrong routes where there is no error thrown
  * ExpressMiddleware signature
  * @param {object} _ Express request object (not used)
