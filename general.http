@@ -3,14 +3,12 @@
 # Nécessite l'extension REST Client pour VSCode
 # https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 ################################################################################
-@endpoint = http://localhost:{{$dotenv PORT}}/v1/backoffice
+@endpoint = http://localhost:{{$dotenv PORT}}/v1
 
 #########################
-#     BACKOFFICE        #
+#        GENERAL        #
 #########################
 
-### test
-GET {{ endpoint }}/test
+### Erreur
+GET {{ endpoint }}/qdfzdssds
 
-### home
-GET {{ endpoint }}/

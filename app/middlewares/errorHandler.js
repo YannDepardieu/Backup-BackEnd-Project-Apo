@@ -1,5 +1,7 @@
+const debug = require('debug')('errorHandler');
 // On rentre dans le handler seulement si on a Throw une erreur avant, ainsi on passe le code et le message
 const errorHandler = (err, res) => {
+    debug('dans handler');
     // Dans erreur il y a plusieurs props dont "message" qui est une prop native de la class Error et
     // "statusCode" qui est une propriété custom que l'on a étendu avec apiError à la class Error
     let { message } = err;
