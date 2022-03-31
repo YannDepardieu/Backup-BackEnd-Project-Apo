@@ -1,6 +1,5 @@
 [
     {
-        "id": 1,
         "firstname": "Denver",
         "lastname": "Blaskett",
         "email": "dblaskett0@ifeng.com",
@@ -10,7 +9,6 @@
         "geolocalisation": false
     },
     {
-        "id": 2,
         "firstname": "Maisie",
         "lastname": "Frarey",
         "email": "mfrarey1@sun.com",
@@ -20,7 +18,6 @@
         "geolocalisation": true
     },
     {
-        "id": 3,
         "firstname": "Aharon",
         "lastname": "Matuszkiewicz",
         "email": "amatuszkiewicz2@printfriendly.com",
@@ -30,7 +27,6 @@
         "geolocalisation": true
     },
     {
-        "id": 4,
         "firstname": "Glenda",
         "lastname": "Rummings",
         "email": "grummings3@cpanel.net",
@@ -40,7 +36,6 @@
         "geolocalisation": true
     },
     {
-        "id": 5,
         "firstname": "Hamlin",
         "lastname": "Balderson",
         "email": "hbalderson4@domainmarket.com",
