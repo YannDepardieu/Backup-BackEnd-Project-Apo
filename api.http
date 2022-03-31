@@ -9,6 +9,9 @@
 #        API            #
 #########################
 
+### Erreur
+GET {{ endpoint }}/qdfzd
+
 ### test
 GET {{ endpoint }}/test
 

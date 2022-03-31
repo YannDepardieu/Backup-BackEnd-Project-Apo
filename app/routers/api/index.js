@@ -2,6 +2,7 @@
 const express = require('express');
 const apiController = require('../../controllers/api');
 const apiRouter = require('./api');
+const ApiError = require('../../errors/apiError');
 
 const router = express.Router();
 
@@ -17,5 +18,9 @@ router.use((_, res, next) => {
 router.all('/', apiController.home);
 
 router.use('/api', apiRouter);
+
+router.use(() => {
+    throw new ApiError('API Route not found', { statusCode: 404 });
+});
 
 module.exports = router;
