@@ -14,3 +14,18 @@ GET {{ endpoint }}/test
 
 ### test MARCHE PAS ENCORE NARMOL
 GET {{ endpoint }}/api/
+
+#########################
+#        ALL            #
+#########################
+
+###
+GET {{ endpoint }}/
+###
+POST {{ endpoint }}/
+###
+PUT {{ endpoint }}/
+###
+PATCH {{ endpoint }}/
+###
+DELETE {{ endpoint }}/

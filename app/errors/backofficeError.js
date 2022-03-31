@@ -1,5 +1,5 @@
 /**
- * @typedef {object} WebsiteError
+ * @typedef {object} BackofficeError
  * @property {string} status - Status
  * @property {number} statusCode - HTTP Status code
  * @property {string} message - Error message

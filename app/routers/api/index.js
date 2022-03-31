@@ -12,7 +12,7 @@ router.use((_, res, next) => {
     next();
 });
 
-// Route par défaut de l'API, ici on la configure pour toutes les méthodes
+// Route par défaut de l'API, configurée pour toutes les méthodes (tous les verbs GET, PUT, PATCH, DELETE, POST)
 // afin de donner l'information en cas d'oubli de spéfication de la route par l'utilisateur
 router.all('/', apiController.home);
 
