@@ -8,6 +8,8 @@ const router = express.Router();
 
 router.get('/test', apiController.test);
 
+// En fait, on dit que pour toutes les routes de l'api, on met un response content-type en json
+// Et puis on se base sur ça pour adapter le format de réponse de l'erreur
 /**
  * Middleware that put a type on the future response
  * ExpressMiddleware signature
@@ -33,6 +35,8 @@ router.all('/', apiController.home);
 
 router.use('/api', apiRouter);
 
+// Gestion erreurs :Pour entrer dans le middleware handleError à 4 paramètres (error, request, response, next)
+// il faut throw une erreur qq part avant. Ici on traverse donc ce middleware et on va dans handleError
 router.use(() => {
     throw new ApiError('API Route not found', { statusCode: 404 });
 });

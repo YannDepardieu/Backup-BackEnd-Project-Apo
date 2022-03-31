@@ -1,6 +1,12 @@
 const debug = require('debug')('errorHandler');
-// We go into this function only if an error is thrown before, the code error and the error message are passed
-// to the function and that returns a custom response depending on the error type
+
+/**
+ * Middleware that respond to a next method with an error as argument
+ * We go into this function only if an error is thrown before, the code error and the error message are passed
+ * to the function and that returns a custom response depending on the error type
+ * @param {object} err Error class
+ * @param {object} res Express response object
+ */
 const errorHandler = (err, res) => {
     debug('dans handler');
     // In the "err" object there are different proprieties like "message" which is native to the Error Class
