@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Poison Ivy II",
+        "address": "68298 Fairview Place",
+        "postalcode": null,
+        "city": "Huoqiu Chengguanzhen",
+        "latitude": 32.331736,
+        "longitude": 116.273391,
+        "user_id": 4
+    },
+    {
+        "name": "Star of Midnight",
+        "address": "472 Hauk Road",
+        "postalcode": "3859",
+        "city": "Nkandla",
+        "latitude": -28.5860306,
+        "longitude": 30.8843434,
+        "user_id": 4
+    },
+    {
+        "name": "Lookin' to Get Out",
+        "address": "95 Hoard Plaza",
+        "postalcode": "H9K",
+        "city": "Revelstoke",
+        "latitude": 50.98317,
+        "longitude": -118.2023,
+        "user_id": 2
+    },
+    {
+        "name": "Hotel Terminus: The Life and Times of Klaus Barbie (Hôtel Terminus)",
+        "address": "139 Bluestem Drive",
+        "postalcode": "97308 CEDEX",
+        "city": "Cayenne",
+        "latitude": 4.9237913,
+        "longitude": -52.3205637,
+        "user_id": 3
+    },
+    {
+        "name": "White Lightnin'",
+        "address": "902 Hoepker Parkway",
+        "postalcode": null,
+        "city": "San Miguel",
+        "latitude": -26.5380045,
+        "longitude": -57.0421483,
+        "user_id": 2
+    }
+]

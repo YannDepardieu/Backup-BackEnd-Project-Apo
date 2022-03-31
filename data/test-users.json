@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "firstname": "Denver",
+        "lastname": "Blaskett",
+        "email": "dblaskett0@ifeng.com",
+        "password": "w3zwvyqSX",
+        "role": "user",
+        "notification": true,
+        "geolocalisation": false
+    },
+    {
+        "id": 2,
+        "firstname": "Maisie",
+        "lastname": "Frarey",
+        "email": "mfrarey1@sun.com",
+        "password": "teMGQKTtGWT",
+        "role": "user",
+        "notification": false,
+        "geolocalisation": true
+    },
+    {
+        "id": 3,
+        "firstname": "Aharon",
+        "lastname": "Matuszkiewicz",
+        "email": "amatuszkiewicz2@printfriendly.com",
+        "password": "0l6Q054I3",
+        "role": "user",
+        "notification": false,
+        "geolocalisation": true
+    },
+    {
+        "id": 4,
+        "firstname": "Glenda",
+        "lastname": "Rummings",
+        "email": "grummings3@cpanel.net",
+        "password": "igKtnXfFY2",
+        "role": "admin",
+        "notification": true,
+        "geolocalisation": true
+    },
+    {
+        "id": 5,
+        "firstname": "Hamlin",
+        "lastname": "Balderson",
+        "email": "hbalderson4@domainmarket.com",
+        "password": "DH9oiz96WDBn",
+        "role": "user",
+        "notification": true,
+        "geolocalisation": true
+    }
+]
