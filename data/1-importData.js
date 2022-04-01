@@ -37,46 +37,64 @@ console.log(tables);
     );
     // console.log(query);
     console.log('query ok');
-    const tableQuerys = [];
+    // const tableQuerys = [];
 
-    // categories.forEach((category) => {
-    //     debug('Processing category:', category.label);
-    //     const query = client.query(
-    //         `
-    //             INSERT INTO "category"
-    //             ("label", "route")
-    //             VALUES
-    //             ($1, $2)
-    //             RETURNING *;
-    //         `,
-    //         [category.label, category.route],
-    //     );
-    //     debug('Contenu de query', query);
-    //     categoryQueries.push(query);
-    // });
-
-    Object.entries(allTables).forEach((table) => {
-        const tableColumns = `"${Object.keys(table[1][0]).toString().split(',').join('", "')}"`;
-
-        const tableParams = [];
-        for (let i = 1; i <= Object.keys(table[1][0]).length; i += 1) {
-            tableParams.push(`$${i}`);
-        }
-        const tableParamsQuery = tableParams.toString().split(',').join(', ');
-
-        let tableParamsValues = '';
-        table[1].forEach((value) => {
-            // console.log(value);
-            tableParamsValues += `${table[0]}.${value}`;
+    tables.forEach((table) => {
+        console.log('allTables[table] = ', allTables[table]);
+        let fields = '';
+        Object.keys(allTables[table][0]).forEach((key) => {
+            fields += `"${key}", `;
         });
-        // console.log(tableParamsValues);
-
+        console.log(fields);
         // const query = client.query(
         //     `
-        //     INSERT INTO "${table[0]}" (${tableColumns}) VALUES (${tableParamsQuery}) RETURNING *;
+        //     INSERT INTO "${table}" (${tableColumns}) VALUES (${tableParamsQuery}) RETURNING *;
         //     `,
         //     [],
         // );
         // console.log(query);
     });
+
+    // console.log(Object.entries(allTables)[0]);
+
+    // Object.entries(allTables).forEach((table) => {
+    //     const tableColumns = `"${Object.keys(table[1][0]).toString().split(',').join('", "')}"`;
+
+    //     const tableParams = [];
+    //     for (let i = 1; i <= Object.keys(table[1][0]).length; i += 1) {
+    //         tableParams.push(`$${i}`);
+    //     }
+    //     const tableParamsQuery = tableParams.toString().split(',').join(', ');
+
+    //     let tableParamsValues = '';
+    //     table[1].forEach((value) => {
+    //         // console.log(value);
+    //         tableParamsValues += `${table[0]}.${value}`;
+    //     });
+    // console.log(tableParamsValues);
+
+    // const query = client.query(
+    //     `
+    //     INSERT INTO "${table[0]}" (${tableColumns}) VALUES (${tableParamsQuery}) RETURNING *;
+    //     `,
+    //     [],
+    // );
+    // console.log(query);
+    // });
 })();
+
+// categories.forEach((category) => {
+//     debug('Processing category:', category.label);
+//     const query = client.query(
+//         `
+//             INSERT INTO "category"
+//             ("label", "route")
+//             VALUES
+//             ($1, $2)
+//             RETURNING *;
+//         `,
+//         [category.label, category.route],
+//     );
+//     debug('Contenu de query', query);
+//     categoryQueries.push(query);
+// });
