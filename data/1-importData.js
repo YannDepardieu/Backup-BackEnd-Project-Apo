@@ -3,29 +3,40 @@
 // If you launch node 1-importData.js from inside the data folder in the terminal, you need to expose the path
 require('dotenv').config({ path: '../.env' });
 // If you launch node data/1-importData.js from the project root in the terminal, you don't need to expose the path
-// require('dotenv').config();
-
-const debug = require('debug')('importData');
+require('dotenv').config();
 
 const client = require('../app/db/postgres');
 
-const users = require('./testUsers.json');
-const places = require('./testPlaces.json');
-const events = require('./testEvents.json');
-const planets = require('./planets.json');
-const constellations = require('./constellations.json');
-const myths = require('./myths.json');
+const user = require('./testUsers.json');
+const place = require('./testPlaces.json');
+const event = require('./testEvents.json');
+const planet = require('./planets.json');
+const constellation = require('./constellations.json');
+const myth = require('./myths.json');
 
-const allTables = { users, places, events, planets, constellations, myths };
+const allTables = { user, place, event, planet, constellation, myth };
 
 const tables = Object.keys(allTables);
-// console.log(tables);
+console.log(tables);
 
 (async () => {
-    debug('Truncate Tables');
-    const tablesNames = tables.toString().split(',').join(', ');
-    await client.query(`TRUNCATE TABLE ${tablesNames} RESTART IDENTITY`);
-
+    let tablesNames = '';
+    // const tablesNames = tables.toString().split(',').join(', ');
+    tables.forEach((table, index) => {
+        if (index === 0) {
+            tablesNames += `"${table}"`;
+        } else {
+            tablesNames += `, ${table}`;
+        }
+    });
+    console.log(tablesNames);
+    await client.query(
+        `TRUNCATE TABLE
+        "user", place, event, planet, constellation, galaxy, star, myth, reserve_event,
+        save_place, favorite_constellation, prefer_planet RESTART IDENTITY;`,
+    );
+    // console.log(query);
+    console.log('query ok');
     const tableQuerys = [];
 
     // categories.forEach((category) => {
