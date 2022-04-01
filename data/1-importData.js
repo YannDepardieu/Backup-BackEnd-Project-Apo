@@ -1,5 +1,10 @@
+/* eslint-disable no-console */
 /* eslint-disable no-unused-expressions */
-require('dotenv').config();
+// If you launch node 1-importData.js from inside the data folder in the terminal, you need to expose the path
+require('dotenv').config({ path: '../.env' });
+// If you launch node data/1-importData.js from the project root in the terminal, you don't need to expose the path
+// require('dotenv').config();
+
 const debug = require('debug')('importData');
 
 const client = require('../app/db/postgres');
@@ -18,8 +23,8 @@ const tables = Object.keys(allTables);
 
 (async () => {
     debug('Truncate Tables');
-    // const tablesNames = tables.toString().split(',').join(', ');
-    // await client.query(`TRUNCATE TABLE IF EXISTS ${tablesNames} RESTART IDENTITY`);
+    const tablesNames = tables.toString().split(',').join(', ');
+    await client.query(`TRUNCATE TABLE IF EXISTS ${tablesNames} RESTART IDENTITY`);
 
     const tableQuerys = [];
 
@@ -50,17 +55,17 @@ const tables = Object.keys(allTables);
 
         let tableParamsValues = '';
         table[1].forEach((value) => {
-            console.log(value);
+            // console.log(value);
             tableParamsValues += `${table[0]}.${value}`;
         });
-        console.log(tableParamsValues);
+        // console.log(tableParamsValues);
 
-        const query = client.query(
-            `
-            INSERT INTO "${table[0]}" (${tableColumns}) VALUES (${tableParamsQuery}) RETURNING *;
-            `,
-            [],
-        );
-        console.log(query);
+        // const query = client.query(
+        //     `
+        //     INSERT INTO "${table[0]}" (${tableColumns}) VALUES (${tableParamsQuery}) RETURNING *;
+        //     `,
+        //     [],
+        // );
+        // console.log(query);
     });
 })();

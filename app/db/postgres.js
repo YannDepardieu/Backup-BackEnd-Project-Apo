@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const debug = require('debug')('db:postgres:sql');
 
 // Rather than created and connected a Client, we will create a "pool" of client and let our module manage
@@ -20,12 +21,12 @@ if (process.env.NODE_ENV === 'production') {
 
 const pool = new Pool(config);
 
-pool.connect((err) => (err ? debug(`ERREUR${err}`) : debug('DB connectée')));
+pool.connect((err) => (err ? debug(`ERREUR :::::: ${err}`) : debug('DB connectée')));
+// pool.connect((err) => (err ? console.log(`ERREUR :::::: ${err}`) : console.log('DB connectée')));
 
 module.exports = {
     // We expose the original client just in case
     originalClient: pool,
-
     // This method will intercept the queries in order to display them in the terminal with debug to be able to track
     // the queries. The spread operator transform several variables, that are passed in parameter, into an array
     async query(...params) {

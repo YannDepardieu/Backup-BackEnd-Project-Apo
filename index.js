@@ -6,6 +6,8 @@ const app = require('./app');
 
 const PORT = process.env.PORT || 3000;
 
+debug('process.env.DATABASE_URL = ', process.env.DATABASE_URL);
+
 const server = http.createServer(app);
 
 server.listen(PORT, () => {
