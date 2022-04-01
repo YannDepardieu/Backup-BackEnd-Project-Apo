@@ -22,7 +22,7 @@ CREATE TABLE "place" (
     city text,
     latitude real NOT NULL,
     longitude real NOT NULL,
-    user_id int REFERENCES user(id) ON DELETE CASCADE,
+    user_id int REFERENCES "user"(id) ON DELETE CASCADE,
     created_at timestamptz NOT NULL DEFAULT NOW(),
     updated_at timestamptz
 );
@@ -33,7 +33,7 @@ CREATE TABLE "event" (
     latitude real NOT NULL,
     longitude real NOT NULL,
     recall_datetime timestamptz,
-    user_id int REFERENCES user(id) ON DELETE CASCADE,
+    user_id int REFERENCES "user"(id) ON DELETE CASCADE,
     created_at timestamptz NOT NULL DEFAULT NOW(),
     updated_at timestamptz
 );

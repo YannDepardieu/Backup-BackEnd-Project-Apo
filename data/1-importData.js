@@ -24,7 +24,7 @@ const tables = Object.keys(allTables);
 (async () => {
     debug('Truncate Tables');
     const tablesNames = tables.toString().split(',').join(', ');
-    await client.query(`TRUNCATE TABLE IF EXISTS ${tablesNames} RESTART IDENTITY`);
+    await client.query(`TRUNCATE TABLE ${tablesNames} RESTART IDENTITY`);
 
     const tableQuerys = [];
 
