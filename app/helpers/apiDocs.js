@@ -3,8 +3,8 @@ const expressJSDocSwagger = require('express-jsdoc-swagger');
 const options = {
     info: {
         version: '1.0.0',
-        title: "O'blog",
-        description: "Blog de l'école O'clock",
+        title: 'Starry Nights',
+        description: 'API pour le ciel nocturne',
     },
     baseDir: __dirname,
     // Indicate which files are analysed in the project by swagger

@@ -12,7 +12,7 @@ module.exports = {
      * ExpressMiddleware signature
      * @param {object} req Express request object (not used)
      * @param {object} res Express response object
-     * @returns {string} Route API JSON response
+     * @return {string} Route API JSON response
      */
     home(req, res) {
         const fullUrl = `${req.protocol}://${req.get('host')}`;
