@@ -19,7 +19,7 @@ const allTables = { user, place, event, planet, constellation, myth };
 const tables = Object.keys(allTables);
 // console.log(tables);
 
-//! Attention : la forme de la requête INSERT doit être double quote pour le nom de la table et les fields
+//! Attention : la forme de la requête INSERT doit être double quote pour le nom de la table et les columns
 //! ET single quote pour les values sinon ça marche pas :
 //! INSERT INTO "tableName" ("field1", "field2", ...) VALUES ('value1', 'value2', ...) RETURNING *;
 
@@ -28,15 +28,6 @@ const tables = Object.keys(allTables);
 // Je créé donc une IIFE async (une fonction exécuté aussi tôt quelle est déclaré)
 
 (async () => {
-    // let tablesNames = '';
-    // tables.forEach((table, index) => {
-    //     if (index === 0) {
-    //         tablesNames += `"${table}"`;
-    //     } else {
-    //         tablesNames += `, ${table}`;
-    //     }
-    // });
-    // console.log(tablesNames);
     await client.query(
         `TRUNCATE TABLE
         "user", place, event, planet, constellation, galaxy, star, myth, reserve_event,
@@ -45,45 +36,40 @@ const tables = Object.keys(allTables);
 
     tables.forEach(async (table) => {
         // console.log('allTables[table] = ', allTables[table]);
-        let fields = '';
+        let columns = '';
+
         Object.keys(allTables[table][0]).forEach((field, index) => {
             if (index < Object.keys(allTables[table][0]).length - 1) {
-                fields += `"${field}", `;
+                columns += `"${field}", `;
             } else {
-                fields += `"${field}"`;
+                columns += `"${field}"`;
             }
         });
 
         const queries = [];
 
-        allTables[table].forEach(async (obj) => {
-            let values = '';
-
+        allTables[table].forEach((obj) => {
+            let fields = '';
+            const values = [];
             Object.values(obj).forEach((value, index) => {
-                const regex = /'/gm;
-                if (regex.test(value)) {
-                    // eslint-disable-next-line no-param-reassign
-                    value = value.replace(/'/gm, "\\'");
-                    console.log(value);
-                }
-
-                if (index < Object.values(obj).length - 1 && typeof value === 'string') {
-                    values += `'${value}', `;
-                } else if (index < Object.values(obj).length - 1 && typeof value !== 'string') {
-                    values += `${value}, `;
-                } else if (typeof value === 'string') {
-                    values += `'${value}'`;
+                if (index < Object.values(obj).length - 1) {
+                    values.push(value);
+                    fields += `$${index + 1}, `;
                 } else {
-                    values += `${value}`;
+                    values.push(value);
+                    fields += `$${index + 1}`;
                 }
             });
-            // console.log('table == ', table);
-            // console.log('fields == ', fields);
+
+            // console.log(`INSERT INTO "${table}" (${columns}) VALUES (${fields}) RETURNING *;`);
             // console.log('values == ', values);
-            // console.log(`INSERT INTO "${table}" (${fields}) VALUES (${values}) RETURNING *;`);
+            // console.log(
+            //     '-------------------------------------------------------------------------',
+            // );
 
             const query = client.query(
-                `INSERT INTO "${table}" (${fields}) VALUES (${values}) RETURNING *;`,
+                `INSERT INTO "${table}" (${columns}) VALUES (${fields}) RETURNING *;`,
+                [...values],
             );
             queries.push(query);
         });
