@@ -6,24 +6,6 @@
         "img_name": "And"
     },
     {
-        "name": "Machine Pneumatique",
-        "scientific_name": "Antlia",
-        "latin_name": "Antlia",
-        "img_name": "Ant"
-    },
-    {
-        "name": "Oiseau de Paradis",
-        "scientific_name": "Apus",
-        "latin_name": "Apus",
-        "img_name": "Aps"
-    },
-    {
-        "name": "Verseau",
-        "scientific_name": "Aquarius",
-        "latin_name": "Aquarius",
-        "img_name": "Aqr"
-    },
-    {
         "name": "Aigle",
         "scientific_name": "Aquila",
         "latin_name": "Aquila",
@@ -36,16 +18,28 @@
         "img_name": "Ara"
     },
     {
+        "name": "Balance",
+        "scientific_name": "Libra",
+        "latin_name": "Libra",
+        "img_name": "Lib"
+    },
+    {
+        "name": "Baleine",
+        "scientific_name": "Cetus",
+        "latin_name": "Cetus",
+        "img_name": "Cet"
+    },
+    {
         "name": "Bélier",
         "scientific_name": "Aries",
         "latin_name": "Aries",
         "img_name": "Ari"
     },
     {
-        "name": "Cocher",
-        "scientific_name": "Auriga",
-        "latin_name": "Auriga",
-        "img_name": "Aur"
+        "name": "Boussole",
+        "scientific_name": "Pyxis",
+        "latin_name": "Pyxis",
+        "img_name": "Pyx"
     },
     {
         "name": "Bouvier",
@@ -60,34 +54,10 @@
         "img_name": "Cae"
     },
     {
-        "name": "Girafe",
-        "scientific_name": "Camelopardalis",
-        "latin_name": "Camelopardalis",
-        "img_name": "Cam"
-    },
-    {
         "name": "Cancer",
         "scientific_name": "Cancer",
         "latin_name": "Cancer",
         "img_name": "Cnc"
-    },
-    {
-        "name": "Chiens de Chasse",
-        "scientific_name": "Canes Venatici",
-        "latin_name": "Canes Venatici",
-        "img_name": "CVn"
-    },
-    {
-        "name": "Grand Chien",
-        "scientific_name": "Canis Major",
-        "latin_name": "Canis Maior",
-        "img_name": "CMa"
-    },
-    {
-        "name": "Petit Chien",
-        "scientific_name": "Canis Minor",
-        "latin_name": "Canis Minor",
-        "img_name": "CMi"
     },
     {
         "name": "Capricorne",
@@ -120,10 +90,16 @@
         "img_name": "Cep"
     },
     {
-        "name": "Baleine",
-        "scientific_name": "Cetus",
-        "latin_name": "Cetus",
-        "img_name": "Cet"
+        "name": "Chiens de Chasse",
+        "scientific_name": "Canes Venatici",
+        "latin_name": "Canes Venatici",
+        "img_name": "CVn"
+    },
+    {
+        "name": "Cocher",
+        "scientific_name": "Auriga",
+        "latin_name": "Auriga",
+        "img_name": "Aur"
     },
     {
         "name": "Caméléon",
@@ -204,16 +180,22 @@
         "img_name": "Dra"
     },
     {
-        "name": "Petit Cheval",
-        "scientific_name": "Equuleus",
-        "latin_name": "Equuleus",
-        "img_name": "Equ"
-    },
-    {
         "name": "Erimg_namean",
         "scientific_name": "Erimg_nameanus",
         "latin_name": "Erimg_nameanus",
         "img_name": "Eri"
+    },
+    {
+        "name": "Écu de Sobieski",
+        "scientific_name": "Scutum",
+        "latin_name": "Scutum",
+        "img_name": "Sct"
+    },
+    {
+        "name": "Flèche",
+        "scientific_name": "Sagitta",
+        "latin_name": "Sagitta",
+        "img_name": "Sge"
     },
     {
         "name": "Fourneau",
@@ -226,6 +208,24 @@
         "scientific_name": "Gemini",
         "latin_name": "Gemini",
         "img_name": "Gem"
+    },
+    {
+        "name": "Girafe",
+        "scientific_name": "Camelopardalis",
+        "latin_name": "Camelopardalis",
+        "img_name": "Cam"
+    },
+    {
+        "name": "Grand Chien",
+        "scientific_name": "Canis Major",
+        "latin_name": "Canis Maior",
+        "img_name": "CMa"
+    },
+    {
+        "name": "Grande Ourse",
+        "scientific_name": "Ursa Major",
+        "latin_name": "Ursa Maior",
+        "img_name": "UMa"
     },
     {
         "name": "Grue",
@@ -270,16 +270,10 @@
         "img_name": "Lac"
     },
     {
-        "name": "Lion",
-        "scientific_name": "Leo",
-        "latin_name": "Leo",
-        "img_name": "Leo"
-    },
-    {
-        "name": "Petit Lion",
-        "scientific_name": "Leo Minor",
-        "latin_name": "Leo Minor",
-        "img_name": "LMi"
+        "name": "Licorne",
+        "scientific_name": "Monoceros",
+        "latin_name": "Monoceros",
+        "img_name": "Mon"
     },
     {
         "name": "Lièvre",
@@ -288,10 +282,10 @@
         "img_name": "Lep"
     },
     {
-        "name": "Balance",
-        "scientific_name": "Libra",
-        "latin_name": "Libra",
-        "img_name": "Lib"
+        "name": "Lion",
+        "scientific_name": "Leo",
+        "latin_name": "Leo",
+        "img_name": "Leo"
     },
     {
         "name": "Loup",
@@ -312,10 +306,10 @@
         "img_name": "Lyr"
     },
     {
-        "name": "Table",
-        "scientific_name": "Mensa",
-        "latin_name": "Mensa",
-        "img_name": "Men"
+        "name": "Machine Pneumatique",
+        "scientific_name": "Antlia",
+        "latin_name": "Antlia",
+        "img_name": "Ant"
     },
     {
         "name": "Microscope",
@@ -324,22 +318,16 @@
         "img_name": "Mic"
     },
     {
-        "name": "Licorne",
-        "scientific_name": "Monoceros",
-        "latin_name": "Monoceros",
-        "img_name": "Mon"
-    },
-    {
         "name": "Mouche",
         "scientific_name": "Musca",
         "latin_name": "Musca",
         "img_name": "Mus"
     },
     {
-        "name": "Règle",
-        "scientific_name": "Norma",
-        "latin_name": "Norma",
-        "img_name": "Nor"
+        "name": "Oiseau de Paradis",
+        "scientific_name": "Apus",
+        "latin_name": "Apus",
+        "img_name": "Aps"
     },
     {
         "name": "Octant",
@@ -366,6 +354,12 @@
         "img_name": "Pav"
     },
     {
+        "name": "Peintre",
+        "scientific_name": "Pictor",
+        "latin_name": "Pictor",
+        "img_name": "Pic"
+    },
+    {
         "name": "Pégase",
         "scientific_name": "Pegasus",
         "latin_name": "Pegasus",
@@ -378,17 +372,48 @@
         "img_name": "Per"
     },
     {
+        "name": "Petit Cheval",
+        "scientific_name": "Equuleus",
+        "latin_name": "Equuleus",
+        "img_name": "Equ"
+    },
+    {
+        "name": "Petit Chien",
+        "scientific_name": "Canis Minor",
+        "latin_name": "Canis Minor",
+        "img_name": "CMi"
+    },
+    {
+        "name": "Petit Lion",
+        "scientific_name": "Leo Minor",
+        "latin_name": "Leo Minor",
+        "img_name": "LMi"
+    },
+    {
+        "name": "Petit Renard",
+        "scientific_name": "Vulpecula",
+        "latin_name": "Vulpecula",
+        "img_name": "Vul"
+    },
+    {
+        "name": "Petite Ourse",
+        "scientific_name": "Ursa Minor",
+        "latin_name": "Ursa Minor",
+        "img_name": "UMi"
+    },
+    {
         "name": "Phénix",
         "scientific_name": "Phoenix",
         "latin_name": "Phoenix",
         "img_name": "Phe"
     },
     {
-        "name": "Peintre",
-        "scientific_name": "Pictor",
-        "latin_name": "Pictor",
-        "img_name": "Pic"
+        "name": "Poisson Volant",
+        "scientific_name": "Volans",
+        "latin_name": "Volans",
+        "img_name": "Vol"
     },
+
     {
         "name": "Poissons",
         "scientific_name": "Pisces",
@@ -408,22 +433,22 @@
         "img_name": "Pup"
     },
     {
-        "name": "Boussole",
-        "scientific_name": "Pyxis",
-        "latin_name": "Pyxis",
-        "img_name": "Pyx"
+        "name": "Queue du Serpent",
+        "scientific_name": "Serpens Cauda",
+        "latin_name": "Serpens Cauda",
+        "img_name": "SerCauda"
+    },
+    {
+        "name": "Règle",
+        "scientific_name": "Norma",
+        "latin_name": "Norma",
+        "img_name": "Nor"
     },
     {
         "name": "Réticule",
         "scientific_name": "Reticulum",
         "latin_name": "Reticulum",
         "img_name": "Ret"
-    },
-    {
-        "name": "Flèche",
-        "scientific_name": "Sagitta",
-        "latin_name": "Sagitta",
-        "img_name": "Sge"
     },
     {
         "name": "Sagittaire",
@@ -444,28 +469,16 @@
         "img_name": "Scl"
     },
     {
-        "name": "Écu de Sobieski",
-        "scientific_name": "Scutum",
-        "latin_name": "Scutum",
-        "img_name": "Sct"
-    },
-    {
-        "name": "Serpent",
-        "scientific_name": "Serpens Caput",
-        "latin_name": "Serpens",
-        "img_name": "Ser"
-    },
-    {
-        "name": "Serpent",
-        "scientific_name": "Serpens Cauda",
-        "latin_name": "Serpens",
-        "img_name": "Ser"
-    },
-    {
         "name": "Sextant",
         "scientific_name": "Sextans",
         "latin_name": "Sextans",
         "img_name": "Sex"
+    },
+    {
+        "name": "Table",
+        "scientific_name": "Mensa",
+        "latin_name": "Mensa",
+        "img_name": "Men"
     },
     {
         "name": "Taureau",
@@ -480,6 +493,18 @@
         "img_name": "Tel"
     },
     {
+        "name": "Tête du Serpent",
+        "scientific_name": "Serpens Caput",
+        "latin_name": "Serpens Caput",
+        "img_name": "SerCaput"
+    },
+    {
+        "name": "Toucan",
+        "scientific_name": "Tucana",
+        "latin_name": "Tucana",
+        "img_name": "Tuc"
+    },
+    {
         "name": "Triangle",
         "scientific_name": "Triangulum",
         "latin_name": "Triangulum",
@@ -492,28 +517,10 @@
         "img_name": "TrA"
     },
     {
-        "name": "Toucan",
-        "scientific_name": "Tucana",
-        "latin_name": "Tucana",
-        "img_name": "Tuc"
-    },
-    {
-        "name": "Grande Ourse",
-        "scientific_name": "Ursa Major",
-        "latin_name": "Ursa Maior",
-        "img_name": "UMa"
-    },
-    {
-        "name": "Petite Ourse",
-        "scientific_name": "Ursa Minor",
-        "latin_name": "Ursa Minor",
-        "img_name": "UMi"
-    },
-    {
-        "name": "Voiles",
-        "scientific_name": "Vela",
-        "latin_name": "Vela",
-        "img_name": "Vel"
+        "name": "Verseau",
+        "scientific_name": "Aquarius",
+        "latin_name": "Aquarius",
+        "img_name": "Aqr"
     },
     {
         "name": "Vierge",
@@ -522,15 +529,9 @@
         "img_name": "Vir"
     },
     {
-        "name": "Poisson Volant",
-        "scientific_name": "Volans",
-        "latin_name": "Volans",
-        "img_name": "Vol"
-    },
-    {
-        "name": "Petit Renard",
-        "scientific_name": "Vulpecula",
-        "latin_name": "Vulpecula",
-        "img_name": "Vul"
+        "name": "Voiles",
+        "scientific_name": "Vela",
+        "latin_name": "Vela",
+        "img_name": "Vel"
     }
 ]
