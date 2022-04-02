@@ -5,8 +5,7 @@
         "postalcode": null,
         "city": "Huoqiu Chengguanzhen",
         "latitude": 32.331736,
-        "longitude": 116.273391,
-        "user_id": 1
+        "longitude": 116.273391
     },
     {
         "name": "Star of Midnight",
@@ -14,8 +13,7 @@
         "postalcode": "3859",
         "city": "Nkandla",
         "latitude": -28.5860306,
-        "longitude": 30.8843434,
-        "user_id": 2
+        "longitude": 30.8843434
     },
     {
         "name": "Looking to Get Out",
@@ -23,8 +21,7 @@
         "postalcode": "H9K",
         "city": "Revelstoke",
         "latitude": 50.98317,
-        "longitude": -118.2023,
-        "user_id": 3
+        "longitude": -118.2023
     },
     {
         "name": "Hotel Terminus: The Life and Times of Klaus Barbie (Hôtel Terminus)",
@@ -32,8 +29,7 @@
         "postalcode": "97308 CEDEX",
         "city": "Cayenne",
         "latitude": 4.9237913,
-        "longitude": -52.3205637,
-        "user_id": 3
+        "longitude": -52.3205637
     },
     {
         "name": "White Lightning",
@@ -41,7 +37,6 @@
         "postalcode": null,
         "city": "San Miguel",
         "latitude": -26.5380045,
-        "longitude": -57.0421483,
-        "user_id": 3
+        "longitude": -57.0421483
     }
 ]

@@ -4,39 +4,34 @@
         "event_datetime": "2021-06-17 13:25:49",
         "latitude": 42.214405,
         "longitude": -8.7357274,
-        "recall_datetime": null,
-        "user_id": 1
+        "recall_datetime": null
     },
     {
         "name": "Haematopus ater",
         "event_datetime": "2021-11-30 10:35:45",
         "latitude": -23.7753206,
         "longitude": -64.7701885,
-        "recall_datetime": null,
-        "user_id": 3
+        "recall_datetime": null
     },
     {
         "name": "Geochelone radiata",
         "event_datetime": "2021-05-16 14:07:57",
         "latitude": -2.7915832,
         "longitude": -67.6662231,
-        "recall_datetime": null,
-        "user_id": 5
+        "recall_datetime": null
     },
     {
         "name": "Graspus graspus",
         "event_datetime": "2022-02-04 04:07:19",
         "latitude": 2.7722364,
         "longitude": 27.6082774,
-        "recall_datetime": null,
-        "user_id": 1
+        "recall_datetime": null
     },
     {
         "name": "Bos mutus",
         "event_datetime": "2022-01-03 07:19:12",
         "latitude": -7.0351794,
         "longitude": 106.6939376,
-        "recall_datetime": null,
-        "user_id": 5
+        "recall_datetime": null
     }
 ]

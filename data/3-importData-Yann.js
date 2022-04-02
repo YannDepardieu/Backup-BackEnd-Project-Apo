@@ -28,15 +28,6 @@ const tables = Object.keys(allTables);
 // Je créé donc une IIFE async (une fonction exécuté aussi tôt quelle est déclaré)
 
 (async () => {
-    // let tablesNames = '';
-    // tables.forEach((table, index) => {
-    //     if (index === 0) {
-    //         tablesNames += `"${table}"`;
-    //     } else {
-    //         tablesNames += `, ${table}`;
-    //     }
-    // });
-    // console.log(tablesNames);
     await client.query(
         `TRUNCATE TABLE
         "user", place, event, planet, constellation, galaxy, star, myth, reserve_event,
@@ -46,6 +37,7 @@ const tables = Object.keys(allTables);
     tables.forEach(async (table) => {
         // console.log('allTables[table] = ', allTables[table]);
         let columns = '';
+
         Object.keys(allTables[table][0]).forEach((field, index) => {
             if (index < Object.keys(allTables[table][0]).length - 1) {
                 columns += `"${field}", `;
@@ -56,7 +48,7 @@ const tables = Object.keys(allTables);
 
         const queries = [];
 
-        allTables[table].forEach(async (obj) => {
+        allTables[table].forEach((obj) => {
             let fields = '';
             const values = [];
             Object.values(obj).forEach((value, index) => {
@@ -68,13 +60,12 @@ const tables = Object.keys(allTables);
                     fields += `$${index + 1}`;
                 }
             });
-            // console.log('table == ', table);
-            // console.log('columns == ', columns);
-            console.log(`INSERT INTO "${table}" (${columns}) VALUES (${fields}) RETURNING *;`);
-            console.log('values == ', values);
-            console.log(
-                '-------------------------------------------------------------------------',
-            );
+
+            // console.log(`INSERT INTO "${table}" (${columns}) VALUES (${fields}) RETURNING *;`);
+            // console.log('values == ', values);
+            // console.log(
+            //     '-------------------------------------------------------------------------',
+            // );
 
             const query = client.query(
                 `INSERT INTO "${table}" (${columns}) VALUES (${fields}) RETURNING *;`,
@@ -87,4 +78,7 @@ const tables = Object.keys(allTables);
         await Promise.all(queries);
         // console.log('results = ', results);
     });
+    console.log(client.originalClient);
+    client.originalClient.ending = true;
+    console.log(client.originalClient.ending);
 })();
