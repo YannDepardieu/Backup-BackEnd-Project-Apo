@@ -40,19 +40,36 @@ console.log(tables);
     // const tableQuerys = [];
 
     tables.forEach((table) => {
-        console.log('allTables[table] = ', allTables[table]);
+        // console.log('allTables[table] = ', allTables[table]);
         let fields = '';
-        Object.keys(allTables[table][0]).forEach((key) => {
-            fields += `"${key}", `;
+        Object.keys(allTables[table][0]).forEach((field, index) => {
+            if (index < Object.keys(allTables[table][0]).length - 1) {
+                fields += `"${field}", `;
+            } else {
+                fields += `"${field}"`;
+            }
         });
-        console.log(fields);
-        // const query = client.query(
-        //     `
-        //     INSERT INTO "${table}" (${tableColumns}) VALUES (${tableParamsQuery}) RETURNING *;
-        //     `,
-        //     [],
-        // );
-        // console.log(query);
+        allTables[table].forEach((obj) => {
+            let values = '';
+            // console.log('obj === ', obj);
+            Object.values(obj).forEach((value, index) => {
+                if (index < Object.values(obj).length - 1) {
+                    values += `"${value}", `;
+                } else {
+                    values += `"${value}"`;
+                }
+            });
+            // console.log('table == ', table);
+            // console.log('fields == ', fields);
+            // console.log('values == ', values);
+            console.log(`INSERT INTO "${table}" (${fields}) VALUES (${values}) RETURNING *;`);
+
+            // const query = client.query(
+            //     `
+            //     INSERT INTO "${table}" (${fields}) VALUES (${values}) RETURNING *;
+            //     `,
+            // );
+        });
     });
 
     // console.log(Object.entries(allTables)[0]);
