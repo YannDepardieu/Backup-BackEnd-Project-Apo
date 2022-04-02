@@ -6,7 +6,7 @@
         "city": "Huoqiu Chengguanzhen",
         "latitude": 32.331736,
         "longitude": 116.273391,
-        "user_id": 4
+        "user_id": 1
     },
     {
         "name": "Star of Midnight",
@@ -15,7 +15,7 @@
         "city": "Nkandla",
         "latitude": -28.5860306,
         "longitude": 30.8843434,
-        "user_id": 4
+        "user_id": 2
     },
     {
         "name": "Looking to Get Out",
@@ -24,7 +24,7 @@
         "city": "Revelstoke",
         "latitude": 50.98317,
         "longitude": -118.2023,
-        "user_id": 2
+        "user_id": 3
     },
     {
         "name": "Hotel Terminus: The Life and Times of Klaus Barbie (Hôtel Terminus)",
@@ -42,6 +42,6 @@
         "city": "San Miguel",
         "latitude": -26.5380045,
         "longitude": -57.0421483,
-        "user_id": 2
+        "user_id": 3
     }
 ]
