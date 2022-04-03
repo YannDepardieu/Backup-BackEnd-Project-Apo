@@ -1,15 +1,15 @@
 [
     {
-        "name": "Andromède",
-        "scientific_name": "Andromeda",
-        "latin_name": "Andromeda",
-        "img_name": "And"
-    },
-    {
         "name": "Aigle",
         "scientific_name": "Aquila",
         "latin_name": "Aquila",
         "img_name": "Aql"
+    },
+    {
+        "name": "Andromède",
+        "scientific_name": "Andromeda",
+        "latin_name": "Andromeda",
+        "img_name": "And"
     },
     {
         "name": "Autel",
@@ -186,9 +186,9 @@
         "img_name": "Sct"
     },
     {
-        "name": "Erimg_namean",
-        "scientific_name": "Erimg_nameanus",
-        "latin_name": "Erimg_nameanus",
+        "name": "Erimg namean",
+        "scientific_name": "Erimg nameanus",
+        "latin_name": "Erimg nameanus",
         "img_name": "Eri"
     },
     {

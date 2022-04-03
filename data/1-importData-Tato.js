@@ -20,26 +20,11 @@ const tables = Object.keys(allTables);
 console.log(tables);
 
 (async () => {
-    // const tablesNames = tables.toString().split(',').join(', ');
-    // await client.query(`TRUNCATE TABLE IF EXISTS ${tablesNames} RESTART IDENTITY`);
-
-    // const tableQuerys = [];
-
-    // categories.forEach((category) => {
-    //     debug('Processing category:', category.label);
-    //     const query = client.query(
-    //         `
-    //             INSERT INTO "category"
-    //             ("label", "route")
-    //             VALUES
-    //             ($1, $2)
-    //             RETURNING *;
-    //         `,
-    //         [category.label, category.route],
-    //     );
-    //     debug('Contenu de query', query);
-    //     categoryQueries.push(query);
-    // });
+    await client.query(
+        `TRUNCATE TABLE
+        "user", place, event, planet, constellation, galaxy, star, myth, reserve_event,
+        save_place, favorite_constellation, prefer_planet RESTART IDENTITY;`,
+    );
 
     Object.entries(allTables).forEach((table) => {
         const tableColumns = `"${Object.keys(table[1][0]).toString().split(',').join('", "')}"`;
