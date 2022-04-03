@@ -1,12 +1,12 @@
 // const debug = require('debug')('router:api');
 const express = require('express');
-const apiController = require('../../controllers/api');
+const { apiDoc } = require('../../controllers/api');
 const apiRouter = require('./api');
 const ApiError = require('../../errors/apiError');
 
 const router = express.Router();
 
-router.get('/test', apiController.test);
+router.get('/test', apiDoc.test);
 
 // En fait, on dit que pour toutes les routes de l'api, on met un response content-type en json
 // Et puis on se base sur ça pour adapter le format de réponse de l'erreur
@@ -31,7 +31,7 @@ router.use((_, res, next) => {
  * @tags all
  * @return {string} 200 - success response - application/json
  */
-router.all('/', apiController.home);
+router.all('/', apiDoc.home);
 
 router.use('/api', apiRouter);
 
