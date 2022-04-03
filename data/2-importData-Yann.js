@@ -12,9 +12,10 @@ const place = require('./testPlaces.json');
 const event = require('./testEvents.json');
 const planet = require('./planets.json');
 const constellation = require('./constellations.json');
+const star = require('./stars.json');
 const myth = require('./myths.json');
 
-const allTables = { user, place, event, planet, constellation, myth };
+const allTables = { user, place, event, planet, constellation, star, myth };
 
 const tables = Object.keys(allTables);
 // console.log(tables);

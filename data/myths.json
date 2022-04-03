@@ -136,17 +136,17 @@
     },
     {
         "name": "Dauphin",
-        "story": "",
+        "story": "Le Dauphin est cité par Aratos de Soles et était déjà l'une des 48 constellations répertoriées par Ptolémée. L'origine de son nom, en revanche, n'est pas explicite et trois légendes s'y rattachent. La première concerne la Néréide Amphitrite, dont Poséidon tomba amoureux et qu'il kidnappa. S'étant enfuie, elle fut convaincue par un dauphin que le dieu des Mers était une personne correcte. En récompense, Poséidon plaça le dauphin sur la voûte céleste. La deuxième raconte que le poète Arion de Méthymne, faisant route vers Tarente, fut menacé d'être jeté par-dessus bord par l'équipage qui voulait le voler et ne dut son salut qu'à un dauphin, attiré par la musique que le poète avait demandé à jouer avant son exécution, et qui le transporta à bon port. La troisième raconte le voyage de Dionysos. Il voulait aller à Argos, sa patrie, mais découvre qu'il est sur un navire de pirates. Il fait pousser une vigne pour arrêter le navire, puis il transforme les pirates qui voulaient le voler en dauphins. Mais Poséidon eut pitié du chef qui faisait grand nombre d'offrandes et de sacrifices au dieu. Il décida de le prendre et le mit au ciel. Cette constellation fut également connue sous le nom du Chameau chez les astronomes arabes.",
         "constellation_id": 28
     },
     {
         "name": "Dorade",
-        "story": "",
+        "story": "La Dorade est l'une des 11 constellations inventées par les navigateurs néerlandais Pieter Dirkszoon Keyser et Frederick de Houtman entre 1595 et 1597. Elle fut popularisée par Johann Bayer lors de la publication de son Uranometria en 1603. Sa disposition tout en longueur rappelle également le « poisson-épée », comme elle est parfois appelée. Elle a également été répertoriée sous le nom de l' « espadon » ou encore du « requin » au cours de l'histoire.",
         "constellation_id": 29
     },
     {
         "name": "Dragon",
-        "story": "",
+        "story": "Dans beaucoup de mythologies, la forme sinueuse de la constellation a été interprétée comme un dragon ou un serpent, de la déesse sumérienne Tiamat en passant par le dragon que tua saint Georges. Dans la mythologie grecque, la constellation proviendrait soit du dragon qui attaqua Athéna dans la guerre entre les dieux de l'Olympe et les Titans, soit du dragon tué par Cadmos près du lieu où il fonda Thèbes, soit de celui qui gardait la Toison d'or ou bien encore du dragon Ladon qui gardait les pommes d'or du jardin des Hespérides et fut tué par Héraclès.",
         "constellation_id": 30
     },
     {
@@ -166,12 +166,12 @@
     },
     {
         "name": "Fourneau",
-        "story": "",
+        "story": "Le Fourneau est l'une des 14 nouvelles constellations introduites par Nicolas-Louis de Lacaille en 1752 afin de combler les derniers espaces de ciel austral sans dénomination. Elle était originellement nommée Fornax Chemica, le fourneau du chimiste en latin. Son nom peut également être rapproché de Fornax, la divinité romaine du pain et des fours ou au fourneau d'Héphaïstos, dieu grec du fer, du marteau et des fourneaux.",
         "constellation_id": 34
     },
     {
         "name": "Gémeaux",
-        "story": "",
+        "story": "Pour les Grecs, la constellation des Gémeaux représentait Castor et Pollux, les frères jumeaux d'Hélène de Troie. Les Romains y voyaient Romulus et Rémus. Les Gémeaux étaient l’une des 48 constellations identifiées par Ptolémée. Le programme d'exploration spatial Gemini, mené par la NASA dans les années 1960, a été ainsi dénommé d'après cette constellation",
         "constellation_id": 35
     },
     {
@@ -191,17 +191,17 @@
     },
     {
         "name": "Grue",
-        "story": "",
+        "story": "D'après Ian Ridpath (en), la Grue est une des douze constellations introduites à la fin du xvie siècle par les navigateurs et explorateurs néerlandais Pieter Dirkszoon Keyser et Frederik de Houtman à la suite de leurs observations du ciel austral. La constellation est représentée pour la première fois sur un globe céleste par Petrus Plancius et Jodocus Hondius en 1598 sous les noms de Krane et Grus, « Grue » respectivement en néerlandais et en latin.",
         "constellation_id": 39
     },
     {
         "name": "Hercule",
-        "story": "",
+        "story": "L'une des 48 constellations répertoriées par Ptolémée dans son Almageste, Hercule porte le nom romain du héros grec Héraclès. Les étoiles d'Hercule semblent en effet former un homme couché ou à genoux, ce qui était d'ailleurs le nom originel de la constellation.",
         "constellation_id": 40
     },
     {
         "name": "Horloge",
-        "story": "",
+        "story": "L'Horloge est une des 15 nouvelles constellations introduites par Nicolas-Louis de Lacaille afin de combler les derniers pans de ciel austral sans désignation. Appelée à l'origine Horologium Oscillitorium (soit horloge à balancier en latin), son nom a ensuite été raccourci pour être plus maniable. Cette dénomination était un hommage à Christian Huygens, inventeur, entre autres, de l'horloge à balancier.",
         "constellation_id": 41
     },
     {
@@ -311,7 +311,7 @@
     },
     {
         "name": "Petit Cheval",
-        "story": "",
+        "story": "La constellation est faible, et est entourée de voisins peu visibles. Le repérage le plus simple consiste à partir du Dauphin (que l'on devine à la limite Nord de la figure), la constellation la plus facilement reconnaissable de la zone. Les étoiles du Petit Cheval sont à une dizaine de degrés au Sud-Est du Dauphin. On peut la repérer à partir du Verseau : les deux étoiles γ et α Aqr, les deux plus brillantes de la 'tête', pointe après ~15° sur α Equ (Kitalpha), au Sud du petit groupe. Au nord du groupe, on peut repérer la petite paire d'étoiles δ Equ et γ Equ (respectivement à l'est et à l'ouest), par l'alignement qu'elles forment en pointant vers ε Peg, le pied de Pégase, situé ~7° plus à l'Est. Le reste de la constellation est à peine visible et sans forme particulière.",
         "constellation_id": 63
     },
     {
@@ -360,57 +360,57 @@
         "constellation_id": 72
     },
     {
-        "name": "Queue du Serpent",
+        "name": "Règle",
         "story": "",
         "constellation_id": 73
     },
     {
-        "name": "Règle",
+        "name": "Réticule",
         "story": "",
         "constellation_id": 74
     },
     {
-        "name": "Réticule",
+        "name": "Sagittaire",
         "story": "",
         "constellation_id": 75
     },
     {
-        "name": "Sagittaire",
+        "name": "Scorpion",
         "story": "",
         "constellation_id": 76
     },
     {
-        "name": "Scorpion",
+        "name": "Sculpteur",
         "story": "",
         "constellation_id": 77
     },
     {
-        "name": "Sculpteur",
+        "name": "Serpent (La Queue)",
         "story": "",
         "constellation_id": 78
     },
     {
-        "name": "Sextant",
+        "name": "Serpent (La Tête)",
         "story": "",
         "constellation_id": 79
     },
     {
-        "name": "Table",
+        "name": "Sextant",
         "story": "",
         "constellation_id": 80
     },
     {
-        "name": "Taureau",
+        "name": "Table",
         "story": "",
         "constellation_id": 81
     },
     {
-        "name": "Télescope",
+        "name": "Taureau",
         "story": "",
         "constellation_id": 82
     },
     {
-        "name": "Tête du Serpent",
+        "name": "Télescope",
         "story": "",
         "constellation_id": 83
     },
@@ -443,5 +443,10 @@
         "name": "Voile",
         "story": "",
         "constellation_id": 89
+    },
+    {
+        "name": "Soleil",
+        "story": "Dans le Panthéon grec, c’est Apollon, fils de Zeus et de la titane Léto, qui incarne le soleil. Citons aussi Hélios, personnification du Soleil lui-même. Dans le dixième des douze travaux d'Héraclès, le héros grec emprunte à Hélios le « char du Soleil » pour aller tuer Géryon qui vivait à l'extrémité occidentale du monde et ramener son troupeau de bœufs du jardin des Hespérides, les colonnes d'Atlas marquant la fin de ses aventures. Dans la mythologie romaine, Sol est le dieu du soleil, de la lumière et de la chaleur. Frère de Luna, il symbolise le cycle des saisons.",
+        "star_id": 1
     }
 ]
