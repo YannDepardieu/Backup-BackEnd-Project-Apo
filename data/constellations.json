@@ -4,622 +4,800 @@
         "name": "Aigle",
         "scientific_name": "Aquila",
         "latin_name": "Aquila",
-        "img_name": "Aql"
+        "img_name": "aql",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 2,
         "name": "Andromède",
         "scientific_name": "Andromeda",
         "latin_name": "Andromeda",
-        "img_name": "And"
+        "img_name": "and",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 3,
         "name": "Autel",
         "scientific_name": "Ara",
         "latin_name": "Ara",
-        "img_name": "Ara"
+        "img_name": "ara",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 4,
         "name": "Balance",
         "scientific_name": "Libra",
         "latin_name": "Libra",
-        "img_name": "Lib"
+        "img_name": "lib",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 5,
         "name": "Baleine",
         "scientific_name": "Cetus",
         "latin_name": "Cetus",
-        "img_name": "Cet"
+        "img_name": "cet",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 6,
         "name": "Bélier",
         "scientific_name": "Aries",
         "latin_name": "Aries",
-        "img_name": "Ari"
+        "img_name": "ari",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 7,
         "name": "Boussole",
         "scientific_name": "Pyxis",
         "latin_name": "Pyxis",
-        "img_name": "Pyx"
+        "img_name": "pyx",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 8,
         "name": "Bouvier",
         "scientific_name": "Boötes",
         "latin_name": "Bootes",
-        "img_name": "Boo"
+        "img_name": "boo",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 9,
         "name": "Burin",
         "scientific_name": "Caelum",
         "latin_name": "Caelum",
-        "img_name": "Cae"
+        "img_name": "cae",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 10,
         "name": "Caméléon",
         "scientific_name": "Chamaeleon",
         "latin_name": "Chamaeleon",
-        "img_name": "Cha"
+        "img_name": "cha",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 11,
         "name": "Cancer",
         "scientific_name": "Cancer",
         "latin_name": "Cancer",
-        "img_name": "Cnc"
+        "img_name": "cnc",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 12,
         "name": "Capricorne",
         "scientific_name": "Capricornus",
         "latin_name": "Capricornus",
-        "img_name": "Cap"
+        "img_name": "cap",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 13,
         "name": "Carène",
         "scientific_name": "Carina",
         "latin_name": "Carina",
-        "img_name": "Car"
+        "img_name": "car",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 14,
         "name": "Cassiopée",
         "scientific_name": "Cassiopeia",
         "latin_name": "Cassiopeia",
-        "img_name": "Cas"
+        "img_name": "cas",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 15,
         "name": "Centaure",
         "scientific_name": "Centaurus",
         "latin_name": "Centaurus",
-        "img_name": "Cen"
+        "img_name": "cen",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 16,
         "name": "Céphée",
         "scientific_name": "Cepheus",
         "latin_name": "Cepheus",
-        "img_name": "Cep"
+        "img_name": "cep",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 17,
         "name": "Chevelure de Bérénice",
         "scientific_name": "Coma Berenices",
         "latin_name": "Coma Berenices",
-        "img_name": "Com"
+        "img_name": "com",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 18,
         "name": "Chiens de Chasse",
         "scientific_name": "Canes Venatici",
         "latin_name": "Canes Venatici",
-        "img_name": "CVn"
+        "img_name": "cvn",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 19,
         "name": "Cocher",
         "scientific_name": "Auriga",
         "latin_name": "Auriga",
-        "img_name": "Aur"
+        "img_name": "aur",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 20,
         "name": "Colombe",
         "scientific_name": "Columba",
         "latin_name": "Columba",
-        "img_name": "Col"
+        "img_name": "col",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 21,
         "name": "Compas",
         "scientific_name": "Circinus",
         "latin_name": "Circinus",
-        "img_name": "Cir"
+        "img_name": "cir",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 22,
         "name": "Corbeau",
         "scientific_name": "Corvus",
         "latin_name": "Corvus",
-        "img_name": "Crv"
+        "img_name": "crv",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 23,
-        "name": "Couronne Australe",
-        "scientific_name": "Corona Austrina",
-        "latin_name": "Corona Australis",
-        "img_name": "CrA"
-    },
-    {
-        "id": 24,
-        "name": "Couronne Boréale",
-        "scientific_name": "Corona Borealis",
-        "latin_name": "Corona Borealis",
-        "img_name": "CrB"
-    },
-    {
-        "id": 25,
         "name": "Coupe",
         "scientific_name": "Crater",
         "latin_name": "Crater",
-        "img_name": "Crt"
+        "img_name": "crt",
+        "story": "",
+        "spotting": ""
+    },
+    {
+        "id": 24,
+        "name": "Couronne Australe",
+        "scientific_name": "Corona Austrina",
+        "latin_name": "Corona Australis",
+        "img_name": "cra",
+        "story": "",
+        "spotting": ""
+    },
+    {
+        "id": 25,
+        "name": "Couronne Boréale",
+        "scientific_name": "Corona Borealis",
+        "latin_name": "Corona Borealis",
+        "img_name": "crb",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 26,
         "name": "Croix du Sud",
         "scientific_name": "Crux",
         "latin_name": "Crux",
-        "img_name": "Cru"
+        "img_name": "cru",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 27,
         "name": "Cygne",
         "scientific_name": "Cygnus",
         "latin_name": "Cygnus",
-        "img_name": "Cyg"
+        "img_name": "cyg",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 28,
         "name": "Dauphin",
         "scientific_name": "Delphinus",
         "latin_name": "Delphinus",
-        "img_name": "Del"
+        "img_name": "del",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 29,
         "name": "Dorade",
         "scientific_name": "Dorado",
         "latin_name": "Dorado",
-        "img_name": "Dor"
+        "img_name": "dor",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 30,
         "name": "Dragon",
         "scientific_name": "Draco",
         "latin_name": "Draco",
-        "img_name": "Dra"
+        "img_name": "dra",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 31,
         "name": "Écu de Sobieski",
         "scientific_name": "Scutum",
         "latin_name": "Scutum",
-        "img_name": "Sct"
+        "img_name": "sct",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 32,
-        "name": "Erimg namean",
-        "scientific_name": "Erimg nameanus",
-        "latin_name": "Erimg nameanus",
-        "img_name": "Eri"
+        "name": "Éridan",
+        "scientific_name": "Eridanus",
+        "latin_name": "Eridanus",
+        "img_name": "eri",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 33,
         "name": "Flèche",
         "scientific_name": "Sagitta",
         "latin_name": "Sagitta",
-        "img_name": "Sge"
+        "img_name": "sge",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 34,
         "name": "Fourneau",
         "scientific_name": "Fornax",
         "latin_name": "Fornax",
-        "img_name": "For"
+        "img_name": "for",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 35,
         "name": "Gémeaux",
         "scientific_name": "Gemini",
         "latin_name": "Gemini",
-        "img_name": "Gem"
+        "img_name": "gem",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 36,
         "name": "Girafe",
         "scientific_name": "Camelopardalis",
         "latin_name": "Camelopardalis",
-        "img_name": "Cam"
+        "img_name": "cam",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 37,
         "name": "Grand Chien",
         "scientific_name": "Canis Major",
         "latin_name": "Canis Maior",
-        "img_name": "CMa"
+        "img_name": "cma",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 38,
         "name": "Grande Ourse",
         "scientific_name": "Ursa Major",
         "latin_name": "Ursa Maior",
-        "img_name": "UMa"
+        "img_name": "uma",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 39,
         "name": "Grue",
         "scientific_name": "Grus",
         "latin_name": "Grus",
-        "img_name": "Gru"
+        "img_name": "gru",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 40,
         "name": "Hercule",
         "scientific_name": "Hercules",
         "latin_name": "Hercules",
-        "img_name": "Her"
+        "img_name": "her",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 41,
         "name": "Horloge",
         "scientific_name": "Horologium",
         "latin_name": "Horologium",
-        "img_name": "Hor"
+        "img_name": "hor",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 42,
         "name": "Hydre Femelle",
         "scientific_name": "Hydra",
         "latin_name": "Hydra",
-        "img_name": "Hya"
+        "img_name": "hya",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 43,
         "name": "Hydre Mâle",
         "scientific_name": "Hydrus",
         "latin_name": "Hydrus",
-        "img_name": "Hyi"
+        "img_name": "hyi",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 44,
         "name": "Indien",
         "scientific_name": "Indus",
         "latin_name": "Indus",
-        "img_name": "Ind"
+        "img_name": "ind",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 45,
         "name": "Lézard",
         "scientific_name": "Lacerta",
         "latin_name": "Lacerta",
-        "img_name": "Lac"
+        "img_name": "lac",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 46,
         "name": "Licorne",
         "scientific_name": "Monoceros",
         "latin_name": "Monoceros",
-        "img_name": "Mon"
+        "img_name": "mon",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 47,
         "name": "Lièvre",
         "scientific_name": "Lepus",
         "latin_name": "Lepus",
-        "img_name": "Lep"
+        "img_name": "lep",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 48,
         "name": "Lion",
         "scientific_name": "Leo",
         "latin_name": "Leo",
-        "img_name": "Leo"
+        "img_name": "leo",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 49,
         "name": "Loup",
         "scientific_name": "Lupus",
         "latin_name": "Lupus",
-        "img_name": "Lup"
+        "img_name": "lup",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 50,
         "name": "Lynx",
         "scientific_name": "Lynx",
         "latin_name": "Lynx",
-        "img_name": "Lyn"
+        "img_name": "lyn",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 51,
         "name": "Lyre",
         "scientific_name": "Lyra",
         "latin_name": "Lyra",
-        "img_name": "Lyr"
+        "img_name": "lyr",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 52,
         "name": "Machine Pneumatique",
         "scientific_name": "Antlia",
         "latin_name": "Antlia",
-        "img_name": "Ant"
+        "img_name": "ant",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 53,
         "name": "Microscope",
         "scientific_name": "Microscopium",
         "latin_name": "Microscopium",
-        "img_name": "Mic"
+        "img_name": "mic",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 54,
         "name": "Mouche",
         "scientific_name": "Musca",
         "latin_name": "Musca",
-        "img_name": "Mus"
+        "img_name": "mus",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 55,
         "name": "Octant",
         "scientific_name": "Octans",
         "latin_name": "Octans",
-        "img_name": "Oct"
+        "img_name": "oct",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 56,
         "name": "Oiseau de Paradis",
         "scientific_name": "Apus",
         "latin_name": "Apus",
-        "img_name": "Aps"
+        "img_name": "aps",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 57,
         "name": "Ophiuchus",
         "scientific_name": "Ophiuchus",
         "latin_name": "Ophiuchus",
-        "img_name": "Oph"
+        "img_name": "oph",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 58,
         "name": "Orion",
         "scientific_name": "Orion",
         "latin_name": "Orion",
-        "img_name": "Ori"
+        "img_name": "ori",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 59,
         "name": "Paon",
         "scientific_name": "Pavo",
         "latin_name": "Pavo",
-        "img_name": "Pav"
+        "img_name": "pav",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 60,
         "name": "Peintre",
         "scientific_name": "Pictor",
         "latin_name": "Pictor",
-        "img_name": "Pic"
+        "img_name": "pic",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 61,
         "name": "Pégase",
         "scientific_name": "Pegasus",
         "latin_name": "Pegasus",
-        "img_name": "Peg"
+        "img_name": "peg",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 62,
         "name": "Persée",
         "scientific_name": "Perseus",
         "latin_name": "Perseus",
-        "img_name": "Per"
+        "img_name": "per",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 63,
         "name": "Petit Cheval",
         "scientific_name": "Equuleus",
         "latin_name": "Equuleus",
-        "img_name": "Equ"
+        "img_name": "equ",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 64,
         "name": "Petit Chien",
         "scientific_name": "Canis Minor",
         "latin_name": "Canis Minor",
-        "img_name": "CMi"
+        "img_name": "cmi",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 65,
         "name": "Petit Lion",
         "scientific_name": "Leo Minor",
         "latin_name": "Leo Minor",
-        "img_name": "LMi"
+        "img_name": "lmi",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 66,
         "name": "Petit Renard",
         "scientific_name": "Vulpecula",
         "latin_name": "Vulpecula",
-        "img_name": "Vul"
+        "img_name": "vul",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 67,
         "name": "Petite Ourse",
         "scientific_name": "Ursa Minor",
         "latin_name": "Ursa Minor",
-        "img_name": "UMi"
+        "img_name": "umi",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 68,
         "name": "Phénix",
         "scientific_name": "Phoenix",
         "latin_name": "Phoenix",
-        "img_name": "Phe"
+        "img_name": "phe",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 69,
         "name": "Poisson Austral",
         "scientific_name": "Piscis Austrinus",
         "latin_name": "Piscis Austrinus",
-        "img_name": "PsA"
+        "img_name": "psa",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 70,
         "name": "Poisson Volant",
         "scientific_name": "Volans",
         "latin_name": "Volans",
-        "img_name": "Vol"
+        "img_name": "vol",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 71,
         "name": "Poissons",
         "scientific_name": "Pisces",
         "latin_name": "Pisces",
-        "img_name": "Psc"
+        "img_name": "psc",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 72,
         "name": "Poupe",
         "scientific_name": "Puppis",
         "latin_name": "Puppis",
-        "img_name": "Pup"
+        "img_name": "pup",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 73,
         "name": "Règle",
         "scientific_name": "Norma",
         "latin_name": "Norma",
-        "img_name": "Nor"
+        "img_name": "nor",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 74,
         "name": "Réticule",
         "scientific_name": "Reticulum",
         "latin_name": "Reticulum",
-        "img_name": "Ret"
+        "img_name": "ret",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 75,
         "name": "Sagittaire",
         "scientific_name": "Sagittarius",
         "latin_name": "Sagittarius",
-        "img_name": "Sgr"
+        "img_name": "sgr",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 76,
         "name": "Scorpion",
         "scientific_name": "Scorpius",
         "latin_name": "Scorpius",
-        "img_name": "Sco"
+        "img_name": "sco",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 77,
         "name": "Sculpteur",
         "scientific_name": "Sculptor",
         "latin_name": "Sculptor",
-        "img_name": "Scl"
+        "img_name": "scl",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 78,
         "name": "Serpent (La Queue)",
         "scientific_name": "Serpens Cauda",
         "latin_name": "Serpens Cauda",
-        "img_name": "SerCauda"
+        "img_name": "sercauda",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 79,
         "name": "Serpent (La Tête)",
         "scientific_name": "Serpens Caput",
         "latin_name": "Serpens Caput",
-        "img_name": "SerCaput"
+        "img_name": "sercaput",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 80,
         "name": "Sextant",
         "scientific_name": "Sextans",
         "latin_name": "Sextans",
-        "img_name": "Sex"
+        "img_name": "sex",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 81,
         "name": "Table",
         "scientific_name": "Mensa",
         "latin_name": "Mensa",
-        "img_name": "Men"
+        "img_name": "men",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 82,
         "name": "Taureau",
         "scientific_name": "Taurus",
         "latin_name": "Taurus",
-        "img_name": "Tau"
+        "img_name": "tau",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 83,
         "name": "Télescope",
         "scientific_name": "Telescopium",
         "latin_name": "Telescopium",
-        "img_name": "Tel"
+        "img_name": "tel",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 84,
         "name": "Toucan",
         "scientific_name": "Tucana",
         "latin_name": "Tucana",
-        "img_name": "Tuc"
+        "img_name": "tuc",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 85,
         "name": "Triangle",
         "scientific_name": "Triangulum",
         "latin_name": "Triangulum",
-        "img_name": "Tri"
+        "img_name": "tri",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 86,
         "name": "Triangle Austral",
         "scientific_name": "Triangulum Australe",
         "latin_name": "Triangulum Australe",
-        "img_name": "TrA"
+        "img_name": "trA",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 87,
         "name": "Verseau",
         "scientific_name": "Aquarius",
         "latin_name": "Aquarius",
-        "img_name": "Aqr"
+        "img_name": "aqr",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 88,
         "name": "Vierge",
         "scientific_name": "Virgo",
         "latin_name": "Virgo",
-        "img_name": "Vir"
+        "img_name": "vir",
+        "story": "",
+        "spotting": ""
     },
     {
         "id": 89,
         "name": "Voiles",
         "scientific_name": "Vela",
         "latin_name": "Vela",
-        "img_name": "Vel"
+        "img_name": "vel",
+        "story": "",
+        "spotting": ""
     }
 ]

@@ -48,6 +48,8 @@ CREATE TABLE "constellation"(
     latin_name text UNIQUE,
     scientific_name text UNIQUE,
     img_name text UNIQUE,
+    story text,
+    spotting text,
     created_at timestamptz NOT NULL DEFAULT NOW(),
     updated_at timestamptz
 );
@@ -73,7 +75,7 @@ CREATE TABLE "star"(
 );
 CREATE TABLE "myth"(
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    name text NOT NULL,
+    origin text NOT NULL,
     img_name text UNIQUE,
     constellation_id int REFERENCES constellation(id) ON DELETE CASCADE,
     star_id int REFERENCES star(id) ON DELETE CASCADE,
