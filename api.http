@@ -10,12 +10,12 @@
 #########################
 
 ### Erreur
-GET {{ endpoint }}/qdfzd
+GET {{ endpoint }}/sadgdafh
 
 ### test
 GET {{ endpoint }}/test
 
-### test MARCHE PAS ENCORE NARMOL
+### get One Daily Myth
 GET {{ endpoint }}/api/
 
 #########################
