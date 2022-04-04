@@ -1,4 +1,4 @@
-const debug = require('debug')('ApiController');
+// const debug = require('debug')('ApiController');
 const { ApiError } = require('../../middlewares/errorHandler');
 const coreModel = require('../../models/coreModel');
 
@@ -12,7 +12,7 @@ module.exports = {
      */
     dailyMyth(_, res) {
         const response = coreModel.oneDailyMyth();
-        debug(response);
+        // debug(response);
         res.json(response);
     },
     /**
