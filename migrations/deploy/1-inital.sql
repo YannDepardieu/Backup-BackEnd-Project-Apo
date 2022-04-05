@@ -80,7 +80,7 @@ CREATE TABLE "myth"(
     constellation_id int REFERENCES constellation(id) ON DELETE CASCADE,
     star_id int REFERENCES star(id) ON DELETE CASCADE,
     planet_id int REFERENCES planet(id) ON DELETE CASCADE,
-    story text NOT NULL,
+    legend text NOT NULL,
     created_at timestamptz NOT NULL DEFAULT NOW(),
     updated_at timestamptz
 );
