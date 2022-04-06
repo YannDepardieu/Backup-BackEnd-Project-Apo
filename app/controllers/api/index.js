@@ -1,6 +1,7 @@
 //
 const commonController = require('./common');
 const constellationController = require('./constellation');
+const mythController = require('./myth');
 
 const indexController = {
     test(_, res) {
@@ -26,4 +27,9 @@ const indexController = {
     },
 };
 
-module.exports = { indexController, commonController, constellationController };
+module.exports = {
+    indexController,
+    commonController,
+    constellationController,
+    mythController,
+};

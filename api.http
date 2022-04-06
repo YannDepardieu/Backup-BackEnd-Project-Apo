@@ -34,9 +34,6 @@ GET {{ endpoint }}/test
 #        Common         #
 #########################
 
-### get One Daily Myth
-GET {{ endpoint }}/common/
-
 ### get all constellations
 GET {{ endpoint }}/common/constellation
 
@@ -53,3 +50,10 @@ GET {{ endpoint }}/common/constellation/1
 
 ### find one Constellation By Pk With Myths
 GET {{ endpoint }}/constellation/1
+
+#########################
+#      Constellation    #
+#########################
+
+### get one random Myth with constellation
+GET {{ endpoint }}/myth/random
