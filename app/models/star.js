@@ -1,0 +1,32 @@
+// const debug = require('debug')('Model:Star');
+const CoreModel = require('./index');
+// const client = require('../db/postgres');
+// const ApiError = require('../errors/apiError');
+
+class Star extends CoreModel {
+    traditional_name;
+
+    tradition;
+
+    name;
+
+    img_name;
+
+    constellation_id;
+
+    // on surcharge la proprieté statique tableName définie dans le parent CoreModel
+    static tableName = 'galaxy';
+
+    static routeName = 'galaxies';
+
+    constructor(obj) {
+        super(obj);
+        this.traditional_name = obj.traditional_name;
+        this.tradition = obj.tradition;
+        this.name = obj.name;
+        this.img_name = obj.img_name;
+        this.constellation_id = obj.constellation_id;
+    }
+}
+
+module.exports = Star;

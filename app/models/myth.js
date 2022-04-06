@@ -1,4 +1,4 @@
-const debug = require('debug')('Model:Constellation');
+const debug = require('debug')('Model:Myth');
 const CoreModel = require('./index');
 const client = require('../db/postgres');
 const ApiError = require('../errors/apiError');
