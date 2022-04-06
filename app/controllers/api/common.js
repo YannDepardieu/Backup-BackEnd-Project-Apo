@@ -1,4 +1,4 @@
-const debug = require('debug')('ApiController');
+const debug = require('debug')('commonController');
 const ApiError = require('../../errors/apiError');
 
 const Models = require('../../models');
@@ -7,6 +7,7 @@ const commonController = {
     // méthode pour récupérer un Model en fonction de l'entité demandée
     getModel: (entity) => {
         // on parcourt tous les Models que l'on a require
+        debug('Models == ', Models);
         let ModelName;
         Models.forEach((Model) => {
             // si le nom est celui recherché (on lit la propriété statique du modèle pour savoir)
