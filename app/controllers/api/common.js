@@ -1,10 +1,9 @@
 const debug = require('debug')('ApiController');
 const ApiError = require('../../errors/apiError');
 
-const Models = [];
-Models.push(require('../../models/constellation'));
+const Models = require('../../models');
 
-const apiController = {
+const commonController = {
     // méthode pour récupérer un Model en fonction de l'entité demandée
     getModel: (entity) => {
         // on parcourt tous les Models que l'on a require
@@ -31,7 +30,7 @@ const apiController = {
      * @return {string} Route API JSON response
      */
     async getAll(req, res) {
-        const Model = apiController.getModel(req.params.entity);
+        const Model = commonController.getModel(req.params.entity);
         const response = await Model.findAll();
         res.json(response);
     },
@@ -43,7 +42,7 @@ const apiController = {
      * @returns {string} Route API JSON response
      */
     async getByPk(req, res) {
-        const Model = apiController.getModel(req.params.entity);
+        const Model = commonController.getModel(req.params.entity);
         const response = await Model.findByPk(req.params.id);
         if (!response) {
             throw new ApiError('Constellation not found', { statusCode: 404 });
@@ -52,4 +51,4 @@ const apiController = {
     },
 };
 
-module.exports = apiController;
+module.exports = commonController;

@@ -1,7 +1,8 @@
 // const debug = require('debug')('router:api');
 const express = require('express');
 const { indexController } = require('../../controllers/api');
-const apiRouter = require('./api');
+const commonRouter = require('./common');
+const constellationRouter = require('./constellation');
 const ApiError = require('../../errors/apiError');
 
 const router = express.Router();
@@ -33,7 +34,9 @@ router.use((_, res, next) => {
  */
 router.all('/', indexController.home);
 
-router.use('/api', apiRouter);
+router.use('/common', commonRouter);
+
+router.use('/constellation', constellationRouter);
 
 // Gestion erreurs : Pour entrer dans le middleware handleError à 4 paramètres (error, request, response, next)
 // il faut throw une erreur qq part avant. Ici on traverse donc ce middleware et on va dans handleError

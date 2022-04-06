@@ -1,13 +1,13 @@
 const { Router } = require('express');
 // const debug = require('debug')('main-router');
 
-const mainApiRouter = require('./api');
+const apiRouter = require('./api');
 const backofficeRouter = require('./backoffice');
 const errorHandler = require('../middlewares/errorHandler');
 
 const router = Router();
 
-router.use('/main-api', mainApiRouter);
+router.use('/api', apiRouter);
 
 router.use('/backoffice', backofficeRouter);
 

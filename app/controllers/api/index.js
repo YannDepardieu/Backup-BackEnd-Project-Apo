@@ -1,5 +1,6 @@
 //
-const apiController = require('./api');
+const commonController = require('./common');
+const constellationController = require('./constellation');
 
 const indexController = {
     test(_, res) {
@@ -25,4 +26,4 @@ const indexController = {
     },
 };
 
-module.exports = { apiController, indexController };
+module.exports = { indexController, commonController, constellationController };

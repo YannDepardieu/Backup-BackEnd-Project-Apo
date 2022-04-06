@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-const { apiController } = require('../../controllers/api');
+const { commonController } = require('../../controllers/api');
 const asyncWrapper = require('../../middlewares/asyncWrapper');
 
 router
@@ -12,7 +12,7 @@ router
      * @tags Myth
      * @return {[constellation]} 200 - success response - application/json
      */
-    .get(asyncWrapper(apiController.getAll));
+    .get(asyncWrapper(commonController.getAll));
 
 router
     .route('/:entity/:id')
@@ -25,6 +25,6 @@ router
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Constellation no found - application/json
      */
-    .get(asyncWrapper(apiController.getByPk));
+    .get(asyncWrapper(commonController.getByPk));
 
 module.exports = router;

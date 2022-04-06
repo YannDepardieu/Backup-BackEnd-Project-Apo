@@ -5,8 +5,7 @@
         "email": "dblaskett0@ifeng.com",
         "password": "w3zwvyqSX",
         "role": "user",
-        "notification": true,
-        "geolocalisation": false
+        "notification": true
     },
     {
         "firstname": "Maisie",
@@ -14,8 +13,7 @@
         "email": "mfrarey1@sun.com",
         "password": "teMGQKTtGWT",
         "role": "user",
-        "notification": false,
-        "geolocalisation": true
+        "notification": false
     },
     {
         "firstname": "Aharon",
@@ -23,8 +21,7 @@
         "email": "amatuszkiewicz2@printfriendly.com",
         "password": "0l6Q054I3",
         "role": "user",
-        "notification": false,
-        "geolocalisation": true
+        "notification": false
     },
     {
         "firstname": "Glenda",
@@ -32,8 +29,7 @@
         "email": "grummings3@cpanel.net",
         "password": "igKtnXfFY2",
         "role": "admin",
-        "notification": true,
-        "geolocalisation": true
+        "notification": true
     },
     {
         "firstname": "Hamlin",
@@ -41,7 +37,6 @@
         "email": "hbalderson4@domainmarket.com",
         "password": "DH9oiz96WDBn",
         "role": "user",
-        "notification": true,
-        "geolocalisation": true
+        "notification": true
     }
 ]

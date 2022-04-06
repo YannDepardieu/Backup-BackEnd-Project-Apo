@@ -10,7 +10,6 @@ CREATE TABLE "user" (
     "password" text NOT NULL,
     "role" text NOT NULL,
     "notification" boolean DEFAULT false,
-    geolocalisation boolean DEFAULT false,
     created_at timestamptz NOT NULL DEFAULT NOW(),
     updated_at timestamptz
 );
