@@ -1,3 +1,4 @@
+const debug = require('debug')('ApiError');
 /**
  * This a custom homemade error. It is called an "exception". The native error can already take a message.
  * The custom one can take another information : a status code HTTP
@@ -10,6 +11,7 @@
 module.exports = class ApiError extends Error {
     constructor(message, infos) {
         // super references the native JS Error Class
+        debug(infos);
         super(message);
         this.infos = infos;
     }

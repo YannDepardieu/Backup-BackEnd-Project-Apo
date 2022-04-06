@@ -305,48 +305,43 @@
         "constellation_id": 64
     },
     {
-        "origin": "Petite Ourse",
-        "legend": "",
+        "origin": "babylonienne",
+        "legend": "Elle est connue comme le « Chariot du Paradis »",
         "constellation_id": 67
     },
     {
-        "origin": "Phénix",
-        "legend": "",
-        "constellation_id": 68
+        "origin": "grecque",
+        "legend": "on raconte que deux ourses ont sauvé Zeus de son père meurtrier Cronos en l'abritant au Mont Ida. Ultérieurement Zeus les plaça dans le ciel, mais leurs queues grandirent énormément lorsque le dieu les fit se balancer dans le ciel.",
+        "constellation_id": 67
     },
     {
-        "origin": "Poisson Austral",
-        "legend": "",
-        "constellation_id": 69
+        "origin": "inuit",
+        "legend": "on raconte que les trois étoiles les plus brillantes de la constellation (Polaris, Kochab et Pherkad) étaient appelées Nuutuittut « ne bouge jamais », en se référant à Polaris seule. À ces latitudes très septentrionales, l'étoile polaire est en effet trop haute pour être utile à la navigation.",
+        "constellation_id": 67
     },
     {
-        "origin": "Poisson Volant",
-        "legend": "",
-        "constellation_id": 70
-    },
-    {
-        "origin": "Poissons",
-        "legend": "",
+        "origin": "babyloniens",
+        "legend": "Poissons est une des constellations les plus anciennes. Son origine remonte vraisemblablement aux babyloniens qui la décrivaient déjà comme composée de deux poissons poussant un œuf géant (l’astérisme de « l’Anneau »).",
         "constellation_id": 71
     },
     {
-        "origin": "Poupe",
-        "legend": "",
+        "origin": "égyptienne",
+        "legend": "il s'agit du poisson inet, dans lequel se réfugie l'âme des défunts. On représente le défunt en train de pêcher à la ligne deux inet représentant son âme d'hier et son âme de demain. Il assure ainsi son devenir en prenant possession des deux bornes entre lesquelles il cheminera vers l'éternité. Le défunt est alors retenu dans les eaux primordiales et va revenir à la saison d'inondation pour sa régénération",
+        "constellation_id": 71
+    },
+    {
+        "origin": "grecque",
+        "legend": "ils sont les formes assumées par Aphrodite et Éros (ou selon les versions Thétis et Thétys) poursuivis par le monstre Typhon. Ils auraient relié leurs queues avec de la corde afin de ne pas se séparer.",
+        "constellation_id": 71
+    },
+    {
+        "origin": "grecque",
+        "legend": "elle provient du Navire Argo qui représente le navire avec lequel Jason partit à la recherche de la Toison d'or.",
         "constellation_id": 72
     },
     {
-        "origin": "Règle",
-        "legend": "La constellation de la Règle fut créée par Nicolas-Louis de Lacaille en 1752 afin de remplir les derniers pans de ciel austral sans dénomination. Comme beaucoup des 14 autres constellations créées par Lacaille, elle porte le nom d'un appareil scientifique. Il l'appela d'ailleurs à l'origine L'Équerre et la Règle, outils utilisés à l'époque pour bâtir les charpentes. Elle fut également appelée Triangle du sud (sans lien avec l'actuel Triangle austral) et Carré d'Euclide.",
-        "constellation_id": 73
-    },
-    {
-        "origin": "Réticule",
-        "legend": "",
-        "constellation_id": 74
-    },
-    {
-        "origin": "Sagittaire",
-        "legend": "",
+        "origin": "grecque",
+        "legend": "elle le centaure Pholos, bien que certaines sources l’associent plutôt à Crotos ou même à Chiron (lui-même associé à la constellation du Centaure) ; il serait en train de viser le Scorpion avec son arc.",
         "constellation_id": 75
     },
     {
@@ -420,8 +415,8 @@
         "constellation_id": 89
     },
     {
-        "origin": "Soleil",
-        "legend": "Dans le Panthéon grec, c’est Apollon, fils de Zeus et de la titane Léto, qui incarne le soleil. Citons aussi Hélios, personnification du Soleil lui-même. Dans le dixième des douze travaux d'Héraclès, le héros grec emprunte à Hélios le « char du Soleil » pour aller tuer Géryon qui vivait à l'extrémité occidentale du monde et ramener son troupeau de bœufs du jardin des Hespérides, les colonnes d'Atlas marquant la fin de ses aventures. Dans la mythologie romaine, Sol est le dieu du soleil, de la lumière et de la chaleur. Frère de Luna, il symbolise le cycle des saisons.",
+        "origin": "grecque",
+        "legend": "c’est Apollon, fils de Zeus et de la titane Léto, qui incarne le soleil. Citons aussi Hélios, personnification du Soleil lui-même. Dans le dixième des douze travaux d'Héraclès, le héros grec emprunte à Hélios le « char du Soleil » pour aller tuer Géryon qui vivait à l'extrémité occidentale du monde et ramener son troupeau de bœufs du jardin des Hespérides, les colonnes d'Atlas marquant la fin de ses aventures. Dans la mythologie romaine, Sol est le dieu du soleil, de la lumière et de la chaleur. Frère de Luna, il symbolise le cycle des saisons.",
         "star_id": 1
     }
 ]

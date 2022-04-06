@@ -1,6 +1,7 @@
+//
 const apiController = require('./api');
 
-const apiDoc = {
+const indexController = {
     test(_, res) {
         res.status(200).json({
             name: 'API',
@@ -24,4 +25,4 @@ const apiDoc = {
     },
 };
 
-module.exports = { apiController, apiDoc };
+module.exports = { apiController, indexController };

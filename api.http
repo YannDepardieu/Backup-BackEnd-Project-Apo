@@ -18,6 +18,12 @@ GET {{ endpoint }}/test
 ### get One Daily Myth
 GET {{ endpoint }}/api/
 
+### get all constellations
+GET {{ endpoint }}/api/constellation
+
+### TEST d'ERREUR
+GET {{ endpoint }}/api/sdfsqdgsdg
+
 #########################
 #        ALL            #
 #########################

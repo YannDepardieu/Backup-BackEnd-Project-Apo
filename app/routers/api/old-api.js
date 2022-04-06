@@ -5,17 +5,27 @@ const { apiController } = require('../../controllers/api');
 const asyncWrapper = require('../../middlewares/asyncWrapper');
 
 router
-    .route('/:entity')
+    .route('/')
+    /**
+     * GET /v1/main-api/api/
+     * @summary Get a json with the Daily Myth
+     * @tags Myth
+     * @return {constellation} 200 - success response - application/json
+     */
+    .get(asyncWrapper(apiController.dailyMyth));
+
+router
+    .route('/constellations')
     /**
      * GET /v1/main-api/api/constellations
      * @summary Get all the constellations myths
      * @tags Myth
      * @return {[constellation]} 200 - success response - application/json
      */
-    .get(asyncWrapper(apiController.getAll));
+    .get(asyncWrapper(apiController.getAllConstellations));
 
 router
-    .route('/:entity/:id')
+    .route('/constellations/:id')
     /**
      * GET /v1/main-api/api/constellations/{id}
      * @summary Get one constellations myth by its ID
@@ -25,6 +35,6 @@ router
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Constellation no found - application/json
      */
-    .get(asyncWrapper(apiController.getByPk));
+    .get(asyncWrapper(apiController.getConstellationByPk));
 
 module.exports = router;

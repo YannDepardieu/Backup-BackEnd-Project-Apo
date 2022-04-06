@@ -5,8 +5,8 @@
         "scientific_name": "Aquila",
         "latin_name": "Aquila",
         "img_name": "aql",
-        "story": "",
-        "spotting": ""
+        "story": "Test",
+        "spotting": "test"
     },
     {
         "id": 2,

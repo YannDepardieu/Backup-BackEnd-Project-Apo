@@ -1,4 +1,5 @@
 const debug = require('debug')('errorHandler');
+const logger = require('../helpers/logger');
 
 /**
  * Middleware that respond to a next method with an error as argument
@@ -8,21 +9,20 @@ const debug = require('debug')('errorHandler');
  * @param {object} res Express response object
  */
 const errorHandler = (err, res) => {
-    debug('dans handler');
+    debug('dans errorHandler');
     // In the "err" object there are different proprieties like "message" which is native to the Error Class
     // and "statusCode" which is a custom propriety added in the custom ApiError and BackofficeError extended
     // from the Error native Class
     let { message } = err;
     // If there is a propriety statusCode in err.infos then it is stocked into a variable of the same name
     let statusCode = err.infos?.statusCode;
-
     // If there is no statusCode, a default one 500 is attributed
     if (!statusCode || Number.isNaN(Number(statusCode))) {
         statusCode = 500;
     }
 
     if (statusCode === 500) {
-        // logger.error(err);
+        logger.error(err);
     }
 
     // If the app is not in developpement (so in production) the response error message will be generic so we don't
