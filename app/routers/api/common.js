@@ -4,7 +4,7 @@ const router = express.Router();
 const { commonController } = require('../../controllers/api');
 const asyncWrapper = require('../../middlewares/asyncWrapper');
 const getModel = require('../../middlewares/getModel');
-// const commonValidator = require('../../middlewares/commonValidator');
+const commonValidator = require('../../middlewares/commonValidator');
 
 router.use('/:entity', getModel);
 
@@ -42,6 +42,6 @@ router
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Constellation no found - application/json
      */
-    .post(asyncWrapper(commonController.createOne));
+    .post(commonValidator('body'), asyncWrapper(commonController.createOne));
 
 module.exports = router;

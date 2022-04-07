@@ -1,6 +1,6 @@
 const debug = require('debug')('Validator:log');
 const ApiError = require('../errors/apiError');
-
+const schemas = require('../schemas');
 /**
  * Generic middleware generator that validate an object fron a request propriety
  * @param {string} prop - Propriety request object name that needs validation
@@ -11,12 +11,23 @@ const ApiError = require('../errors/apiError');
  */
 module.exports = (prop) => async (req, res, next) => {
     try {
-        if (res.locals.Models) {
-            if (res.locals.Models)
+        if (res.locals.Model) {
+            debug('req.method = ', req.method);
+
+            if (req.method === 'POST') {
+                Object.keys(schemas).forEach((key) => {
+                    const regex = /^create/m;
+                    if (!regex.test(key)) {
+                        delete schemas[key];
+                    }
+                });
+            }
+            debug('schemas = ', schemas);
+
             // la "value" on s'en fiche on la récupère pas
             // request['body'] == request.body
             debug(req[prop]);
-            await schema.validateAsync(req[prop]);
+            await schemas.createUser.validateAsync(req[prop]);
         }
 
         next();
