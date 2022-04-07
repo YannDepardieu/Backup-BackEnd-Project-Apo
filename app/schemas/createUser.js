@@ -5,9 +5,7 @@ module.exports = Joi.object({
     lastname: Joi.string().alphanum().max(20).required(),
     email: Joi.string().email().max(40).required(),
     password: Joi.string().min(2).max(32).required(),
-    role: Joi.string()
-        .pattern(/^user$/m)
-        .required(),
+    role: Joi.string().pattern(/^user$/m),
     notification: Joi.bool(),
     geolocalisation: Joi.bool(),
 }).required();

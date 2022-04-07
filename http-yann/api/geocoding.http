@@ -1,0 +1,25 @@
+################################################################################
+# Fichier de test des routes HTTP de l'API
+# Nécessite l'extension REST Client pour VSCode
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+################################################################################
+@endpoint = http://localhost:{{$dotenv PORT}}/v1/api/geocoding
+
+########################################################
+#                         Geocoding                    #
+########################################################
+
+### Forward ERROR
+GET {{ endpoint }}/forward/?address=sdgqegezegzer
+
+### Forward
+GET {{ endpoint }}/forward/?address=1600 Pennsylvania Ave NW, Washington DC
+
+### Reverse
+GET {{ endpoint }}/reverse/?gps=40.7638435,-73.9729691
+
+### Forward
+GET {{ endpoint }}/forward/?address=14 rue de Paradis, 75010 Paris
+
+### Reverse
+GET {{ endpoint }}/forward/?address=Avenida Mariscal Santa Cruz 1066, La Paz

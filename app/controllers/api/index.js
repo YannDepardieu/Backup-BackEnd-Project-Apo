@@ -1,8 +1,8 @@
-//
 const commonController = require('./common');
 const constellationController = require('./constellation');
 const mythController = require('./myth');
 const geocodingController = require('./geocoding');
+const userController = require('./user');
 
 const indexController = {
     test(_, res) {
@@ -34,4 +34,5 @@ module.exports = {
     constellationController,
     mythController,
     geocodingController,
+    userController,
 };
