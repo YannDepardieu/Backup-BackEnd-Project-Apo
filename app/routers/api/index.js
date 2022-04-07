@@ -5,6 +5,8 @@ const commonRouter = require('./common');
 const constellationRouter = require('./constellation');
 const mythRouter = require('./myth');
 const geocodingRouter = require('./geocoding');
+const userRouter = require('./user');
+
 const ApiError = require('../../errors/apiError');
 
 const router = express.Router();
@@ -49,6 +51,8 @@ router.use('/myth', mythRouter);
 
 // interroge l'api de la géolocalisation
 router.use('/geocoding', geocodingRouter);
+
+router.use('/user', userRouter);
 
 // Gestion erreurs : Pour entrer dans le middleware handleError à 4 paramètres (error, request, response, next)
 // il faut throw une erreur qq part avant. Ici on traverse donc ce middleware et on va dans handleError
