@@ -52,8 +52,27 @@ GET {{ endpoint }}/common/constellation/1
 GET {{ endpoint }}/constellation/1
 
 #########################
-#      Constellation    #
+#      Myth             #
 #########################
 
 ### get one random Myth with constellation
 GET {{ endpoint }}/myth/random
+
+#########################
+#      Geocoding        #
+#########################
+
+### Forward ERROR
+GET {{ endpoint }}/geocoding/forward/?address=sdgqegezegzer
+
+### Forward
+GET {{ endpoint }}/geocoding/forward/?address=1600 Pennsylvania Ave NW, Washington DC
+
+### Reverse
+GET {{ endpoint }}/geocoding/reverse/?gps=40.7638435,-73.9729691
+
+### Forward
+GET {{ endpoint }}/geocoding/forward/?address=14 rue de Paradis, 75010 Paris
+
+### Reverse
+GET {{ endpoint }}/geocoding/forward/?address=Avenida Mariscal Santa Cruz 1066, La Paz

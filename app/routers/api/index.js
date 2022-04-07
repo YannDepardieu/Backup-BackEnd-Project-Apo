@@ -4,6 +4,7 @@ const { indexController } = require('../../controllers/api');
 const commonRouter = require('./common');
 const constellationRouter = require('./constellation');
 const mythRouter = require('./myth');
+const geocodingRouter = require('./geocoding');
 const ApiError = require('../../errors/apiError');
 
 const router = express.Router();
@@ -40,6 +41,8 @@ router.use('/common', commonRouter);
 router.use('/constellation', constellationRouter);
 
 router.use('/myth', mythRouter);
+
+router.use('/geocoding', geocodingRouter);
 
 // Gestion erreurs : Pour entrer dans le middleware handleError à 4 paramètres (error, request, response, next)
 // il faut throw une erreur qq part avant. Ici on traverse donc ce middleware et on va dans handleError

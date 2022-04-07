@@ -9,14 +9,14 @@ const mythController = {
      * ExpressMiddleware signature
      * @param {object} req Express req.object
      * @param {object} res Express response object
-     * @returns {string} Route API JSON response
+     * @returns {string} Route API JSON data
      */
-    async getRandomWithConstellation(req, res) {
-        const response = await Model.findRandomWithConstellation();
-        if (!response) {
+    async getRandomWithConstellation(_, res) {
+        const data = await Model.findRandomWithConstellation();
+        if (!data) {
             throw new ApiError('Constellation not found', { statusCode: 404 });
         }
-        return res.json(response);
+        return res.json(data);
     },
 };
 

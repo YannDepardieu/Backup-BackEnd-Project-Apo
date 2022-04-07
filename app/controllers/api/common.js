@@ -7,7 +7,8 @@ const commonController = {
     // méthode pour récupérer un Model en fonction de l'entité demandée
     getModel: (entity) => {
         // on parcourt tous les Models que l'on a require
-        debug('Models == ', typeof Models);
+        debug('Models == ', Models);
+        debug('typeof Models == ', typeof Models);
         let ModelName;
         Models.forEach((Model) => {
             // si le nom est celui recherché (on lit la propriété statique du modèle pour savoir)
@@ -28,27 +29,27 @@ const commonController = {
      * ExpressMiddleware signature
      * @param {object} _ Express req.object (not used)
      * @param {object} res Express response object
-     * @return {string} Route API JSON response
+     * @return {string} Route API JSON data
      */
     async getAll(req, res) {
         const Model = commonController.getModel(req.params.entity);
-        const response = await Model.findAll();
-        res.json(response);
+        const data = await Model.findAll();
+        res.json(data);
     },
     /**
      * Api controller to get one constellation myth by its ID.
      * ExpressMiddleware signature
      * @param {object} req Express req.object
      * @param {object} res Express response object
-     * @returns {string} Route API JSON response
+     * @returns {string} Route API JSON data
      */
     async getByPk(req, res) {
         const Model = commonController.getModel(req.params.entity);
-        const response = await Model.findByPk(req.params.id);
-        if (!response) {
+        const data = await Model.findByPk(req.params.id);
+        if (!data) {
             throw new ApiError('Constellation not found', { statusCode: 404 });
         }
-        return res.json(response);
+        return res.json(data);
     },
 };
 

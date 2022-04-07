@@ -1,5 +1,5 @@
 // const debug = require('debug')('Model:Event');
-const CoreModel = require('./index');
+const CoreModel = require('./coreModel');
 // const client = require('../db/postgres');
 // const ApiError = require('../errors/apiError');
 

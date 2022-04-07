@@ -2,6 +2,7 @@
 const commonController = require('./common');
 const constellationController = require('./constellation');
 const mythController = require('./myth');
+const geocodingController = require('./geocoding');
 
 const indexController = {
     test(_, res) {
@@ -17,7 +18,7 @@ const indexController = {
      * ExpressMiddleware signature
      * @param {object} req Express request object (not used)
      * @param {object} res Express response object
-     * @return {string} Route API JSON response
+     * @return {object} Route API JSON object
      */
     home(req, res) {
         const fullUrl = `${req.protocol}://${req.get('host')}`;
@@ -32,4 +33,5 @@ module.exports = {
     commonController,
     constellationController,
     mythController,
+    geocodingController,
 };

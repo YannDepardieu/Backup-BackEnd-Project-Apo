@@ -9,14 +9,14 @@ const constellationController = {
      * ExpressMiddleware signature
      * @param {object} req Express req.object
      * @param {object} res Express response object
-     * @returns {string} Route API JSON response
+     * @returns {string} Route API JSON data
      */
     async getByPkWithMyths(req, res) {
-        const response = await Model.findByPkWithMyths(req.params.id);
-        if (!response) {
+        const data = await Model.findByPkWithMyths(req.params.id);
+        if (!data) {
             throw new ApiError('Constellation not found', { statusCode: 404 });
         }
-        return res.json(response);
+        return res.json(data);
     },
 };
 
