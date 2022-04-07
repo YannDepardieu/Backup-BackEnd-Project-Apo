@@ -3,6 +3,9 @@ const express = require('express');
 const router = express.Router();
 const { commonController } = require('../../controllers/api');
 const asyncWrapper = require('../../middlewares/asyncWrapper');
+const getModel = require('../../middlewares/getModel');
+
+router.use('/:entity', getModel);
 
 router
     .route('/:entity')
@@ -15,7 +18,7 @@ router
     .get(asyncWrapper(commonController.getAll));
 
 router
-    .route('/:entity/:id')
+    .route('/:entity/:id(\\d+)')
     /**
      * GET /v1/main-api/api/constellations/{id}
      * @summary Get one constellations myth by its ID

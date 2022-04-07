@@ -5,7 +5,7 @@ const { constellationController } = require('../../controllers/api');
 const asyncWrapper = require('../../middlewares/asyncWrapper');
 
 router
-    .route('/:id')
+    .route('/:id(\\d+)')
     /**
      * GET /v1/main-api/api/constellations
      * @summary Get all the constellations myths
