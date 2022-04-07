@@ -17,7 +17,17 @@ router
      * @param {string} entity.path.required entities availables: constellation, myth, planet, star, user
      * @return {array<Constellation>|array<Myth>|array<Planet>|array<Star>|array<User>} 200 - success response - application/json
      */
-    .get(asyncWrapper(commonController.getAll));
+    .get(asyncWrapper(commonController.getAll))
+    /**
+     * POST /v1/main-api/api/constellations/{id}
+     * @summary Get one constellations myth by its ID
+     * @tags Myth
+     * @param {number} id.path.required constellation identifier
+     * @return {constellation} 200 - success response - application/json
+     * @return {ApiError} 400 - Bad request response - application/json
+     * @return {ApiError} 404 - Constellation no found - application/json
+     */
+    .post(commonValidator('body'), asyncWrapper(commonController.createOne));
 
 router
     .route('/:entity/:id(\\d+)')
@@ -32,18 +42,5 @@ router
      * @return {ApiError} 404 - Constellation no found - application/json
      */
     .get(asyncWrapper(commonController.getByPk));
-
-router
-    .route('/:entity')
-    /**
-     * POST /v1/main-api/api/constellations/{id}
-     * @summary Get one constellations myth by its ID
-     * @tags Myth
-     * @param {number} id.path.required constellation identifier
-     * @return {constellation} 200 - success response - application/json
-     * @return {ApiError} 400 - Bad request response - application/json
-     * @return {ApiError} 404 - Constellation no found - application/json
-     */
-    .post(commonValidator('body'), asyncWrapper(commonController.createOne));
 
 module.exports = router;
