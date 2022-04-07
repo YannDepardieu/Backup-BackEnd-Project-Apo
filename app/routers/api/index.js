@@ -27,6 +27,14 @@ router.use((_, res, next) => {
 });
 
 // la route de la doc
+/**
+ * Default API route that handle all methods (GET, PUT, PATCH, DELETE, POST) to provide a documentation link
+ * to help front developper when they forget to specify the routes
+ * ALL v1/main-api/
+ * @summary All verbs
+ * @tags all
+ * @return {string} 200 - success response - application/json
+ */
 router.all('/', indexController.home);
 
 // toutes les routes avec les cruds sur les entités: fonctionne avec des params

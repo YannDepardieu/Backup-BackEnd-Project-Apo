@@ -7,10 +7,11 @@ const asyncWrapper = require('../../middlewares/asyncWrapper');
 router
     .route('/:id')
     /**
-     * GET /v1/main-api/api/constellations
-     * @summary Get all the constellations myths
+     * GET /v1/api/common/constellation/{id}
+     * @summary Get one constellation by its ID with its myth
      * @tags Myth
-     * @return {[constellation]} 200 - success response - application/json
+     * @param {integer} id.path.required constellation identifier
+     * @return {ConstellationMyth} 200 - success response - application/json
      */
     .get(asyncWrapper(constellationController.getByPkWithMyths));
 

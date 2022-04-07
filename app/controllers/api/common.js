@@ -34,51 +34,39 @@ const commonController = {
      * @property {string} story - The story of first discovering
      * @property {string} spotting - The spotting advices to locate it on sky
      */
-
-    /**
-     * An event
-     * @typedef {object} Event
-     * @property {string} name - The constellation name
-     * @property {string} event_datetime - Event date time
-     * @property {number} latitude - Event latitude position
-     * @property {number} longitude - Event longitude position
-     * @property {string} recall_datetime - Optional notification datetime
-     */
-
     /**
      * A myth
      * @typedef {object} Myth
-     * @property {string} origin - The constellation name
-     * @property {string} img_name - Event date time
-     * @property {integer} constellation_id - Event latitude position
-     * @property {integer} star_id - Event longitude position
-     * @property {string} legend - Optional notification datetime
+     * @property {string} origin - The myth origin
+     * @property {string} img_name - The image name
+     * @property {integer} constellation_id - Myth's constellation id
+     * @property {integer} star_id - Myth's star id
+     * @property {string} legend - The myth's content
      */
-
-    /**
-     * A place
-     * @typedef {object} Place
-     * @property {string} name - The constellation name
-     * @property {string} address - Event date time
-     * @property {string} postalcode - Event latitude position
-     * @property {string} city - Event longitude position
-     * @property {number} latitude - Optional notification datetime
-     * @property {number} longitude - Optional notification datetime
-     */
-
     /**
      * A planet
      * @typedef {object} Planet
-     * @property {string} name - The constellation name
-     * @property {string} img_name - Event date time
+     * @property {string} name - The planet name
+     * @property {string} img_name - The image name
      */
-
     /**
-     * Api Controller to get all the elements for an entity
-     * ExpressMiddleware signature
-     * @param {string} req Express req.params.entity
-     * @param {[object]} res Express response object
-     * @return {Constellation|Event} 200 - success response - application/json
+     * A star
+     * @typedef {object} Star
+     * @property {string} traditional_name - Star's traditional name
+     * @property {string} tradition - Star's myth or story
+     * @property {string} name - Star's usual name
+     * @property {string} img_name - Star's image name
+     * @property {integer} constellation_id - Star's consellation id
+     */
+    /**
+     * A user
+     * @typedef {object} User
+     * @property {string} firstname - The user name
+     * @property {string} lastname - User last name
+     * @property {string} email - User's email
+     * @property {string} password - User's password
+     * @property {integer} role - User's role
+     * @property {integer} notification - Boolean user's authorisation for getting emails notifications
      */
     async getAll(req, res) {
         // debug(req.params.entity);
@@ -87,11 +75,23 @@ const commonController = {
         res.json(data);
     },
     /**
-     * Api controller to get one constellation myth by its ID.
-     * ExpressMiddleware signature
-     * @param {object} req Express req.object
-     * @param {object} res Express response object
-     * @returns {string} Route API JSON data
+     * An event
+     * @typedef {object} Event
+     * @property {string} name - The event name
+     * @property {string} event_datetime - Event date
+     * @property {number} latitude - Event position latitude
+     * @property {number} longitude - Event position longitude
+     * @property {string} recall_datetime - Email notification recall date
+     */
+    /**
+     * A place
+     * @typedef {object} Place
+     * @property {string} name - The place name
+     * @property {string} address - Place address
+     * @property {string} postalcode - Place address postal code
+     * @property {string} city - Place address city
+     * @property {integer} latitude - Place position latitude
+     * @property {integer} longitude - Place position longitude
      */
     async getByPk(req, res) {
         const Model = commonController.getModel(req.params.entity);

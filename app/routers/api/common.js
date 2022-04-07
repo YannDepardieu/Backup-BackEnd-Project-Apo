@@ -8,21 +8,23 @@ router
     .route('/:entity')
     /**
      * GET /v1/api/common/{entity}
-     * @summary CRUD over all entities
+     * @summary Get all entrires for an entity
      * @tags Entities routes
-     * @param {string} entity.path.required entities availables: constellation, event, myth, place, planet, star, user
-     * @return {Constellation|Event} 200 - success response - application/json
+     * @param {string} entity.path.required entities availables: constellation, myth, planet, star, user
+     * @return {array<Constellation>|array<Myth>|array<Planet>|array<Star>|array<User>} 200 - success response - application/json
      */
     .get(asyncWrapper(commonController.getAll));
 
 router
     .route('/:entity/:id')
+
     /**
-     * GET /v1/api/common/constellation/{id}
-     * @summary Get one constellations myth by its ID
-     * @tags Constellation with myth by Constellation ID
+     * GET /v1/api/common/{entity}/{id}
+     * @summary Get one entity entry by its ID
+     * @tags Entities routes
+     * @param {string} entity.path.required entities availables: constellation, event, myth, place, planet, star, user
      * @param {integer} id.path.required constellation identifier
-     * @return {constellation&myth} 200 - success response - application/json
+     * @return {Constellation|Event|Myth|Place|Planet|Star|User} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Constellation no found - application/json
      */
