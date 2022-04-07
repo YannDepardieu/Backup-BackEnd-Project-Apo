@@ -26,22 +26,20 @@ router.use((_, res, next) => {
     next();
 });
 
-/**
- * Default API route that handle all methods (GET, PUT, PATCH, DELETE, POST) to provide a documentation link
- * to help front developper when they forget to specify the routes
- * ALL v1/main-api/
- * @summary All verbs
- * @tags all
- * @return {string} 200 - success response - application/json
- */
+// la route de la doc
 router.all('/', indexController.home);
 
+// toutes les routes avec les cruds sur les entités: fonctionne avec des params
 router.use('/common', commonRouter);
 
+// route précise qui demande deux entités: constellations et myth. Error 404 si on choisit une
+// constellation sans mythe !
 router.use('/constellation', constellationRouter);
 
+// route pour avoir juste les constellations qui ont des myths
 router.use('/myth', mythRouter);
 
+// interroge l'api de la géolocalisation
 router.use('/geocoding', geocodingRouter);
 
 // Gestion erreurs : Pour entrer dans le middleware handleError à 4 paramètres (error, request, response, next)

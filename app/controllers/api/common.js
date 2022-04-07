@@ -17,6 +17,7 @@ const commonController = {
                 ModelName = Model;
             }
         });
+        debug(ModelName);
 
         if (!ModelName) {
             debug('ModelName = ', ModelName);
@@ -25,13 +26,62 @@ const commonController = {
         return ModelName;
     },
     /**
-     * Api Controller to get all the constellations myths
+     * A constellation
+     * @typedef {object} Constellation
+     * @property {string} name - The constellation name
+     * @property {string} latin_name - And its latin name
+     * @property {string} img_name - With the image name
+     * @property {string} story - The story of first discovering
+     * @property {string} spotting - The spotting advices to locate it on sky
+     */
+
+    /**
+     * An event
+     * @typedef {object} Event
+     * @property {string} name - The constellation name
+     * @property {string} event_datetime - Event date time
+     * @property {number} latitude - Event latitude position
+     * @property {number} longitude - Event longitude position
+     * @property {string} recall_datetime - Optional notification datetime
+     */
+
+    /**
+     * A myth
+     * @typedef {object} Myth
+     * @property {string} origin - The constellation name
+     * @property {string} img_name - Event date time
+     * @property {integer} constellation_id - Event latitude position
+     * @property {integer} star_id - Event longitude position
+     * @property {string} legend - Optional notification datetime
+     */
+
+    /**
+     * A place
+     * @typedef {object} Place
+     * @property {string} name - The constellation name
+     * @property {string} address - Event date time
+     * @property {string} postalcode - Event latitude position
+     * @property {string} city - Event longitude position
+     * @property {number} latitude - Optional notification datetime
+     * @property {number} longitude - Optional notification datetime
+     */
+
+    /**
+     * A planet
+     * @typedef {object} Planet
+     * @property {string} name - The constellation name
+     * @property {string} img_name - Event date time
+     */
+
+    /**
+     * Api Controller to get all the elements for an entity
      * ExpressMiddleware signature
-     * @param {object} _ Express req.object (not used)
-     * @param {object} res Express response object
-     * @return {string} Route API JSON data
+     * @param {string} req Express req.params.entity
+     * @param {[object]} res Express response object
+     * @return {Constellation|Event} 200 - success response - application/json
      */
     async getAll(req, res) {
+        // debug(req.params.entity);
         const Model = commonController.getModel(req.params.entity);
         const data = await Model.findAll();
         res.json(data);

@@ -1,14 +1,6 @@
 const debug = require('debug')('Validator:log');
 const ApiError = require('../errors/apiError');
 
-/**
- * Generic middleware generator that validate an object fron a request propriety
- * @param {string} prop - Propriety request object name that needs validation
- * @param {Joi.object} schema - Joi module validation schema
- * @returns {Function} -
- * Send back a middleware that validates the body of the request using the parameter schema
- * Send back an error 400 if the validation fail
- */
 module.exports = (prop, schema) => async (request, _, next) => {
     try {
         // la "value" on s'en fiche on la récupère pas

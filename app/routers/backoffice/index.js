@@ -11,12 +11,6 @@ router.use((_, res, next) => {
     next();
 });
 
-/** Route to go to the backoffice of the app and access documentation
- * GET /v1/backoffice/
- * @summary Get backoffice homepage
- * @tags backoffice homepage
- * @return {[HTML]} 200 - success response - html
- */
 router.get('/', backofficeController.home);
 
 // Gestion erreurs :Pour entrer dans le middleware handleError à 4 paramètres (error, request, response, next)
