@@ -15,9 +15,9 @@ class Star extends CoreModel {
     constellation_id;
 
     // on surcharge la proprieté statique tableName définie dans le parent CoreModel
-    static tableName = 'galaxy';
+    static tableName = 'star';
 
-    static routeName = 'galaxies';
+    static routeName = 'stars';
 
     constructor(obj) {
         super(obj);

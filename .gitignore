@@ -27,3 +27,6 @@
 #config
 **/*.env
 sqitch.conf
+
+#more
+tato.http

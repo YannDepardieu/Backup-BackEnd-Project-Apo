@@ -7,10 +7,10 @@ const asyncWrapper = require('../../middlewares/asyncWrapper');
 router
     .route('/random')
     /**
-     * GET /v1/main-api/api/constellations
-     * @summary Get all the constellations myths
+     * GET /v1/api/myth/random
+     * @summary Get one random myth with its constellation
      * @tags Myth
-     * @return {myth} 200 - success response - application/json
+     * @return {RandomMyth} 200 - success response - application/json
      */
     .get(asyncWrapper(mythController.getRandomWithConstellation));
 

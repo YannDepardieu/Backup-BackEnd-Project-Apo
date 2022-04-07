@@ -1,4 +1,5 @@
 const expressJSDocSwagger = require('express-jsdoc-swagger');
+require('dotenv').config();
 
 const options = {
     info: {
@@ -8,12 +9,17 @@ const options = {
     },
     baseDir: __dirname,
     // Indicate which files are analysed in the project by swagger
-    filesPattern: ['../routers/**/*.js', '../errors/*.js', '../models/*.js'],
+    filesPattern: [
+        '../routers/**/*.js',
+        '../errors/*.js',
+        '../controllers/**/*.js',
+        '../models/*.js',
+    ],
     // URL where the doc page will be available
     swaggerUIPath: process.env.API_DOCUMENTATION_ROUTE,
     // Activation of the documentation through an API route
     exposeApiDocs: true,
-    apiDocsPath: '/api/docs',
+    apiDocsPath: `/${process.env.API_DOCUMENTATION_ROUTE}`,
 };
 
 /**
