@@ -67,6 +67,26 @@ class CoreModel {
 
         return new this(result.rows[0]);
     }
+
+    static async insert(data) {
+        const props = Object.keys(data).map((prop) => `"${prop}"`);
+        const fields = Object.keys(data).map((_, index) => `$${index + 1}`);
+        const values = Object.values(data);
+        const SQL = {
+            text: `INSERT INTO "${this.tableName}" (${props})
+            VALUES (${fields}) RETURNING *`,
+            values: [...values],
+        };
+        const inserted = await client.query(SQL);
+
+        if (inserted.rows.length === 0) {
+            throw new ApiError(`${this.tableName} not found, id doesn't exist`, {
+                statusCode: 404,
+            });
+        }
+
+        return new this(inserted.rows[0]);
+    }
 }
 
 module.exports = CoreModel;

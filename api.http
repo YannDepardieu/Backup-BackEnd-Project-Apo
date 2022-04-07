@@ -43,6 +43,18 @@ GET {{ endpoint }}/common/sdfsqdgsdg
 ### get one constellation
 GET {{ endpoint }}/common/constellation/1
 
+### get all constellations
+POST {{ endpoint }}/common/user
+content-type: application/json
+
+{
+    "firstname": "Mathilde",
+    "lastname": "Lajoie",
+    "email": "mathildelajoie@gmail.com",
+    "password": "dqsdgq",
+    "role": "user",
+    "notification": true
+}
 
 #########################
 #      Constellation    #

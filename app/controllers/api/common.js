@@ -29,6 +29,21 @@ const commonController = {
         }
         return res.json(data);
     },
+    /**
+     * Api controller to get one constellation myth by its ID.
+     * ExpressMiddleware signature
+     * @param {object} req Express req.object
+     * @param {object} res Express response object
+     * @returns {string} Route API JSON data
+     */
+    async createOne(req, res) {
+        const { Model } = res.locals;
+        const data = await Model.insert(req.body);
+        if (!data) {
+            throw new ApiError('Constellation not found', { statusCode: 404 });
+        }
+        return res.json(data);
+    },
 };
 
 module.exports = commonController;
