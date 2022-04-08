@@ -9,17 +9,6 @@
 #                         User                         #
 ########################################################
 
-### Créer un user
-POST {{ endpoint }}/create
-content-type: application/json
-
-{
-    "firstname": "Junior",
-    "lastname": "Fogerty",
-    "email": "junior.fogerty@grave.com",
-    "password": "chat",
-}
-
 ### Update un user
 PATCH {{ endpoint }}/update
 content-type: application/json
@@ -37,8 +26,8 @@ POST {{ endpoint }}/auth
 content-type: application/json
 
 {
-    "email": "john.doe@planet.com",
-    "password": "qwerty456cvbcvbcvb"
+    "email": "mathildelajoie@gmail.com",
+    "password": "dqsdgq"
 }
 
 ### ICI LE TOKEN NE CORRESPOND PAS A L'ID de L'USER !!! ON A "Your token does not allow you to get these infos"

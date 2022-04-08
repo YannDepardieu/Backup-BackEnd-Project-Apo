@@ -12,6 +12,6 @@ router
      * @tags Authorization
      * @return {message} 200 - success response - application/json and a token in the header
      */
-    .get(asyncWrapper(userController.auth));
+    .post(asyncWrapper(userController.auth));
 
 module.exports = router;

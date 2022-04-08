@@ -87,6 +87,24 @@ class CoreModel {
 
         return new this(inserted.rows[0]);
     }
+
+    static async findOne(data) {
+        // const fields = Object.keys(category).map((prop, index) => `"${prop}" = $${index + 1}`);
+        // const values = Object.values(category);
+        const SQL = {
+            text: `SELECT * FROM "${this.tableName}" WHERE ${Object.keys(data)[0]} = $1`,
+            values: [Object.values(data)[0]],
+        };
+        const result = await client.query(SQL);
+
+        if (result.rows.length === 0) {
+            throw new ApiError(`${this.tableName} not found, id doesn't exist`, {
+                statusCode: 404,
+            });
+        }
+
+        return new this(result.rows[0]);
+    }
 }
 
 module.exports = CoreModel;

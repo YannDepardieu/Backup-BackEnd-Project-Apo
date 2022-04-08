@@ -6,7 +6,7 @@ const baseUrl = 'http://api.positionstack.com/v1/';
 
 module.exports = {
     async forward(query) {
-        const fullUrl = `${baseUrl}forward?access_key=${process.env.KEY}&query=${query.address}`;
+        const fullUrl = `${baseUrl}forward?access_key=${process.env.POSITIONSTACK_KEY}&query=${query.address}`;
         debug(fullUrl);
         const response = await fetch(fullUrl);
         debug('response = ', response);
@@ -24,7 +24,7 @@ module.exports = {
         throw new ApiError('Problem with external API', { statusCode: 500 });
     },
     async reverse(query) {
-        const fullUrl = `${baseUrl}reverse?access_key=${process.env.KEY}&query=${query.gps}`;
+        const fullUrl = `${baseUrl}reverse?access_key=${process.env.POSITIONSTACK_KEY}&query=${query.gps}`;
         debug(fullUrl);
         const response = await fetch(fullUrl);
         debug('response = ', response);

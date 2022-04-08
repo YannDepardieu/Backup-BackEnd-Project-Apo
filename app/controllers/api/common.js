@@ -75,6 +75,9 @@ const commonController = {
         if (!data) {
             throw new ApiError('Constellation not found', { statusCode: 404 });
         }
+        if (data.password) {
+            delete data.password;
+        }
         return res.json(data);
     },
     /**

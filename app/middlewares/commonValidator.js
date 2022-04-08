@@ -18,6 +18,13 @@ module.exports = (prop) => async (req, res, next) => {
                     schema = schemas[key];
                 }
             });
+        } else {
+            Object.keys(schemas).forEach((key) => {
+                const regex = new RegExp(`^update${res.locals.Model.tableName}`, 'mi');
+                if (regex.test(key)) {
+                    schema = schemas[key];
+                }
+            });
         }
         await schema.validateAsync(req[prop]);
 
