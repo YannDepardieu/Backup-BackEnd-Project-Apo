@@ -1,4 +1,4 @@
-// const debug = require('debug')('userController');
+const debug = require('debug')('userController');
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -18,6 +18,7 @@ const userController = {
         const { email, password } = req.body;
         // On recherche notre utilisateur grâce à son email
         const user = await User.findOne({ email });
+        debug('user = ', user);
         // S’il existe on compare le mot de passe fourni avec celui qui est enregistré en base de données
         if (user) {
             // vérifier que le mot de passe est bien le même que celui enregistré en base de donnée.

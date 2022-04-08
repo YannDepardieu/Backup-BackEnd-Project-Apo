@@ -1,3 +1,4 @@
+// const debug = require('debug')('CoreModel');
 const client = require('../db/postgres');
 const ApiError = require('../errors/apiError');
 
@@ -89,12 +90,20 @@ class CoreModel {
     }
 
     static async findOne(data) {
-        // const fields = Object.keys(category).map((prop, index) => `"${prop}" = $${index + 1}`);
-        // const values = Object.values(category);
+        if (data.password) {
+            // eslint-disable-next-line no-param-reassign
+            delete data.password;
+        }
+        const fields = Object.keys(data).map((prop, index) => `"${prop}" = $${index + 1}`);
+        const values = Object.values(data);
         const SQL = {
-            text: `SELECT * FROM "${this.tableName}" WHERE ${Object.keys(data)[0]} = $1`,
-            values: [Object.values(data)[0]],
+            text: `SELECT * FROM "${this.tableName}" WHERE (${fields.join(' AND ')})`,
+            values: [...values],
         };
+        // const SQL = {
+        //     text: `SELECT * FROM "${this.tableName}" WHERE ${Object.keys(data)[0]} = $1`,
+        //     values: [Object.values(data)[0]],
+        // };
         const result = await client.query(SQL);
 
         if (result.rows.length === 0) {
