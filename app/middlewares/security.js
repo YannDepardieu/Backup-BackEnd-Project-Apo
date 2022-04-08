@@ -2,8 +2,7 @@
 // on va donc vérifier la validité du token et laisser passer ou pas la requête.
 
 const jwt = require('jsonwebtoken');
-// const debug = require('debug')('security:JWToken');
-const User = require('../models/user');
+const debug = require('debug')('security:JWToken');
 
 const { JWTOKEN_KEY } = process.env;
 
@@ -15,6 +14,7 @@ exports.checkJWT = async (req, res, next) => {
     if (!!token && token.startsWith('Bearer ')) {
         token = token.slice(7, token.length);
     }
+    debug('token = ', token);
     // Si le token est présent on le vérifie
     if (token) {
         jwt.verify(token, JWTOKEN_KEY, async (err, decoded) => {
@@ -26,18 +26,9 @@ exports.checkJWT = async (req, res, next) => {
             // on décide ici de le passer à la requête pour pouvoir utiliser les informations dans la ou les fonctions
             // qui seront exécutées après celle ci.
             req.decoded = decoded; // passage du payload à la requête
-
-            // eslint-disable-next-line no-underscore-dangle
-            const user = await User.findByPk(req.decoded.user._id);
-            // Je vérifie que l'id qui est dans le token de l'utilisateur qui a fait la requête en front correspond
-            // bien à l'id de l'utilisateur stocké en base de donnée auquel l'utilisateur en front souhaite accèder
-            if (user.id !== req.params.id) {
-                return res.status(401).json('Your token does not allow you to get these infos');
-            }
-
             const expiresIn = 24 * 60 * 60;
             // près ça on crée un nouveau token en l’ajoutant au header de la réponse
-            const newToken = jwt.sign({ user: decoded.user }, JWTOKEN_KEY, { expiresIn });
+            const newToken = jwt.sign({ user: decoded.cleanedUser }, JWTOKEN_KEY, { expiresIn });
             res.header('Authorization', `Bearer ${newToken}`);
             // On finit avec la fonction next() qui permet comme son nom l’indique de passer à la fonction suivante.
             return next();

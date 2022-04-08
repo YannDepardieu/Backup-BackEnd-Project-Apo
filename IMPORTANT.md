@@ -6,3 +6,4 @@ Attention de bien installer la version 2 de node-fetch car la dernière version 
 npm node-fetch@2
 ```
 
+- Comment s'inscrire

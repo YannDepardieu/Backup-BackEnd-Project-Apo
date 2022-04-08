@@ -18,15 +18,15 @@ GET {{ endpoint }}/sdfsqdgsdg
 ### get one constellation
 GET {{ endpoint }}/constellation/1
 
-### get all constellations
+### insert a user
 POST {{ endpoint }}/user
 content-type: application/json
 
 {
-    "firstname": "Mathilde",
-    "lastname": "Lajoie",
-    "email": "mathildelajoie@gmail.com",
-    "password": "dqsdgq",
+    "firstname": "Marilyn",
+    "lastname": "Monroe",
+    "email": "marylinmonroe@gmail.com",
+    "password": "xxxx",
     "role": "user",
     "notification": true
 }

@@ -26,18 +26,12 @@ POST {{ endpoint }}/auth
 content-type: application/json
 
 {
-    "email": "mathildelajoie@gmail.com",
-    "password": "dqsdgq"
+    "email": "marylinmonroe@gmail.com",
+    "password": "xxxx"
 }
-
-### ICI LE TOKEN NE CORRESPOND PAS A L'ID de L'USER !!! ON A "Your token does not allow you to get these infos"
-### Trouver un utilisateur : on envoie dans le header notre token (qui est normalement stocké dans un cookier chez
-### l'user). Si le token est ok, on permet à l'user de trouver ce qu'il veut et on lui renvoie un nouveau token
-GET {{ endpoint }}/6
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyNDMzY2Y2MDE0YzQ4Mzc3MTY0ODk1MyIsIm5hbWUiOiJWYWxqZWFuIiwiZmlyc3RuYW1lIjoiSm9obiIsImVtYWlsIjoiam9obi5kb2VAcGxhbmV0LmNvbSJ9LCJpYXQiOjE2NDg2NDA0NjcsImV4cCI6MTY0ODcyNjg2N30.E5s1wPaYbCpnWluG8-FnzU99ImGnC1TBTQyDsCF3vw0
 
 ### ICI LE TOKEN CORRESPOND A L'ID de L'USER !!! ON A LES INFOS DE L'USER
 ### Trouver un utilisateur :
-GET {{ endpoint }}/6
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyNDMzY2Y2MDE0YzQ4Mzc3MTY0ODk1MyIsIm5hbWUiOiJWYWxqZWFuIiwiZmlyc3RuYW1lIjoiSm9obiIsImVtYWlsIjoiam9obi5kb2VAcGxhbmV0LmNvbSJ9LCJpYXQiOjE2NDg2NDA0NjcsImV4cCI6MTY0ODcyNjg2N30.E5s1wPaYbCpnWluG8-FnzU99ImGnC1TBTQyDsCF3vw0
+GET {{ endpoint }}/profil
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MTksImZpcnN0bmFtZSI6Ik1hcmlseW4iLCJsYXN0bmFtZSI6Ik1vbnJvZSIsImVtYWlsIjoibWFyeWxpbm1vbnJvZUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTQ1NTU3MSwiZXhwIjoxNjQ5NTQxOTcxfQ.OuO5h0R5tW4O7F8s3FpVdLdK33jYXqXekHPzAdzr6dA
 

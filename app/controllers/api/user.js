@@ -2,6 +2,7 @@ const debug = require('debug')('userController');
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const ApiError = require('../../errors/apiError');
 
 const User = require('../../models/user');
 
@@ -18,7 +19,6 @@ const userController = {
         const { email, password } = req.body;
         // On recherche notre utilisateur grâce à son email
         const user = await User.findOne({ email });
-        debug('user = ', user);
         // S’il existe on compare le mot de passe fourni avec celui qui est enregistré en base de données
         if (user) {
             // vérifier que le mot de passe est bien le même que celui enregistré en base de donnée.
@@ -30,10 +30,19 @@ const userController = {
                     // Sert à supprimer le password de l’objet user qu’on va passer dans le payload du token.
                     // eslint-disable-next-line no-underscore-dangle
                     delete user.password;
+                    debug('user.id = ', user.id);
+                    const cleanedUser = {
+                        id: user.id,
+                        firstname: user.firstname,
+                        lastname: user.lastname,
+                        email: user.email,
+                        role: user.role,
+                        notification: user.notification,
+                    };
 
                     const expiresIn = 24 * 60 * 60;
                     // On signe ensuite le token avec toutes nos infos et la clé secrète,
-                    const token = jwt.sign({ user }, JWTOKEN_KEY, { expiresIn });
+                    const token = jwt.sign({ cleanedUser }, JWTOKEN_KEY, { expiresIn });
 
                     // Puis on ajoute le token dans l’entête de la réponse avant de renvoyer le auth_ok
                     res.header('Authorization', `Bearer ${token}`);
@@ -46,6 +55,15 @@ const userController = {
         }
         // Si on ne trouve pas l'user
         return res.status(404).json('user_not_found');
+    },
+    async getOne(req, res) {
+        debug('req.decoded.cleanedUser = ', req.decoded.cleanedUser);
+        const data = await User.findByPk(req.decoded.cleanedUser.id);
+        if (!data) {
+            throw new ApiError('Constellation not found', { statusCode: 404 });
+        }
+        delete data.password;
+        return res.json(data);
     },
 };
 

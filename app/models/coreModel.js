@@ -1,4 +1,5 @@
 // const debug = require('debug')('CoreModel');
+const bcrypt = require('bcryptjs');
 const client = require('../db/postgres');
 const ApiError = require('../errors/apiError');
 
@@ -65,11 +66,15 @@ class CoreModel {
                 statusCode: 404,
             });
         }
-
-        return new this(result.rows[0]);
+        const obj = new this(result.rows[0]);
+        return obj;
     }
 
     static async insert(data) {
+        if (data.password) {
+            // eslint-disable-next-line no-param-reassign
+            data.password = bcrypt.hashSync(data.password, 10);
+        }
         const props = Object.keys(data).map((prop) => `"${prop}"`);
         const fields = Object.keys(data).map((_, index) => `$${index + 1}`);
         const values = Object.values(data);
