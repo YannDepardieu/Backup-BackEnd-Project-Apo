@@ -9,6 +9,12 @@ const User = require('../../models/user');
 const { JWTOKEN_KEY } = process.env;
 const userController = {
     /**
+     * Authentication Request
+     * @typedef {object} AuthenticationRequest
+     * @property {string} email - Authentication email
+     * @property {string} password - Authentication password
+     */
+    /**
      * Api controller to get one user myth by its ID.
      * ExpressMiddleware signature
      * @param {object} req Express req.object
@@ -60,7 +66,7 @@ const userController = {
         debug('req.decoded.cleanedUser = ', req.decoded.cleanedUser);
         const data = await User.findByPk(req.decoded.cleanedUser.id);
         if (!data) {
-            throw new ApiError('Constellation not found', { statusCode: 404 });
+            throw new ApiError('User not found', { statusCode: 404 });
         }
         delete data.password;
         return res.json(data);

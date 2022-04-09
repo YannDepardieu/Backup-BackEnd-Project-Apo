@@ -42,6 +42,7 @@ class CoreModel {
             // ce qui sera évalué en new Tag(obj) par exemple
             // console.log('this = ', this.#id)
             const newObj = new this(obj);
+            newObj.idNum = newObj.id;
             //! Ici on PAS accès à l'id quand on affiche newObj car c'est une prop privée mais il est bien dedans
             // console.log('newObj = ', newObj);
             //! Ici on a accès à l'id uniquement en l'appelant, on passe dans le GETTER

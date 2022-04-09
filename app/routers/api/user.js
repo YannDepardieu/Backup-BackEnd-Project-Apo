@@ -10,16 +10,20 @@ router
     /**
      * POST /v1/api/user/auth
      * @summary Post email and password to validate user et return a token
-     * @tags Authorization
-     * @return {message} 200 - success response - application/json and a token in the header
+     * @tags User
+     * @param {AuthenticationRequest} request.body Express req.object
+     * @return {string} 200 - success response - application/json AND a token in the header
      */
     .post(asyncWrapper(userController.auth));
 
 router
+    // FIX THAT JSDOCS ! /user/profil
+    // is it post or get... check summary
+    // what does it return ? Type it
     .route('/profil')
     /**
-     * GET /v1/api/user/auth
-     * @summary Post email and password to validate user et return a token
+     * GET /v1/api/user/profil
+     * @summary Get
      * @tags User
      * @return {object} 200 - success response - application/json
      */

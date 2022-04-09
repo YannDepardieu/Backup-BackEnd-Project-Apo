@@ -14,4 +14,15 @@ router
      */
     .get(asyncWrapper(mythController.getRandomWithConstellation));
 
+router
+    .route('/:id(\\d+)')
+    /**
+     * GET /v1/api/myth/{id}
+     * @summary Get one myth with its celestial body
+     * @tags Myth
+     * @param {integer} id.path.required constellation identifier
+     * @return {FullMyth} 200 - success response - application/json
+     */
+    .get(asyncWrapper(mythController.getOneMyth));
+
 module.exports = router;

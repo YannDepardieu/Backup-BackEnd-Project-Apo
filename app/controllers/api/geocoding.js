@@ -15,6 +15,7 @@ const geocodingController = {
         debug(gps);
         res.json(gps);
     },
+    // pas utile.....
     /**
      * An address
      * @typedef {object} Address

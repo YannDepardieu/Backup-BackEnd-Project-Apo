@@ -81,10 +81,20 @@ const commonController = {
         return res.json(data);
     },
     /**
+     * A user inscription
+     * @typedef {object} InscriptionUser
+     * @property {string} firstname - firstname
+     * @property {string} lastname - lastname
+     * @property {string} email - email
+     * @property {string} password - password
+     * @property {string} role - role: user or admin
+     * @property {boolean} notification - user's authorisation to get emails notifications
+     */
+    /**
      * Api controller to get one constellation myth by its ID.
      * ExpressMiddleware signature
-     * @param {object} req Express req.object
-     * @param {object} res Express response object
+     * @param {InscriptionUser} req Express req.object
+     * @param {InscriptionUser} res Express response object with crypted password
      * @returns {string} Route API JSON data
      */
     async createOne(req, res) {
