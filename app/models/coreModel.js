@@ -1,4 +1,4 @@
-const debug = require('debug')('CoreModel');
+// const debug = require('debug')('CoreModel');
 const bcrypt = require('bcryptjs');
 const client = require('../db/postgres');
 const ApiError = require('../errors/apiError');
@@ -117,8 +117,8 @@ class CoreModel {
         return new this(result.rows[0]);
     }
 
-    async isUnique(inputData, id) {
-        const uniquesConstraints = await client.query(`
+    static async isUnique(inputData, id) {
+        let uniquesConstraints = await client.query(`
             SELECT con.conname
             FROM pg_catalog.pg_constraint con
             INNER JOIN pg_catalog.pg_class rel
@@ -127,19 +127,24 @@ class CoreModel {
         `);
         const columnRegex = new RegExp(`^${this.tableName}_(?:([a-z_]+))_key$`, 'mi');
         const column = [];
-        debug(uniquesConstraints);
-        if (columnRegex.test(key)) {
-            schema = schemas[key];
-        }
+        uniquesConstraints = uniquesConstraints.rows;
+        uniquesConstraints.forEach((constraint) => {
+            if (constraint.conname.match(columnRegex)) {
+                column.push(constraint.conname.match(columnRegex)[1]);
+            }
+        });
+
         const fields = [];
         const values = [];
+        let index = 1;
         // On récupère la liste des infos envoyés
-        Object.entries(inputData).forEach(([key, value], index) => {
+        Object.entries(inputData).forEach(([key, value]) => {
             // On ne garde que les infos qui sont censées être unique
-            if (['label', 'route'].includes(key)) {
+            if (column.includes(key)) {
                 // On génère le filtre avec ces infos
-                fields.push(`"${key}" = $${index + 1}`);
+                fields.push(`"${key}" = $${index}`);
                 values.push(value);
+                index += 1;
             }
         });
 

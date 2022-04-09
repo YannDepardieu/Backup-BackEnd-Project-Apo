@@ -8,7 +8,7 @@ CREATE TABLE "user" (
     lastname text NOT NULL,
     email text NOT NULL UNIQUE,
     "password" text NOT NULL,
-    "role" text NOT NULL,
+    "role" text NOT NULL DEFAULT "user",
     "notification" boolean DEFAULT false,
     created_at timestamptz NOT NULL DEFAULT NOW(),
     updated_at timestamptz

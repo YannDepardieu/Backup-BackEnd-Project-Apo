@@ -1,4 +1,4 @@
-// const debug = require('debug')('commonController');
+const debug = require('debug')('commonController');
 const ApiError = require('../../errors/apiError');
 
 const commonController = {
@@ -89,10 +89,11 @@ const commonController = {
      */
     async createOne(req, res) {
         const { Model } = res.locals;
-        const data = await Model.insert(req.body);
-        if (!data) {
-            throw new ApiError('Constellation not found', { statusCode: 404 });
+        const found = await Model.isUnique(req.body);
+        if (found) {
+            throw new ApiError(`${Model.tableName} is not unique`, { statusCode: 404 });
         }
+        const data = await Model.insert(req.body);
         return res.json(data);
     },
 };

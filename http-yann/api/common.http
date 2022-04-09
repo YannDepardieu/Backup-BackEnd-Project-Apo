@@ -23,9 +23,9 @@ POST {{ endpoint }}/user
 content-type: application/json
 
 {
-    "firstname": "Marilyn",
-    "lastname": "Monroe",
-    "email": "marylinmonroe@gmail.com",
+    "firstname": "Pierro",
+    "lastname": "Delaluna",
+    "email": "pierrodelalunan@gmail.com",
     "password": "xxxx",
     "role": "user",
     "notification": true
