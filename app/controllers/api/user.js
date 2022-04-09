@@ -60,7 +60,7 @@ const userController = {
         debug('req.decoded.cleanedUser = ', req.decoded.cleanedUser);
         const data = await User.findByPk(req.decoded.cleanedUser.id);
         if (!data) {
-            throw new ApiError('Constellation not found', { statusCode: 404 });
+            throw new ApiError('User not found', { statusCode: 404 });
         }
         delete data.password;
         return res.json(data);
