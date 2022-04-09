@@ -17,15 +17,14 @@ router
     .post(asyncWrapper(userController.auth));
 
 router
-    // FIX THAT JSDOCS ! /user/profil
-    // is it post or get... check summary
-    // what does it return ? Type it
     .route('/profil')
     /**
      * GET /v1/api/user/profil
-     * @summary Get
+     * @summary Get one user's profil details
      * @tags User
-     * @return {object} 200 - success response - application/json
+     * @security BearerAuth
+     * @return {AuthenticatedUser} 200 - success response - application/json
+     * @return {ApiError} 404 - Not found response - application/json
      */
     .get(security.checkJWT, asyncWrapper(userController.getOne));
 

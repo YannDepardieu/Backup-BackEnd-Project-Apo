@@ -28,13 +28,11 @@ router.use((_, res, next) => {
     next();
 });
 
-// la route de la doc
 /**
  * Default API route that handle all methods (GET, PUT, PATCH, DELETE, POST) to provide a documentation link
  * to help front developper when they forget to specify the routes
  * ALL v1/main-api/
  * @summary All verbs
- * @tags all
  * @return {string} 200 - success response - application/json
  */
 router.all('/', indexController.home);
@@ -43,7 +41,6 @@ router.all('/', indexController.home);
 router.use('/common', commonRouter);
 
 // route précise qui demande deux entités: constellations et myth. Error 404 si on choisit une
-// constellation sans mythe !
 router.use('/constellation', constellationRouter);
 
 // route pour avoir juste les constellations qui ont des myths
