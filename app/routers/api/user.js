@@ -12,7 +12,7 @@ router
      * @summary Post email and password to validate user et return a token
      * @tags User
      * @param {AuthenticationRequest} request.body Express req.object
-     * @return {string} Auth_Ok 200 - success response - application/json AND a token in the header
+     * @return {string} 200 - success response - application/json AND a token in the header
      */
     .post(asyncWrapper(userController.auth));
 

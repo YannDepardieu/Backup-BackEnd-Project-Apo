@@ -37,7 +37,7 @@ const constellationController = {
         }
         return res.json(data);
     },
-    async getAllNames(req, res) {
+    async getAllNames(_, res) {
         const data = await Model.constellationsNames();
         if (!data) {
             throw new ApiError('Constellation not found', { statusCode: 404 });

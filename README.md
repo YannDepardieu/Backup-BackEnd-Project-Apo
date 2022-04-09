@@ -22,8 +22,8 @@ Get to [Starry Nights UI Swagger docs](http://localhost:3001/api-docs/) to see a
 | page    | home                 | Constellation   | get  | /constellation/getAllNames | All constellations names for the search bar                |
 | header  | menu Constellations  | Entities routes | get  | /common/constellations     | All constellations with full details                       |
 | modale  | Constellation        | Constellation   | get  | /constellation/:id         | A single constellation with full details and myth (if any) |
-| header  | menu Myths           | Entities routes | get  | /common/myths              | All myths with full details                                |
-| modale  | Myth                 | Entities routes | get  | /common/myths/:id          | A single myth with full details and celestial body         | *
+| header  | menu Myths           | Entities routes | get  | /common/myth               | All myths with full details                                |
+| modale  | Myth                 | Entities routes | get  | /common/myth/:id           | A single myth with full details and related celestial body |
 | page    | User inscription     | Entities routes | post | /common/user               | Create a new user                                          |
 | header  | menu User connection | User            | post | /user/auth                 | Checks password to allow connection                        |
 
