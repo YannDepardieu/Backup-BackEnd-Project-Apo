@@ -7,12 +7,12 @@ const security = require('../../middlewares/security');
 
 router
     .route('/auth')
-    // type the return
     /**
      * POST /v1/api/user/auth
      * @summary Post email and password to validate user et return a token
-     * @tags Authorization
-     * @return {object} 200 - success response - application/json and a token in the header
+     * @tags User
+     * @param {AuthenticationRequest} request.body Express req.object
+     * @return {string} Auth_Ok 200 - success response - application/json AND a token in the header
      */
     .post(asyncWrapper(userController.auth));
 

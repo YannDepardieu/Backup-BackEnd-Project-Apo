@@ -9,6 +9,12 @@ const User = require('../../models/user');
 const { JWTOKEN_KEY } = process.env;
 const userController = {
     /**
+     * Authentication Request
+     * @typedef {object} AuthenticationRequest
+     * @property {string} email - Authentication email
+     * @property {string} password - Authentication password
+     */
+    /**
      * Api controller to get one user myth by its ID.
      * ExpressMiddleware signature
      * @param {object} req Express req.object

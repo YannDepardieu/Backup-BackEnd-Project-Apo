@@ -14,6 +14,15 @@ router
      * @return {ConstellationMyth} 200 - success response - application/json
      */
     .get(asyncWrapper(constellationController.getByPkWithMyths));
-// route getAllNames pour le json des noms des constellations
+
+router
+    .route('/names')
+    /**
+     * GET /v1/api/constellation/names
+     * @summary Get a list with all the constellations names
+     * @tags Constellation
+     * @return {object} 200 - success response - application/json
+     */
+    .get(asyncWrapper(constellationController.getAllNames));
 
 module.exports = router;

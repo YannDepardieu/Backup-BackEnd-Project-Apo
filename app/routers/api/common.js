@@ -22,10 +22,10 @@ router
      * POST /v1/api/common/{entity}
      * @summary Create one entity entry
      * @tags Entities routes
-     * @param {string} entity.path.required entities availables: constellation, myth, planet, star, user
+     * @param {string} entity.path.required Entities availables: constellation, myth, planet, star, user
+     * @param {InscriptionUser} request.body Informations if you are creating a new USER
      * @return {Constellation|Event|Myth|Place|Planet|Star|User} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
-     * @return {ApiError} 404 - Constellation no found - application/json
      */
     .post(commonValidator('body'), asyncWrapper(commonController.createOne));
 
