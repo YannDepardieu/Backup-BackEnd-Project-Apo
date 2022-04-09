@@ -15,6 +15,16 @@ const userController = {
      * @property {string} password - Authentication password
      */
     /**
+     * Authenticated User
+     * @typedef {object} AuthenticatedUser
+     * @property {integer} id - User's id
+     * @property {string} firstname - User's firstname
+     * @property {string} lastname - User's lastname
+     * @property {string} email - User's email
+     * @property {string} role - User's role
+     * @property {boolean} notification - User's authorisation to get email notifications
+     */
+    /**
      * Api controller to get one user myth by its ID.
      * ExpressMiddleware signature
      * @param {object} req Express req.object

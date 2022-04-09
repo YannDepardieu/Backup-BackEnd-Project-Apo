@@ -15,6 +15,12 @@ const options = {
         '../controllers/**/*.js',
         '../models/*.js',
     ],
+    security: {
+        BearerAuth: {
+            type: 'http',
+            scheme: 'bearer',
+        },
+    },
     // URL where the doc page will be available
     swaggerUIPath: process.env.API_DOCUMENTATION_ROUTE,
     // Activation of the documentation through an API route
