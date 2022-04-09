@@ -30,3 +30,17 @@ content-type: application/json
     "role": "user",
     "notification": true
 }
+
+### update a user
+PATCH {{ endpoint }}/user/22
+content-type: application/json
+
+{
+    "firstname": "Mary",
+    "lastname": "Lynn",
+    "email": "marylynn@gmail.com",
+    "oldPassword": "xxxx",
+    "newPassword": "yyyy",
+    "role": "user",
+    "notification": true
+}

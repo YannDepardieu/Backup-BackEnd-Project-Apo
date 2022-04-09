@@ -1,4 +1,6 @@
+// eslint-disable-next-line no-unused-vars
 const debug = require('debug')('commonController');
+const bcrypt = require('bcryptjs');
 const ApiError = require('../../errors/apiError');
 
 const commonController = {
@@ -45,7 +47,7 @@ const commonController = {
      * @property {integer} role - User's role
      * @property {integer} notification - Boolean user's authorisation for getting emails notifications
      */
-    async getAll(req, res) {
+    async getAll(_, res) {
         const { Model } = res.locals;
         const data = await Model.findAll();
         res.json(data);
@@ -73,7 +75,7 @@ const commonController = {
         const { Model } = res.locals;
         const data = await Model.findByPk(req.params.id);
         if (!data) {
-            throw new ApiError('Constellation not found', { statusCode: 404 });
+            throw new ApiError(`${Model.tableName}n not found`, { statusCode: 404 });
         }
         if (data.password) {
             delete data.password;
@@ -99,11 +101,37 @@ const commonController = {
      */
     async createOne(req, res) {
         const { Model } = res.locals;
-        const found = await Model.isUnique(req.body);
-        if (found) {
-            throw new ApiError(`${Model.tableName} is not unique`, { statusCode: 404 });
+        const notUnique = await Model.isUnique(req.body);
+        if (notUnique) {
+            throw new ApiError(`This ${Model.tableName} is not unique`, { statusCode: 400 });
         }
         const data = await Model.insert(req.body);
+        return res.json(data);
+    },
+
+    async update(req, res) {
+        const { Model } = res.locals;
+        const element = await Model.findByPk(req.params.id);
+        if (!element) {
+            throw new ApiError(`This ${Model.tableName} does not exists`, { statusCode: 404 });
+        }
+        if (Model.tableName === 'user') {
+            debug('req.body.oldPassword == ', req.body.oldPassword);
+            debug('element.password == ', element.password);
+            bcrypt.compare(req.body.oldPassword, element.password, (err) => {
+                if (err) {
+                    throw new ApiError(`Old password is not correct`, { statusCode: 400 });
+                }
+            });
+        }
+        const notUnique = await Model.isUnique(req.body, req.params.id);
+        if (notUnique) {
+            throw new ApiError(`This ${Model.tableName} is not unique`, { statusCode: 400 });
+        }
+        const data = await Model.update(req.params.id, req.body);
+        if (data.password) {
+            delete data.password;
+        }
         return res.json(data);
     },
 };

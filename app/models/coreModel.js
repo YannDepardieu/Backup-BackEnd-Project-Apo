@@ -1,4 +1,5 @@
-// const debug = require('debug')('CoreModel');
+// eslint-disable-next-line no-unused-vars
+const debug = require('debug')('CoreModel');
 const bcrypt = require('bcryptjs');
 const client = require('../db/postgres');
 const ApiError = require('../errors/apiError');
@@ -68,30 +69,6 @@ class CoreModel {
         return obj;
     }
 
-    static async insert(data) {
-        if (data.password) {
-            // eslint-disable-next-line no-param-reassign
-            data.password = bcrypt.hashSync(data.password, 10);
-        }
-        const props = Object.keys(data).map((prop) => `"${prop}"`);
-        const fields = Object.keys(data).map((_, index) => `$${index + 1}`);
-        const values = Object.values(data);
-        const SQL = {
-            text: `INSERT INTO "${this.tableName}" (${props})
-            VALUES (${fields}) RETURNING *`,
-            values: [...values],
-        };
-        const inserted = await client.query(SQL);
-
-        if (inserted.rows.length === 0) {
-            throw new ApiError(`${this.tableName} not found, id doesn't exist`, {
-                statusCode: 404,
-            });
-        }
-
-        return new this(inserted.rows[0]);
-    }
-
     static async findOne(data) {
         if (data.password) {
             // eslint-disable-next-line no-param-reassign
@@ -116,6 +93,45 @@ class CoreModel {
         }
 
         return new this(result.rows[0]);
+    }
+
+    static async insert(data) {
+        if (data.password) {
+            // eslint-disable-next-line no-param-reassign
+            data.password = bcrypt.hashSync(data.password, 10);
+        }
+        const props = Object.keys(data).map((prop) => `"${prop}"`);
+        const fields = Object.keys(data).map((_, index) => `$${index + 1}`);
+        const values = Object.values(data);
+        const SQL = {
+            text: `INSERT INTO "${this.tableName}" (${props})
+            VALUES (${fields}) RETURNING *`,
+            values: [...values],
+        };
+        const inserted = await client.query(SQL);
+
+        if (inserted.rows.length === 0) {
+            throw new ApiError(`${this.tableName} not found, id doesn't exist`, {
+                statusCode: 404,
+            });
+        }
+
+        return new this(inserted.rows[0]);
+    }
+
+    static async update(id, input) {
+        const fields = Object.keys(input).map((prop, index) => `"${prop}" = $${index + 1}`);
+        const values = Object.values(input);
+
+        const output = await client.query(
+            `
+                UPDATE category SET ${fields}
+                WHERE id = $${fields.length + 1} RETURNING *
+            `,
+            [...values, id],
+        );
+
+        return output.rows[0];
     }
 
     static async isUnique(inputData, id) {
@@ -153,7 +169,6 @@ class CoreModel {
             text: `SELECT * FROM "${this.tableName}" WHERE (${fields.join(' OR ')})`,
             values,
         };
-
         // Si l'id est fourni on exclu l'enregistrement qui lui correspond
         if (id) {
             preparedQuery.text += ` AND id <> $${values.length + 1}`;

@@ -7,5 +7,4 @@ module.exports = Joi.object({
     password: Joi.string().min(2).max(32).required(),
     role: Joi.string().pattern(/^user$/m),
     notification: Joi.bool(),
-    geolocalisation: Joi.bool(),
 }).required();
