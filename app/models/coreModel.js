@@ -1,4 +1,4 @@
-// const debug = require('debug')('CoreModel');
+const debug = require('debug')('CoreModel');
 const bcrypt = require('bcryptjs');
 const client = require('../db/postgres');
 const ApiError = require('../errors/apiError');
@@ -8,9 +8,6 @@ class CoreModel {
     // un setter pour la modifier ou en créer une nouvelle instance. On passera par un getter pour récupérer sa valeur
     // Le # est lié au keyword 'set' et 'get'
     #id;
-
-    // afin de pouvoir accéder a tableName partout et le redefinir dans les enfants je le déclare dans le parent
-    static tableName = null;
 
     //! Le constructeur appelle le setter (set) pour modifier la prop privée id
     constructor(obj) {
@@ -118,6 +115,51 @@ class CoreModel {
         }
 
         return new this(result.rows[0]);
+    }
+
+    async isUnique(inputData, id) {
+        const uniquesConstraints = await client.query(`
+            SELECT con.conname
+            FROM pg_catalog.pg_constraint con
+            INNER JOIN pg_catalog.pg_class rel
+            ON rel.oid = con.conrelid
+            WHERE rel.relname = '${this.tableName}' AND contype = 'u';
+        `);
+        const columnRegex = new RegExp(`^${this.tableName}_(?:([a-z_]+))_key$`, 'mi');
+        const column = [];
+        debug(uniquesConstraints);
+        if (columnRegex.test(key)) {
+            schema = schemas[key];
+        }
+        const fields = [];
+        const values = [];
+        // On récupère la liste des infos envoyés
+        Object.entries(inputData).forEach(([key, value], index) => {
+            // On ne garde que les infos qui sont censées être unique
+            if (['label', 'route'].includes(key)) {
+                // On génère le filtre avec ces infos
+                fields.push(`"${key}" = $${index + 1}`);
+                values.push(value);
+            }
+        });
+
+        const preparedQuery = {
+            text: `SELECT * FROM "${this.tableName}" WHERE (${fields.join(' OR ')})`,
+            values,
+        };
+
+        // Si l'id est fourni on exclu l'enregistrement qui lui correspond
+        if (id) {
+            preparedQuery.text += ` AND id <> $${values.length + 1}`;
+            preparedQuery.values.push(id);
+        }
+        const result = await client.query(preparedQuery);
+
+        if (result.rowCount === 0) {
+            return null;
+        }
+
+        return result.rows[0];
     }
 }
 

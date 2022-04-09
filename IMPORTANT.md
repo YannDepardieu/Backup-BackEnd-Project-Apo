@@ -5,5 +5,3 @@ Attention de bien installer la version 2 de node-fetch car la dernière version 
 ```s
 npm node-fetch@2
 ```
-
-- Comment s'inscrire
