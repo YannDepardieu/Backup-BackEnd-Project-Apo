@@ -167,6 +167,23 @@ class CoreModel {
 
         return result.rows[0];
     }
+
+    static async deleteByPk(id) {
+        const found = await this.findByPk(id);
+        // debug('entry found !');
+        if (found.rowCount === 0) {
+            return null;
+        }
+        const query = {
+            text: `DELETE FROM "user" WHERE id=$1`,
+            values: [id],
+        };
+        const result = await client.query(query);
+        if (result.rowCount === 0) {
+            return null;
+        }
+        return 'Entry deleted';
+    }
 }
 
 module.exports = CoreModel;

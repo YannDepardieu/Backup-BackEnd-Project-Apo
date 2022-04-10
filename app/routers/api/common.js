@@ -5,6 +5,7 @@ const { commonController } = require('../../controllers/api');
 const asyncWrapper = require('../../middlewares/asyncWrapper');
 const getModel = require('../../middlewares/getModel');
 const commonValidator = require('../../middlewares/commonValidator');
+const security = require('../../middlewares/security');
 
 router.use('/:entity', getModel);
 
@@ -41,6 +42,18 @@ router
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Constellation no found - application/json
      */
-    .get(asyncWrapper(commonController.getByPk));
+    .get(asyncWrapper(commonController.getByPk))
+    /**
+     * DELETE /v1/api/common/{entity}/{id}
+     * @summary Delete one entity entry by its ID
+     * @tags Entities routes
+     * @security BearerAuth
+     * @param {string} entity.path.required entities availables: constellation, event, myth, place, planet, star, user
+     * @param {integer} id.path.required constellation identifier
+     * @return {string} 200 - success response - application/json
+     * @return {ApiError} 400 - Bad request response - application/json
+     * @return {ApiError} 404 - Constellation no found - application/json
+     */
+    .delete(security.checkJWT, asyncWrapper(commonController.deleteOne));
 
 module.exports = router;
