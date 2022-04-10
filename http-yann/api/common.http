@@ -23,22 +23,22 @@ POST {{ endpoint }}/user
 content-type: application/json
 
 {
-    "firstname": "Pierro",
-    "lastname": "Delaluna",
-    "email": "pierrodelalunan@gmail.com",
+    "firstname": "Marceline",
+    "lastname": "Ajun",
+    "email": "marcelineajun@gmail.com",
     "password": "xxxx",
     "role": "user",
     "notification": true
 }
 
 ### update a user
-PATCH {{ endpoint }}/user/22
+PATCH {{ endpoint }}/user/23
 content-type: application/json
 
 {
-    "firstname": "Mary",
-    "lastname": "Lynn",
-    "email": "marylynn@gmail.com",
+    "firstname": "Marceline",
+    "lastname": "Ajun",
+    "email": "marcelineajun@gmail.com",
     "oldPassword": "xxxx",
     "newPassword": "yyyy",
     "role": "user",

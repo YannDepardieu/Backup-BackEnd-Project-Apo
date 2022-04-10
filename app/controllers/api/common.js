@@ -118,21 +118,29 @@ const commonController = {
         if (Model.tableName === 'user') {
             debug('req.body.oldPassword == ', req.body.oldPassword);
             debug('element.password == ', element.password);
-            bcrypt.compare(req.body.oldPassword, element.password, (err) => {
+            bcrypt.compare(req.body.oldPassword, element.password, (err, response) => {
                 if (err) {
-                    throw new ApiError(`Old password is not correct`, { statusCode: 400 });
+                    throw new Error(err);
                 }
+                if (response) {
+                    debug('password ', response);
+                    return;
+                }
+                debug('password ', response);
+                throw new ApiError(`Old password is not correct`, { statusCode: 400 });
             });
         }
         const notUnique = await Model.isUnique(req.body, req.params.id);
+        debug('notUnique = ', notUnique);
         if (notUnique) {
             throw new ApiError(`This ${Model.tableName} is not unique`, { statusCode: 400 });
         }
-        const data = await Model.update(req.params.id, req.body);
-        if (data.password) {
-            delete data.password;
+        const output = await Model.update(req.params.id, req.body);
+        debug('output = ', output);
+        if (output.password) {
+            delete output.password;
         }
-        return res.json(data);
+        return res.json(output);
     },
 };
 

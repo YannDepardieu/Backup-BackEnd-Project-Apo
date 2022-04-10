@@ -9,17 +9,6 @@
 #                         User                         #
 ########################################################
 
-### Update un user
-PATCH {{ endpoint }}/update
-content-type: application/json
-
-{
-    "firstname": "Yohan",
-    "lastname": "Valjean",
-    "email": "john.doe@planet.com",
-    "password": "cool"
-}
-
 ### Vérifier l'authentification d'un user, si c'est ok on me renvoie un token dans le header
 ### Authorization: Bearer [token]
 POST {{ endpoint }}/auth
@@ -30,7 +19,6 @@ content-type: application/json
     "password": "xxxx"
 }
 
-### ICI LE TOKEN CORRESPOND A L'ID de L'USER !!! ON A LES INFOS DE L'USER
 ### Trouver un utilisateur :
 GET {{ endpoint }}/profil
 Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MTksImZpcnN0bmFtZSI6Ik1hcmlseW4iLCJsYXN0bmFtZSI6Ik1vbnJvZSIsImVtYWlsIjoibWFyeWxpbm1vbnJvZUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTQ1NTU3MSwiZXhwIjoxNjQ5NTQxOTcxfQ.OuO5h0R5tW4O7F8s3FpVdLdK33jYXqXekHPzAdzr6dA
