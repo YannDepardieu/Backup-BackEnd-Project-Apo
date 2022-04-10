@@ -1,4 +1,4 @@
-const debug = require('debug')('commonController');
+// const debug = require('debug')('commonController');
 const ApiError = require('../../errors/apiError');
 
 const commonController = {

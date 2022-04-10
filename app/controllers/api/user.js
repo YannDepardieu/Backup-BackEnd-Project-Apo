@@ -2,9 +2,14 @@ const debug = require('debug')('userController');
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+// const { createClient } = require('redis');
 const ApiError = require('../../errors/apiError');
 
 const User = require('../../models/user');
+
+const PREFIX = 'logoutToken';
+
+const { seekToken, blackList } = require('../../services/seekAuth');
 
 const { JWTOKEN_KEY } = process.env;
 const userController = {
@@ -73,13 +78,24 @@ const userController = {
         return res.status(404).json('user_not_found');
     },
     async getOne(req, res) {
-        debug('req.decoded.cleanedUser = ', req.decoded.cleanedUser);
+        // debug('req.decoded.cleanedUser = ', req.decoded.cleanedUser);
         const data = await User.findByPk(req.decoded.cleanedUser.id);
         if (!data) {
             throw new ApiError('User not found', { statusCode: 404 });
         }
         delete data.password;
         return res.json(data);
+    },
+    async logout(req, res) {
+        // Delete the stored token from client side upon log out
+        res.removeHeader('Authorization');
+
+        // Have DB of no longer active tokens that still have some time to live
+        const key = `${PREFIX}${req.decoded.iat}`;
+        const token = seekToken(req);
+        blackList(key, token);
+
+        res.status(200).json('user disconnected');
     },
 };
 

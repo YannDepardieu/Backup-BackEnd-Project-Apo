@@ -6,6 +6,18 @@ const asyncWrapper = require('../../middlewares/asyncWrapper');
 const security = require('../../middlewares/security');
 
 router
+    .route('/')
+    /**
+     * GET /v1/api/user/
+     * @summary Get one user's profil details
+     * @tags User
+     * @security BearerAuth
+     * @return {AuthenticatedUser} 200 - success response - application/json
+     * @return {ApiError} 404 - Not found response - application/json
+     */
+    .get(security.checkJWT, asyncWrapper(userController.getOne));
+
+router
     .route('/auth')
     /**
      * POST /v1/api/user/auth
@@ -17,15 +29,15 @@ router
     .post(asyncWrapper(userController.auth));
 
 router
-    .route('/profil')
+    .route('/logout')
     /**
-     * GET /v1/api/user/profil
-     * @summary Get one user's profil details
+     * GET /v1/api/user/logout
+     * @summary Logout user's session
      * @tags User
      * @security BearerAuth
-     * @return {AuthenticatedUser} 200 - success response - application/json
+     * @return {string} 200 - success response - application/json
      * @return {ApiError} 404 - Not found response - application/json
      */
-    .get(security.checkJWT, asyncWrapper(userController.getOne));
+    .get(security.checkJWT, asyncWrapper(userController.logout));
 
 module.exports = router;
