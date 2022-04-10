@@ -125,7 +125,7 @@ class CoreModel {
 
         const output = await client.query(
             `
-                UPDATE ${this.tableName} SET ${fields}
+                UPDATE "${this.tableName}" SET ${fields}
                 WHERE id = $${fields.length + 1} RETURNING *
             `,
             [...values, id],

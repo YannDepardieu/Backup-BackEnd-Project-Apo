@@ -15,11 +15,10 @@ POST {{ endpoint }}/auth
 content-type: application/json
 
 {
-    "email": "marylinmonroe@gmail.com",
+    "email": "marcelineajun@gmail.com",
     "password": "xxxx"
 }
 
 ### Trouver un utilisateur :
 GET {{ endpoint }}/profil
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MTksImZpcnN0bmFtZSI6Ik1hcmlseW4iLCJsYXN0bmFtZSI6Ik1vbnJvZSIsImVtYWlsIjoibWFyeWxpbm1vbnJvZUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTQ1NTU3MSwiZXhwIjoxNjQ5NTQxOTcxfQ.OuO5h0R5tW4O7F8s3FpVdLdK33jYXqXekHPzAdzr6dA
-
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MjMsImZpcnN0bmFtZSI6Ik1hcmNlbGluZSIsImxhc3RuYW1lIjoiQWp1biIsImVtYWlsIjoibWFyY2VsaW5lYWp1bkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTU4MTEzNSwiZXhwIjoxNjQ5NjY3NTM1fQ.t6BMgeR2qOQruzoKE5xIwRMTLVsck-Z2PLtOjdS4k-c

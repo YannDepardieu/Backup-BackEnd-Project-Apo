@@ -5,6 +5,7 @@ const { commonController } = require('../../controllers/api');
 const asyncWrapper = require('../../middlewares/asyncWrapper');
 const getModel = require('../../middlewares/getModel');
 const commonValidator = require('../../middlewares/commonValidator');
+const security = require('../../middlewares/security');
 
 router.use('/:entity', getModel);
 
@@ -27,7 +28,18 @@ router
      * @return {Constellation|Event|Myth|Place|Planet|Star|User} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      */
-    .post(commonValidator('body'), asyncWrapper(commonController.createOne));
+    .post(commonValidator('body'), asyncWrapper(commonController.createOne))
+    /**
+     * PATCH /v1/api/common/{entity}/{id}
+     * @summary Update one entity entry by its ID
+     * @tags Entities routes
+     * @param {string} entity.path.required entities availables: constellation, event, myth, place, planet, star, user
+     * @param {integer} id.path.required identifier
+     * @return {Constellation|Event|Myth|Place|Planet|Star|User} 200 - success response - application/json
+     * @return {ApiError} 400 - Bad request response - application/json
+     * @return {ApiError} 404 - Entities no found - application/json
+     */
+    .patch(security.checkJWT, commonValidator('body'), asyncWrapper(commonController.update));
 
 router
     .route('/:entity/:id(\\d+)')
@@ -41,17 +53,6 @@ router
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Entities no found - application/json
      */
-    .get(asyncWrapper(commonController.getByPk))
-    /**
-     * PATCH /v1/api/common/{entity}/{id}
-     * @summary Update one entity entry by its ID
-     * @tags Entities routes
-     * @param {string} entity.path.required entities availables: constellation, event, myth, place, planet, star, user
-     * @param {integer} id.path.required identifier
-     * @return {Constellation|Event|Myth|Place|Planet|Star|User} 200 - success response - application/json
-     * @return {ApiError} 400 - Bad request response - application/json
-     * @return {ApiError} 404 - Entities no found - application/json
-     */
-    .patch(commonValidator('body'), asyncWrapper(commonController.update));
+    .get(asyncWrapper(commonController.getByPk));
 
 module.exports = router;

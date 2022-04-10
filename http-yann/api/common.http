@@ -32,7 +32,8 @@ content-type: application/json
 }
 
 ### update a user
-PATCH {{ endpoint }}/user/23
+PATCH {{ endpoint }}/user
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MjMsImZpcnN0bmFtZSI6Ik1hcmNlbGluZSIsImxhc3RuYW1lIjoiQWp1biIsImVtYWlsIjoibWFyY2VsaW5lYWp1bkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTU4MTEzNSwiZXhwIjoxNjQ5NjY3NTM1fQ.t6BMgeR2qOQruzoKE5xIwRMTLVsck-Z2PLtOjdS4k-c
 content-type: application/json
 
 {

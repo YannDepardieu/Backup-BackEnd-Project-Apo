@@ -73,7 +73,6 @@ const userController = {
         return res.status(404).json('user_not_found');
     },
     async getOne(req, res) {
-        debug('req.decoded.cleanedUser = ', req.decoded.cleanedUser);
         const data = await User.findByPk(req.decoded.cleanedUser.id);
         if (!data) {
             throw new ApiError('User not found', { statusCode: 404 });
