@@ -73,9 +73,6 @@ const commonController = {
     async getByPk(req, res) {
         const { Model } = res.locals;
         const data = await Model.findByPk(req.params.id);
-        if (!data) {
-            throw new ApiError(`${Model.tableName} not found`, { statusCode: 404 });
-        }
         if (data.password) {
             delete data.password;
         }
@@ -120,10 +117,7 @@ const commonController = {
     async update(req, res) {
         const { Model } = res.locals;
         const { id } = req.params;
-        const element = await Model.findByPk(id);
-        if (!element) {
-            throw new ApiError(`This ${Model.tableName} does not exists`, { statusCode: 404 });
-        }
+        await Model.findByPk(id);
         const notUnique = await Model.isUnique(req.body, id);
         if (notUnique) {
             throw new ApiError(`This ${Model.tableName} is not unique`, { statusCode: 400 });

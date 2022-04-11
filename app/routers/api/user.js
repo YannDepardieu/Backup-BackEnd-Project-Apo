@@ -37,18 +37,29 @@ router
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Entities no found - application/json
      */
-    .patch(security.checkJWT, validator('body', updateSchema), asyncWrapper(userController.update));
+    .patch(security.checkJWT, validator('body', updateSchema), asyncWrapper(userController.update))
+    /**
+     * PATCH /v1/api/user/
+     * @summary Update one entity entry by its ID
+     * @tags Entities routes
+     * @param {string} entity.path.required entities availables: constellation, event, myth, place, planet, star, user
+     * @param {integer} id.path.required identifier
+     * @return {Constellation|Event|Myth|Place|Planet|Star|User} 200 - success response - application/json
+     * @return {ApiError} 400 - Bad request response - application/json
+     * @return {ApiError} 404 - Entities no found - application/json
+     */
+    .delete(security.checkJWT, asyncWrapper(userController.delete));
 
 router
-    .route('/auth')
+    .route('/login')
     /**
-     * POST /v1/api/user/auth
+     * POST /v1/api/user/login
      * @summary Post email and password to validate user et return a token
      * @tags User
      * @param {AuthenticationRequest} request.body Express req.object
      * @return {string} 200 - success response - application/json AND a token in the header
      */
-    .post(asyncWrapper(userController.auth));
+    .post(asyncWrapper(userController.login));
 
 router
     .route('/logout')

@@ -24,7 +24,7 @@ content-type: application/json
 
 ### Vérifier l'authentification d'un user, si c'est ok on me renvoie un token dans le header
 ### Authorization: Bearer [token]
-POST {{ endpoint }}/auth
+POST {{ endpoint }}/login
 content-type: application/json
 
 {
@@ -42,9 +42,22 @@ Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6ey
 content-type: application/json
 
 {
-    "firstname": "g",
-    "lastname": "v",
-    "email": "gv@gmail.com",
+    "firstname": "b",
+    "lastname": "b",
+    "email": "bb@gmail.com",
+    "oldPassword": "xx",
+    "newPassword": "yy"
+}
+
+### Delete a user
+PATCH {{ endpoint }}/
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MzAsImZpcnN0bmFtZSI6ImIiLCJsYXN0bmFtZSI6ImIiLCJlbWFpbCI6ImJiQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwibm90aWZpY2F0aW9uIjp0cnVlfSwiaWF0IjoxNjQ5Njg1NDkzLCJleHAiOjE2NDk3NzE4OTN9.KIzSnSEwEzxQ43dYJf5FmzwuVXbeKOQzU8dnU-MVGlY
+content-type: application/json
+
+{
+    "firstname": "b",
+    "lastname": "b",
+    "email": "bb@gmail.com",
     "oldPassword": "xx",
     "newPassword": "yy"
 }

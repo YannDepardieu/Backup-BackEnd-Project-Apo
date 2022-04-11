@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const debug = require('debug')('userController');
 
 const bcrypt = require('bcryptjs');
@@ -47,7 +48,7 @@ const userController = {
         delete user.password;
         return res.json(user);
     },
-    async auth(req, res) {
+    async login(req, res, next) {
         const { email, password } = req.body;
         // On recherche notre utilisateur grâce à son email
         const user = await User.findOne({ email });
@@ -75,48 +76,36 @@ const userController = {
                     // On signe ensuite le token avec toutes nos infos et la clé secrète,
                     const token = jwt.sign({ cleanedUser }, JWTOKEN_KEY, { expiresIn });
 
-                    // Puis on ajoute le token dans l’entête de la réponse avant de renvoyer le auth_ok
+                    // Puis on ajoute le token dans l’entête de la réponse avant de renvoyer le login: true
                     res.header('Authorization', `Bearer ${token}`);
 
-                    return res.status(200).json('auth_ok');
+                    return res.status(200).json({ login: true });
                 }
                 // Si les mots de passe ne correspondent pas
-                return res.status(403).json('wrong_credentials');
+                return next(new ApiError('wrong email or password', { statusCode: 403 }));
             });
         }
         // Si on ne trouve pas l'user
-        return res.status(404).json('user_not_found');
+        return next(new ApiError('wrong email or password', { statusCode: 404 }));
     },
 
     async getOne(req, res) {
         const data = await User.findByPk(req.decoded.cleanedUser.id);
-        if (!data) {
-            throw new ApiError('User not found', { statusCode: 404 });
-        }
         delete data.password;
         return res.json(data);
     },
 
-    async update(req, res) {
+    async update(req, res, next) {
         const { id } = req.decoded.cleanedUser;
         const user = await User.findByPk(id);
-        if (!user) {
-            throw new ApiError(`This user does not exists`, { statusCode: 404 });
-        }
-        debug('user = ', user);
-        debug('req.body = ', req.body);
-        let result;
         bcrypt.compare(req.body.oldPassword, user.password, async (err, response) => {
-            debug('ICI');
             if (err) {
                 throw new Error(err);
             }
             if (response) {
-                debug('password ', response);
                 const notUnique = await User.isUnique(req.body, id);
-                debug('notUnique = ', notUnique);
                 if (notUnique) {
-                    throw new ApiError(`This user is not unique`, { statusCode: 400 });
+                    return next(new ApiError('This user is not unique', { statusCode: 400 }));
                 }
                 delete req.body.oldPassword;
                 if (req.body.newPassword) {
@@ -124,29 +113,22 @@ const userController = {
                     delete req.body.newPassword;
                 }
                 const output = await User.update(id, req.body);
-                debug('output = ', output);
                 delete output.password;
-                result = res.json(output);
-                return;
+                return res.json(output);
             }
-            debug('password ', response);
+            return next(new ApiError('Old password is not correct', { statusCode: 400 }));
         });
-        if (result) {
-            return result;
-        }
-        throw new ApiError(`Old password is not correct`, { statusCode: 400 });
     },
 
     async logout(req, res) {
         // Delete the stored token from client side upon log out
         res.removeHeader('Authorization');
-
         // Have DB of no longer active tokens that still have some time to live
         const key = `${PREFIX}${req.decoded.iat}`;
         const token = seekToken(req);
         blackList(key, token);
 
-        res.status(200).json('user disconnected');
+        res.status(200).json({ logout: true });
     },
 };
 
