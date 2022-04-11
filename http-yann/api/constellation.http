@@ -9,5 +9,8 @@
 #                    Constellation                     #
 ########################################################
 
-### find one Constellation By Pk With Myths
+### Select one Constellation By Id With Myths
 GET {{ endpoint }}/1
+
+### Select all Constellations names
+GET {{ endpoint }}/names

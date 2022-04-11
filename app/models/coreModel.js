@@ -54,6 +54,7 @@ class CoreModel {
     }
 
     static async findByPk(id) {
+        debug('id = ', id);
         const SQL = {
             text: `SELECT * FROM "${this.tableName}" WHERE id=$1`,
             values: [id],

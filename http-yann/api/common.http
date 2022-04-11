@@ -6,27 +6,63 @@
 @endpoint = http://localhost:{{$dotenv PORT}}/v1/api/common
 
 ########################################################
-#                         Common                       #
+#                  Common  (  Not User )               #
 ########################################################
 
-### get all constellations
+### Select all constellations
 GET {{ endpoint }}/constellation
 
-### TEST d'ERREUR
-GET {{ endpoint }}/sdfsqdgsdg
+### Select all myths
+GET {{ endpoint }}/myth
 
-### get one constellation
-GET {{ endpoint }}/constellation/1
-
-### Update something (not user)
-PATCH {{ endpoint }}/place/2
+### Insert something
+POST {{ endpoint }}/place
 Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MjgsImZpcnN0bmFtZSI6ImciLCJsYXN0bmFtZSI6InYiLCJlbWFpbCI6Imd2QGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwibm90aWZpY2F0aW9uIjp0cnVlfSwiaWF0IjoxNjQ5NjgxMjY5LCJleHAiOjE2NDk3Njc2Njl9.HOl7OGNrgCZq2jCHtqL1nATJeofSZEVj-jiBGeGdfzo
 content-type: application/json
 
 {
-    "name": "PoisonIvyIII",
-    "address": "68298 Fairview Place",
-    "city": "Huoqiu Chengguanzhen",
-    "latitude": 32.331736,
-    "longitude": 116.273391
+    "name": "Tonton",
+    "address": "10 avenue de la vérité",
+    "city": "Plancouet",
+    "latitude": 50.331736,
+    "longitude": 20.273391
 }
+
+### get one constellation
+GET {{ endpoint }}/constellation/2
+
+### Update something
+PATCH {{ endpoint }}/place/5
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MjgsImZpcnN0bmFtZSI6ImciLCJsYXN0bmFtZSI6InYiLCJlbWFpbCI6Imd2QGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwibm90aWZpY2F0aW9uIjp0cnVlfSwiaWF0IjoxNjQ5NjgxMjY5LCJleHAiOjE2NDk3Njc2Njl9.HOl7OGNrgCZq2jCHtqL1nATJeofSZEVj-jiBGeGdfzo
+content-type: application/json
+
+{
+    "name": "La zonzon",
+    "address": "20 rue du près",
+    "city": "La Rochelle",
+    "latitude": 20.331736,
+    "longitude": 122.273391
+}
+
+### Update something
+DELETE {{ endpoint }}/place/6
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MjgsImZpcnN0bmFtZSI6ImciLCJsYXN0bmFtZSI6InYiLCJlbWFpbCI6Imd2QGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwibm90aWZpY2F0aW9uIjp0cnVlfSwiaWF0IjoxNjQ5NjgxMjY5LCJleHAiOjE2NDk3Njc2Njl9.HOl7OGNrgCZq2jCHtqL1nATJeofSZEVj-jiBGeGdfzo
+
+###########################
+#         ERROR           #
+###########################
+
+### TEST d'ERREUR
+GET {{ endpoint }}/sdfsqdgsdg
+
+### TEST d'ERREUR
+GET {{ endpoint }}/constellation/gg
+
+### TEST d'ERREUR
+GET {{ endpoint }}/user
+
+### TEST d'ERREUR
+GET {{ endpoint }}/user/3
+
+### TEST d'ERREUR
+DELETE {{ endpoint }}/user/2

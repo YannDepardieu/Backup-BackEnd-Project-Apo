@@ -9,19 +9,19 @@
 #                         Index                        #
 ########################################################
 
-#########################
-#      ALL              #
-#########################
+#######################
+#      ALL            #
+#######################
 
-###
+### Documentation
 GET {{ endpoint }}/
-###
+### Documentation
 POST {{ endpoint }}/
-###
+### Documentation
 PUT {{ endpoint }}/
-###
+### Documentation
 PATCH {{ endpoint }}/
-###
+### Documentation
 DELETE {{ endpoint }}/
 
 #########################

@@ -7,16 +7,16 @@ const getModel = require('../../middlewares/getModel');
 const commonValidator = require('../../middlewares/commonValidator');
 const security = require('../../middlewares/security');
 
-router.use('/:entity', getModel);
+router.use('/:entity(constellation|myth|planet|star|place|event)', getModel);
 
 router
-    .route('/:entity')
+    .route('/:entity(constellation|myth|planet|star|place|event)')
     /**
      * GET /v1/api/common/{entity}
      * @summary Get all entries for an entity
      * @tags Entities routes
      * @param {string} entity.path.required entities availables: constellation, myth, planet, star, user
-     * @return {array<Constellation>|array<Myth>|array<Planet>|array<Star>|array<User>} 200 - success response - application/json
+     * @return {array<Constellation>|array<Myth>|array<Planet>|array<Star>} 200 - success response - application/json
      */
     .get(asyncWrapper(commonController.getAll))
     /**
@@ -32,14 +32,14 @@ router
     .post(security.checkJWT, commonValidator('body'), asyncWrapper(commonController.createOne));
 
 router
-    .route('/:entity/:id(\\d+)')
+    .route('/:entity(constellation|myth|planet|star|place|event)/:id(\\d+)')
     /**
      * GET /v1/api/common/{entity}/{id}
      * @summary Get one entity entry by its ID
      * @tags Entities routes
      * @param {string} entity.path.required entities availables: constellation, event, myth, place, planet, star, user
      * @param {integer} id.path.required identifier
-     * @return {Constellation|Event|Myth|Place|Planet|Star|User} 200 - success response - application/json
+     * @return {Constellation|Event|Myth|Place|Planet|Star} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Entities no found - application/json
      */
@@ -51,7 +51,7 @@ router
      * @security BearerAuth
      * @param {string} entity.path.required entities availables: constellation, event, myth, place, planet, star, user
      * @param {integer} id.path.required identifier
-     * @return {Constellation|Event|Myth|Place|Planet|Star|User} 200 - success response - application/json
+     * @return {Constellation|Event|Myth|Place|Planet|Star} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Entity no found - application/json
      */
@@ -63,7 +63,7 @@ router
      * @security BearerAuth
      * @param {string} entity.path.required entities availables: constellation, event, myth, place, planet, star, user
      * @param {integer} id.path.required identifier
-     * @return {Constellation|Event|Myth|Place|Planet|Star|User} 200 - success response - application/json
+     * @return {Constellation|Event|Myth|Place|Planet|Star} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Entity no found - application/json
      */
