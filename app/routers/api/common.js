@@ -23,12 +23,13 @@ router
      * POST /v1/api/common/{entity}
      * @summary Create one entity entry
      * @tags Entities routes
+     * @security BearerAuth
      * @param {string} entity.path.required Entities availables: constellation, myth, planet, star, user
-     * @param {InscriptionUser} request.body Informations if you are creating a new USER
-     * @return {Constellation|Event|Myth|Place|Planet|Star|User} 200 - success response - application/json
+     * @param {Constellation|Event|Myth|Place|Planet|Star} request.body Express req.object
+     * @return {Constellation|Event|Myth|Place|Planet|Star} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      */
-    .post(commonValidator('body'), asyncWrapper(commonController.createOne));
+    .post(security.checkJWT, commonValidator('body'), asyncWrapper(commonController.createOne));
 
 router
     .route('/:entity/:id(\\d+)')
@@ -50,10 +51,11 @@ router
      * @security BearerAuth
      * @param {string} entity.path.required entities availables: constellation, event, myth, place, planet, star, user
      * @param {integer} id.path.required constellation identifier
-     * @return {string} 200 - success response - application/json
+     * @return {Constellation|Event|Myth|Place|Planet|Star|User} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Constellation no found - application/json
      */
     .delete(security.checkJWT, asyncWrapper(commonController.deleteOne));
 
 module.exports = router;
+// * @param {InscriptionUser} request.body Informations if you are creating a new USER
