@@ -10,7 +10,7 @@ const security = require('../../middlewares/security');
 router.use('/:entity(constellation|myth|planet|star|place|event)', getModel);
 
 router
-    .route('/:entity(constellation|myth|planet|star|place|event)')
+    .route('/:entity(constellation|myth|planet|star)')
     /**
      * GET /v1/api/common/{entity}
      * @summary Get all entries for an entity
@@ -18,7 +18,10 @@ router
      * @param {string} entity.path.required entities availables: constellation, myth, planet, star, user
      * @return {array<Constellation>|array<Myth>|array<Planet>|array<Star>} 200 - success response - application/json
      */
-    .get(asyncWrapper(commonController.getAll))
+    .get(asyncWrapper(commonController.getAll));
+
+router
+    .route('/:entity(constellation|myth|planet|star|place|event)')
     /**
      * POST /v1/api/common/{entity}
      * @summary Create one entity entry
@@ -32,7 +35,7 @@ router
     .post(security.checkJWT, commonValidator('body'), asyncWrapper(commonController.createOne));
 
 router
-    .route('/:entity(constellation|myth|planet|star|place|event)/:id(\\d+)')
+    .route('/:entity(constellation|myth|planet|star)/:id(\\d+)')
     /**
      * GET /v1/api/common/{entity}/{id}
      * @summary Get one entity entry by its ID
@@ -43,7 +46,10 @@ router
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Entities no found - application/json
      */
-    .get(asyncWrapper(commonController.getByPk))
+    .get(asyncWrapper(commonController.getByPk));
+
+router
+    .route('/:entity(constellation|myth|planet|star|place|event)/:id(\\d+)')
     /**
      * PATCH /v1/api/common/{entity}/{id}
      * @summary Update one entity entry by its ID

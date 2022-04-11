@@ -66,3 +66,9 @@ GET {{ endpoint }}/user/3
 
 ### TEST d'ERREUR
 DELETE {{ endpoint }}/user/2
+
+### Select all places
+GET {{ endpoint }}/place
+
+### Select all events
+GET {{ endpoint }}/event
