@@ -2,9 +2,14 @@ const debug = require('debug')('userController');
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+// const { createClient } = require('redis');
 const ApiError = require('../../errors/apiError');
 
 const User = require('../../models/user');
+
+const PREFIX = 'logoutToken';
+
+const { seekToken, blackList } = require('../../services/seekAuth');
 
 const { JWTOKEN_KEY } = process.env;
 const userController = {
@@ -31,6 +36,17 @@ const userController = {
      * @param {object} res Express response object
      * @return {string} Route API JSON data
      */
+    async createOne(req, res) {
+        // debug(req.body);
+        const found = await User.isUnique(req.body);
+        // debug('found ', found);
+        if (found) {
+            throw new ApiError(`${User.tableName} is not unique`, { statusCode: 404 });
+        }
+        const data = await User.insert(req.body);
+        // debug(data);
+        return res.json(data);
+    },
     async auth(req, res) {
         const { email, password } = req.body;
         // On recherche notre utilisateur grâce à son email
@@ -119,6 +135,18 @@ const userController = {
             return result;
         }
         throw new ApiError(`Old password is not correct`, { statusCode: 400 });
+    },
+
+    async logout(req, res) {
+        // Delete the stored token from client side upon log out
+        res.removeHeader('Authorization');
+
+        // Have DB of no longer active tokens that still have some time to live
+        const key = `${PREFIX}${req.decoded.iat}`;
+        const token = seekToken(req);
+        blackList(key, token);
+
+        res.status(200).json('user disconnected');
     },
 };
 

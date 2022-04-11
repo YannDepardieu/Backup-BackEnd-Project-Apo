@@ -74,7 +74,7 @@ const commonController = {
         const { Model } = res.locals;
         const data = await Model.findByPk(req.params.id);
         if (!data) {
-            throw new ApiError(`${Model.tableName}n not found`, { statusCode: 404 });
+            throw new ApiError(`${Model.tableName} not found`, { statusCode: 404 });
         }
         if (data.password) {
             delete data.password;
@@ -105,6 +105,15 @@ const commonController = {
             throw new ApiError(`This ${Model.tableName} is not unique`, { statusCode: 400 });
         }
         const data = await Model.insert(req.body);
+        // debug(data);
+        return res.json(data);
+    },
+    async deleteOne(req, res) {
+        const { Model } = res.locals;
+        const data = await Model.deleteByPk(req.params.id);
+        if (!data) {
+            throw new ApiError('Entry not found', { statusCode: 404 });
+        }
         return res.json(data);
     },
 
