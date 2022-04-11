@@ -125,7 +125,6 @@ const commonController = {
             throw new ApiError(`This ${Model.tableName} does not exists`, { statusCode: 404 });
         }
         const notUnique = await Model.isUnique(req.body, id);
-        debug('notUnique = ', notUnique);
         if (notUnique) {
             throw new ApiError(`This ${Model.tableName} is not unique`, { statusCode: 400 });
         }

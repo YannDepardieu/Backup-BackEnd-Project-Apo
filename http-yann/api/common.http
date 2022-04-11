@@ -18,19 +18,6 @@ GET {{ endpoint }}/sdfsqdgsdg
 ### get one constellation
 GET {{ endpoint }}/constellation/1
 
-### insert a user
-POST {{ endpoint }}/user
-content-type: application/json
-
-{
-    "firstname": "g",
-    "lastname": "v",
-    "email": "gv@gmail.com",
-    "password": "xx",
-    "role": "user",
-    "notification": true
-}
-
 ### Update something (not user)
 PATCH {{ endpoint }}/place/2
 Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MjgsImZpcnN0bmFtZSI6ImciLCJsYXN0bmFtZSI6InYiLCJlbWFpbCI6Imd2QGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwibm90aWZpY2F0aW9uIjp0cnVlfSwiaWF0IjoxNjQ5NjgxMjY5LCJleHAiOjE2NDk3Njc2Njl9.HOl7OGNrgCZq2jCHtqL1nATJeofSZEVj-jiBGeGdfzo

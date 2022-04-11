@@ -9,23 +9,36 @@
 #                         User                         #
 ########################################################
 
+### insert a user
+POST {{ endpoint }}/
+content-type: application/json
+
+{
+    "firstname": "b",
+    "lastname": "b",
+    "email": "bb@gmail.com",
+    "password": "xx",
+    "role": "user",
+    "notification": true
+}
+
 ### Vérifier l'authentification d'un user, si c'est ok on me renvoie un token dans le header
 ### Authorization: Bearer [token]
 POST {{ endpoint }}/auth
 content-type: application/json
 
 {
-    "email": "gv@gmail.com",
+    "email": "bb@gmail.com",
     "password": "xx"
 }
 
 ### Find a user :
 GET {{ endpoint }}/
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MjgsImZpcnN0bmFtZSI6ImciLCJsYXN0bmFtZSI6InYiLCJlbWFpbCI6Imd2QGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwibm90aWZpY2F0aW9uIjp0cnVlfSwiaWF0IjoxNjQ5NjgxMjY5LCJleHAiOjE2NDk3Njc2Njl9.HOl7OGNrgCZq2jCHtqL1nATJeofSZEVj-jiBGeGdfzo
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MzAsImZpcnN0bmFtZSI6ImIiLCJsYXN0bmFtZSI6ImIiLCJlbWFpbCI6ImJiQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwibm90aWZpY2F0aW9uIjp0cnVlfSwiaWF0IjoxNjQ5Njg1NDkzLCJleHAiOjE2NDk3NzE4OTN9.KIzSnSEwEzxQ43dYJf5FmzwuVXbeKOQzU8dnU-MVGlY
 
 ### Update a user
 PATCH {{ endpoint }}/
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MjgsImZpcnN0bmFtZSI6ImciLCJsYXN0bmFtZSI6InYiLCJlbWFpbCI6Imd2QGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwibm90aWZpY2F0aW9uIjp0cnVlfSwiaWF0IjoxNjQ5NjgxMjY5LCJleHAiOjE2NDk3Njc2Njl9.HOl7OGNrgCZq2jCHtqL1nATJeofSZEVj-jiBGeGdfzo
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MzAsImZpcnN0bmFtZSI6ImIiLCJsYXN0bmFtZSI6ImIiLCJlbWFpbCI6ImJiQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwibm90aWZpY2F0aW9uIjp0cnVlfSwiaWF0IjoxNjQ5Njg1NDkzLCJleHAiOjE2NDk3NzE4OTN9.KIzSnSEwEzxQ43dYJf5FmzwuVXbeKOQzU8dnU-MVGlY
 content-type: application/json
 
 {

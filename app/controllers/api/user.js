@@ -43,9 +43,9 @@ const userController = {
         if (found) {
             throw new ApiError(`${User.tableName} is not unique`, { statusCode: 404 });
         }
-        const data = await User.insert(req.body);
-        // debug(data);
-        return res.json(data);
+        const user = await User.insert(req.body);
+        delete user.password;
+        return res.json(user);
     },
     async auth(req, res) {
         const { email, password } = req.body;
