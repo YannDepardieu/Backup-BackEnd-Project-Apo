@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const debug = require('debug')('Validator:log');
 const ApiError = require('../errors/apiError');
 
@@ -11,7 +12,7 @@ const ApiError = require('../errors/apiError');
  */
 module.exports = (prop, schema) => async (request, _, next) => {
     try {
-        debug(request[prop]);
+        // debug(request[prop]);
         await schema.validateAsync(request[prop]);
         next();
     } catch (error) {

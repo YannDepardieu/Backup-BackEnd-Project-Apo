@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 const debug = require('debug')('commonController');
-const bcrypt = require('bcryptjs');
 const ApiError = require('../../errors/apiError');
 
 const commonController = {
@@ -111,47 +110,19 @@ const commonController = {
 
     async update(req, res) {
         const { Model } = res.locals;
-        debug('req.params = ', req.params);
-        debug('req.decoded.cleanedUser = ', req.decoded.cleanedUser);
-        let id;
-        if (req.params.id) {
-            id = req.params.id;
-        } else {
-            id = req.decoded.cleanedUser.id;
-        }
+        const { id } = req.params;
         const element = await Model.findByPk(id);
         if (!element) {
             throw new ApiError(`This ${Model.tableName} does not exists`, { statusCode: 404 });
-        }
-        if (Model.tableName === 'user') {
-            debug('req.body.oldPassword == ', req.body.oldPassword);
-            debug('element.password == ', element.password);
-            bcrypt.compare(req.body.oldPassword, element.password, (err, response) => {
-                if (err) {
-                    throw new Error(err);
-                }
-                if (response) {
-                    debug('password ', response);
-                    return;
-                }
-                debug('password ', response);
-                throw new ApiError(`Old password is not correct`, { statusCode: 400 });
-            });
         }
         const notUnique = await Model.isUnique(req.body, id);
         debug('notUnique = ', notUnique);
         if (notUnique) {
             throw new ApiError(`This ${Model.tableName} is not unique`, { statusCode: 400 });
         }
-        debug('req.body = ', req.body);
-        delete req.body.oldPassword;
-        req.body.password = req.body.newPassword;
-        delete req.body.newPassword;
+
         const output = await Model.update(id, req.body);
-        debug('output = ', output);
-        if (output.password) {
-            delete output.password;
-        }
+
         return res.json(output);
     },
 };

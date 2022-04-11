@@ -23,25 +23,23 @@ POST {{ endpoint }}/user
 content-type: application/json
 
 {
-    "firstname": "Marceline",
-    "lastname": "Ajun",
-    "email": "marcelineajun@gmail.com",
-    "password": "xxxx",
+    "firstname": "g",
+    "lastname": "v",
+    "email": "gv@gmail.com",
+    "password": "xx",
     "role": "user",
     "notification": true
 }
 
-### update a user
-PATCH {{ endpoint }}/user
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MjMsImZpcnN0bmFtZSI6Ik1hcmNlbGluZSIsImxhc3RuYW1lIjoiQWp1biIsImVtYWlsIjoibWFyY2VsaW5lYWp1bkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTU4MTEzNSwiZXhwIjoxNjQ5NjY3NTM1fQ.t6BMgeR2qOQruzoKE5xIwRMTLVsck-Z2PLtOjdS4k-c
+### Update something (not user)
+PATCH {{ endpoint }}/place/2
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MjgsImZpcnN0bmFtZSI6ImciLCJsYXN0bmFtZSI6InYiLCJlbWFpbCI6Imd2QGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwibm90aWZpY2F0aW9uIjp0cnVlfSwiaWF0IjoxNjQ5NjgxMjY5LCJleHAiOjE2NDk3Njc2Njl9.HOl7OGNrgCZq2jCHtqL1nATJeofSZEVj-jiBGeGdfzo
 content-type: application/json
 
 {
-    "firstname": "Marceline",
-    "lastname": "Ajun",
-    "email": "marcelineajun@gmail.com",
-    "oldPassword": "xxxx",
-    "newPassword": "yyyy",
-    "role": "user",
-    "notification": true
+    "name": "PoisonIvyIII",
+    "address": "68298 Fairview Place",
+    "city": "Huoqiu Chengguanzhen",
+    "latitude": 32.331736,
+    "longitude": 116.273391
 }
