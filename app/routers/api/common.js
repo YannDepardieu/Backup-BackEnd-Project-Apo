@@ -21,7 +21,9 @@ router
     .get(asyncWrapper(commonController.getAll));
 
 router
-    .route('/:entity(constellation|myth|planet|star|place|event)')
+    .route(
+        '/:entity(constellation|myth|planet|star|place|event|reserve_event|save_place|favorite_constellation|prefer_planet)',
+    )
     /**
      * POST /v1/api/common/{entity}
      * @summary Create one entity entry
@@ -49,7 +51,10 @@ router
     .get(asyncWrapper(commonController.getByPk));
 
 router
-    .route('/:entity(constellation|myth|planet|star|place|event)/:id(\\d+)')
+    .route(
+        `/:entity(constellation|myth|planet|star|place|event|reserve_event|save_place|favorite_constellation|prefer_planet)
+        /:id(\\d+)`,
+    )
     /**
      * PATCH /v1/api/common/{entity}/{id}
      * @summary Update one entity entry by its ID
