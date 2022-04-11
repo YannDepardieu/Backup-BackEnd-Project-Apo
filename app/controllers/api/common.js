@@ -73,7 +73,7 @@ const commonController = {
         const { Model } = res.locals;
         const data = await Model.findByPk(req.params.id);
         if (!data) {
-            throw new ApiError('Constellation not found', { statusCode: 404 });
+            throw new ApiError('Entry not found', { statusCode: 404 });
         }
         if (data.password) {
             delete data.password;
@@ -100,10 +100,20 @@ const commonController = {
     async createOne(req, res) {
         const { Model } = res.locals;
         const found = await Model.isUnique(req.body);
+        // debug('found ', found);
         if (found) {
             throw new ApiError(`${Model.tableName} is not unique`, { statusCode: 404 });
         }
         const data = await Model.insert(req.body);
+        // debug(data);
+        return res.json(data);
+    },
+    async deleteOne(req, res) {
+        const { Model } = res.locals;
+        const data = await Model.deleteByPk(req.params.id);
+        if (!data) {
+            throw new ApiError('Entry not found', { statusCode: 404 });
+        }
         return res.json(data);
     },
 };

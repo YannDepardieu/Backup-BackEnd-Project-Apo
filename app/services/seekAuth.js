@@ -6,9 +6,6 @@ const blackListArray = [];
 const TTL = 24 * 60 * 60;
 
 const seekAuth = {
-    // async connect() {
-    //     await redis.connect();
-    // },
     seekToken: (req) => {
         let token = req.headers['x-access-token'] || req.headers.authorization;
         if (!!token && token.startsWith('Bearer ')) {
@@ -24,17 +21,20 @@ const seekAuth = {
         blackListArray.push(key);
         debug('blacklist ', blackListArray);
     },
-    // eslint-disable-next-line consistent-return
     logoutToken: async (decoded) => {
+        await redis.connect();
         const key = `logoutToken${decoded.iat}`;
-        debug(blackListArray);
+        // debug('Blacklist: ', blackListArray);
+        const timeToLive = await redis.ttl(key);
+        debug('Token life in hr: ', Math.round((timeToLive / 60 / 60) * 100) / 100);
         if (blackListArray.includes(key)) {
-            debug(blackListArray[key]);
-            await redis.connect();
-            const logoutToken = await redis.get(`logoutToken${decoded.iat}`);
-            await redis.quit();
+            debug('logoutToken ', blackListArray[key]);
+            const logoutToken = await redis.get(key);
+            debug(decoded.exp, timeToLive);
             return { message: 'user already logged out', unvalidToken: logoutToken };
         }
+        await redis.quit();
+        return null;
     },
 };
 module.exports = seekAuth;

@@ -6,5 +6,6 @@ const Place = require('./place');
 const Galaxy = require('./galaxy');
 const Planet = require('./planet');
 const Star = require('./star');
+const FavConst = require('./favoriteConstellation');
 
-module.exports = [Constellation, Myth, User, Event, Place, Galaxy, Planet, Star];
+module.exports = [Constellation, Myth, User, Event, Place, Galaxy, Planet, Star, FavConst];

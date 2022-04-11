@@ -69,6 +69,7 @@ class CoreModel {
     }
 
     static async insert(data) {
+        // debug('data on insert', data);
         if (data.password) {
             // eslint-disable-next-line no-param-reassign
             data.password = bcrypt.hashSync(data.password, 10);
@@ -82,7 +83,6 @@ class CoreModel {
             values: [...values],
         };
         const inserted = await client.query(SQL);
-
         if (inserted.rows.length === 0) {
             throw new ApiError(`${this.tableName} not found, id doesn't exist`, {
                 statusCode: 404,
@@ -119,6 +119,7 @@ class CoreModel {
     }
 
     static async isUnique(inputData, id) {
+        // debug('on isUnique ', inputData, id);
         let uniquesConstraints = await client.query(`
             SELECT con.conname
             FROM pg_catalog.pg_constraint con
@@ -134,7 +135,6 @@ class CoreModel {
                 column.push(constraint.conname.match(columnRegex)[1]);
             }
         });
-
         const fields = [];
         const values = [];
         let index = 1;
@@ -148,7 +148,9 @@ class CoreModel {
                 index += 1;
             }
         });
-
+        if (fields.length === 0) {
+            return null;
+        }
         const preparedQuery = {
             text: `SELECT * FROM "${this.tableName}" WHERE (${fields.join(' OR ')})`,
             values,

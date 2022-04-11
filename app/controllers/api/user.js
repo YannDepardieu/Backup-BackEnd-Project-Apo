@@ -36,6 +36,17 @@ const userController = {
      * @param {object} res Express response object
      * @return {string} Route API JSON data
      */
+    async createOne(req, res) {
+        // debug(req.body);
+        const found = await User.isUnique(req.body);
+        // debug('found ', found);
+        if (found) {
+            throw new ApiError(`${User.tableName} is not unique`, { statusCode: 404 });
+        }
+        const data = await User.insert(req.body);
+        // debug(data);
+        return res.json(data);
+    },
     async auth(req, res) {
         const { email, password } = req.body;
         // On recherche notre utilisateur grâce à son email

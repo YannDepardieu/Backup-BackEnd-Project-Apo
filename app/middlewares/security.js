@@ -2,7 +2,7 @@
 // on va donc vérifier la validité du token et laisser passer ou pas la requête.
 
 const jwt = require('jsonwebtoken');
-const debug = require('debug')('security:JWToken');
+// const debug = require('debug')('security:JWToken');
 const { seekToken, logoutToken } = require('../services/seekAuth');
 
 const { JWTOKEN_KEY } = process.env;
@@ -27,7 +27,7 @@ exports.checkJWT = async (req, res, next) => {
 
             // Query provided token against The Blacklist on every authorized request !
             const unauthToken = await logoutToken(decoded);
-            debug('authToken ', unauthToken);
+            // debug('unauthToken? : ', unauthToken);
 
             if (unauthToken) {
                 res.status(401).json('Unauthorized');

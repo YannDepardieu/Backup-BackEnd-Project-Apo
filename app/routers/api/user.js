@@ -8,6 +8,15 @@ const security = require('../../middlewares/security');
 router
     .route('/')
     /**
+     * POST /v1/api/user/
+     * @summary Create one new user's profil
+     * @tags User
+     * @param {User} request.body.required Express req.object
+     * @return {User} 200 - success response - application/json
+     * @return {ApiError} 404 - Not found response - application/json
+     */
+    .post(asyncWrapper(userController.createOne))
+    /**
      * GET /v1/api/user/
      * @summary Get one user's profil details
      * @tags User
