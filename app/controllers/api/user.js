@@ -130,6 +130,21 @@ const userController = {
 
         res.status(200).json({ logout: true });
     },
+
+    async delete(req, res, next) {
+        const { id } = req.decoded.cleanedUser;
+        const user = await User.findByPk(id);
+        bcrypt.compare(req.body.password, user.password, async (err, response) => {
+            if (err) {
+                throw new Error(err);
+            }
+            if (response) {
+                const output = await User.deleteByPk(id);
+                return res.json(output);
+            }
+            return next(new ApiError('password is not correct', { statusCode: 400 }));
+        });
+    },
 };
 
 module.exports = userController;

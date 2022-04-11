@@ -50,14 +50,10 @@ content-type: application/json
 }
 
 ### Delete a user
-PATCH {{ endpoint }}/
+DELETE {{ endpoint }}/
 Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MzAsImZpcnN0bmFtZSI6ImIiLCJsYXN0bmFtZSI6ImIiLCJlbWFpbCI6ImJiQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwibm90aWZpY2F0aW9uIjp0cnVlfSwiaWF0IjoxNjQ5Njg1NDkzLCJleHAiOjE2NDk3NzE4OTN9.KIzSnSEwEzxQ43dYJf5FmzwuVXbeKOQzU8dnU-MVGlY
 content-type: application/json
 
 {
-    "firstname": "b",
-    "lastname": "b",
-    "email": "bb@gmail.com",
-    "oldPassword": "xx",
-    "newPassword": "yy"
+    "password": "yy"
 }

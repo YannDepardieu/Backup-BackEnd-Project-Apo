@@ -199,7 +199,7 @@ class CoreModel {
         if (result.rowCount === 0) {
             return null;
         }
-        return 'Entry deleted';
+        return { delete: true };
     }
 }
 
