@@ -12,7 +12,6 @@ const ApiError = require('../errors/apiError');
  */
 module.exports = (prop, schema) => async (request, _, next) => {
     try {
-        // debug(request[prop]);
         await schema.validateAsync(request[prop]);
         next();
     } catch (error) {

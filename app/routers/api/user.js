@@ -31,20 +31,17 @@ router
      * PATCH /v1/api/user/
      * @summary Update one entity entry by its ID
      * @tags Entities routes
-     * @param {string} entity.path.required entities availables: constellation, event, myth, place, planet, star, user
-     * @param {integer} id.path.required identifier
+     * @param {object} request.body identifier
      * @return {Constellation|Event|Myth|Place|Planet|Star|User} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Entities no found - application/json
      */
     .patch(security.checkJWT, validator('body', updateSchema), asyncWrapper(userController.update))
     /**
-     * PATCH /v1/api/user/
-     * @summary Update one entity entry by its ID
+     * DELETE /v1/api/user/
+     * @summary Deletes one user
      * @tags Entities routes
-     * @param {string} entity.path.required entities availables: constellation, event, myth, place, planet, star, user
-     * @param {integer} id.path.required identifier
-     * @return {Constellation|Event|Myth|Place|Planet|Star|User} 200 - success response - application/json
+     * @return {string} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Entities no found - application/json
      */

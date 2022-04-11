@@ -6,9 +6,9 @@ Enter a postal adress and get to see what's on the sky over that spot. See the c
 
 ## To install
 
-```npm install``` to get all dependencies.
+`npm install` to get all dependencies.
 
-```npm start``` to run the API server
+`npm start` to run the API server
 
 Get to [Starry Nights UI Swagger docs](http://localhost:3001/api-docs/) to see all the routes availables and their reponses, or check how to...
 
@@ -16,8 +16,8 @@ Get to [Starry Nights UI Swagger docs](http://localhost:3001/api-docs/) to see a
 
 ### Non authorised user
 
-| Section |       Function       |       Tag       | Verb |            Route           |                         Description                        |
-|---------|----------------------|-----------------|------|----------------------------|------------------------------------------------------------|
+| Section | Function             | Tag             | Verb | Route                      | Description                                                |
+| ------- | -------------------- | --------------- | ---- | -------------------------- | ---------------------------------------------------------- |
 | page    | home                 | Myth            | get  | /myth/random               | A random myth and its constellation                        |
 | page    | home                 | Constellation   | get  | /constellation/getAllNames | All constellations names for the search bar                |
 | header  | menu Constellations  | Entities routes | get  | /common/constellations     | All constellations with full details                       |
@@ -29,23 +29,25 @@ Get to [Starry Nights UI Swagger docs](http://localhost:3001/api-docs/) to see a
 
 ### Authorized user
 
-| Section | Function                   | Tag             | Verb   | Route                     | Description                                                |
-|---------|----------------------------|-----------------|--------|---------------------------|------------------------------------------------------------|
-| header  | menu User déconnection     | User            | get    | /user/logout              | Manages the user logout flow                               |
-| header  | menu User profile          | User            | get    | /user/                    | Gets all user's details                                    |
-| page    | Modify user profile        |                 |        |                           | Updates user's details                                     |
-| modale  | Set a Constellation as fav |                 |        |                           | Adds one constellation as a user's favorite                | *
-| header  | menu My Constellations     |                 |        |                           | Get all user's constellations                              |
-| modale  | see one Constellation      | Constellation   | get    | /constellation/:id        | A single constellation with full details and myth (if any) |
-| modale  | delete one Constellation   |                 |        |                           | Deletes one user's favorite constellation                  |
-| header  | menu My Places             |                 |        |                           | Get all user's places                                      |
-| page    | home Create one Place      |                 |        |                           | Creates one user's place                                   |
-| modale  | Updates one Place          |                 |        |                           | Updates one user's place                                   |
-| modale  | Deletes one Place          |                 |        |                           | Deletes one user's place                                   |
-| header  | menu My Events             |                 |        |                           | Get all user's events                                      |
-| page    | home Create one Event      |                 |        |                           | Creates one user's event                                   |
-| modale  | Updates one Event          |                 |        |                           | Updates one user's event                                   |
-| modale  | Deletes one Event          |                 |        |                           | Deletes one user's event                                   |
-| page    | Get password link email    |                 |        |                           | Checks user's email to send a link email                   |
-| page    | Post code to modify pass   |                 |        |                           | Checks code entered by user                                |
-| page    | Modifies password          |                 |        |                           | Post new password                                          |
+| Section | Function                   | Tag             | Verb   | Route                              | Description                                                |
+| ------- | -------------------------- | --------------- | ------ | ---------------------------------- | ---------------------------------------------------------- |
+| header  | menu User déconnection     | User            | get    | /user/logout                       | Manages the user logout flow                               |
+| header  | menu User profile          | User            | get    | /user                              | Gets all user's details                                    |
+| page    | Modify user profile        |                 |        |                                    | Updates user's details                                     |
+| modale  | Set a Constellation as fav | Constellation   | post   | /constellation/fav                 | Adds one constellation as a user's favorite                |
+| header  | menu My Constellations     | Constellation   | get    | /constellation/fav                 | Get all user's constellations                              |
+| modale  | see one Constellation      | Constellation   | get    | /constellation/:id                 | A single constellation with full details and myth (if any) |
+| modale  | delete one Constellation   | Entities routes | delete | /common/favorite_constellation/:id | Deletes one user's favorite constellation                  |
+| header  | menu My Places             |                 |        |                                    | Get all user's places                                      |
+| page    | home Create one Place      |                 |        |                                    | Creates one user's place                                   |
+| page    | home Check one Place       | Entities routes | get    | /common/place                      | Get on the map one user's place                            |
+| modale  | Updates one Place          |                 |        |                                    | Updates one user's place                                   |
+| modale  | Deletes one Place          |                 |        |                                    | Deletes one user's place                                   |
+| header  | menu My Events             |                 |        |                                    | Get all user's events                                      |
+| page    | home Create one Event      |                 |        |                                    | Creates one user's event                                   |
+| modale  | Updates one Event          |                 |        |                                    | Updates one user's event                                   |
+| modale  | Deletes one Event          |                 |        |                                    | Deletes one user's event                                   |
+| page    | home button Chercher       | geocoding       | get    | /geocoding/forward                 | Retrieves an adrdess to return latitude and longitude      |
+| page    | Get password link email    |                 |        |                                    | Checks user's email to send a link email                   |
+| page    | Post code to modify pass   |                 |        |                                    | Checks code entered by user                                |
+| page    | Modifies password          |                 |        |                                    | Post new password                                          |

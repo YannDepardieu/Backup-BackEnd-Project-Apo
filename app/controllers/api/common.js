@@ -48,6 +48,7 @@ const commonController = {
      */
     async getAll(_, res) {
         const { Model } = res.locals;
+        debug(Model);
         const data = await Model.findAll();
         res.json(data);
     },
