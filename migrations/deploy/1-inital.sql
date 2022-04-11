@@ -8,7 +8,7 @@ CREATE TABLE "user" (
     lastname text NOT NULL,
     email text NOT NULL UNIQUE,
     "password" text NOT NULL,
-    "role" text NOT NULL DEFAULT "user",
+    "role" text NOT NULL DEFAULT 'user',
     "notification" boolean DEFAULT false,
     created_at timestamptz NOT NULL DEFAULT NOW(),
     updated_at timestamptz
@@ -17,8 +17,6 @@ CREATE TABLE "place" (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name text NOT NULL,
     address text,
-    postalcode text,
-    city text,
     latitude real NOT NULL,
     longitude real NOT NULL,
     created_at timestamptz NOT NULL DEFAULT NOW(),

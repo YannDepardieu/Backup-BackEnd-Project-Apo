@@ -6,6 +6,7 @@ const asyncWrapper = require('../../middlewares/asyncWrapper');
 const security = require('../../middlewares/security');
 const validator = require('../../middlewares/validator');
 const updateSchema = require('../../schemas/updateUser');
+const createSchema = require('../../schemas/createUser');
 
 router
     .route('/')
@@ -17,7 +18,7 @@ router
      * @return {User} 200 - success response - application/json
      * @return {ApiError} 404 - Not found response - application/json
      */
-    .post(asyncWrapper(userController.createOne))
+    .post(validator('body', createSchema), asyncWrapper(userController.createOne))
     /**
      * GET /v1/api/user/
      * @summary Get one user's profil details

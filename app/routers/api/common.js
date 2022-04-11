@@ -7,7 +7,10 @@ const getModel = require('../../middlewares/getModel');
 const commonValidator = require('../../middlewares/commonValidator');
 const security = require('../../middlewares/security');
 
-router.use('/:entity(constellation|myth|planet|star|place|event)', getModel);
+router.use(
+    '/:entity(constellation|myth|planet|star|place|event|reserve_event|save_place|favorite_constellation|prefer_planet)',
+    getModel,
+);
 
 router
     .route('/:entity(constellation|myth|planet|star)')

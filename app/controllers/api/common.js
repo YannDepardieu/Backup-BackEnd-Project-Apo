@@ -49,7 +49,9 @@ const commonController = {
     async getAll(_, res) {
         const { Model } = res.locals;
         const data = await Model.findAll();
-        res.json(data);
+        const output = [];
+        data.forEach((element) => output.push({ id: element.id, ...element }));
+        res.json(output);
     },
     /**
      * An event

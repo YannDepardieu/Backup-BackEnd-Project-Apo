@@ -86,7 +86,7 @@ const userController = {
             });
         }
         // Si on ne trouve pas l'user
-        return next(new ApiError('wrong email or password', { statusCode: 404 }));
+        return next(new ApiError('wrong email or password', { statusCode: 403 }));
     },
 
     async getOne(req, res) {
