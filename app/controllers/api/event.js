@@ -1,18 +1,27 @@
 // eslint-disable-next-line no-unused-vars
 const debug = require('debug')('eventController');
-const ApiError = require('../../errors/apiError');
+// const ApiError = require('../../errors/apiError');
 const Event = require('../../models/event');
 const ReserveEvent = require('../../models/reserveEvent');
 const { forward } = require('../../services/positionStack');
 
 const eventController = {
     /**
-     * Event Input
+     * EventInput
      * @typedef {object} EventInput
      * @property {string} name - Name of the event
      * @property {string} address - Address of the event
      * @property {string} event_datetime - Datetime of the event
      * @property {string} recall_datetime - Datetime of the recall
+     */
+    /**
+     * AllEventsOutput
+     * @typedef {object} AllEvents
+     * @property {string} name - Name of the event
+     * @property {string} event_datetime - Datetime of the event
+     * @property {string} recall_datetime - Datetime of the recall
+     * @property {string} latitude - latitude of the event
+     * @property {string} longitude - longitude of the event
      */
     /**
      * Api controller to get one user myth by its ID.
@@ -35,6 +44,12 @@ const eventController = {
             user_id: req.decoded.user.id,
         });
         return res.json({ event, reserveEvent });
+    },
+
+    async getAll(req, res) {
+        const events = await ReserveEvent.selectAll(req.decoded.user.id);
+        debug('events = ', events);
+        return res.json(events);
     },
 };
 

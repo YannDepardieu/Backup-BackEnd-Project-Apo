@@ -20,3 +20,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2L
     "event_datetime": "2022-05-12 07:19:12",
     "recall_datetime": "2022-05-11 23:00:00"
 }
+
+### Get all events of a user
+GET {{ endpoint }}/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTc5NDE2MywiZXhwIjoxNjQ5ODgwNTYzfQ.uXsS8uhSk_2m7SVp3xqZhnuxi1sI9KvKoKFialkK8tY
