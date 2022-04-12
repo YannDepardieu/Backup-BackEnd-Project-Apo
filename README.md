@@ -38,11 +38,11 @@ Get to [Starry Nights UI Swagger docs](http://localhost:3001/api-docs/) to see a
 | header  | menu My Constellations     | Constellation   | get    | /constellation/fav                 | Get all user's constellations                              |
 | modale  | see one Constellation      | Constellation   | get    | /constellation/:id                 | A single constellation with full details and myth (if any) |
 | modale  | delete one Constellation   | Entities routes | delete | /common/favorite_constellation/:id | Deletes one user's favorite constellation                  |
-| header  | menu My Places             |                 |        |                                    | Get all user's places                                      |
-| page    | home Create one Place      |                 |        |                                    | Creates one user's place                                   |
-| page    | home Check one Place       | Entities routes | get    | /common/place                      | Get on the map one user's place                            |
-| modale  | Updates one Place          |                 |        |                                    | Updates one user's place                                   |
-| modale  | Deletes one Place          |                 |        |                                    | Deletes one user's place                                   |
+| header  | menu My Places             | Place           | get    | /place                             | Get all user's places                                      |
+| page    | home Create one Place      | Place           | post   | /place                             | Creates one user's place                                   |
+| page    | home Check one Place       | Place           | get    | /place:id                          | Get on the map one user's place                            |
+| modale  | Updates one Place          | Entities routes | patch  | /place/:id                         | Updates one user's place                                   |
+| modale  | Deletes one Place          | Place           | delete | /place/:id                         | Deletes one user's place                                   |
 | header  | menu My Events             |                 |        |                                    | Get all user's events                                      |
 | page    | home Create one Event      |                 |        |                                    | Creates one user's event                                   |
 | modale  | Updates one Event          |                 |        |                                    | Updates one user's event                                   |

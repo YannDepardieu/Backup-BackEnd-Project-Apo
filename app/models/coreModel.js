@@ -70,6 +70,7 @@ class CoreModel {
     }
 
     static async findOne(data) {
+        debug('findOne');
         if (data.password) {
             // eslint-disable-next-line no-param-reassign
             delete data.password;
@@ -85,8 +86,9 @@ class CoreModel {
         //     values: [Object.values(data)[0]],
         // };
         const result = await client.query(SQL);
-
+        debug(result.rows);
         if (result.rows.length === 0) {
+            debug('whyyyy');
             throw new ApiError(`${this.tableName} not found, id doesn't exist`, {
                 statusCode: 404,
             });
@@ -196,6 +198,7 @@ class CoreModel {
             values: [id],
         };
         const result = await client.query(query);
+        debug(result);
         if (result.rowCount === 0) {
             return null;
         }

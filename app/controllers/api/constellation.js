@@ -38,13 +38,21 @@ const constellationController = {
         }
         return res.json(data);
     },
-    async getAllFavs(req, res) {
-        const data = await favConst.findAll();
-        if (!data) {
+    async getAllFavs(_, res) {
+        const constellationsIds = await favConst.findAll();
+        if (!constellationsIds) {
             throw new ApiError('Data not found', { statusCode: 404 });
         }
-        debug(data);
-        return res.json(data);
+        const userConstellations = [];
+        await Promise.all(
+            constellationsIds.map(async (fav) => {
+                const constellation = await Model.findByPkWithMyths(fav.constellation_id);
+                if (constellation) {
+                    userConstellations.push(constellation);
+                }
+            }),
+        );
+        return res.json(userConstellations);
     },
     async getAllNames(_, res) {
         const data = await Model.constellationsNames();
