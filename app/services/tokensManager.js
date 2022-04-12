@@ -4,16 +4,13 @@ const jwt = require('jsonwebtoken');
 const ApiError = require('../errors/apiError');
 
 const redis = createClient();
-const TTL = 24 * 60 * 60;
-
-const PREFIX = 'logoutToken';
-
+const expiresIn = 24 * 60 * 60;
+const PREFIX = 'disabledToken';
 const { JWTOKEN_KEY } = process.env;
 
 const tokensManager = {
     createToken: (user) => {
-        const expiresIn = 24 * 60 * 60;
-        // On signe ensuite le token avec toutes nos infos et la clé secrète,
+        // On crée/signe le token avec toutes nos infos et la clé secrète,
         const newToken = jwt.sign({ user }, JWTOKEN_KEY, { expiresIn });
         return newToken;
     },
@@ -29,7 +26,7 @@ const tokensManager = {
             const key = `${PREFIX}${req.decoded.iat}`;
             const token = tokensManager.seekToken(req);
             await redis.connect();
-            await redis.setEx(key, TTL, token);
+            await redis.setEx(key, expiresIn, token);
             await redis.quit();
         } catch (error) {
             debug(error);
