@@ -1,5 +1,6 @@
-const debug = require('debug')('seekAuth');
+const debug = require('debug')('tokensManager');
 const { createClient } = require('redis');
+const jwt = require('jsonwebtoken');
 const ApiError = require('../errors/apiError');
 
 const redis = createClient();
@@ -7,7 +8,15 @@ const TTL = 24 * 60 * 60;
 
 const PREFIX = 'logoutToken';
 
-const seekAuth = {
+const { JWTOKEN_KEY } = process.env;
+
+const tokensManager = {
+    createToken: (user) => {
+        const expiresIn = 24 * 60 * 60;
+        // On signe ensuite le token avec toutes nos infos et la clé secrète,
+        const newToken = jwt.sign({ user }, JWTOKEN_KEY, { expiresIn });
+        return newToken;
+    },
     seekToken: (req) => {
         let token = req.headers['x-access-token'] || req.headers.authorization;
         if (!!token && token.startsWith('Bearer ')) {
@@ -18,7 +27,7 @@ const seekAuth = {
     disableToken: async (req) => {
         try {
             const key = `${PREFIX}${req.decoded.iat}`;
-            const token = seekAuth.seekToken(req);
+            const token = tokensManager.seekToken(req);
             await redis.connect();
             await redis.setEx(key, TTL, token);
             await redis.quit();
@@ -45,4 +54,4 @@ const seekAuth = {
         }
     },
 };
-module.exports = seekAuth;
+module.exports = tokensManager;

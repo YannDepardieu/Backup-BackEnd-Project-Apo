@@ -4,7 +4,7 @@
 const jwt = require('jsonwebtoken');
 // eslint-disable-next-line no-unused-vars
 const debug = require('debug')('security:JWToken');
-const { seekToken, checkDisabledToken } = require('../services/seekAuth');
+const { seekToken, checkDisabledToken, createToken } = require('../services/tokensManager');
 const ApiError = require('../errors/apiError');
 
 const { JWTOKEN_KEY } = process.env;
@@ -30,10 +30,7 @@ exports.checkJWT = async (req, res, next) => {
             // We store the decoded token in the request object to be able to use it in the next middleware
             req.decoded = decoded;
             // Creation of a new token
-            const expiresIn = 24 * 60 * 60;
-            const newToken = jwt.sign({ user: decoded.cleanedUser }, JWTOKEN_KEY, {
-                expiresIn,
-            });
+            const newToken = createToken(decoded.user);
             // Add the token to the response header
             res.header('Authorization', `Bearer ${newToken}`);
 

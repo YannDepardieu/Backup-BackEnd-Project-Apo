@@ -2,15 +2,13 @@
 const debug = require('debug')('userController');
 
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 
 const ApiError = require('../../errors/apiError');
 
 const User = require('../../models/user');
 
-const { disableToken } = require('../../services/seekAuth');
+const { createToken, disableToken } = require('../../services/tokensManager');
 
-const { JWTOKEN_KEY } = process.env;
 const userController = {
     /**
      * Authentication Request
@@ -49,33 +47,31 @@ const userController = {
     async login(req, res, next) {
         const { email, password } = req.body;
         // On recherche notre utilisateur grâce à son email
-        const user = await User.findOne({ email });
+        const rawUser = await User.findOne({ email });
         // S’il existe on compare le mot de passe fourni avec celui qui est enregistré en base de données
-        if (user) {
+        if (rawUser) {
             // vérifier que le mot de passe est bien le même que celui enregistré en base de donnée.
-            return bcrypt.compare(password, user.password, (err, response) => {
+            return bcrypt.compare(password, rawUser.password, (err, response) => {
                 if (err) {
                     throw new Error(err);
                 }
                 if (response) {
                     // Sert à supprimer le password de l’objet user qu’on va passer dans le payload du token.
                     // eslint-disable-next-line no-underscore-dangle
-                    delete user.password;
-                    const cleanedUser = {
-                        id: user.id,
-                        firstname: user.firstname,
-                        lastname: user.lastname,
-                        email: user.email,
-                        role: user.role,
-                        notification: user.notification,
+                    delete rawUser.password;
+                    const user = {
+                        id: rawUser.id,
+                        firstname: rawUser.firstname,
+                        lastname: rawUser.lastname,
+                        email: rawUser.email,
+                        role: rawUser.role,
+                        notification: rawUser.notification,
                     };
-
-                    const expiresIn = 24 * 60 * 60;
-                    // On signe ensuite le token avec toutes nos infos et la clé secrète,
-                    const token = jwt.sign({ cleanedUser }, JWTOKEN_KEY, { expiresIn });
+                    // On crée un token
+                    const newToken = createToken(user);
 
                     // Puis on ajoute le token dans l’entête de la réponse avant de renvoyer le login: true
-                    res.header('Authorization', `Bearer ${token}`);
+                    res.header('Authorization', `Bearer ${newToken}`);
 
                     return res.status(200).json({ login: true });
                 }
@@ -88,13 +84,14 @@ const userController = {
     },
 
     async getOne(req, res) {
-        const data = await User.findByPk(req.decoded.cleanedUser.id);
+        debug('req.decoded = ', req.decoded.user);
+        const data = await User.findByPk(req.decoded.user.id);
         delete data.password;
         return res.json(data);
     },
 
     async update(req, res, next) {
-        const { id } = req.decoded.cleanedUser;
+        const { id } = req.decoded.user;
         const user = await User.findByPk(id);
         bcrypt.compare(req.body.oldPassword, user.password, async (err, response) => {
             if (err) {
@@ -127,7 +124,7 @@ const userController = {
     },
 
     async delete(req, res, next) {
-        const { id } = req.decoded.cleanedUser;
+        const { id } = req.decoded.user;
         const user = await User.findByPk(id);
         bcrypt.compare(req.body.password, user.password, async (err, response) => {
             if (err) {

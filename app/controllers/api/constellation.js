@@ -54,9 +54,9 @@ const constellationController = {
         return res.json(data);
     },
     async likeConstellation(req, res) {
-        debug(req.decoded.cleanedUser.id);
+        debug(req.decoded.user.id);
         debug(req.body.constellation_id);
-        const userId = req.decoded.cleanedUser.id;
+        const userId = req.decoded.user.id;
         const constId = req.body.constellation_id;
         const data = await Model.createFavConst(userId, constId);
         debug(data);
