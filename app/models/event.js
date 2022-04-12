@@ -27,6 +27,22 @@ class Event extends CoreModel {
         this.longitude = obj.longitude;
         this.recall_datetime = obj.recall_datetime;
     }
+    static async selectAll(userId) {
+        const result = await client.query(
+            `
+            SELECT * FROM "event"
+            JOIN reserve_event
+            ON event.id = reserve_event.user_id
+            WHERE reserve_event.user_id = $1;`,
+            [userId],
+        );
+        const resultAsClasses = [];
+        result.rows.forEach((obj) => {
+            const newObj = new this(obj);
+            resultAsClasses.push(newObj);
+        });
+        return resultAsClasses;
+    }
 }
 
 module.exports = Event;
