@@ -34,11 +34,11 @@ content-type: application/json
 
 ### Disconnect user
 GET {{ endpoint }}/logout
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6NiwiZmlyc3RuYW1lIjoiYiIsImxhc3RuYW1lIjoiYiIsImVtYWlsIjoiYmJAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJub3RpZmljYXRpb24iOnRydWV9LCJpYXQiOjE2NDk3NTMzODYsImV4cCI6MTY0OTgzOTc4Nn0.4woBzYrNhFeBlHVI-vBZZS0IrSaGOPLoFLBs_89PfSE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6NiwiZmlyc3RuYW1lIjoiYiIsImxhc3RuYW1lIjoiYiIsImVtYWlsIjoiYmJAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJub3RpZmljYXRpb24iOnRydWV9LCJpYXQiOjE2NDk3Nzk2MTMsImV4cCI6MTY0OTg2NjAxM30.9DAOfX8UPh8SQYYuzKz666HscDlE8ktD0C2cVre-Cw8
 
 ### Select user
 GET {{ endpoint }}/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6NiwiZmlyc3RuYW1lIjoiYiIsImxhc3RuYW1lIjoiYiIsImVtYWlsIjoiYmJAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJub3RpZmljYXRpb24iOnRydWV9LCJpYXQiOjE2NDk3NTMzODYsImV4cCI6MTY0OTgzOTc4Nn0.4woBzYrNhFeBlHVI-vBZZS0IrSaGOPLoFLBs_89PfSE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6NiwiZmlyc3RuYW1lIjoiYiIsImxhc3RuYW1lIjoiYiIsImVtYWlsIjoiYmJAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJub3RpZmljYXRpb24iOnRydWV9LCJpYXQiOjE2NDk3Nzk2MTMsImV4cCI6MTY0OTg2NjAxM30.9DAOfX8UPh8SQYYuzKz666HscDlE8ktD0C2cVre-Cw8
 
 ### Update user
 PATCH {{ endpoint }}/
@@ -62,7 +62,13 @@ content-type: application/json
     "password": "yy"
 }
 
+###########################
+#         ERROR           #
+###########################
 
+### Select user
+GET {{ endpoint }}/
 
-
-1649753386
+### Select user
+GET {{ endpoint }}/
+Authorization: Bearer qdfgsfds

@@ -1,51 +1,45 @@
-// le middleware va être exécuté avant l’accès à une fonction d’un service,
-// on va donc vérifier la validité du token et laisser passer ou pas la requête.
+// This middleware will be executed before accessing a controller method
+// It will check the existance and validity of the token
 
 const jwt = require('jsonwebtoken');
 const debug = require('debug')('security:JWToken');
-const { seekToken, logoutToken } = require('../services/seekAuth');
+const { seekToken, checkDisabledToken } = require('../services/seekAuth');
 const ApiError = require('../errors/apiError');
 
 const { JWTOKEN_KEY } = process.env;
 
-// On crée la fonction checkJWT
-// eslint-disable-next-line consistent-return
 exports.checkJWT = async (req, res, next) => {
-    // on commence par chercher si un token est présent dans le header de la requête
+    // Get the token from the request header
     const token = seekToken(req);
 
-    // Si le token est présent on le vérifie
+    // If the token exist we check it
     if (token) {
-        // eslint-disable-next-line consistent-return
-        jwt.verify(token, JWTOKEN_KEY, async (err, decoded) => {
-            // Si le token est expiré ou que quelqu’un a tenté de l’altérer
+        return jwt.verify(token, JWTOKEN_KEY, async (err, decoded) => {
+            // If the token is expired or altered
             if (err) {
                 return next(new ApiError('token_not_valid', { statusCode: 401 }));
             }
-            // Dans le cas où la vérification est bonne on peut récupérer le contenu du payload
-            // on décide ici de le passer à la requête pour pouvoir utiliser les informations dans la ou les fonctions
-            // qui seront exécutées après celle ci.
+            // If verification is ok, the token is decoded
             debug('decoded = ', decoded);
-            // Query provided token against The Blacklist on every authorized request !
-            const unauthToken = await logoutToken(decoded);
-            // debug('unauthToken? : ', unauthToken);
+            // Check in redis DB if the decoded token is in the disabled token list (updated when a user logout)
+            const disabledToken = await checkDisabledToken(decoded);
 
-            if (unauthToken) {
-                return next(new ApiError('Unauthorized', { statusCode: 401 }));
+            if (disabledToken) {
+                return next(new ApiError('Token has been disabled', { statusCode: 401 }));
             }
-            req.decoded = decoded; // passage du payload à la requête
+            // We store the decoded token in the request object to be able to use it in the next middleware
+            req.decoded = decoded;
+            // Creation of a new token
             const expiresIn = 24 * 60 * 60;
-            // près ça on crée un nouveau token en l’ajoutant au header de la réponse
             const newToken = jwt.sign({ user: decoded.cleanedUser }, JWTOKEN_KEY, {
                 expiresIn,
             });
+            // Add the token to the response header
             res.header('Authorization', `Bearer ${newToken}`);
 
-            // On finit avec la fonction next() qui permet comme son nom l’indique de passer à la fonction suivante.
             return next();
         });
-    } else {
-        // Si le token n'est pas présent dans le header de la requête
-        return next(new ApiError('token_required', { statusCode: 401 }));
     }
+    // If the token is not inside the request header
+    return next(new ApiError('token_required', { statusCode: 401 }));
 };

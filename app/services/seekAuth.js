@@ -15,7 +15,7 @@ const seekAuth = {
         // debug('token = ', token);
         return token;
     },
-    blackList: async (key, token) => {
+    disableToken: async (key, token) => {
         try {
             await redis.connect();
             await redis.setEx(key, TTL, token);
@@ -26,7 +26,7 @@ const seekAuth = {
             debug(error);
         }
     },
-    logoutToken: async (decoded) => {
+    checkDisabledToken: async (decoded) => {
         try {
             await redis.connect();
             const key = `logoutToken${decoded.iat}`;
@@ -37,6 +37,7 @@ const seekAuth = {
                 debug('logoutToken ', blackListArray[key]);
                 const logoutToken = await redis.get(key);
                 debug(decoded.exp, timeToLive);
+                await redis.quit();
                 return { message: 'user already logged out', unvalidToken: logoutToken };
             }
             await redis.quit();

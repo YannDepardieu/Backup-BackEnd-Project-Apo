@@ -10,7 +10,7 @@ const User = require('../../models/user');
 
 const PREFIX = 'logoutToken';
 
-const { seekToken, blackList } = require('../../services/seekAuth');
+const { seekToken, disableToken } = require('../../services/seekAuth');
 
 const { JWTOKEN_KEY } = process.env;
 const userController = {
@@ -126,7 +126,7 @@ const userController = {
         // Have DB of no longer active tokens that still have some time to live
         const key = `${PREFIX}${req.decoded.iat}`;
         const token = seekToken(req);
-        blackList(key, token);
+        disableToken(key, token);
 
         res.status(200).json({ logout: true });
     },

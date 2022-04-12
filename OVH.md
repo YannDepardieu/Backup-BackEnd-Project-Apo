@@ -120,7 +120,6 @@ nano sqitch.conf
 ## Installer Sqitch sur le serveur
 
 ```s
-npm install sqitch -g
 sudo apt-get install sqitch libdbd-pg-perl postgresql-client libdbd-sqlite3-perl sqlite3
 ```
 
