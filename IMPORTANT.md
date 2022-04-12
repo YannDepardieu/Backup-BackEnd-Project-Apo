@@ -10,15 +10,12 @@ npm node-fetch@2
 
 Le user va envoyer un json avec les spécificités de l'événement
 
-    "name" text NOT NULL,
-
-
 ```json
 {
     "name": "Samedi soir",
     "address": "Chemin pich Gaillard 65120 Saussa",
     "event_datetime": "2022-04-12 07:19:12+01",
-    "recall_datetime": "2022-04-12 23:00:00+01",
+    "recall_datetime": "2022-04-12 23:00:00+01"
 }
 ```
 
@@ -28,7 +25,6 @@ que l'on va rajouter au json :
 ```json
 {
     "name": "Samedi soir",
-    "address": "Chemin pich Gaillard 65120 Saussa",
     "event_datetime": "",
     "recall_datetime": "",
     "latitude": 20,

@@ -1,9 +1,9 @@
 // eslint-disable-next-line no-unused-vars
-const debug = require('debug')('evetnController');
-
+const debug = require('debug')('eventController');
 const ApiError = require('../../errors/apiError');
-
 const Event = require('../../models/event');
+const ReserveEvent = require('../../models/reserveEvent');
+const { forward } = require('../../services/positionStack');
 
 const eventController = {
     /**
@@ -21,15 +21,20 @@ const eventController = {
      * @param {object} res Express response object
      * @return {string} Route API JSON data
      */
-    async createOne(req) {
-        debug(req.body);
-        // debug('found ', found);
-        // if (found) {
-        //     throw new ApiError(`${User.tableName} is not unique`, { statusCode: 404 });
-        // }
-        // const user = await User.insert(req.body);
-        // delete user.password;
-        // return res.json(user);
+    async create(req, res) {
+        const input = req.body;
+        const gps = await forward(req.body);
+        debug(gps);
+        input.latitude = gps[0].latitude;
+        input.longitude = gps[0].longitude;
+        delete input.address;
+        const event = await Event.insert(input);
+        debug('id = ', event.id);
+        const reserveEvent = await ReserveEvent.insert({
+            event_id: event.id,
+            user_id: req.decoded.user.id,
+        });
+        return res.json({ event, reserveEvent });
     },
 };
 
