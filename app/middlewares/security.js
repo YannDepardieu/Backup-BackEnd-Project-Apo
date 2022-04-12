@@ -2,8 +2,9 @@
 // on va donc vérifier la validité du token et laisser passer ou pas la requête.
 
 const jwt = require('jsonwebtoken');
-// const debug = require('debug')('security:JWToken');
+const debug = require('debug')('security:JWToken');
 const { seekToken, logoutToken } = require('../services/seekAuth');
+const ApiError = require('../errors/apiError');
 
 const { JWTOKEN_KEY } = process.env;
 
@@ -19,33 +20,32 @@ exports.checkJWT = async (req, res, next) => {
         jwt.verify(token, JWTOKEN_KEY, async (err, decoded) => {
             // Si le token est expiré ou que quelqu’un a tenté de l’altérer
             if (err) {
-                return res.status(401).json('token_not_valid');
+                return next(new ApiError('token_not_valid', { statusCode: 401 }));
             }
             // Dans le cas où la vérification est bonne on peut récupérer le contenu du payload
             // on décide ici de le passer à la requête pour pouvoir utiliser les informations dans la ou les fonctions
             // qui seront exécutées après celle ci.
-
+            debug('decoded = ', decoded);
             // Query provided token against The Blacklist on every authorized request !
             const unauthToken = await logoutToken(decoded);
             // debug('unauthToken? : ', unauthToken);
 
             if (unauthToken) {
-                res.status(401).json('Unauthorized');
-            } else {
-                req.decoded = decoded; // passage du payload à la requête
-                const expiresIn = 24 * 60 * 60;
-                // près ça on crée un nouveau token en l’ajoutant au header de la réponse
-                const newToken = jwt.sign({ user: decoded.cleanedUser }, JWTOKEN_KEY, {
-                    expiresIn,
-                });
-                res.header('Authorization', `Bearer ${newToken}`);
-
-                // On finit avec la fonction next() qui permet comme son nom l’indique de passer à la fonction suivante.
-                return next();
+                return next(new ApiError('Unauthorized', { statusCode: 401 }));
             }
+            req.decoded = decoded; // passage du payload à la requête
+            const expiresIn = 24 * 60 * 60;
+            // près ça on crée un nouveau token en l’ajoutant au header de la réponse
+            const newToken = jwt.sign({ user: decoded.cleanedUser }, JWTOKEN_KEY, {
+                expiresIn,
+            });
+            res.header('Authorization', `Bearer ${newToken}`);
+
+            // On finit avec la fonction next() qui permet comme son nom l’indique de passer à la fonction suivante.
+            return next();
         });
     } else {
         // Si le token n'est pas présent dans le header de la requête
-        return res.status(401).json('token_required');
+        return next(new ApiError('token_required', { statusCode: 401 }));
     }
 };

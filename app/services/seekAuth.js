@@ -1,5 +1,6 @@
 const debug = require('debug')('seekAuth');
 const { createClient } = require('redis');
+const ApiError = require('../errors/apiError');
 
 const redis = createClient();
 const blackListArray = [];
@@ -23,6 +24,7 @@ const seekAuth = {
     },
     logoutToken: async (decoded) => {
         await redis.connect();
+        // iat means "Issued At", it's the datetime of the token creation in seconds since.
         const key = `logoutToken${decoded.iat}`;
         // debug('Blacklist: ', blackListArray);
         const timeToLive = await redis.ttl(key);
@@ -31,7 +33,8 @@ const seekAuth = {
             debug('logoutToken ', blackListArray[key]);
             const logoutToken = await redis.get(key);
             debug(decoded.exp, timeToLive);
-            return { message: 'user already logged out', unvalidToken: logoutToken };
+            // throw new ApiError('token_not_valid', { statusCode: 401 }));
+            return true;
         }
         await redis.quit();
         return null;
