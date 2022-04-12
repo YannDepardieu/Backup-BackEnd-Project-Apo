@@ -3,14 +3,12 @@ const debug = require('debug')('userController');
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-// const { createClient } = require('redis');
+
 const ApiError = require('../../errors/apiError');
 
 const User = require('../../models/user');
 
-const PREFIX = 'logoutToken';
-
-const { seekToken, disableToken } = require('../../services/seekAuth');
+const { disableToken } = require('../../services/seekAuth');
 
 const { JWTOKEN_KEY } = process.env;
 const userController = {
@@ -123,11 +121,8 @@ const userController = {
     async logout(req, res) {
         // Delete the stored token from client side upon log out
         res.removeHeader('Authorization');
-        // Have DB of no longer active tokens that still have some time to live
-        const key = `${PREFIX}${req.decoded.iat}`;
-        const token = seekToken(req);
-        disableToken(key, token);
-
+        // Disable user token by putting in redis DB
+        disableToken(req);
         res.status(200).json({ logout: true });
     },
 

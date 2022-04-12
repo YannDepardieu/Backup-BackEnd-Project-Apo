@@ -3,8 +3,9 @@ const { createClient } = require('redis');
 const ApiError = require('../errors/apiError');
 
 const redis = createClient();
-const blackListArray = [];
 const TTL = 24 * 60 * 60;
+
+const PREFIX = 'logoutToken';
 
 const seekAuth = {
     seekToken: (req) => {
@@ -12,35 +13,31 @@ const seekAuth = {
         if (!!token && token.startsWith('Bearer ')) {
             token = token.slice(7, token.length);
         }
-        // debug('token = ', token);
         return token;
     },
-    disableToken: async (key, token) => {
+    disableToken: async (req) => {
         try {
+            const key = `${PREFIX}${req.decoded.iat}`;
+            const token = seekAuth.seekToken(req);
             await redis.connect();
             await redis.setEx(key, TTL, token);
             await redis.quit();
-            blackListArray.push(key);
-            debug('blacklist ', blackListArray);
         } catch (error) {
             debug(error);
         }
     },
-    checkDisabledToken: async (decoded) => {
+    checkDisabledToken: async (decoded, token) => {
         try {
             await redis.connect();
-            const key = `logoutToken${decoded.iat}`;
-            // debug('Blacklist: ', blackListArray);
-            const timeToLive = await redis.ttl(key);
-            debug('Token life in hr: ', Math.round((timeToLive / 60 / 60) * 100) / 100);
-            if (blackListArray.includes(key)) {
-                debug('logoutToken ', blackListArray[key]);
-                const logoutToken = await redis.get(key);
-                debug(decoded.exp, timeToLive);
-                await redis.quit();
-                return { message: 'user already logged out', unvalidToken: logoutToken };
-            }
+            const key = `${PREFIX}${decoded.iat}`;
+            // const timeToLive = await redis.ttl(key);
+            // debug('Token life in hr: ', Math.round((timeToLive / 60 / 60) * 100) / 100);
+            const disabledToken = await redis.get(key);
             await redis.quit();
+            if (disabledToken === token) {
+                // debug(decoded.exp, timeToLive);
+                return true;
+            }
             return null;
         } catch (error) {
             debug(error);

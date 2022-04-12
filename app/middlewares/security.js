@@ -2,6 +2,7 @@
 // It will check the existance and validity of the token
 
 const jwt = require('jsonwebtoken');
+// eslint-disable-next-line no-unused-vars
 const debug = require('debug')('security:JWToken');
 const { seekToken, checkDisabledToken } = require('../services/seekAuth');
 const ApiError = require('../errors/apiError');
@@ -20,9 +21,8 @@ exports.checkJWT = async (req, res, next) => {
                 return next(new ApiError('token_not_valid', { statusCode: 401 }));
             }
             // If verification is ok, the token is decoded
-            debug('decoded = ', decoded);
             // Check in redis DB if the decoded token is in the disabled token list (updated when a user logout)
-            const disabledToken = await checkDisabledToken(decoded);
+            const disabledToken = await checkDisabledToken(decoded, token);
 
             if (disabledToken) {
                 return next(new ApiError('Token has been disabled', { statusCode: 401 }));
