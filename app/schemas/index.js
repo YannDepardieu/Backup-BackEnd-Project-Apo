@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 const createEvent = require('./createEvent');
 const createPlace = require('./createPlace');
@@ -7,14 +8,16 @@ const updatePlace = require('./updatePlace');
 const updateUser = require('./updateUser');
 const createFavorite_constellation = require('./createFavConst');
 const createSave_Place = require('./createSavePlace');
+const createUserPlace = require('./createUserPlace');
 
 module.exports = {
     createEvent,
-    createPlace,
+    // createPlace,
     createUser,
     updateEvent,
     updatePlace,
     updateUser,
     createFavorite_constellation,
-    createSave_Place,
+    // createSave_Place,
+    createUserPlace,
 };

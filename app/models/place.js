@@ -1,6 +1,7 @@
-// const debug = require('debug')('Model:Place');
+// eslint-disable-next-line no-unused-vars
+const debug = require('debug')('Model:Place');
 const CoreModel = require('./coreModel');
-// const client = require('../db/postgres');
+const client = require('../db/postgres');
 // const ApiError = require('../errors/apiError');
 
 class Place extends CoreModel {
@@ -29,6 +30,23 @@ class Place extends CoreModel {
         this.city = obj.city;
         this.latitude = obj.latitude;
         this.longitude = obj.longitude;
+    }
+
+    static async deleteFavPlace(place) {
+        const found = await this.findByPk(place);
+        // debug('entry found !');
+        if (found.rowCount === 0) {
+            return null;
+        }
+        const query = {
+            text: `DELETE FROM "place" WHERE id=$1`,
+            values: [place],
+        };
+        const result = await client.query(query);
+        if (result.rowCount === 0) {
+            return null;
+        }
+        return { delete: true };
     }
 }
 
