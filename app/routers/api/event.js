@@ -13,9 +13,9 @@ router
      * POST /v1/api/event/
      * @summary Insert one event et insert reserve_table to bind the event to the user
      * @tags Event
-     * @param {EventInput} request.body.required Express req.object
      * @security BearerAuth
-     * @return {EventOutput} 200 - success response - application/json
+     * @param {CreatedEventInput} request.body.required Express req.object
+     * @return {CreatedEventOutput} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Entities no found - application/json
      */
@@ -25,10 +25,24 @@ router
      * @summary Get all events of a user
      * @tags Event
      * @security BearerAuth
-     * @return {AllEvents} 200 - success response - application/json
+     * @return {GetAllEvents} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Entities no found - application/json
      */
     .get(security.checkJWT, asyncWrapper(eventController.getAll));
+
+router
+    .route('/:id(\\d+)')
+    /**
+     * GET /v1/api/event/{id}
+     * @summary Get one event of a user by its userId and eventId
+     * @tags Event
+     * @security BearerAuth
+     * @param {integer} id.path.required identifier
+     * @return {GetOneEvent} 200 - success response - application/json
+     * @return {ApiError} 400 - Bad request response - application/json
+     * @return {ApiError} 404 - Entities no found - application/json
+     */
+    .get(security.checkJWT, asyncWrapper(eventController.getOne));
 
 module.exports = router;

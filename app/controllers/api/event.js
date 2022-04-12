@@ -8,7 +8,7 @@ const { forward } = require('../../services/positionStack');
 const eventController = {
     /**
      * EventInput
-     * @typedef {object} EventInput
+     * @typedef {object} CreatedEventInput
      * @property {string} name - Name of the event
      * @property {string} address - Address of the event
      * @property {string} event_datetime - Datetime of the event
@@ -16,7 +16,7 @@ const eventController = {
      */
     /**
      * AllEventsOutput
-     * @typedef {object} AllEvents
+     * @typedef {object} GetAllEvents
      * @property {string} name - Name of the event
      * @property {string} event_datetime - Datetime of the event
      * @property {string} recall_datetime - Datetime of the recall
@@ -47,9 +47,14 @@ const eventController = {
     },
 
     async getAll(req, res) {
-        const events = await ReserveEvent.selectAll(req.decoded.user.id);
-        debug('events = ', events);
+        const events = await Event.selectAll(req.decoded.user.id);
         return res.json(events);
+    },
+
+    async getOne(req, res) {
+        const eventId = req.params.id;
+        const event = await Event.selectOne(req.decoded.user.id, eventId);
+        return res.json(event);
     },
 };
 

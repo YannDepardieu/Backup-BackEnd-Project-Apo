@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 const debug = require('debug')('Model:reserveEvent');
 const CoreModel = require('./coreModel');
-const client = require('../db/postgres');
+// const client = require('../db/postgres');
 // const ApiError = require('../errors/apiError');
 
 class ReserveEvent extends CoreModel {
