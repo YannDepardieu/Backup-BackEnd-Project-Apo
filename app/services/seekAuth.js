@@ -16,28 +16,35 @@ const seekAuth = {
         return token;
     },
     blackList: async (key, token) => {
-        await redis.connect();
-        await redis.setEx(key, TTL, token);
-        await redis.quit();
-        blackListArray.push(key);
-        debug('blacklist ', blackListArray);
+        try {
+            await redis.connect();
+            await redis.setEx(key, TTL, token);
+            await redis.quit();
+            blackListArray.push(key);
+            debug('blacklist ', blackListArray);
+        } catch (error) {
+            debug(error);
+        }
     },
     logoutToken: async (decoded) => {
-        await redis.connect();
-        // iat means "Issued At", it's the datetime of the token creation in seconds since.
-        const key = `logoutToken${decoded.iat}`;
-        // debug('Blacklist: ', blackListArray);
-        const timeToLive = await redis.ttl(key);
-        debug('Token life in hr: ', Math.round((timeToLive / 60 / 60) * 100) / 100);
-        if (blackListArray.includes(key)) {
-            debug('logoutToken ', blackListArray[key]);
-            const logoutToken = await redis.get(key);
-            debug(decoded.exp, timeToLive);
-            // throw new ApiError('token_not_valid', { statusCode: 401 }));
-            return true;
+        try {
+            await redis.connect();
+            const key = `logoutToken${decoded.iat}`;
+            // debug('Blacklist: ', blackListArray);
+            const timeToLive = await redis.ttl(key);
+            debug('Token life in hr: ', Math.round((timeToLive / 60 / 60) * 100) / 100);
+            if (blackListArray.includes(key)) {
+                debug('logoutToken ', blackListArray[key]);
+                const logoutToken = await redis.get(key);
+                debug(decoded.exp, timeToLive);
+                return { message: 'user already logged out', unvalidToken: logoutToken };
+            }
+            await redis.quit();
+            return null;
+        } catch (error) {
+            debug(error);
+            return new ApiError(error.details[0].message, { statusCode: 400 });
         }
-        await redis.quit();
-        return null;
     },
 };
 module.exports = seekAuth;

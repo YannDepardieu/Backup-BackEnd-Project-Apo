@@ -48,6 +48,7 @@ const commonController = {
      */
     async getAll(_, res) {
         const { Model } = res.locals;
+        debug(Model);
         const data = await Model.findAll();
         const output = [];
         data.forEach((element) => output.push({ id: element.id, ...element }));

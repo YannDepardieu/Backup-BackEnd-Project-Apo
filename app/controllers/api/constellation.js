@@ -1,7 +1,8 @@
-// const debug = require('debug')('ApiController');
+const debug = require('debug')('constellationController');
 const ApiError = require('../../errors/apiError');
 
 const Model = require('../../models/constellation');
+const favConst = require('../../models/favoriteConstellation');
 
 const constellationController = {
     /**
@@ -37,11 +38,28 @@ const constellationController = {
         }
         return res.json(data);
     },
+    async getAllFavs(req, res) {
+        const data = await favConst.findAll();
+        if (!data) {
+            throw new ApiError('Data not found', { statusCode: 404 });
+        }
+        debug(data);
+        return res.json(data);
+    },
     async getAllNames(_, res) {
         const data = await Model.constellationsNames();
         if (!data) {
             throw new ApiError('Constellation not found', { statusCode: 404 });
         }
+        return res.json(data);
+    },
+    async likeConstellation(req, res) {
+        debug(req.decoded.cleanedUser.id);
+        debug(req.body.constellation_id);
+        const userId = req.decoded.cleanedUser.id;
+        const constId = req.body.constellation_id;
+        const data = await Model.createFavConst(userId, constId);
+        debug(data);
         return res.json(data);
     },
 };

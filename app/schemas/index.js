@@ -6,6 +6,7 @@ const updateEvent = require('./updateEvent');
 const updatePlace = require('./updatePlace');
 const updateUser = require('./updateUser');
 const createFavorite_constellation = require('./createFavConst');
+const createSave_Place = require('./createSavePlace');
 
 module.exports = {
     createEvent,
@@ -15,4 +16,5 @@ module.exports = {
     updatePlace,
     updateUser,
     createFavorite_constellation,
+    createSave_Place,
 };
