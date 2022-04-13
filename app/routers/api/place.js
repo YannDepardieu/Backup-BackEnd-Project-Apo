@@ -39,6 +39,14 @@ router
      */
     .get(security.checkJWT, asyncWrapper(placeController.getOnePlace))
     /**
+     * PATCH /v1/api/place{id}
+     * @summary Updates one user's favorite place
+     * @tags Place
+     * @param {integer} id.path.required identifier
+     * @return {string} 200 - success response - application/json
+     */
+    .patch(security.checkJWT, asyncWrapper(placeController.updateOnePlace))
+    /**
      * DELETE /v1/api/place{id}
      * @summary Deletes one user's favorite place
      * @tags Place

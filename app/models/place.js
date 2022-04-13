@@ -2,7 +2,7 @@
 const debug = require('debug')('Model:Place');
 const CoreModel = require('./coreModel');
 const client = require('../db/postgres');
-// const ApiError = require('../errors/apiError');
+const ApiError = require('../errors/apiError');
 
 class Place extends CoreModel {
     name;
@@ -32,19 +32,91 @@ class Place extends CoreModel {
         this.longitude = obj.longitude;
     }
 
-    static async deleteFavPlace(place) {
-        const found = await this.findByPk(place);
-        // debug('entry found !');
-        if (found.rowCount === 0) {
-            return null;
+    static async selectAllPlaces(userId) {
+        const result = await client.query(
+            `
+            SELECT place.id, place.name, place.address, place.latitude, place.longitude FROM "place"
+            JOIN save_place
+            ON place.id = save_place.place_id
+            WHERE save_place.user_id = $1;`,
+            [userId],
+        );
+        if (result.rows.length === 0) {
+            throw new ApiError(`No Place found for this user`, {
+                statusCode: 404,
+            });
         }
+        const resultAsClasses = [];
+        result.rows.forEach((obj) => {
+            const newObj = new this(obj);
+            resultAsClasses.push(newObj);
+        });
+        return resultAsClasses;
+    }
+
+    static async findPlaceByPk(userId, placeId) {
+        const result = await client.query(
+            `
+            SELECT place.id, place.name, place.address, place.latitude, place.longitude FROM "place"
+            JOIN save_place
+            ON place.id = save_place.place_id
+            WHERE save_place.user_id = $1
+            AND place.id = $2;`,
+            [userId, placeId],
+        );
+        if (result.rows.length === 0) {
+            throw new ApiError(`Place not found for this user`, {
+                statusCode: 404,
+            });
+        }
+        debug(result.rows[0]);
+        return new this(result.rows[0]);
+    }
+
+    static async updatePlace(userId, placeId, input) {
+        const fields = Object.keys(input).map((prop, index) => `"${prop}" = $${index + 1}`);
+        const values = Object.values(input);
+
+        const result = await client.query(
+            `
+            UPDATE "place"
+            SET ${fields}
+            FROM save_place
+            WHERE save_place.user_id = $${fields.length + 1}
+            AND place.id = $${fields.length + 2}
+            AND place.id = save_place.place_id
+            RETURNING place.id, place.name, place.address, place.latitude, place.longitude;
+            `,
+            [...values, userId, placeId],
+        );
+        if (result.rows.length === 0) {
+            throw new ApiError(`Place not found for this user`, {
+                statusCode: 404,
+            });
+        }
+        return new this(result.rows[0]);
+    }
+
+    static async deleteFavPlace(userId, placeId) {
         const query = {
-            text: `DELETE FROM "place" WHERE id=$1`,
-            values: [place],
+            text: `
+                DELETE FROM "place"
+                WHERE place.id = (
+                    SELECT place.id FROM "place"
+                    JOIN save_place
+                    ON place.id = save_place.place_id
+                    WHERE save_place.user_id = $1
+                    AND place.id = $2
+                )
+                RETURNING *;
+            `,
+            values: [userId, placeId],
         };
         const result = await client.query(query);
-        if (result.rowCount === 0) {
-            return null;
+        if (result.rows.length === 0) {
+            throw new ApiError(`Place not found for this user`, {
+                statusCode: 404,
+            });
         }
         return { delete: true };
     }

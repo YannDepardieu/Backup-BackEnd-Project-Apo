@@ -2,9 +2,9 @@
 const debug = require('debug')('placeController');
 const ApiError = require('../../errors/apiError');
 
-const Model = require('../../models/place');
+const Place = require('../../models/place');
 const savePlace = require('../../models/savePlace');
-const positionStack = require('../../services/positionStack');
+const { forward } = require('../../services/positionStack');
 
 const placeController = {
     /**
@@ -25,27 +25,26 @@ const placeController = {
      * @property {integer} latitude - Place position latitude
      * @property {integer} longitude - Place position longitude
      */
-    async getOnePlace(req, res) {
-        const { id } = req.params;
-        const place = await Model.findByPk(id);
-        if (!place) {
-            throw new ApiError('Place not fount', { statusCode: 404 });
-        }
-        debug(place);
-        return res.json(place);
+    async getAllPlaces(req, res) {
+        debug(req.decoded);
+        const places = await Place.selectAllPlaces(req.decoded.user.id);
+        debug(places);
+        const output = [];
+        places.forEach((place) => output.push({ id: place.id, ...place }));
+        return res.json(output);
     },
     async createNewPlace(req, res) {
         const address = {
             address: req.body.address,
         };
-        const location = await positionStack.forward(address);
+        const location = await forward(address);
         const place = {
             name: req.body.name,
             address: address.address,
             latitude: location[0].latitude,
             longitude: location[0].longitude,
         };
-        const insertPlace = await Model.insert(place);
+        const insertPlace = await Place.insert(place);
         if (!insertPlace) {
             throw new ApiError('Data not fount', { statusCode: 404 });
         }
@@ -55,37 +54,32 @@ const placeController = {
             user_id: req.decoded.cleanedUser.id,
         };
         const favPlace = await savePlace.insert(data);
-        if (!favPlace) {
-            throw new ApiError('Favorite Place not found', { statusCode: 404 });
-        }
         return res.json(favPlace);
     },
-    async getAllPlaces(_, res) {
-        const placesIds = await savePlace.findAll();
-        debug(placesIds);
-        if (!placesIds) {
-            throw new ApiError('Data not found', { statusCode: 404 });
-        }
-
-        const userPlaces = [];
-        await Promise.all(
-            placesIds.map(async (fav) => {
-                debug(fav);
-                const place = await Model.findByPk(fav.place_id);
-                if (place) {
-                    userPlaces.push({ id: place.id, ...place });
-                }
-            }),
-        );
-        return res.json(userPlaces);
+    async getOnePlace(req, res) {
+        const placeId = req.params.id;
+        const userId = req.decoded.user.id;
+        const place = await Place.findPlaceByPk(userId, placeId);
+        const output = { id: place.id, ...place };
+        return res.json(output);
+    },
+    async updateOnePlace(req, res) {
+        const placeId = req.params.id;
+        const userId = req.decoded.user.id;
+        const input = req.body;
+        const gps = await forward(input);
+        input.latitude = gps[0].latitude;
+        input.longitude = gps[0].longitude;
+        // delete input.address;
+        const place = await Place.update(userId, placeId, input);
+        const output = { id: place.id, ...place };
+        return res.json(output);
     },
     async deleteOnePlace(req, res) {
-        const deleted = await Model.deleteFavPlace(req.params.id);
-        if (!deleted) {
-            throw new ApiError('Place not found', { statusCode: 404 });
-        }
-        return res.json({ delete: true });
+        const placeId = req.params.id;
+        const userId = req.decoded.user.id;
+        const output = await Place.deleteFavPlace(userId, placeId);
+        return res.json(output);
     },
 };
-
 module.exports = placeController;
