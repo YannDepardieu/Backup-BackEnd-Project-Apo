@@ -26,9 +26,7 @@ const placeController = {
      * @property {integer} longitude - Place position longitude
      */
     async getAllPlaces(req, res) {
-        debug(req.decoded);
         const places = await Place.selectAllPlaces(req.decoded.user.id);
-        debug(places);
         const output = [];
         places.forEach((place) => output.push({ id: place.id, ...place }));
         return res.json(output);
@@ -71,7 +69,8 @@ const placeController = {
         input.latitude = gps[0].latitude;
         input.longitude = gps[0].longitude;
         // delete input.address;
-        const place = await Place.update(userId, placeId, input);
+        debug(userId, placeId, input);
+        const place = await Place.updatePlace(userId, placeId, input);
         const output = { id: place.id, ...place };
         return res.json(output);
     },

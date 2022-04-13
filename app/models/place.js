@@ -69,14 +69,14 @@ class Place extends CoreModel {
                 statusCode: 404,
             });
         }
-        debug(result.rows[0]);
         return new this(result.rows[0]);
     }
 
     static async updatePlace(userId, placeId, input) {
+        debug(userId, placeId, input);
         const fields = Object.keys(input).map((prop, index) => `"${prop}" = $${index + 1}`);
         const values = Object.values(input);
-
+        debug(fields, values);
         const result = await client.query(
             `
             UPDATE "place"
@@ -89,6 +89,7 @@ class Place extends CoreModel {
             `,
             [...values, userId, placeId],
         );
+        debug(result.rows);
         if (result.rows.length === 0) {
             throw new ApiError(`Place not found for this user`, {
                 statusCode: 404,
