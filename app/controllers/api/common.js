@@ -52,7 +52,7 @@ const commonController = {
         const data = await Model.findAll();
         const output = [];
         data.forEach((element) => output.push({ id: element.id, ...element }));
-        res.json(output);
+        res.status(200).json(output);
     },
     /**
      * An event
@@ -79,7 +79,7 @@ const commonController = {
         if (data.password) {
             delete data.password;
         }
-        return res.json(data);
+        return res.status(200).json(data);
     },
     /**
      * A user inscription
@@ -106,7 +106,7 @@ const commonController = {
         }
         const data = await Model.insert(req.body);
         // debug(data);
-        return res.json(data);
+        return res.status(200).json(data);
     },
     async deleteOne(req, res) {
         const { Model } = res.locals;
@@ -114,7 +114,7 @@ const commonController = {
         if (!data) {
             throw new ApiError('Entry not found', { statusCode: 404 });
         }
-        return res.json(data);
+        return res.status(200).json(data);
     },
 
     async update(req, res) {
@@ -128,7 +128,7 @@ const commonController = {
 
         const output = await Model.update(id, req.body);
 
-        return res.json(output);
+        return res.status(200).json(output);
     },
 };
 

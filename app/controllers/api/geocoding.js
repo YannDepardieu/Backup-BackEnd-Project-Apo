@@ -13,7 +13,7 @@ const geocodingController = {
         debug(req.query);
         const gps = await positionStack.forward(req.query);
         debug(gps);
-        res.json(gps);
+        res.status(200).json(gps);
     },
     // pas utile.....
     /**
@@ -30,7 +30,7 @@ const geocodingController = {
         debug(req.query);
         const address = await positionStack.reverse(req.query);
         debug(address);
-        res.json(address);
+        res.status(200).json(address);
     },
 };
 

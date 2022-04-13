@@ -59,8 +59,7 @@ router.use('/place', placeRouter);
 // routes to manage user's reserved events
 router.use('/event', eventRouter);
 
-// Gestion erreurs : Pour entrer dans le middleware handleError à 4 paramètres (error, request, response, next)
-// il faut throw une erreur qq part avant. Ici on traverse donc ce middleware et on va dans handleError
+// By throwing an error, this middleware allows to go inside the 4 parameter middleware inside the index router
 router.use(() => {
     throw new ApiError('API Route not found', { statusCode: 404 });
 });

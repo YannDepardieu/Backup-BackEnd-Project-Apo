@@ -41,21 +41,21 @@ const eventController = {
             event_id: event.id,
             user_id: req.decoded.user.id,
         });
-        return res.json({ id: event.id, ...event });
+        return res.status(200).json({ id: event.id, ...event });
     },
 
     async getAll(req, res) {
         const events = await Event.selectAll(req.decoded.user.id);
         const output = [];
         events.forEach((element) => output.push({ id: element.id, ...element }));
-        return res.json(output);
+        return res.status(200).json(output);
     },
 
     async getByPk(req, res) {
         const eventId = req.params.id;
         const event = await Event.selectByPk(req.decoded.user.id, Number(eventId));
         const output = { id: event.id, ...event };
-        return res.json(output);
+        return res.status(200).json(output);
     },
 
     async update(req, res) {
@@ -68,14 +68,14 @@ const eventController = {
         delete input.address;
         const event = await Event.update(userId, eventId, input);
         const output = { id: event.id, ...event };
-        return res.json(output);
+        return res.status(200).json(output);
     },
 
     async delete(req, res) {
         const eventId = req.params.id;
         const userId = req.decoded.user.id;
         const output = await Event.delete(userId, eventId);
-        return res.json(output);
+        return res.status(200).json(output);
     },
 };
 

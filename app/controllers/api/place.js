@@ -32,7 +32,7 @@ const placeController = {
             throw new ApiError('Place not fount', { statusCode: 404 });
         }
         debug(place);
-        return res.json(place);
+        return res.status(200).json(place);
     },
     async createNewPlace(req, res) {
         const address = {
@@ -58,7 +58,7 @@ const placeController = {
         if (!favPlace) {
             throw new ApiError('Favorite Place not found', { statusCode: 404 });
         }
-        return res.json(favPlace);
+        return res.status(200).json(favPlace);
     },
     async getAllPlaces(_, res) {
         const placesIds = await savePlace.findAll();
@@ -77,14 +77,14 @@ const placeController = {
                 }
             }),
         );
-        return res.json(userPlaces);
+        return res.status(200).json(userPlaces);
     },
     async deleteOnePlace(req, res) {
         const deleted = await Model.deleteFavPlace(req.params.id);
         if (!deleted) {
             throw new ApiError('Place not found', { statusCode: 404 });
         }
-        return res.json({ delete: true });
+        return res.status(200).json({ delete: true });
     },
 };
 

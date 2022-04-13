@@ -35,7 +35,7 @@ const mythController = {
         if (!data) {
             throw new ApiError('Constellation not found', { statusCode: 404 });
         }
-        return res.json(data);
+        return res.status(200).json(data);
     },
     /**
      * A myth with its celestial body
@@ -67,7 +67,7 @@ const mythController = {
         if (!data) {
             throw new ApiError('Myth not found', { statusCode: 404 });
         }
-        return res.json(data);
+        return res.status(200).json(data);
     },
 };
 

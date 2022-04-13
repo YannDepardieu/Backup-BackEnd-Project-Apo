@@ -11,14 +11,14 @@ router.use('/api', apiRouter);
 
 router.use('/backoffice', backofficeRouter);
 
+// 4 parameters middleware that caches all errors thrown. Without the 4 parameters we won't be able to go inside
 router.use((err, _, response, next) => {
+    // Error manager that send back a custom error response
     errorHandler(err, response, next);
 });
 
 /**
- * Ici il est important de laisser les 4 params même si on ne les utilise pas tous,
- * sinon on ne rentrera pas dedans en cas d'erreur.
- * Final middleware that catches all wrong routes where there is no error thrown
+ * Final middleware that catches all wrong routes where there is no errors thrown
  * ExpressMiddleware signature
  * @param {object} _ Express request object (not used)
  * @param {object} res Express response object

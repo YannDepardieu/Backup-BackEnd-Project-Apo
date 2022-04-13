@@ -36,7 +36,7 @@ const constellationController = {
         if (!data) {
             throw new ApiError('Constellation not found', { statusCode: 404 });
         }
-        return res.json(data);
+        return res.status(200).json(data);
     },
     async getAllFavs(_, res) {
         const constellationsIds = await favConst.findAll();
@@ -52,14 +52,14 @@ const constellationController = {
                 }
             }),
         );
-        return res.json(userConstellations);
+        return res.status(200).json(userConstellations);
     },
     async getAllNames(_, res) {
         const data = await Model.constellationsNames();
         if (!data) {
             throw new ApiError('Constellation not found', { statusCode: 404 });
         }
-        return res.json(data);
+        return res.status(200).json(data);
     },
     async likeConstellation(req, res) {
         debug(req.decoded.user.id);
@@ -68,7 +68,7 @@ const constellationController = {
         const constId = req.body.constellation_id;
         const data = await Model.createFavConst(userId, constId);
         debug(data);
-        return res.json(data);
+        return res.status(200).json(data);
     },
 };
 

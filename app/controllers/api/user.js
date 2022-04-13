@@ -42,7 +42,7 @@ const userController = {
         }
         const user = await User.insert(req.body);
         delete user.password;
-        return res.json(user);
+        return res.status(200).json(user);
     },
     async login(req, res, next) {
         const { email, password } = req.body;
@@ -87,7 +87,7 @@ const userController = {
         debug('req.decoded = ', req.decoded.user);
         const data = await User.findByPk(req.decoded.user.id);
         delete data.password;
-        return res.json(data);
+        return res.status(200).json(data);
     },
 
     async update(req, res, next) {
@@ -109,7 +109,7 @@ const userController = {
                 }
                 const output = await User.update(id, req.body);
                 delete output.password;
-                return res.json(output);
+                return res.status(200).json(output);
             }
             return next(new ApiError('Old password is not correct', { statusCode: 400 }));
         });
@@ -132,7 +132,7 @@ const userController = {
             }
             if (response) {
                 const output = await User.deleteByPk(id);
-                return res.json(output);
+                return res.status(200).json(output);
             }
             return next(new ApiError('password is not correct', { statusCode: 400 }));
         });

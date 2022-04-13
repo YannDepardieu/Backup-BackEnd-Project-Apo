@@ -24,7 +24,7 @@ const indexController = {
      */
     home(req, res) {
         const fullUrl = `${req.protocol}://${req.get('host')}`;
-        return res.json({
+        return res.status(200).json({
             documentation_url: `${fullUrl}${process.env.API_DOCUMENTATION_ROUTE}`,
         });
     },
