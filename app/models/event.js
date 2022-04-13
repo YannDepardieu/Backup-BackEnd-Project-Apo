@@ -37,6 +37,11 @@ class Event extends CoreModel {
             WHERE reserve_event.user_id = $1;`,
             [userId],
         );
+        if (result.rows.length === 0) {
+            throw new ApiError(`No ${this.tableName} found for this user`, {
+                statusCode: 404,
+            });
+        }
         const resultAsClasses = [];
         result.rows.forEach((obj) => {
             const newObj = new this(obj);
@@ -64,19 +69,52 @@ class Event extends CoreModel {
         return new this(result.rows[0]);
     }
 
-    static async update(eventId, input) {
+    static async update(userId, eventId, input) {
         const fields = Object.keys(input).map((prop, index) => `"${prop}" = $${index + 1}`);
         const values = Object.values(input);
 
-        const output = await client.query(
+        const result = await client.query(
             `
-                UPDATE "${this.tableName}" SET ${fields}
-                WHERE id = $${fields.length + 1} RETURNING *;
+            UPDATE "event"
+            SET ${fields}
+            FROM reserve_event
+            WHERE reserve_event.user_id = $${fields.length + 1}
+            AND event.id = $${fields.length + 2}
+            AND event.id = reserve_event.event_id
+            RETURNING *, event.id;
             `,
-            [...values, eventId],
+            [...values, userId, eventId],
         );
+        if (result.rows.length === 0) {
+            throw new ApiError(`${this.tableName} not found for this user`, {
+                statusCode: 404,
+            });
+        }
+        return new this(result.rows[0]);
+    }
 
-        return output.rows[0];
+    static async delete(userId, eventId) {
+        const query = {
+            text: `
+                DELETE FROM "event"
+                WHERE event.id = (
+                    SELECT event.id FROM "event"
+                    JOIN reserve_event
+                    ON event.id = reserve_event.event_id
+                    WHERE reserve_event.user_id = $1
+                    AND event.id = $2
+                )
+                RETURNING *;
+            `,
+            values: [userId, eventId],
+        };
+        const result = await client.query(query);
+        if (result.rows.length === 0) {
+            throw new ApiError(`${this.tableName} not found for this user`, {
+                statusCode: 404,
+            });
+        }
+        return { delete: true };
     }
 }
 

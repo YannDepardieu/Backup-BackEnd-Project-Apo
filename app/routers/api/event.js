@@ -39,7 +39,7 @@ router
      * @summary Get one event of a user by its userId and eventId
      * @tags Event
      * @security BearerAuth
-     * @param {integer} id.path.required identifier
+     * @param {integer} id.path.required event identifier
      * @return {GetOneEvent} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Entities no found - application/json
@@ -50,16 +50,23 @@ router
      * @summary Update an event of a user by its userId and eventId
      * @tags Event
      * @security BearerAuth
-     * @param {integer} id.path.required identifier
+     * @param {integer} id.path.required event identifier
      * @param {EventToUpdate} request.body.required Express req.object
      * @return {EventUpdated} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Entities no found - application/json
      */
-    .patch(
-        security.checkJWT,
-        validator('body', updateSchema),
-        asyncWrapper(eventController.update),
-    );
+    .patch(security.checkJWT, validator('body', updateSchema), asyncWrapper(eventController.update))
+    /**
+     * DELETE /v1/api/event/{id}
+     * @summary Delete an event of a user by its userId and eventId
+     * @tags Event
+     * @security BearerAuth
+     * @param {integer} id.path.required event identifier
+     * @return {Message} 200 - success response - application/json
+     * @return {ApiError} 400 - Bad request response - application/json
+     * @return {ApiError} 404 - Entities no found - application/json
+     */
+    .delete(security.checkJWT, asyncWrapper(eventController.delete));
 
 module.exports = router;

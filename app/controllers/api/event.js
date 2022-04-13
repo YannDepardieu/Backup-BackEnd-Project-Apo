@@ -37,11 +37,11 @@ const eventController = {
         input.longitude = gps[0].longitude;
         delete input.address;
         const event = await Event.insert(input);
-        const reserveEvent = await ReserveEvent.insert({
+        await ReserveEvent.insert({
             event_id: event.id,
             user_id: req.decoded.user.id,
         });
-        return res.json({ event, reserveEvent });
+        return res.json({ id: event.id, ...event });
     },
 
     async getAll(req, res) {
@@ -60,14 +60,21 @@ const eventController = {
 
     async update(req, res) {
         const eventId = req.params.id;
-        await Event.selectByPk(req.decoded.user.id, Number(eventId));
+        const userId = req.decoded.user.id;
         const input = req.body;
-        const gps = await forward(req.body);
+        const gps = await forward(input);
         input.latitude = gps[0].latitude;
         input.longitude = gps[0].longitude;
         delete input.address;
-        const event = await Event.update(eventId, input);
+        const event = await Event.update(userId, eventId, input);
         const output = { id: event.id, ...event };
+        return res.json(output);
+    },
+
+    async delete(req, res) {
+        const eventId = req.params.id;
+        const userId = req.decoded.user.id;
+        const output = await Event.delete(userId, eventId);
         return res.json(output);
     },
 };
