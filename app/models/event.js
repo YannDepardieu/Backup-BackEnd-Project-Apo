@@ -1,4 +1,4 @@
-// const debug = require('debug')('Model:Event');
+const debug = require('debug')('Model:Event');
 const CoreModel = require('./coreModel');
 const client = require('../db/postgres');
 const ApiError = require('../errors/apiError');
@@ -31,9 +31,9 @@ class Event extends CoreModel {
     static async selectAll(userId) {
         const result = await client.query(
             `
-            SELECT * FROM "event"
+            SELECT *, event.id FROM "event"
             JOIN reserve_event
-            ON event.id = reserve_event.user_id
+            ON event.id = reserve_event.event_id
             WHERE reserve_event.user_id = $1;`,
             [userId],
         );
@@ -45,12 +45,12 @@ class Event extends CoreModel {
         return resultAsClasses;
     }
 
-    static async selectOne(userId, eventId) {
+    static async selectByPk(userId, eventId) {
         const result = await client.query(
             `
-            SELECT * FROM "event"
+            SELECT *, event.id FROM "event"
             JOIN reserve_event
-            ON event.id = reserve_event.user_id
+            ON event.id = reserve_event.event_id
             WHERE reserve_event.user_id = $1
             AND event.id = $2;`,
             [userId, eventId],
@@ -60,7 +60,23 @@ class Event extends CoreModel {
                 statusCode: 404,
             });
         }
+        debug(result.rows[0]);
         return new this(result.rows[0]);
+    }
+
+    static async update(eventId, input) {
+        const fields = Object.keys(input).map((prop, index) => `"${prop}" = $${index + 1}`);
+        const values = Object.values(input);
+
+        const output = await client.query(
+            `
+                UPDATE "${this.tableName}" SET ${fields}
+                WHERE id = $${fields.length + 1} RETURNING *;
+            `,
+            [...values, eventId],
+        );
+
+        return output.rows[0];
     }
 }
 

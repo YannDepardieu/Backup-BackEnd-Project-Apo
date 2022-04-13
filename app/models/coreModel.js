@@ -192,7 +192,7 @@ class CoreModel {
             return null;
         }
         const query = {
-            text: `DELETE FROM "user" WHERE id=$1`,
+            text: `DELETE FROM "${this.tableName}" WHERE id=$1`,
             values: [id],
         };
         const result = await client.query(query);

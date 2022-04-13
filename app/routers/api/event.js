@@ -6,6 +6,7 @@ const asyncWrapper = require('../../middlewares/asyncWrapper');
 const security = require('../../middlewares/security');
 const validator = require('../../middlewares/validator');
 const createSchema = require('../../schemas/createEvent');
+const updateSchema = require('../../schemas/updateEvent');
 
 router
     .route('/')
@@ -43,6 +44,22 @@ router
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Entities no found - application/json
      */
-    .get(security.checkJWT, asyncWrapper(eventController.getOne));
+    .get(security.checkJWT, asyncWrapper(eventController.getByPk))
+    /**
+     * PATCH /v1/api/event/{id}
+     * @summary Update an event of a user by its userId and eventId
+     * @tags Event
+     * @security BearerAuth
+     * @param {integer} id.path.required identifier
+     * @param {EventToUpdate} request.body.required Express req.object
+     * @return {EventUpdated} 200 - success response - application/json
+     * @return {ApiError} 400 - Bad request response - application/json
+     * @return {ApiError} 404 - Entities no found - application/json
+     */
+    .patch(
+        security.checkJWT,
+        validator('body', updateSchema),
+        asyncWrapper(eventController.update),
+    );
 
 module.exports = router;

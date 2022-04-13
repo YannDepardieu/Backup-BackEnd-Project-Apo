@@ -33,12 +33,10 @@ const eventController = {
     async create(req, res) {
         const input = req.body;
         const gps = await forward(req.body);
-        debug(gps);
         input.latitude = gps[0].latitude;
         input.longitude = gps[0].longitude;
         delete input.address;
         const event = await Event.insert(input);
-        debug('id = ', event.id);
         const reserveEvent = await ReserveEvent.insert({
             event_id: event.id,
             user_id: req.decoded.user.id,
@@ -48,13 +46,29 @@ const eventController = {
 
     async getAll(req, res) {
         const events = await Event.selectAll(req.decoded.user.id);
-        return res.json(events);
+        const output = [];
+        events.forEach((element) => output.push({ id: element.id, ...element }));
+        return res.json(output);
     },
 
-    async getOne(req, res) {
+    async getByPk(req, res) {
         const eventId = req.params.id;
-        const event = await Event.selectOne(req.decoded.user.id, eventId);
-        return res.json(event);
+        const event = await Event.selectByPk(req.decoded.user.id, Number(eventId));
+        const output = { id: event.id, ...event };
+        return res.json(output);
+    },
+
+    async update(req, res) {
+        const eventId = req.params.id;
+        await Event.selectByPk(req.decoded.user.id, Number(eventId));
+        const input = req.body;
+        const gps = await forward(req.body);
+        input.latitude = gps[0].latitude;
+        input.longitude = gps[0].longitude;
+        delete input.address;
+        const event = await Event.update(eventId, input);
+        const output = { id: event.id, ...event };
+        return res.json(output);
     },
 };
 
