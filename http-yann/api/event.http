@@ -6,16 +6,38 @@
 @endpoint = http://localhost:{{$dotenv PORT}}/v1/api/event
 
 ########################################################
-#                         User                         #
+#                         Event                        #
 ########################################################
 
 ### Insert un nouvel event
 POST {{ endpoint }}/
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTg1NzY2NCwiZXhwIjoxNjQ5OTQ0MDY0fQ.dXUqdjkxzf1aY1ljXjrgPBCC5jhAyeJ-X3QVn5gqOxI
 
 {
-    "name": "Samedi soir",
-    "address": "Chemin pich Gaillard",
-    "postalcode": "65120",
-    "city" :"Saussa"
+    "name": "Soirée",
+    "address": "Ariège",
+    "event_datetime": "2022-05-12 07:19:12",
+    "recall_datetime": "2022-05-11 23:00:00"
 }
+
+### Get all events of a user
+GET {{ endpoint }}/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTg1NzY2NCwiZXhwIjoxNjQ5OTQ0MDY0fQ.dXUqdjkxzf1aY1ljXjrgPBCC5jhAyeJ-X3QVn5gqOxI
+
+### Get one event of a user
+GET {{ endpoint }}/10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTg1NzY2NCwiZXhwIjoxNjQ5OTQ0MDY0fQ.dXUqdjkxzf1aY1ljXjrgPBCC5jhAyeJ-X3QVn5gqOxI
+
+### Update an event of a user
+PATCH {{ endpoint }}/10
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTg1NzY2NCwiZXhwIjoxNjQ5OTQ0MDY0fQ.dXUqdjkxzf1aY1ljXjrgPBCC5jhAyeJ-X3QVn5gqOxI
+
+{
+    "name": "Chez Titi"
+}
+
+### Delete an event of a user
+DELETE {{ endpoint }}/13
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTg1NzY2NCwiZXhwIjoxNjQ5OTQ0MDY0fQ.dXUqdjkxzf1aY1ljXjrgPBCC5jhAyeJ-X3QVn5gqOxI

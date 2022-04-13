@@ -7,6 +7,7 @@ const mythRouter = require('./myth');
 const geocodingRouter = require('./geocoding');
 const userRouter = require('./user');
 const placeRouter = require('./place');
+const eventRouter = require('./event');
 
 const ApiError = require('../../errors/apiError');
 
@@ -14,10 +15,9 @@ const router = express.Router();
 
 router.get('/test', indexController.test);
 
-// En fait, on dit que pour toutes les routes de l'api, on met un response content-type en json
-// Et puis on se base sur ça pour adapter le format de réponse de l'erreur
 /**
- * Middleware that put a type on the future response
+ * Middleware that put a type on the future response, therefore the content-type will be json
+ * It will be use later in case of error to send back a custom one
  * ExpressMiddleware signature
  * @param {object} _ Express request object (not used)
  * @param {object} res Express response object
@@ -38,23 +38,26 @@ router.use((_, res, next) => {
  */
 router.all('/', indexController.home);
 
-// toutes les routes avec les cruds sur les entités: fonctionne avec des params
+// routes with basic CRUD operations for differents entities
 router.use('/common', commonRouter);
 
-// route précise qui demande deux entités: constellations et myth. Error 404 si on choisit une
+// routes pour manage constellations
 router.use('/constellation', constellationRouter);
 
-// route pour avoir juste les constellations qui ont des myths
+// routes pour manage myths
 router.use('/myth', mythRouter);
 
-// interroge l'api de la géolocalisation
+// routes to contact external geocoding API
 router.use('/geocoding', geocodingRouter);
 
-// tout ce qui concerne l'authentification d'un user
+// routes to manage user's profile
 router.use('/user', userRouter);
 
-// route pour la fonctionnalité en rapport avec les favorites places
+// routes to manage user's favorites places
 router.use('/place', placeRouter);
+
+// routes to manage user's reserved events
+router.use('/event', eventRouter);
 
 // Gestion erreurs : Pour entrer dans le middleware handleError à 4 paramètres (error, request, response, next)
 // il faut throw une erreur qq part avant. Ici on traverse donc ce middleware et on va dans handleError

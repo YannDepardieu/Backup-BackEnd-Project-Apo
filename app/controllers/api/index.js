@@ -4,6 +4,7 @@ const mythController = require('./myth');
 const geocodingController = require('./geocoding');
 const userController = require('./user');
 const placeController = require('./place');
+const eventController = require('./event');
 
 const indexController = {
     test(_, res) {
@@ -37,4 +38,5 @@ module.exports = {
     geocodingController,
     userController,
     placeController,
+    eventController,
 };

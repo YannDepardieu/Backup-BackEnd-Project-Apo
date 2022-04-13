@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+// eslint-disable-next-line no-unused-vars
 const debug = require('debug')('positionStack');
 const ApiError = require('../errors/apiError');
 
@@ -8,13 +9,10 @@ module.exports = {
     async forward(query) {
         debug('query ', query);
         const fullUrl = `${baseUrl}forward?access_key=${process.env.POSITIONSTACK_KEY}&query=${query.address}`;
-        debug(fullUrl);
         const response = await fetch(fullUrl);
-        // debug('response = ', response);
         // Je teste tous les status 200 de réponses positive
         if (response.ok) {
             const json = await response.json();
-            // debug('json = ', json);
             const { data } = json;
             if (data.length > 0) {
                 return data;
@@ -34,13 +32,10 @@ module.exports = {
             arrayLatLong[1] <= 180
         ) {
             const fullUrl = `${baseUrl}reverse?access_key=${process.env.POSITIONSTACK_KEY}&query=${query.gps}`;
-            debug(fullUrl);
             const response = await fetch(fullUrl);
-            debug('response = ', response);
             // Je teste tous les status 200 de réponses positive
             if (response.ok) {
                 const json = await response.json();
-                debug('json = ', json);
                 const { data } = json;
                 if (data.length > 0) {
                     return data;

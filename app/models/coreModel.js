@@ -33,7 +33,7 @@ class CoreModel {
     static async findAll() {
         // Dans une méthode static this fait référence notre classe (Tag, Article)
         // donc this.tableName permet d'accéder a la propriété statique
-        const result = await client.query(`SELECT * from "${this.tableName}"`);
+        const result = await client.query(`SELECT * FROM "${this.tableName}"`);
         // sinon, on va fabriquer un tableau de class
         const resultAsClasses = [];
         result.rows.forEach((obj) => {
@@ -194,7 +194,7 @@ class CoreModel {
             return null;
         }
         const query = {
-            text: `DELETE FROM "user" WHERE id=$1`,
+            text: `DELETE FROM "${this.tableName}" WHERE id=$1`,
             values: [id],
         };
         const result = await client.query(query);
