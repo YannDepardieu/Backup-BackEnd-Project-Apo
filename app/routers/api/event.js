@@ -15,20 +15,20 @@ router
      * @summary Insert one event et insert reserve_table to bind the event to the user
      * @tags Event
      * @security BearerAuth
-     * @param {CreatedEventInput} request.body.required Express req.object
-     * @return {CreatedEventOutput} 200 - success response - application/json
+     * @param {EventInput} request.body.required Express req.object
+     * @return {EventOutput} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
-     * @return {ApiError} 404 - Entities no found - application/json
+     * @return {ApiError} 404 - Event not found - application/json
      */
     .post(security.checkJWT, validator('body', createSchema), asyncWrapper(eventController.create))
     /**
-     * POST /v1/api/event/
-     * @summary Get all events of a user
+     * GET /v1/api/event/
+     * @summary Select all events of a user
      * @tags Event
      * @security BearerAuth
-     * @return {GetAllEvents} 200 - success response - application/json
+     * @return {array<EventOutput>} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
-     * @return {ApiError} 404 - Entities no found - application/json
+     * @return {ApiError} 404 - Event not found - application/json
      */
     .get(security.checkJWT, asyncWrapper(eventController.getAll));
 
@@ -36,13 +36,13 @@ router
     .route('/:id(\\d+)')
     /**
      * GET /v1/api/event/{id}
-     * @summary Get one event of a user by its userId and eventId
+     * @summary Select one event of a user by its userId and eventId
      * @tags Event
      * @security BearerAuth
      * @param {integer} id.path.required event identifier
-     * @return {GetOneEvent} 200 - success response - application/json
+     * @return {EventOutput} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
-     * @return {ApiError} 404 - Entities no found - application/json
+     * @return {ApiError} 404 - Event not found - application/json
      */
     .get(security.checkJWT, asyncWrapper(eventController.getByPk))
     /**
@@ -51,10 +51,10 @@ router
      * @tags Event
      * @security BearerAuth
      * @param {integer} id.path.required event identifier
-     * @param {EventToUpdate} request.body.required Express req.object
-     * @return {EventUpdated} 200 - success response - application/json
+     * @param {EventInput} request.body.required Express req.object
+     * @return {EventOutput} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
-     * @return {ApiError} 404 - Entities no found - application/json
+     * @return {ApiError} 404 - Event not found - application/json
      */
     .patch(security.checkJWT, validator('body', updateSchema), asyncWrapper(eventController.update))
     /**
@@ -63,9 +63,9 @@ router
      * @tags Event
      * @security BearerAuth
      * @param {integer} id.path.required event identifier
-     * @return {Message} 200 - success response - application/json
+     * @return {object} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
-     * @return {ApiError} 404 - Entities no found - application/json
+     * @return {ApiError} 404 - Event not found - application/json
      */
     .delete(security.checkJWT, asyncWrapper(eventController.delete));
 

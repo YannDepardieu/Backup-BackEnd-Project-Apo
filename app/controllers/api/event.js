@@ -7,16 +7,17 @@ const { forward } = require('../../services/positionStack');
 
 const eventController = {
     /**
-     * EventInput
-     * @typedef {object} CreatedEventInput
+     * Input object to create or update an event
+     * @typedef {object} EventInput
      * @property {string} name - Name of the event
      * @property {string} address - Address of the event
      * @property {string} event_datetime - Datetime of the event
      * @property {string} recall_datetime - Datetime of the recall
      */
     /**
-     * AllEventsOutput
-     * @typedef {object} GetAllEvents
+     * Output object of the event
+     * @typedef {object} EventOutput
+     * @property {string} id - id of the event
      * @property {string} name - Name of the event
      * @property {string} event_datetime - Datetime of the event
      * @property {string} recall_datetime - Datetime of the recall
@@ -24,7 +25,7 @@ const eventController = {
      * @property {string} longitude - longitude of the event
      */
     /**
-     * Api controller to get one user myth by its ID.
+     * Api controller to create an event bound to a user
      * ExpressMiddleware signature
      * @param {object} req Express req.object
      * @param {object} res Express response object
