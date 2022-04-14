@@ -47,14 +47,14 @@ const userController = {
 
     async selectByPk(req, res) {
         debug('req.decoded = ', req.decoded.user);
-        const data = await User.findByPk(req.decoded.user.id);
+        const data = await User.selectByPk(req.decoded.user.id);
         delete data.password;
         return res.status(200).json(data);
     },
 
     async update(req, res, next) {
         const { id } = req.decoded.user;
-        const user = await User.findByPk(id);
+        const user = await User.selectByPk(id);
         bcrypt.compare(req.body.oldPassword, user.password, async (err, response) => {
             if (err) {
                 throw new Error(err);
@@ -81,13 +81,13 @@ const userController = {
 
     async delete(req, res, next) {
         const { id } = req.decoded.user;
-        const user = await User.findByPk(id);
+        const user = await User.selectByPk(id);
         bcrypt.compare(req.body.password, user.password, async (err, response) => {
             if (err) {
                 throw new Error(err);
             }
             if (response) {
-                const output = await User.deleteByPk(id);
+                const output = await User.delete(id);
                 return res.status(200).json(output);
             }
             return next(new ApiError('password is not correct', { statusCode: 400 }));
@@ -97,7 +97,7 @@ const userController = {
     async login(req, res, next) {
         const { email, password } = req.body;
         // On recherche notre utilisateur grâce à son email
-        const rawUser = await User.findOne({ email });
+        const rawUser = await User.selectOne({ email });
         // S’il existe on compare le mot de passe fourni avec celui qui est enregistré en base de données
         if (rawUser) {
             // vérifier que le mot de passe est bien le même que celui enregistré en base de donnée.

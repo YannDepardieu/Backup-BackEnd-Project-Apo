@@ -6,31 +6,32 @@ const Constellation = require('../../models/constellation');
 // const favConst = require('../../models/favoriteConstellation');
 
 const constellationController = {
-    /**
-     * Api controller to get one constellation myth by its ID.
-     * ExpressMiddleware signature
-     * @param {object} req Express req.object
-     * @param {object} res Express response object
-     * @returns {string} Route API JSON data
-     */
-
     // maybe get it off created at, updated at, star id, planet id ?
     /**
-     * A constellation with its myth
-     * @typedef {object} ConstellationMyth
+     * A constellation with its attributes
+     * @typedef {object} ConstellationWithAttributes
      * @property {integer} id - The event name
      * @property {string} name - Event date
      * @property {string} latin_name - Event position latitude
      * @property {string} scientific_name - Event position longitude
      * @property {string} img_url - Email notification recall date
-     * @property {string} story - Email notification recall date
+     * @property {string} history - Email notification recall date
      * @property {string} spotting - Email notification recall date
-     * @property {string} created_at - Email notification recall date
-     * @property {string} updated_at - Email notification recall date
+     * @property {Myth} Myth notification recall date
+     */
+    /**
+     * Myths
+     * @typedef {object} Myth
      * @property {string} origin - Email notification recall date
-     * @property {integer} star_id - Email notification recall date
-     * @property {integer} planet_id - Email notification recall date
      * @property {string} legend - Email notification recall date
+     */
+
+    /**
+     * Api controller to get one constellation with its attributes by its ID.
+     * ExpressMiddleware signature
+     * @param {object} req Express req.object
+     * @param {object} res Express response object
+     * @returns {string} Route API JSON data
      */
     async selectAll(_, res) {
         const output = await Constellation.selectAll();
@@ -42,6 +43,12 @@ const constellationController = {
         return res.status(200).json(output);
     },
 
+    /**
+     * A constellation with its attributes
+     * @typedef {object} ConstellationName
+     * @property {integer} id - Constellation id
+     * @property {string} name - Constellation name
+     */
     async selectAllNames(_, res) {
         const result = await Constellation.selectAllNames();
         const output = [];

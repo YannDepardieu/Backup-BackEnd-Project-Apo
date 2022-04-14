@@ -30,8 +30,8 @@ const mythController = {
      * @property {string} story - Myth's constellation story
      * @property {string} spotting - Myth's constellation spotting advices
      */
-    async getRandomWithConstellation(_, res) {
-        const data = await Model.findRandomWithConstellation();
+    async selectRandom(_, res) {
+        const data = await Model.selectRandom();
         if (!data) {
             throw new ApiError('Constellation not found', { statusCode: 404 });
         }
@@ -62,8 +62,8 @@ const mythController = {
      * @property {string} star_constellation - Constellation id star belongs to
      */
 
-    async getOneMyth(req, res) {
-        const data = await Model.oneMyth(req.params.id);
+    async selectByPk(req, res) {
+        const data = await Model.selectByPk(req.params.id);
         if (!data) {
             throw new ApiError('Myth not found', { statusCode: 404 });
         }

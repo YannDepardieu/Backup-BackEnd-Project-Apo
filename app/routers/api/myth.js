@@ -12,7 +12,7 @@ router
      * @tags Myth
      * @return {RandomMyth} 200 - success response - application/json
      */
-    .get(asyncWrapper(mythController.getRandomWithConstellation));
+    .get(asyncWrapper(mythController.selectRandom));
 
 router
     .route('/:id(\\d+)')
@@ -23,6 +23,6 @@ router
      * @param {integer} id.path.required constellation identifier
      * @return {FullMyth} 200 - success response - application/json
      */
-    .get(asyncWrapper(mythController.getOneMyth));
+    .get(asyncWrapper(mythController.selectByPk));
 
 module.exports = router;

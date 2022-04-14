@@ -13,7 +13,7 @@ router
      * GET /v1/api/constellation/
      * @summary Select all constellations with attributes (Myths, Stars, Galaxies)
      * @tags Constellation
-     * @return {object} 200 - success response - application/json
+     * @return {array<ConstellationWithAttributes>} 200 - success response - application/json
      */
     .get(asyncWrapper(constellationController.selectAll));
 
@@ -24,7 +24,7 @@ router
      * @summary Select one constellation by its ID with attributes (Myths, Stars, Galaxies)
      * @tags Constellation
      * @param {integer} id.path.required constellation identifier
-     * @return {ConstellationMyth} 200 - success response - application/json
+     * @return {ConstellationWithAttributes} 200 - success response - application/json
      */
     .get(asyncWrapper(constellationController.selectByPk));
 
@@ -34,7 +34,7 @@ router
      * GET /v1/api/constellation/names
      * @summary Select all the constellations names
      * @tags Constellation
-     * @return {object} 200 - success response - application/json
+     * @return {ConstellationName} 200 - success response - application/json
      */
     .get(asyncWrapper(constellationController.selectAllNames));
 
@@ -59,7 +59,7 @@ router
      * @summary Select all user´s favorites constellations
      * @tags Constellation
      * @security BearerAuth
-     * @return {object} 200 - success response - application/json
+     * @return {array<ConstellationWithAttributes>} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      */
     .get(security.checkJWT, asyncWrapper(constellationController.selectAllFavorites));

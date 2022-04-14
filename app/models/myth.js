@@ -30,7 +30,7 @@ class Myth extends CoreModel {
         this.legend = obj.legend;
     }
 
-    static async findRandomWithConstellation() {
+    static async selectRandom() {
         const SQL = {
             text: `
                 SELECT *
@@ -59,7 +59,7 @@ class Myth extends CoreModel {
         return result.rows;
     }
 
-    static async oneMyth(id) {
+    static async selectByPk(id) {
         const SQL = {
             text: `
                 SELECT

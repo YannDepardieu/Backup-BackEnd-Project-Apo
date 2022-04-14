@@ -30,7 +30,7 @@ class CoreModel {
         this.#id = newValue; // je sauvegarde mon id
     }
 
-    static async findAll() {
+    static async selectAll() {
         // Dans une méthode static this fait référence notre classe (Tag, Article)
         // donc this.tableName permet d'accéder a la propriété statique
         const result = await client.query(`SELECT * FROM "${this.tableName}"`);
@@ -52,7 +52,7 @@ class CoreModel {
         return resultAsClasses;
     }
 
-    static async findByPk(id) {
+    static async selectByPk(id) {
         debug('id = ', id);
         const SQL = {
             text: `SELECT * FROM "${this.tableName}" WHERE id=$1`,
@@ -69,7 +69,7 @@ class CoreModel {
         return obj;
     }
 
-    static async findOne(data) {
+    static async selectOne(data) {
         if (data.password) {
             // eslint-disable-next-line no-param-reassign
             delete data.password;
@@ -185,8 +185,8 @@ class CoreModel {
         return result.rows[0];
     }
 
-    static async deleteByPk(id) {
-        const found = await this.findByPk(id);
+    static async delete(id) {
+        const found = await this.selectByPk(id);
         // debug('entry found !');
         if (found.rowCount === 0) {
             return null;

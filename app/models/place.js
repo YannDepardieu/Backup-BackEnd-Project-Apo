@@ -32,7 +32,7 @@ class Place extends CoreModel {
         this.longitude = obj.longitude;
     }
 
-    static async selectAllPlaces(userId) {
+    static async selectAll(userId) {
         const result = await client.query(
             `
             SELECT place.id, place.name, place.address, place.latitude, place.longitude FROM "place"
@@ -54,7 +54,7 @@ class Place extends CoreModel {
         return resultAsClasses;
     }
 
-    static async findPlaceByPk(userId, placeId) {
+    static async selectByPk(userId, placeId) {
         const result = await client.query(
             `
             SELECT place.id, place.name, place.address, place.latitude, place.longitude FROM "place"
@@ -72,7 +72,7 @@ class Place extends CoreModel {
         return new this(result.rows[0]);
     }
 
-    static async updatePlace(userId, placeId, input) {
+    static async update(userId, placeId, input) {
         debug(userId, placeId, input);
         const fields = Object.keys(input).map((prop, index) => `"${prop}" = $${index + 1}`);
         const values = Object.values(input);
@@ -98,7 +98,7 @@ class Place extends CoreModel {
         return new this(result.rows[0]);
     }
 
-    static async deleteFavPlace(userId, placeId) {
+    static async delete(userId, placeId) {
         const query = {
             text: `
                 DELETE FROM "place"

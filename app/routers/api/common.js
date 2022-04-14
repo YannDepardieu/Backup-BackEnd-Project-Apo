@@ -21,7 +21,7 @@ router
      * @param {string} entity.path.required entities availables: constellation, myth, planet, star, user
      * @return {array<Constellation>|array<Myth>|array<Planet>|array<Star>} 200 - success response - application/json
      */
-    .get(asyncWrapper(commonController.getAll));
+    .get(asyncWrapper(commonController.selectAll));
 
 router
     .route(
@@ -37,7 +37,7 @@ router
      * @return {Constellation|Event|Myth|Place|Planet|Star} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      */
-    .post(security.checkJWT, commonValidator('body'), asyncWrapper(commonController.createOne));
+    .post(security.checkJWT, commonValidator('body'), asyncWrapper(commonController.insert));
 
 router
     .route('/:entity(constellation|myth|planet|star)/:id(\\d+)')
@@ -51,7 +51,7 @@ router
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Entities no found - application/json
      */
-    .get(asyncWrapper(commonController.getByPk));
+    .get(asyncWrapper(commonController.selectByPk));
 
 router
     .route(
@@ -81,6 +81,6 @@ router
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Entity no found - application/json
      */
-    .delete(security.checkJWT, asyncWrapper(commonController.deleteOne));
+    .delete(security.checkJWT, asyncWrapper(commonController.delete));
 
 module.exports = router;

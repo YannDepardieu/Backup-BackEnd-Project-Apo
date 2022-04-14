@@ -31,13 +31,13 @@ const placeController = {
      * @property {integer} place_id - The place id
      * @property {integer} user_id - The user id
      */
-    async getAllPlaces(req, res) {
-        const places = await Place.selectAllPlaces(req.decoded.user.id);
+    async selectAll(req, res) {
+        const places = await Place.selectAll(req.decoded.user.id);
         const output = [];
         places.forEach((place) => output.push({ id: place.id, ...place }));
         return res.json(output);
     },
-    async createNewPlace(req, res) {
+    async insert(req, res) {
         const address = {
             address: req.body.address,
         };
@@ -60,14 +60,14 @@ const placeController = {
         const favPlace = await savePlace.insert(data);
         return res.json(favPlace);
     },
-    async getOnePlace(req, res) {
+    async selectByPk(req, res) {
         const placeId = req.params.id;
         const userId = req.decoded.user.id;
-        const place = await Place.findPlaceByPk(userId, placeId);
+        const place = await Place.selectByPk(userId, placeId);
         const output = { id: place.id, ...place };
         return res.json(output);
     },
-    async updateOnePlace(req, res) {
+    async update(req, res) {
         const placeId = req.params.id;
         const userId = req.decoded.user.id;
         const input = req.body;
@@ -76,14 +76,14 @@ const placeController = {
         input.longitude = gps[0].longitude;
         // delete input.address;
         debug(userId, placeId, input);
-        const place = await Place.updatePlace(userId, placeId, input);
+        const place = await Place.update(userId, placeId, input);
         const output = { id: place.id, ...place };
         return res.json(output);
     },
-    async deleteOnePlace(req, res) {
+    async delete(req, res) {
         const placeId = req.params.id;
         const userId = req.decoded.user.id;
-        const output = await Place.deleteFavPlace(userId, placeId);
+        const output = await Place.delete(userId, placeId);
         return res.json(output);
     },
 };

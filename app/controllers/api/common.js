@@ -46,10 +46,10 @@ const commonController = {
      * @property {integer} role - User's role
      * @property {integer} notification - Boolean user's authorisation for getting emails notifications
      */
-    async getAll(_, res) {
+    async selectAll(_, res) {
         const { Model } = res.locals;
         debug(Model);
-        const data = await Model.findAll();
+        const data = await Model.selectAll();
         const output = [];
         data.forEach((element) => output.push({ id: element.id, ...element }));
         res.status(200).json(output);
@@ -73,9 +73,9 @@ const commonController = {
      * @property {integer} latitude - Place position latitude
      * @property {integer} longitude - Place position longitude
      */
-    async getByPk(req, res) {
+    async selectByPk(req, res) {
         const { Model } = res.locals;
-        const data = await Model.findByPk(req.params.id);
+        const data = await Model.selectByPk(req.params.id);
         if (data.password) {
             delete data.password;
         }
@@ -98,7 +98,7 @@ const commonController = {
      * @param {InscriptionUser} res Express response object with crypted password
      * @returns {string} Route API JSON data
      */
-    async createOne(req, res) {
+    async insert(req, res) {
         const { Model } = res.locals;
         const notUnique = await Model.isUnique(req.body);
         if (notUnique) {
@@ -108,9 +108,9 @@ const commonController = {
         // debug(data);
         return res.status(200).json(data);
     },
-    async deleteOne(req, res) {
+    async delete(req, res) {
         const { Model } = res.locals;
-        const data = await Model.deleteByPk(req.params.id);
+        const data = await Model.delete(req.params.id);
         if (!data) {
             throw new ApiError('Entry not found', { statusCode: 404 });
         }
@@ -120,7 +120,7 @@ const commonController = {
     async update(req, res) {
         const { Model } = res.locals;
         const { id } = req.params;
-        await Model.findByPk(id);
+        await Model.selectByPk(id);
         const notUnique = await Model.isUnique(req.body, id);
         if (notUnique) {
             throw new ApiError(`This ${Model.tableName} is not unique`, { statusCode: 400 });
