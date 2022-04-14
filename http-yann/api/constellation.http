@@ -9,8 +9,28 @@
 #                    Constellation                     #
 ########################################################
 
-### Select one Constellation By Id With Myths
-GET {{ endpoint }}/1
+### Select one Constellation By Id with all attributes (myths, stars, galaxies)
+GET {{ endpoint }}/9
+
+### Select all Constellations with all attributes (myths, stars, galaxies)
+GET {{ endpoint }}/
 
 ### Select all Constellations names
 GET {{ endpoint }}/names
+
+### Insert favorite constellation
+POST {{ endpoint }}/favorites
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTkzNjU3MiwiZXhwIjoxNjUwMDIyOTcyfQ.LQMrKe7dCrj2gHHGpiJBslvOYWyYnMDzTn7fQRET_xM
+
+{
+    "constellation_id": 26
+}
+
+### Select All favorites constellations
+GET {{ endpoint }}/favorites
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTkzNjU3MiwiZXhwIjoxNjUwMDIyOTcyfQ.LQMrKe7dCrj2gHHGpiJBslvOYWyYnMDzTn7fQRET_xM
+
+### Delete favorite constellation
+DELETE {{ endpoint }}/favorites/26
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTkzNjU3MiwiZXhwIjoxNjUwMDIyOTcyfQ.LQMrKe7dCrj2gHHGpiJBslvOYWyYnMDzTn7fQRET_xM

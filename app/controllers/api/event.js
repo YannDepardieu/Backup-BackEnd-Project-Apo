@@ -31,7 +31,7 @@ const eventController = {
      * @param {object} res Express response object
      * @return {string} Route API JSON data
      */
-    async create(req, res) {
+    async insert(req, res) {
         const input = req.body;
         const gps = await forward(req.body);
         input.latitude = gps[0].latitude;
@@ -45,14 +45,14 @@ const eventController = {
         return res.status(200).json({ id: event.id, ...event });
     },
 
-    async getAll(req, res) {
+    async selectAll(req, res) {
         const events = await Event.selectAll(req.decoded.user.id);
         const output = [];
         events.forEach((element) => output.push({ id: element.id, ...element }));
         return res.status(200).json(output);
     },
 
-    async getByPk(req, res) {
+    async selectByPk(req, res) {
         const eventId = req.params.id;
         const event = await Event.selectByPk(req.decoded.user.id, Number(eventId));
         const output = { id: event.id, ...event };

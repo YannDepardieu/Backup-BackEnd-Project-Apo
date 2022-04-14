@@ -18,7 +18,7 @@ router
      * @return {User} 200 - success response - application/json
      * @return {ApiError} 404 - Not found response - application/json
      */
-    .post(validator('body', createSchema), asyncWrapper(userController.createOne))
+    .post(validator('body', createSchema), asyncWrapper(userController.insert))
     /**
      * GET /v1/api/user/
      * @summary Get one user's profil details
@@ -27,7 +27,7 @@ router
      * @return {AuthenticatedUser} 200 - success response - application/json
      * @return {ApiError} 404 - Not found response - application/json
      */
-    .get(security.checkJWT, asyncWrapper(userController.getOne))
+    .get(security.checkJWT, asyncWrapper(userController.selectByPk))
     /**
      * PATCH /v1/api/user/
      * @summary Update one entity entry by its ID

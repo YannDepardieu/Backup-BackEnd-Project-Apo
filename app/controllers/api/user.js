@@ -33,10 +33,10 @@ const userController = {
      * @param {object} res Express response object
      * @return {string} Route API JSON data
      */
-    async createOne(req, res) {
-        // debug(req.body);
+    async insert(req, res) {
         const found = await User.isUnique(req.body);
-        // debug('found ', found);
+        // Another security to be sure a user cannot set role to admin
+        if (req.body.role) req.body.role = 'user';
         if (found) {
             throw new ApiError(`${User.tableName} is not unique`, { statusCode: 404 });
         }
@@ -44,6 +44,56 @@ const userController = {
         delete user.password;
         return res.status(200).json(user);
     },
+
+    async selectByPk(req, res) {
+        debug('req.decoded = ', req.decoded.user);
+        const data = await User.findByPk(req.decoded.user.id);
+        delete data.password;
+        return res.status(200).json(data);
+    },
+
+    async update(req, res, next) {
+        const { id } = req.decoded.user;
+        const user = await User.findByPk(id);
+        bcrypt.compare(req.body.oldPassword, user.password, async (err, response) => {
+            if (err) {
+                throw new Error(err);
+            }
+            if (response) {
+                const notUnique = await User.isUnique(req.body, id);
+                if (notUnique) {
+                    return next(new ApiError('This user is not unique', { statusCode: 400 }));
+                }
+                // Another security to be sure a user cannot set role to admin
+                if (req.body.role) req.body.role = 'user';
+                delete req.body.oldPassword;
+                if (req.body.newPassword) {
+                    req.body.password = bcrypt.hashSync(req.body.newPassword, 10);
+                    delete req.body.newPassword;
+                }
+                const output = await User.update(id, req.body);
+                delete output.password;
+                return res.status(200).json(output);
+            }
+            return next(new ApiError('Old password is not correct', { statusCode: 400 }));
+        });
+    },
+
+    async delete(req, res, next) {
+        const { id } = req.decoded.user;
+        const user = await User.findByPk(id);
+        bcrypt.compare(req.body.password, user.password, async (err, response) => {
+            if (err) {
+                throw new Error(err);
+            }
+            if (response) {
+                const output = await User.deleteByPk(id);
+                return res.status(200).json(output);
+            }
+            return next(new ApiError('password is not correct', { statusCode: 400 }));
+        });
+    },
+
     async login(req, res, next) {
         const { email, password } = req.body;
         // On recherche notre utilisateur grâce à son email
@@ -83,59 +133,12 @@ const userController = {
         return next(new ApiError('wrong email or password', { statusCode: 403 }));
     },
 
-    async getOne(req, res) {
-        debug('req.decoded = ', req.decoded.user);
-        const data = await User.findByPk(req.decoded.user.id);
-        delete data.password;
-        return res.status(200).json(data);
-    },
-
-    async update(req, res, next) {
-        const { id } = req.decoded.user;
-        const user = await User.findByPk(id);
-        bcrypt.compare(req.body.oldPassword, user.password, async (err, response) => {
-            if (err) {
-                throw new Error(err);
-            }
-            if (response) {
-                const notUnique = await User.isUnique(req.body, id);
-                if (notUnique) {
-                    return next(new ApiError('This user is not unique', { statusCode: 400 }));
-                }
-                delete req.body.oldPassword;
-                if (req.body.newPassword) {
-                    req.body.password = bcrypt.hashSync(req.body.newPassword, 10);
-                    delete req.body.newPassword;
-                }
-                const output = await User.update(id, req.body);
-                delete output.password;
-                return res.status(200).json(output);
-            }
-            return next(new ApiError('Old password is not correct', { statusCode: 400 }));
-        });
-    },
-
     async logout(req, res) {
         // Delete the stored token from client side upon log out
         res.removeHeader('Authorization');
         // Disable user token by putting in redis DB
         disableToken(req);
         res.status(200).json({ logout: true });
-    },
-
-    async delete(req, res, next) {
-        const { id } = req.decoded.user;
-        const user = await User.findByPk(id);
-        bcrypt.compare(req.body.password, user.password, async (err, response) => {
-            if (err) {
-                throw new Error(err);
-            }
-            if (response) {
-                const output = await User.deleteByPk(id);
-                return res.status(200).json(output);
-            }
-            return next(new ApiError('password is not correct', { statusCode: 400 }));
-        });
     },
 };
 

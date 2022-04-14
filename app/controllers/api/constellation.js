@@ -1,8 +1,9 @@
+// eslint-disable-next-line no-unused-vars
 const debug = require('debug')('constellationController');
 const ApiError = require('../../errors/apiError');
 
-const Model = require('../../models/constellation');
-const favConst = require('../../models/favoriteConstellation');
+const Constellation = require('../../models/constellation');
+// const favConst = require('../../models/favoriteConstellation');
 
 const constellationController = {
     /**
@@ -31,44 +32,47 @@ const constellationController = {
      * @property {integer} planet_id - Email notification recall date
      * @property {string} legend - Email notification recall date
      */
-    async getByPkWithMyths(req, res) {
-        const data = await Model.findByPkWithMyths(req.params.id);
+    async selectAll(_, res) {
+        const output = await Constellation.selectAll();
+        return res.status(200).json(output);
+    },
+
+    async selectByPk(req, res) {
+        const output = await Constellation.selectByPk(req.params.id);
+        return res.status(200).json(output);
+    },
+
+    async selectAllNames(_, res) {
+        const data = await Constellation.selectAllNames();
         if (!data) {
             throw new ApiError('Constellation not found', { statusCode: 404 });
         }
         return res.status(200).json(data);
     },
-    async getAllFavs(_, res) {
-        const constellationsIds = await favConst.findAll();
-        if (!constellationsIds) {
-            throw new ApiError('Data not found', { statusCode: 404 });
-        }
-        const userConstellations = [];
-        await Promise.all(
-            constellationsIds.map(async (fav) => {
-                const constellation = await Model.findByPkWithMyths(fav.constellation_id);
-                if (constellation) {
-                    userConstellations.push(constellation);
-                }
-            }),
-        );
-        return res.status(200).json(userConstellations);
-    },
-    async getAllNames(_, res) {
-        const data = await Model.constellationsNames();
-        if (!data) {
-            throw new ApiError('Constellation not found', { statusCode: 404 });
-        }
-        return res.status(200).json(data);
-    },
-    async likeConstellation(req, res) {
-        debug(req.decoded.user.id);
-        debug(req.body.constellation_id);
+
+    async insertFavorite(req, res) {
         const userId = req.decoded.user.id;
         const constId = req.body.constellation_id;
-        const data = await Model.createFavConst(userId, constId);
-        debug(data);
-        return res.status(200).json(data);
+        const exist = await Constellation.selectFavoriteByPk(userId, constId);
+        debug('exist = ', exist);
+        if (exist.length > 0) {
+            throw new ApiError('Constellation already in favorite', { statusCode: 400 });
+        }
+        const output = await Constellation.insertFavorite(userId, constId);
+        return res.status(200).json(output);
+    },
+
+    async selectAllFavorites(req, res) {
+        const userId = req.decoded.user.id;
+        const output = await Constellation.selectAllFavorites(userId);
+        return res.status(200).json(output);
+    },
+
+    async deleteFavorite(req, res) {
+        const eventId = req.params.id;
+        const userId = req.decoded.user.id;
+        const output = await Event.delete(userId, eventId);
+        return res.status(200).json(output);
     },
 };
 

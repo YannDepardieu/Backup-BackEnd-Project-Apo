@@ -20,7 +20,7 @@ router
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Event not found - application/json
      */
-    .post(security.checkJWT, validator('body', createSchema), asyncWrapper(eventController.create))
+    .post(security.checkJWT, validator('body', createSchema), asyncWrapper(eventController.insert))
     /**
      * GET /v1/api/event/
      * @summary Select all events of a user
@@ -30,7 +30,7 @@ router
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Event not found - application/json
      */
-    .get(security.checkJWT, asyncWrapper(eventController.getAll));
+    .get(security.checkJWT, asyncWrapper(eventController.selectAll));
 
 router
     .route('/:id(\\d+)')
@@ -44,7 +44,7 @@ router
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Event not found - application/json
      */
-    .get(security.checkJWT, asyncWrapper(eventController.getByPk))
+    .get(security.checkJWT, asyncWrapper(eventController.selectByPk))
     /**
      * PATCH /v1/api/event/{id}
      * @summary Update an event of a user by its userId and eventId

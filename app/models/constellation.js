@@ -31,60 +31,153 @@ class Constellation extends CoreModel {
         this.spotting = obj.spotting;
     }
 
-    static async findByPkWithMyths(id) {
+    static async selectAll() {
+        const result = await client.query(`
+            SELECT
+                constellation.id,
+                constellation.name as name,
+                constellation.latin_name as latin_name,
+                constellation.scientific_name as scientific_name,
+                constellation.img_name as img_name,
+                constellation.story as history,
+                constellation.spotting as spotting,
+                array_agg(json_build_object('origin', myth.origin, 'legend', myth.legend)) AS myth
+            FROM "constellation"
+            LEFT JOIN "myth"
+            ON constellation.id = myth.constellation_id
+            GROUP BY constellation.id
+            ORDER BY constellation.id;
+        `);
+        return result.rows;
+    }
+
+    static async selectByPk(id) {
         const SQL = {
             text: `SELECT
-                        constellation.id, 
-                        constellation.name as name,
-                        constellation.latin_name as latin_name,
-                        constellation.scientific_name as scientific_name,
-                        constellation.img_name as img_name,
-                        constellation.story as history,
-                        constellation.spotting as spotting,
-                        array_agg(json_build_object(myth.origin, myth.legend)) AS myth_with_origin
-                    FROM "constellation"
-                    JOIN "myth"
-                    ON constellation.id = myth.constellation_id
-                    WHERE constellation.id=$1
-                    GROUP BY constellation.id;`,
+                    constellation.id,
+                    constellation.name as name,
+                    constellation.latin_name as latin_name,
+                    constellation.scientific_name as scientific_name,
+                    constellation.img_name as img_name,
+                    constellation.story as history,
+                    constellation.spotting as spotting,
+                    array_agg(json_build_object('origin', myth.origin, 'legend', myth.legend)) AS myth
+                FROM "constellation"
+                LEFT JOIN "myth"
+                ON constellation.id = myth.constellation_id
+                WHERE constellation.id=$1
+                GROUP BY constellation.id
+                ORDER BY constellation.id;`,
             values: [id],
         };
         const result = await client.query(SQL);
         if (result.rows.length === 0) {
-            const constellationSQL = {
-                text: `SELECT * FROM constellation WHERE id=$1`,
-                values: [id],
-            };
-            const constellation = await client.query(constellationSQL);
-            if (constellation.rows.length === 0) {
-                throw new ApiError(`${this.tableName} not found, id doesn't exist`, {
-                    statusCode: 404,
-                });
-            }
-            return constellation.rows;
+            throw new ApiError(`${this.tableName} not found, id doesn't exist`, {
+                statusCode: 404,
+            });
         }
-
         return result.rows;
     }
 
-    static async constellationsNames() {
+    static async selectAllNames() {
         const SQL = 'SELECT name FROM constellation';
         const data = await client.query(SQL);
         return data.rows;
     }
 
-    static async createFavConst(user, constellation) {
+    static async insertFavorite(userId, constellationId) {
         const SQL = {
-            text: `INSERT INTO "favorite_constellation" ("user_id", "constellation_id") VALUES ($1, $2)`,
-            values: [`${user}`, `${constellation}`],
+            text: `
+                INSERT INTO "favorite_constellation" ("user_id", "constellation_id")
+                VALUES ($1, $2)
+                RETURNING *;
+            `,
+            values: [userId, constellationId],
         };
-        const favConst = await client.query(SQL);
-        if (favConst.rowCount === 0) {
+        const output = await client.query(SQL);
+        if (output.rowCount === 0) {
             throw new ApiError(`User or Constellation not found`, {
                 statusCode: 404,
             });
         }
-        return 'Ok';
+        return { message: true };
+    }
+
+    static async selectFavoriteByPk(userId, constellationId) {
+        const SQL = {
+            text: `
+                SELECT
+                    constellation.id,
+                    constellation.name as name,
+                    constellation.latin_name as latin_name,
+                    constellation.scientific_name as scientific_name,
+                    constellation.img_name as img_name,
+                    constellation.story as history,
+                    constellation.spotting as spotting,
+                    array_agg(json_build_object('origin', myth.origin, 'legend', myth.legend)) AS myth
+                FROM constellation
+                LEFT JOIN myth
+                ON constellation.id = myth.constellation_id
+                JOIN favorite_constellation
+                ON constellation.id = favorite_constellation.constellation_id
+                WHERE favorite_constellation.user_id = $1
+                AND favorite_constellation.constellation_id = $2
+                GROUP BY constellation.id
+                ORDER BY constellation.id;`,
+            values: [userId, constellationId],
+        };
+        const result = await client.query(SQL);
+        return result.rows;
+    }
+
+    static async selectAllFavorites(userId) {
+        const SQL = {
+            text: `
+                SELECT
+                    constellation.id,
+                    constellation.name as name,
+                    constellation.latin_name as latin_name,
+                    constellation.scientific_name as scientific_name,
+                    constellation.img_name as img_name,
+                    constellation.story as history,
+                    constellation.spotting as spotting,
+                    array_agg(json_build_object('origin', myth.origin, 'legend', myth.legend)) AS myth
+                FROM constellation
+                LEFT JOIN myth
+                ON constellation.id = myth.constellation_id
+                JOIN favorite_constellation
+                ON constellation.id = favorite_constellation.constellation_id
+                WHERE favorite_constellation.user_id = $1
+                GROUP BY constellation.id
+                ORDER BY constellation.id;`,
+            values: [userId],
+        };
+        const result = await client.query(SQL);
+        return result.rows;
+    }
+
+    static async deleteFavorite(userId, eventId) {
+        const query = {
+            text: `
+                DELETE FROM "event"
+                WHERE event.id = (
+                    SELECT event.id FROM "event"
+                    JOIN reserve_event
+                    ON event.id = reserve_event.event_id
+                    WHERE reserve_event.user_id = $1
+                    AND event.id = $2
+                )
+                RETURNING *;
+            `,
+            values: [userId, eventId],
+        };
+        const result = await client.query(query);
+        if (result.rows.length === 0) {
+            throw new ApiError(`${this.tableName} not found for this user`, {
+                statusCode: 404,
+            });
+        }
+        return { delete: true };
     }
 }
 
