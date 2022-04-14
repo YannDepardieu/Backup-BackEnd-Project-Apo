@@ -65,7 +65,7 @@ router
     .get(security.checkJWT, asyncWrapper(constellationController.selectAllFavorites));
 
 router
-    .route('favorites/:id(\\d+)')
+    .route('/favorites/:id(\\d+)')
     /**
      * DELETE /v1/api/constellation/favorites/{id}
      * @summary Delete a constellation from user's favorites

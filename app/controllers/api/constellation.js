@@ -69,9 +69,9 @@ const constellationController = {
     },
 
     async deleteFavorite(req, res) {
-        const eventId = req.params.id;
         const userId = req.decoded.user.id;
-        const output = await Event.delete(userId, eventId);
+        const constId = req.params.id;
+        const output = await Constellation.deleteFavorite(userId, constId);
         return res.status(200).json(output);
     },
 };

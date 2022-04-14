@@ -100,7 +100,7 @@ class Constellation extends CoreModel {
                 statusCode: 404,
             });
         }
-        return { message: true };
+        return { insert: true };
     }
 
     static async selectFavoriteByPk(userId, constellationId) {
@@ -156,20 +156,20 @@ class Constellation extends CoreModel {
         return result.rows;
     }
 
-    static async deleteFavorite(userId, eventId) {
+    static async deleteFavorite(userId, constellationId) {
         const query = {
             text: `
-                DELETE FROM "event"
-                WHERE event.id = (
-                    SELECT event.id FROM "event"
-                    JOIN reserve_event
-                    ON event.id = reserve_event.event_id
-                    WHERE reserve_event.user_id = $1
-                    AND event.id = $2
+                DELETE FROM favorite_constellation
+                WHERE favorite_constellation.constellation_id = (
+                    SELECT constellation.id FROM constellation
+                    JOIN favorite_constellation
+                    ON constellation.id = favorite_constellation.constellation_id
+                    WHERE favorite_constellation.user_id = $1
+                    AND constellation.id = $2
                 )
                 RETURNING *;
             `,
-            values: [userId, eventId],
+            values: [userId, constellationId],
         };
         const result = await client.query(query);
         if (result.rows.length === 0) {
