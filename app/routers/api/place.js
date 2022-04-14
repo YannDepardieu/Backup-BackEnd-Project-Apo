@@ -20,7 +20,7 @@ router
      * POST /v1/api/place
      * @summary Creates a new place and sets it as a user's favorite place
      * @tags Place
-     * @return {string} 200 - success response - application/json
+     * @return {FavoritePlace} 200 - success response - application/json
      */
     .post(
         security.checkJWT,
@@ -43,7 +43,7 @@ router
      * @summary Updates one user's favorite place
      * @tags Place
      * @param {integer} id.path.required identifier
-     * @return {string} 200 - success response - application/json
+     * @return {Place} 200 - success response - application/json
      */
     .patch(security.checkJWT, asyncWrapper(placeController.updateOnePlace))
     /**
