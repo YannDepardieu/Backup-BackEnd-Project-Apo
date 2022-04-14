@@ -25,6 +25,12 @@ const placeController = {
      * @property {integer} latitude - Place position latitude
      * @property {integer} longitude - Place position longitude
      */
+    /**
+     * A favorite place
+     * @typedef {object} FavoritePlace
+     * @property {integer} place_id - The place id
+     * @property {integer} user_id - The user id
+     */
     async getAllPlaces(req, res) {
         const places = await Place.selectAllPlaces(req.decoded.user.id);
         const output = [];
