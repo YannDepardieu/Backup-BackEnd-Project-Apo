@@ -6,7 +6,7 @@ const ApiError = require('../errors/apiError');
 class Myth extends CoreModel {
     origin;
 
-    img_name;
+    img_url;
 
     constellation_id;
 
@@ -24,7 +24,7 @@ class Myth extends CoreModel {
     constructor(obj) {
         super(obj);
         this.origin = obj.origin;
-        this.img_name = obj.img_name;
+        this.img_url = obj.img_url;
         this.constellation_id = obj.constellation_id;
         this.star_id = obj.star_id;
         this.legend = obj.legend;
@@ -63,14 +63,14 @@ class Myth extends CoreModel {
         const SQL = {
             text: `
                 SELECT
-                    myth.id as myth_id, myth.origin, myth.img_name as myth_img, myth.legend as myth,
+                    myth.id as myth_id, myth.origin, myth.img_url as myth_img, myth.legend as myth,
                     constellation.id as constellation_id, constellation.name as constellation_name,
                     constellation.latin_name as constellation_latin_name,
-                    constellation.scientific_name as constellation_scientific_name, constellation.img_name as constellation_img,
+                    constellation.scientific_name as constellation_scientific_name, constellation.img_url as constellation_img,
                     constellation.story as constellation_history, constellation.spotting as constellation_spotting,
-                    planet.id as planet_id, planet.name as planet_name, planet.img_name as planet_img,
+                    planet.id as planet_id, planet.name as planet_name, planet.img_url as planet_img,
                     star.id as star_id, star.name as star_name, star.traditional_name as star_tradition_name,
-                    star.tradition as star_tradition, star.img_name as star_img, star.constellation_id as star_constellation
+                    star.tradition as star_tradition, star.img_url as star_img, star.constellation_id as star_constellation
                 FROM myth
                 INNER JOIN constellation ON myth.constellation_id = constellation.id
                 LEFT JOIN planet ON planet.id = myth.planet_id

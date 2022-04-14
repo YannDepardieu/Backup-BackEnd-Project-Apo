@@ -11,7 +11,7 @@ class Constellation extends CoreModel {
 
     scientific_name;
 
-    img_name;
+    img_url;
 
     story;
 
@@ -26,7 +26,7 @@ class Constellation extends CoreModel {
         super(obj);
         this.name = obj.name;
         this.latin_name = obj.latin_name;
-        this.img_name = obj.img_name;
+        this.img_url = obj.img_url;
         this.story = obj.story;
         this.spotting = obj.spotting;
     }
@@ -38,7 +38,7 @@ class Constellation extends CoreModel {
                 constellation.name as name,
                 constellation.latin_name as latin_name,
                 constellation.scientific_name as scientific_name,
-                constellation.img_name as img_name,
+                constellation.img_url as img_url,
                 constellation.story as history,
                 constellation.spotting as spotting,
                 array_agg(json_build_object('origin', myth.origin, 'legend', myth.legend)) AS myth
@@ -58,7 +58,7 @@ class Constellation extends CoreModel {
                     constellation.name as name,
                     constellation.latin_name as latin_name,
                     constellation.scientific_name as scientific_name,
-                    constellation.img_name as img_name,
+                    constellation.img_url as img_url,
                     constellation.story as history,
                     constellation.spotting as spotting,
                     array_agg(json_build_object('origin', myth.origin, 'legend', myth.legend)) AS myth
@@ -80,9 +80,14 @@ class Constellation extends CoreModel {
     }
 
     static async selectAllNames() {
-        const SQL = 'SELECT name FROM constellation';
-        const data = await client.query(SQL);
-        return data.rows;
+        const SQL = 'SELECT id, name FROM constellation';
+        const result = await client.query(SQL);
+        const resultAsClasses = [];
+        result.rows.forEach((obj) => {
+            const newObj = new this(obj);
+            resultAsClasses.push(newObj);
+        });
+        return resultAsClasses;
     }
 
     static async insertFavorite(userId, constellationId) {
@@ -111,7 +116,7 @@ class Constellation extends CoreModel {
                     constellation.name as name,
                     constellation.latin_name as latin_name,
                     constellation.scientific_name as scientific_name,
-                    constellation.img_name as img_name,
+                    constellation.img_url as img_url,
                     constellation.story as history,
                     constellation.spotting as spotting,
                     array_agg(json_build_object('origin', myth.origin, 'legend', myth.legend)) AS myth
@@ -138,7 +143,7 @@ class Constellation extends CoreModel {
                     constellation.name as name,
                     constellation.latin_name as latin_name,
                     constellation.scientific_name as scientific_name,
-                    constellation.img_name as img_name,
+                    constellation.img_url as img_url,
                     constellation.story as history,
                     constellation.spotting as spotting,
                     array_agg(json_build_object('origin', myth.origin, 'legend', myth.legend)) AS myth

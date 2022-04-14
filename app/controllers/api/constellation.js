@@ -22,7 +22,7 @@ const constellationController = {
      * @property {string} name - Event date
      * @property {string} latin_name - Event position latitude
      * @property {string} scientific_name - Event position longitude
-     * @property {string} img_name - Email notification recall date
+     * @property {string} img_url - Email notification recall date
      * @property {string} story - Email notification recall date
      * @property {string} spotting - Email notification recall date
      * @property {string} created_at - Email notification recall date
@@ -43,11 +43,10 @@ const constellationController = {
     },
 
     async selectAllNames(_, res) {
-        const data = await Constellation.selectAllNames();
-        if (!data) {
-            throw new ApiError('Constellation not found', { statusCode: 404 });
-        }
-        return res.status(200).json(data);
+        const result = await Constellation.selectAllNames();
+        const output = [];
+        result.forEach((element) => output.push({ id: element.id, ...element }));
+        return res.status(200).json(output);
     },
 
     async insertFavorite(req, res) {

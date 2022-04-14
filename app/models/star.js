@@ -10,7 +10,7 @@ class Star extends CoreModel {
 
     name;
 
-    img_name;
+    img_url;
 
     constellation_id;
 
@@ -24,7 +24,7 @@ class Star extends CoreModel {
         this.traditional_name = obj.traditional_name;
         this.tradition = obj.tradition;
         this.name = obj.name;
-        this.img_name = obj.img_name;
+        this.img_url = obj.img_url;
         this.constellation_id = obj.constellation_id;
     }
 }

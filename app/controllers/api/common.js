@@ -8,7 +8,7 @@ const commonController = {
      * @typedef {object} Constellation
      * @property {string} name - The constellation name
      * @property {string} latin_name - And its latin name
-     * @property {string} img_name - With the image name
+     * @property {string} img_url - With the image name
      * @property {string} story - The story of first discovering
      * @property {string} spotting - The spotting advices to locate it on sky
      */
@@ -16,7 +16,7 @@ const commonController = {
      * A myth
      * @typedef {object} Myth
      * @property {string} origin - The myth origin
-     * @property {string} img_name - The image name
+     * @property {string} img_url - The image name
      * @property {integer} constellation_id - Myth's constellation id
      * @property {integer} star_id - Myth's star id
      * @property {string} legend - The myth's content
@@ -25,7 +25,7 @@ const commonController = {
      * A planet
      * @typedef {object} Planet
      * @property {string} name - The planet name
-     * @property {string} img_name - The image name
+     * @property {string} img_url - The image name
      */
     /**
      * A star
@@ -33,7 +33,7 @@ const commonController = {
      * @property {string} traditional_name - Star's traditional name
      * @property {string} tradition - Star's myth or story
      * @property {string} name - Star's usual name
-     * @property {string} img_name - Star's image name
+     * @property {string} img_url - Star's image name
      * @property {integer} constellation_id - Star's consellation id
      */
     /**

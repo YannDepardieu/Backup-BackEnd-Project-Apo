@@ -1,0 +1,59 @@
+[
+    {
+        "user_id" : 1,
+        "constellation_id" : 10
+    },
+    {
+        "user_id" : 1,
+        "constellation_id" : 12
+    },
+    {
+        "user_id" : 1,
+        "constellation_id" : 22
+    },
+    {
+        "user_id" : 2,
+        "constellation_id" : 80
+    },
+    {
+        "user_id" : 2,
+        "constellation_id" : 52
+    },
+    {
+        "user_id" : 2,
+        "constellation_id" : 40
+    },
+    {
+        "user_id" : 2,
+        "constellation_id" : 75
+    },
+    {
+        "user_id" : 3,
+        "constellation_id" : 14
+    },
+    {
+        "user_id" : 3,
+        "constellation_id" : 66
+    },
+    {
+        "user_id" : 4,
+        "constellation_id" : 24
+    },
+    {
+        "user_id" : 4,
+        "constellation_id" : 63
+    },
+    {
+        "user_id" : 5,
+        "constellation_id" : 21
+    },
+    {
+        "user_id" : 5,
+        "constellation_id" : 22
+    },
+    {
+        "user_id" : 5,
+        "constellation_id" : 27
+    }
+]
+

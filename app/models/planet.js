@@ -6,7 +6,7 @@ const CoreModel = require('./coreModel');
 class Planet extends CoreModel {
     name;
 
-    img_name;
+    img_url;
 
     // on surcharge la proprieté statique tableName définie dans le parent CoreModel
     static tableName = 'planet';
@@ -16,7 +16,7 @@ class Planet extends CoreModel {
     constructor(obj) {
         super(obj);
         this.name = obj.name;
-        this.img_name = obj.img_name;
+        this.img_url = obj.img_url;
     }
 }
 

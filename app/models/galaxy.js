@@ -10,7 +10,7 @@ class Galaxy extends CoreModel {
 
     name;
 
-    img_name;
+    img_url;
 
     constellation_id;
 
@@ -24,7 +24,7 @@ class Galaxy extends CoreModel {
         this.scientific_name = obj.scientific_name;
         this.traditional_name = obj.traditional_name;
         this.name = obj.name;
-        this.img_name = obj.img_name;
+        this.img_url = obj.img_url;
         this.constellation_id = obj.constellation_id;
     }
 }

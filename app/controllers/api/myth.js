@@ -17,7 +17,7 @@ const mythController = {
      * @typedef {object} RandomMyth
      * @property {integer} id - The myth id
      * @property {string} origin - Myth origin
-     * @property {string} img_name - Myth image name
+     * @property {string} img_url - Myth image name
      * @property {integer} constellation_id - Myth's constellation id
      * @property {integer} star_id - Myth's star id
      * @property {integer} planet_id - Myth's planet id
