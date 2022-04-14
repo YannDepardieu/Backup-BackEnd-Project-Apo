@@ -70,7 +70,6 @@ class CoreModel {
     }
 
     static async findOne(data) {
-        debug('findOne');
         if (data.password) {
             // eslint-disable-next-line no-param-reassign
             delete data.password;
@@ -88,7 +87,6 @@ class CoreModel {
         const result = await client.query(SQL);
         debug(result.rows);
         if (result.rows.length === 0) {
-            debug('whyyyy');
             throw new ApiError(`${this.tableName} not found, id doesn't exist`, {
                 statusCode: 404,
             });
