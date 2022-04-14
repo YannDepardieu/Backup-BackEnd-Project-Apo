@@ -2,81 +2,81 @@
     {
         "id": 1,
         "name": "Mercure",
-        "img_name": "mer"
+        "img_url": "mer"
     },
     {
         "id": 2,
         "name": "Venus",
-        "img_name": "ven"
+        "img_url": "ven"
     },
     {
         "id": 3,
         "name": "Terre",
-        "img_name": "ter"
+        "img_url": "ter"
     },
     {
         "id": 4,
         "name": "Mars",
-        "img_name": "mar"
+        "img_url": "mar"
     },
     {
         "id": 5,
         "name": "Jupiter",
-        "img_name": "jup"
+        "img_url": "jup"
     },
     {
         "id": 6,
         "name": "Saturne",
-        "img_name": "sat"
+        "img_url": "sat"
     },
     {
         "id": 7,
         "name": "Uranus",
-        "img_name": "ura"
+        "img_url": "ura"
     },
     {
         "id": 8,
         "name": "Neptune",
-        "img_name": "nep"
+        "img_url": "nep"
     },
     {
         "id": 9,
         "name": "Pluton",
-        "img_name": "plu"
+        "img_url": "plu"
     },
     {
         "id": 10,
         "name": "Éris",
-        "img_name": "eri"
+        "img_url": "eri"
     },
     {
         "id": 11,
         "name": "Makémaké",
-        "img_name": "mak"
+        "img_url": "mak"
     },
     {
         "id": 12,
         "name": "Hauméa",
-        "img_name": "hau"
+        "img_url": "hau"
     },
     {
         "id": 13,
         "name": "Vesta",
-        "img_name": "ves"
+        "img_url": "ves"
     },
     {
         "id": 14,
         "name": "Cérès",
-        "img_name": "cer"
+        "img_url": "cer"
     },
     {
         "id": 15,
         "name": "Pallas",
-        "img_name": "pal"
+        "img_url": "pal"
     },
     {
         "id": 16,
         "name": "Lune",
-        "img_name": "lun"
+        "img_url": "lun"
     }
 ]
