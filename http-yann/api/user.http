@@ -29,20 +29,20 @@ content-type: application/json
 
 {
     "email": "bb@gmail.com",
-    "password": "xx"
+    "password": "yy"
 }
 
 ### Disconnect user
 GET {{ endpoint }}/logout
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTgzNzI0OSwiZXhwIjoxNjQ5OTIzNjQ5fQ.efPhe1IGV12XJO26p_iADhpzLkZjGJeBmACQ3yXxtqk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDAyMzA3OCwiZXhwIjoxNjUwMTA5NDc4fQ.B8izslzqmUPLTbZ_HBQ1OgPcPZy2bjYXV55l2dkhZm4
 
 ### Select user
 GET {{ endpoint }}/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTgzNzI0OSwiZXhwIjoxNjQ5OTIzNjQ5fQ.efPhe1IGV12XJO26p_iADhpzLkZjGJeBmACQ3yXxtqk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDAyMzA3OCwiZXhwIjoxNjUwMTA5NDc4fQ.B8izslzqmUPLTbZ_HBQ1OgPcPZy2bjYXV55l2dkhZm4
 
 ### Update user
 PATCH {{ endpoint }}/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6NiwiZmlyc3RuYW1lIjoiYiIsImxhc3RuYW1lIjoiYiIsImVtYWlsIjoiYmJAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJub3RpZmljYXRpb24iOnRydWV9LCJpYXQiOjE2NDk3NTMzODYsImV4cCI6MTY0OTgzOTc4Nn0.4woBzYrNhFeBlHVI-vBZZS0IrSaGOPLoFLBs_89PfSE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDAyMzA3OCwiZXhwIjoxNjUwMTA5NDc4fQ.B8izslzqmUPLTbZ_HBQ1OgPcPZy2bjYXV55l2dkhZm4
 content-type: application/json
 
 {
@@ -55,11 +55,11 @@ content-type: application/json
 
 ### Delete user
 DELETE {{ endpoint }}/
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGVhbmVkVXNlciI6eyJpZCI6MzEsImZpcnN0bmFtZSI6ImIiLCJsYXN0bmFtZSI6ImIiLCJlbWFpbCI6ImJiQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwibm90aWZpY2F0aW9uIjp0cnVlfSwiaWF0IjoxNjQ5Njk2MzY3LCJleHAiOjE2NDk3ODI3Njd9.k1Rgw8aNYA9qT7ipudZZRkIkWBbYlnYWv5HcMPZTrgU
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDAyMzMxNCwiZXhwIjoxNjUwMTA5NzE0fQ.fbzQIdXd8RKbehu-V1gxcAAfmFUpqTAoBC-N7lao-30
 content-type: application/json
 
 {
-    "password": "yy"
+    "password": "xx"
 }
 
 ###########################
