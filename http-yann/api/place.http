@@ -16,7 +16,7 @@ content-type: application/json
 
 {
     "name": "At Tony",
-    "address": "3 rue de la condamine, Paris"
+    "address": "Bordeaux"
 }
 
 ### Select all places
@@ -24,11 +24,11 @@ GET {{ endpoint }}/
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDAxMTM3OSwiZXhwIjoxNjUwMDk3Nzc5fQ.LUmwoBNR6u8TwK36OdOOZBQIcLdzsy7W13kYDJJHtp4
 
 ### Select a place
-GET {{ endpoint }}/9
+GET {{ endpoint }}/17
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDAxMTM3OSwiZXhwIjoxNjUwMDk3Nzc5fQ.LUmwoBNR6u8TwK36OdOOZBQIcLdzsy7W13kYDJJHtp4
 
 ### Update a place
-PATCH {{ endpoint }}/13
+PATCH {{ endpoint }}/17
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDAxMTM3OSwiZXhwIjoxNjUwMDk3Nzc5fQ.LUmwoBNR6u8TwK36OdOOZBQIcLdzsy7W13kYDJJHtp4
 content-type: application/json
 
@@ -36,6 +36,6 @@ content-type: application/json
     "name": "At Francis"
 }
 
-### Update a place
-DELETE {{ endpoint }}/10
+### Delete a place
+DELETE {{ endpoint }}/18
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDAxMTM3OSwiZXhwIjoxNjUwMDk3Nzc5fQ.LUmwoBNR6u8TwK36OdOOZBQIcLdzsy7W13kYDJJHtp4

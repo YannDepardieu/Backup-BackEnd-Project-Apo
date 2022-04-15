@@ -31,12 +31,7 @@ const placeController = {
      * @property {integer} place_id - The place id
      * @property {integer} user_id - The user id
      */
-    async selectAll(req, res) {
-        const places = await Place.selectAll(req.decoded.user.id);
-        const output = [];
-        places.forEach((place) => output.push({ id: place.id, ...place }));
-        return res.status(200).json(output);
-    },
+
     async insert(req, res) {
         const input = {
             address: req.body.address,
@@ -60,6 +55,14 @@ const placeController = {
         const output = { id: insertPlace.id, ...insertPlace };
         return res.status(200).json(output);
     },
+
+    async selectAll(req, res) {
+        const places = await Place.selectAll(req.decoded.user.id);
+        const output = [];
+        places.forEach((place) => output.push({ id: place.id, ...place }));
+        return res.status(200).json(output);
+    },
+
     async selectByPk(req, res) {
         const placeId = req.params.id;
         const userId = req.decoded.user.id;
@@ -67,6 +70,7 @@ const placeController = {
         const output = { id: place.id, ...place };
         return res.status(200).json(output);
     },
+
     async update(req, res) {
         const placeId = req.params.id;
         const userId = req.decoded.user.id;
@@ -81,6 +85,7 @@ const placeController = {
         const output = { id: place.id, ...place };
         return res.status(200).json(output);
     },
+
     async delete(req, res) {
         const placeId = req.params.id;
         const userId = req.decoded.user.id;
