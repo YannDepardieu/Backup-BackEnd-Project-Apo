@@ -39,7 +39,7 @@ router
     .get(asyncWrapper(constellationController.selectAllNames));
 
 router
-    .route('/favorites')
+    .route('/favorite')
     /**
      * POST /v1/api/constellation/favorites
      * @summary Add a constellation on user's favorite constellation list
@@ -65,7 +65,7 @@ router
     .get(security.checkJWT, asyncWrapper(constellationController.selectAllFavorites));
 
 router
-    .route('/favorites/:id(\\d+)')
+    .route('/favorite/:id(\\d+)')
     /**
      * DELETE /v1/api/constellation/favorites/{id}
      * @summary Delete a constellation from user's favorites

@@ -19,7 +19,7 @@ GET {{ endpoint }}/
 GET {{ endpoint }}/names
 
 ### Insert favorite constellation
-POST {{ endpoint }}/favorites
+POST {{ endpoint }}/favorite
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTk1NjQ2MiwiZXhwIjoxNjUwMDQyODYyfQ.2o8luXc_ATX1SbFzmw76r0kTdcoO8jD02PW-hcgGq38
 
@@ -28,9 +28,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2L
 }
 
 ### Select All favorites constellations
-GET {{ endpoint }}/favorites
+GET {{ endpoint }}/favorite
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTk1NjQ2MiwiZXhwIjoxNjUwMDQyODYyfQ.2o8luXc_ATX1SbFzmw76r0kTdcoO8jD02PW-hcgGq38
 
 ### Delete favorite constellation
-DELETE {{ endpoint }}/favorites/26
+DELETE {{ endpoint }}/favorite/26
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTk1NjQ2MiwiZXhwIjoxNjUwMDQyODYyfQ.2o8luXc_ATX1SbFzmw76r0kTdcoO8jD02PW-hcgGq38
