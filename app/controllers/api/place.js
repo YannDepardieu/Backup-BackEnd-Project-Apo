@@ -3,7 +3,7 @@ const debug = require('debug')('placeController');
 const ApiError = require('../../errors/apiError');
 
 const Place = require('../../models/place');
-const savePlace = require('../../models/savePlace');
+const SavePlace = require('../../models/savePlace');
 const { forward } = require('../../services/positionStack');
 
 const placeController = {
@@ -35,16 +35,16 @@ const placeController = {
         const places = await Place.selectAll(req.decoded.user.id);
         const output = [];
         places.forEach((place) => output.push({ id: place.id, ...place }));
-        return res.json(output);
+        return res.status(200).json(output);
     },
     async insert(req, res) {
-        const address = {
+        const input = {
             address: req.body.address,
         };
-        const location = await forward(address);
+        const location = await forward(input);
         const place = {
             name: req.body.name,
-            address: address.address,
+            address: input.address,
             latitude: location[0].latitude,
             longitude: location[0].longitude,
         };
@@ -52,39 +52,40 @@ const placeController = {
         if (!insertPlace) {
             throw new ApiError('Data not fount', { statusCode: 404 });
         }
-
         const data = {
             place_id: insertPlace.id,
-            user_id: req.decoded.cleanedUser.id,
+            user_id: req.decoded.user.id,
         };
-        const favPlace = await savePlace.insert(data);
-        return res.json(favPlace);
+        await SavePlace.insert(data);
+        const output = { id: insertPlace.id, ...insertPlace };
+        return res.status(200).json(output);
     },
     async selectByPk(req, res) {
         const placeId = req.params.id;
         const userId = req.decoded.user.id;
         const place = await Place.selectByPk(userId, placeId);
         const output = { id: place.id, ...place };
-        return res.json(output);
+        return res.status(200).json(output);
     },
     async update(req, res) {
         const placeId = req.params.id;
         const userId = req.decoded.user.id;
         const input = req.body;
-        const gps = await forward(input);
-        input.latitude = gps[0].latitude;
-        input.longitude = gps[0].longitude;
-        // delete input.address;
+        if (input.address) {
+            const gps = await forward(input);
+            input.latitude = gps[0].latitude;
+            input.longitude = gps[0].longitude;
+        }
         debug(userId, placeId, input);
         const place = await Place.update(userId, placeId, input);
         const output = { id: place.id, ...place };
-        return res.json(output);
+        return res.status(200).json(output);
     },
     async delete(req, res) {
         const placeId = req.params.id;
         const userId = req.decoded.user.id;
         const output = await Place.delete(userId, placeId);
-        return res.json(output);
+        return res.status(200).json(output);
     },
 };
 module.exports = placeController;

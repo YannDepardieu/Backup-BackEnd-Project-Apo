@@ -33,10 +33,18 @@ class Myth extends CoreModel {
     static async selectRandom() {
         const SQL = {
             text: `
-                SELECT *
+                SELECT
+                    myth.id, myth.origin, myth.img_url, myth.constellation_id, myth.star_id, myth.planet_id, myth.legend,
+                    json_build_object('id', constellation.id, 'name', constellation.name,
+                    'latin_name', constellation.latin_name, 'scientific_name', constellation.scientific_name,
+                    'story', constellation.story, 'spotting', constellation.spotting) AS constellation,
+                    json_build_object('id', planet.id, 'name', planet.name, 'img_url', planet.img_url) AS planet,
+                    json_build_object('id', star.id, 'name', star.name, 'tradition_name', star.traditional_name,
+                    'tradition', star.tradition, 'img_url', star.img_url, 'constellation_id', star.constellation_id) AS star
                 FROM "myth"
-                JOIN "constellation"
-                ON constellation.id = myth.constellation_id
+                JOIN "constellation" ON constellation.id = myth.constellation_id
+                LEFT JOIN planet ON planet.id = myth.planet_id
+                LEFT JOIN star ON star.id = myth.star_id
                 WHERE myth.id >= (
                     SELECT random()*(max(myth.id)-min(myth.id)) + min(myth.id) FROM "myth"
                 )
@@ -63,14 +71,13 @@ class Myth extends CoreModel {
         const SQL = {
             text: `
                 SELECT
-                    myth.id as myth_id, myth.origin, myth.img_url as myth_img, myth.legend as myth,
-                    constellation.id as constellation_id, constellation.name as constellation_name,
-                    constellation.latin_name as constellation_latin_name,
-                    constellation.scientific_name as constellation_scientific_name, constellation.img_url as constellation_img,
-                    constellation.story as constellation_history, constellation.spotting as constellation_spotting,
-                    planet.id as planet_id, planet.name as planet_name, planet.img_url as planet_img,
-                    star.id as star_id, star.name as star_name, star.traditional_name as star_tradition_name,
-                    star.tradition as star_tradition, star.img_url as star_img, star.constellation_id as star_constellation
+                    myth.id, myth.origin, myth.img_url, myth.constellation_id, myth.star_id, myth.planet_id, myth.legend,
+                    json_build_object('id', constellation.id, 'name', constellation.name,
+                    'latin_name', constellation.latin_name, 'scientific_name', constellation.scientific_name,
+                    'story', constellation.story, 'spotting', constellation.spotting) AS constellation,
+                    json_build_object('id', planet.id, 'name', planet.name, 'img_url', planet.img_url) AS planet,
+                    json_build_object('id', star.id, 'name', star.name, 'tradition_name', star.traditional_name,
+                    'tradition', star.tradition, 'img_url', star.img_url, 'constellation_id', star.constellation_id) AS star
                 FROM myth
                 INNER JOIN constellation ON myth.constellation_id = constellation.id
                 LEFT JOIN planet ON planet.id = myth.planet_id

@@ -10,14 +10,6 @@ const userPlaceSchema = require('../../schemas/createUserPlace');
 router
     .route('/')
     /**
-     * GET /v1/api/place
-     * @summary Gets all user's favorites places
-     * @tags Place
-     * @security BearerAuth
-     * @return {array<Place>} 200 - success response - application/json
-     */
-    .get(security.checkJWT, asyncWrapper(placeController.selectAll))
-    /**
      * POST /v1/api/place
      * @summary Creates a new place and sets it as a user's favorite place
      * @tags Place
@@ -28,7 +20,15 @@ router
         security.checkJWT,
         validator('body', userPlaceSchema),
         asyncWrapper(placeController.insert),
-    );
+    )
+    /**
+     * GET /v1/api/place
+     * @summary Gets all user's favorites places
+     * @tags Place
+     * @security BearerAuth
+     * @return {array<Place>} 200 - success response - application/json
+     */
+    .get(security.checkJWT, asyncWrapper(placeController.selectAll));
 
 router
     .route('/:id(\\d+)')

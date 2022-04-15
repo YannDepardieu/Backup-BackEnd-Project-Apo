@@ -63,10 +63,12 @@ const eventController = {
         const eventId = req.params.id;
         const userId = req.decoded.user.id;
         const input = req.body;
-        const gps = await forward(input);
-        input.latitude = gps[0].latitude;
-        input.longitude = gps[0].longitude;
-        delete input.address;
+        if (input.address) {
+            const gps = await forward(input);
+            input.latitude = gps[0].latitude;
+            input.longitude = gps[0].longitude;
+            delete input.address;
+        }
         const event = await Event.update(userId, eventId, input);
         const output = { id: event.id, ...event };
         return res.status(200).json(output);

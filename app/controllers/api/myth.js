@@ -22,8 +22,6 @@ const mythController = {
      * @property {integer} star_id - Myth's star id
      * @property {integer} planet_id - Myth's planet id
      * @property {string} legend - Myth's legend
-     * @property {string} created_at - Myth's entry DB date
-     * @property {string} updated_at - Myth's last DB update date
      * @property {string} name - Myth's constellation name
      * @property {string} latin_name - Myth's constellation latin name
      * @property {string} scientific_name - Myth's constellation scientific name
