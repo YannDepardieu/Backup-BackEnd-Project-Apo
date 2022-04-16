@@ -1,9 +1,58 @@
 [
     {
         "id": 1,
-        "name": "Soleil",
-        "tradition": "latin",
+        "letter": null,
         "traditional_name": "Sol",
-        "img_url": "sol"
+        "tradition": "latin",
+        "name": "Soleil",
+        "constellation_id": null
+    },
+    {
+        "id": 2,
+        "letter": "alpha",
+        "traditional_name": "Sadalmelik",
+        "tradition": "arabe",
+        "name": "la chanceuse du roi",
+        "constellation_id": 87
+    },
+    {
+        "id": 3,
+        "letter": "beta",
+        "traditional_name": "Sadalsud",
+        "tradition": "arabe",
+        "name": "la plus chanceuse",
+        "constellation_id": 87
+    },
+    {
+        "id": 4,
+        "letter": "gamma",
+        "traditional_name": "Sadachbia",
+        "tradition": "arabe",
+        "name": "la chanceuse des choses cachées",
+        "constellation_id": 87
+    },
+    {
+        "id": 5,
+        "letter": "delta",
+        "traditional_name": "Skat",
+        "tradition": "arabe",
+        "name": "le souhait",
+        "constellation_id": 87
+    },
+    {
+        "id": 6,
+        "letter": "epsilon",
+        "traditional_name": "Albali",
+        "tradition": "arabe",
+        "name": "le dévoreur",
+        "constellation_id": 87
+    },
+    {
+        "id": 7,
+        "letter": "theta",
+        "traditional_name": "Ancha",
+        "tradition": "arabe",
+        "name": "la hanche",
+        "constellation_id": 87
     }
 ]

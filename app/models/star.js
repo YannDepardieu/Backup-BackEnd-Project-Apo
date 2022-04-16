@@ -4,6 +4,8 @@ const CoreModel = require('./coreModel');
 // const ApiError = require('../errors/apiError');
 
 class Star extends CoreModel {
+    letter;
+
     traditional_name;
 
     tradition;

@@ -5,7 +5,7 @@
  * "fatal" (60):
  *     The service/app is going to stop or
  *     become unusable now. An operator should definitely look into this soon.
- *     "error" (50): Fatal for a particular request,
+ * "error" (50): Fatal for a particular request,
  *     but the service/app continues servicing other requests.
  *     An operator should look at this soon(ish).
  * "warn" (40):

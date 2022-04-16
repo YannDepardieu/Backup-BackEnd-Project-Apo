@@ -13,7 +13,7 @@ class Constellation extends CoreModel {
 
     img_url;
 
-    story;
+    history;
 
     spotting;
 
@@ -27,7 +27,7 @@ class Constellation extends CoreModel {
         this.name = obj.name;
         this.latin_name = obj.latin_name;
         this.img_url = obj.img_url;
-        this.story = obj.story;
+        this.history = obj.history;
         this.spotting = obj.spotting;
     }
 
@@ -39,12 +39,20 @@ class Constellation extends CoreModel {
                 constellation.latin_name as latin_name,
                 constellation.scientific_name as scientific_name,
                 constellation.img_url as img_url,
-                constellation.story as history,
+                constellation.history as history,
                 constellation.spotting as spotting,
-                array_agg(json_build_object('origin', myth.origin, 'legend', myth.legend)) AS myth
+                (SELECT array_agg(json_build_object(
+                    'id', myth.id, 'img_url', myth.img_url, 'origin', myth.origin, 'legend', myth.legend
+                )) AS myths FROM myth WHERE constellation.id = myth.constellation_id),
+                (SELECT array_agg(json_build_object(
+                    'id', star.id, 'letter', star.letter, 'traditional_name', star.traditional_name,
+                    'tradition', star.tradition, 'name', star.name, 'img_url', star.img_url
+                )) AS stars FROM star WHERE constellation.id = star.constellation_id),
+                (SELECT array_agg(json_build_object(
+                    'id', galaxy.id, 'scientific_name', galaxy.scientific_name,  'traditional_name',
+                    galaxy.traditional_name, 'name', galaxy.name, 'img_url', galaxy.img_url
+                )) AS galaxies FROM galaxy WHERE constellation.id = galaxy.constellation_id)
             FROM "constellation"
-            LEFT JOIN "myth"
-            ON constellation.id = myth.constellation_id
             GROUP BY constellation.id
             ORDER BY constellation.id;
         `);
@@ -53,20 +61,39 @@ class Constellation extends CoreModel {
 
     static async selectByPk(id) {
         const SQL = {
-            text: `SELECT
+            text: `
+                SELECT
                     constellation.id,
                     constellation.name as name,
                     constellation.latin_name as latin_name,
                     constellation.scientific_name as scientific_name,
                     constellation.img_url as img_url,
-                    constellation.story as history,
+                    constellation.history as history,
                     constellation.spotting as spotting,
-                    array_agg(json_build_object('origin', myth.origin, 'legend', myth.legend)) AS myth
+                    star.stars, myth.myths, galaxy.galaxies
                 FROM "constellation"
-                LEFT JOIN "myth"
-                ON constellation.id = myth.constellation_id
+                CROSS JOIN LATERAL (
+                    SELECT jsonb_agg( json_build_object(
+                        'id', myth.id, 'img_url', myth.img_url, 'origin', myth.origin, 'legend', myth.legend
+                    )) AS myths
+                    FROM myth WHERE constellation.id = myth.constellation_id
+                ) AS myth
+                CROSS JOIN LATERAL (
+                    SELECT jsonb_agg(json_build_object(
+                        'id', star.id, 'letter', star.letter, 'traditional_name', star.traditional_name,
+                        'tradition', star.tradition, 'name', star.name, 'img_url', star.img_url
+                    )) AS stars
+                    FROM star WHERE constellation.id = star.constellation_id
+                ) AS star
+                CROSS JOIN LATERAL (
+                    SELECT jsonb_agg(json_build_object(
+                        'id', galaxy.id, 'scientific_name', galaxy.scientific_name,  'traditional_name',
+                        galaxy.traditional_name, 'name', galaxy.name, 'img_url', galaxy.img_url
+                    )) AS galaxies
+                    FROM galaxy WHERE constellation.id = galaxy.constellation_id
+                ) AS galaxy
                 WHERE constellation.id=$1
-                GROUP BY constellation.id
+                GROUP BY constellation.id, star.stars, myth.myths, galaxy.galaxies
                 ORDER BY constellation.id;`,
             values: [id],
         };
@@ -117,7 +144,7 @@ class Constellation extends CoreModel {
                     constellation.latin_name as latin_name,
                     constellation.scientific_name as scientific_name,
                     constellation.img_url as img_url,
-                    constellation.story as history,
+                    constellation.history as history,
                     constellation.spotting as spotting,
                     array_agg(json_build_object('origin', myth.origin, 'legend', myth.legend)) AS myth
                 FROM constellation
@@ -144,12 +171,20 @@ class Constellation extends CoreModel {
                     constellation.latin_name as latin_name,
                     constellation.scientific_name as scientific_name,
                     constellation.img_url as img_url,
-                    constellation.story as history,
+                    constellation.history as history,
                     constellation.spotting as spotting,
-                    array_agg(json_build_object('origin', myth.origin, 'legend', myth.legend)) AS myth
+                    (SELECT array_agg(json_build_object(
+                        'id', myth.id, 'img_url', myth.img_url, 'origin', myth.origin, 'legend', myth.legend
+                    )) AS myths FROM myth WHERE constellation.id = myth.constellation_id),
+                    (SELECT array_agg(json_build_object(
+                        'id', star.id, 'letter', star.letter, 'traditional_name', star.traditional_name,
+                        'tradition', star.tradition, 'name', star.name, 'img_url', star.img_url
+                    )) AS stars FROM star WHERE constellation.id = star.constellation_id),
+                    (SELECT array_agg(json_build_object(
+                        'id', galaxy.id, 'scientific_name', galaxy.scientific_name,  'traditional_name',
+                        galaxy.traditional_name, 'name', galaxy.name, 'img_url', galaxy.img_url
+                    )) AS galaxies FROM galaxy WHERE constellation.id = galaxy.constellation_id)
                 FROM constellation
-                LEFT JOIN myth
-                ON constellation.id = myth.constellation_id
                 JOIN favorite_constellation
                 ON constellation.id = favorite_constellation.constellation_id
                 WHERE favorite_constellation.user_id = $1

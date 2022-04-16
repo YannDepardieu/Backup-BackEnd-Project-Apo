@@ -25,7 +25,7 @@ const mythController = {
      * @property {string} name - Myth's constellation name
      * @property {string} latin_name - Myth's constellation latin name
      * @property {string} scientific_name - Myth's constellation scientific name
-     * @property {string} story - Myth's constellation story
+     * @property {string} history - Myth's constellation history
      * @property {string} spotting - Myth's constellation spotting advices
      */
     async selectRandom(_, res) {
@@ -47,7 +47,7 @@ const mythController = {
      * @property {string} constellation_latin_name - And its latin name
      * @property {string} constellation_scientific_name - And its latin name
      * @property {string} constellation_img - With the image name
-     * @property {string} constellation_history - The story of first discovering
+     * @property {string} constellation_story - The story of first discovering
      * @property {string} constellation_spotting - The spotting advices to locate it on sky
      * @property {integer} planet_id - Planet's id
      * @property {integer} planet_name - Planet's name
