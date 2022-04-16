@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Liste des niveaux de log
  *
@@ -24,13 +25,14 @@ const streams = [];
 
 // No errors will be displayed in the terminal while the project is in production
 // nb : This part of code cannot be tested with Jest.
-if (!process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'dev') {
     streams.push({
         level: 'error',
         // Create a display in the terminal
         stream: process.stdout,
     });
-} else {
+}
+if (process.env.NODE_ENV === 'production') {
     streams.push({
         level: 'error', // Starting at error level, the logs won't be kept
         path: './log/error.log', // Path to the log file (Don't forget to put it in the .gitignore)

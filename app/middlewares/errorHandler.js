@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const debug = require('debug')('errorHandler');
 const logger = require('../helpers/logger');
 
