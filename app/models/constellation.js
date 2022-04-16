@@ -60,6 +60,7 @@ class Constellation extends CoreModel {
     }
 
     static async selectByPk(id) {
+        // Another way of doing the query on top but with WHERE
         const SQL = {
             text: `
                 SELECT
@@ -94,7 +95,8 @@ class Constellation extends CoreModel {
                 ) AS galaxy
                 WHERE constellation.id=$1
                 GROUP BY constellation.id, star.stars, myth.myths, galaxy.galaxies
-                ORDER BY constellation.id;`,
+                ORDER BY constellation.id;
+            `,
             values: [id],
         };
         const result = await client.query(SQL);
@@ -138,24 +140,13 @@ class Constellation extends CoreModel {
     static async selectFavoriteByPk(userId, constellationId) {
         const SQL = {
             text: `
-                SELECT
-                    constellation.id,
-                    constellation.name as name,
-                    constellation.latin_name as latin_name,
-                    constellation.scientific_name as scientific_name,
-                    constellation.img_url as img_url,
-                    constellation.history as history,
-                    constellation.spotting as spotting,
-                    array_agg(json_build_object('origin', myth.origin, 'legend', myth.legend)) AS myth
+                SELECT *
                 FROM constellation
-                LEFT JOIN myth
-                ON constellation.id = myth.constellation_id
                 JOIN favorite_constellation
                 ON constellation.id = favorite_constellation.constellation_id
                 WHERE favorite_constellation.user_id = $1
-                AND favorite_constellation.constellation_id = $2
-                GROUP BY constellation.id
-                ORDER BY constellation.id;`,
+                AND favorite_constellation.constellation_id = $2;
+            `,
             values: [userId, constellationId],
         };
         const result = await client.query(SQL);
@@ -189,7 +180,8 @@ class Constellation extends CoreModel {
                 ON constellation.id = favorite_constellation.constellation_id
                 WHERE favorite_constellation.user_id = $1
                 GROUP BY constellation.id
-                ORDER BY constellation.id;`,
+                ORDER BY constellation.id;
+            `,
             values: [userId],
         };
         const result = await client.query(SQL);
