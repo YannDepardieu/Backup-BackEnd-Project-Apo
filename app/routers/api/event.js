@@ -16,9 +16,10 @@ router
      * @tags Event
      * @security BearerAuth
      * @param {EventInput} request.body.required Express req.object
-     * @return {EventOutput} 200 - success response - application/json
-     * @return {ApiError} 400 - Bad request response - application/json
-     * @return {ApiError} 404 - Event not found - application/json
+     * @return {EventOutput} 201 - Event created - application/json
+     * @return {ApiError} 401 - Unauthorized Authentification needed - application/json
+     * @return {ApiError} 400 - Input data is not validated - application/json
+     * @return {ApiError} 404 - Cannot find a location for this address - application/json
      */
     .post(security.checkJWT, validator('body', createSchema), asyncWrapper(eventController.insert))
     /**
@@ -27,8 +28,7 @@ router
      * @tags Event
      * @security BearerAuth
      * @return {array<EventOutput>} 200 - success response - application/json
-     * @return {ApiError} 400 - Bad request response - application/json
-     * @return {ApiError} 404 - Event not found - application/json
+     * @return {ApiError} 401 - Unauthorized Authentification needed - application/json
      */
     .get(security.checkJWT, asyncWrapper(eventController.selectAll));
 
@@ -41,8 +41,8 @@ router
      * @security BearerAuth
      * @param {integer} id.path.required event primary key
      * @return {EventOutput} 200 - success response - application/json
-     * @return {ApiError} 400 - Bad request response - application/json
-     * @return {ApiError} 404 - Event not found - application/json
+     * @return {ApiError} 401 - Unauthorized Authentification needed - application/json
+     * @return {ApiError} 404 - Event not found for this eventId and this userId - application/json
      */
     .get(security.checkJWT, asyncWrapper(eventController.selectByPk))
     /**
@@ -53,8 +53,10 @@ router
      * @param {integer} id.path.required event primary key
      * @param {EventInput} request.body.required Express req.object
      * @return {EventOutput} 200 - success response - application/json
-     * @return {ApiError} 400 - Bad request response - application/json
-     * @return {ApiError} 404 - Event not found - application/json
+     * @return {ApiError} 401 - Unauthorized Authentification needed - application/json
+     * @return {ApiError} 400 - Input data is not validated - application/json
+     * @return {ApiError} 404 - Cannot find a location for this address - application/json
+     * @return {ApiError} 404 - Event to update not found for this eventId and this userId - application/json
      */
     .patch(security.checkJWT, validator('body', updateSchema), asyncWrapper(eventController.update))
     /**
@@ -64,8 +66,8 @@ router
      * @security BearerAuth
      * @param {integer} id.path.required event primary key
      * @return {boolean} 200 - success response - application/json
-     * @return {ApiError} 400 - Bad request response - application/json
-     * @return {ApiError} 404 - Event not found - application/json
+     * @return {ApiError} 401 - Unauthorized Authentification needed - application/json
+     * @return {ApiError} 404 - Event to delete not found for this eventId and this userId - application/json
      */
     .delete(security.checkJWT, asyncWrapper(eventController.delete));
 

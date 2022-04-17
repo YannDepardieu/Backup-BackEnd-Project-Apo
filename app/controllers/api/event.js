@@ -17,12 +17,12 @@ const eventController = {
     /**
      * Output object of the event
      * @typedef {object} EventOutput
-     * @property {string} id - id of the event
+     * @property {integer} id - id of the event
      * @property {string} name - Name of the event
      * @property {string} event_datetime - Datetime of the event
      * @property {string} recall_datetime - Datetime of the recall
-     * @property {string} latitude - latitude of the event
-     * @property {string} longitude - longitude of the event
+     * @property {integer} latitude - latitude of the event
+     * @property {integer} longitude - longitude of the event
      */
     /**
      * Api controller to create an event bound to a user
@@ -42,7 +42,7 @@ const eventController = {
             event_id: event.id,
             user_id: req.decoded.user.id,
         });
-        return res.status(200).json({ id: event.id, ...event });
+        return res.status(201).json({ id: event.id, ...event });
     },
 
     async selectAll(req, res) {

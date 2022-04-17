@@ -37,11 +37,6 @@ class Event extends CoreModel {
             WHERE reserve_event.user_id = $1;`,
             [userId],
         );
-        if (result.rows.length === 0) {
-            throw new ApiError(`No ${this.tableName} found for this user`, {
-                statusCode: 404,
-            });
-        }
         const resultAsClasses = [];
         result.rows.forEach((obj) => {
             const newObj = new this(obj);
@@ -61,7 +56,7 @@ class Event extends CoreModel {
             [userId, eventId],
         );
         if (result.rows.length === 0) {
-            throw new ApiError(`${this.tableName} not found for this user`, {
+            throw new ApiError(`${this.tableName} not found for this eventId and this userId`, {
                 statusCode: 404,
             });
         }
@@ -86,9 +81,10 @@ class Event extends CoreModel {
             [...values, userId, eventId],
         );
         if (result.rows.length === 0) {
-            throw new ApiError(`${this.tableName} not found for this user`, {
-                statusCode: 404,
-            });
+            throw new ApiError(
+                `${this.tableName} to update not found for this eventId and this userId`,
+                { statusCode: 404 },
+            );
         }
         return new this(result.rows[0]);
     }
@@ -110,9 +106,10 @@ class Event extends CoreModel {
         };
         const result = await client.query(query);
         if (result.rows.length === 0) {
-            throw new ApiError(`${this.tableName} not found for this user`, {
-                statusCode: 404,
-            });
+            throw new ApiError(
+                `${this.tableName} to delete not found for this eventId and this userId`,
+                { statusCode: 404 },
+            );
         }
         return { delete: true };
     }

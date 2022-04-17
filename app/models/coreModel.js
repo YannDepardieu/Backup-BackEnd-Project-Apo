@@ -109,13 +109,6 @@ class CoreModel {
             values: [...values],
         };
         const inserted = await client.query(SQL);
-
-        if (inserted.rows.length === 0) {
-            throw new ApiError(`${this.tableName} not found, id doesn't exist`, {
-                statusCode: 404,
-            });
-        }
-
         return new this(inserted.rows[0]);
     }
 

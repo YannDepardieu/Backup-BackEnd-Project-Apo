@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 const debug = require('debug')('constellationController');
-const ApiError = require('../../errors/apiError');
 
 const Constellation = require('../../models/constellation');
 // const favConst = require('../../models/favoriteConstellation');
@@ -9,7 +8,7 @@ const constellationController = {
     // maybe get it off created at, updated at, star id, planet id ?
     /**
      * A constellation with its attributes
-     * @typedef {object} ConstellationWithAttributes
+     * @typedef {object} ConstellationWithAttributesOutput
      * @property {integer} id - Constellation id
      * @property {string} name - Constellation name
      * @property {string} latin_name - Constellation latin_name
@@ -68,7 +67,7 @@ const constellationController = {
 
     /**
      * A constellation with its attributes
-     * @typedef {object} ConstellationName
+     * @typedef {object} ConstellationNameOutput
      * @property {integer} id - Constellation id
      * @property {string} name - Constellation name
      */
@@ -81,19 +80,16 @@ const constellationController = {
 
     /**
      * Add constellation in favorite using it's id
-     * @typedef {object} ConstellationAddFavorite
+     * @typedef {object} ConstellationAddFavoriteInput
      * @property {integer} constellation_id - Constellation id
      */
     async insertFavorite(req, res) {
         const userId = req.decoded.user.id;
         const constId = req.body.constellation_id;
-        const exist = await Constellation.selectFavoriteByPk(userId, constId);
-        debug('exist = ', exist);
-        if (exist.length > 0) {
-            throw new ApiError('Constellation already in favorite', { statusCode: 400 });
-        }
+        await Constellation.selectByPk(constId);
+        await Constellation.selectFavoriteByPk(userId, constId);
         const output = await Constellation.insertFavorite(userId, constId);
-        return res.status(200).json(output);
+        return res.status(201).json(output);
     },
 
     async selectAllFavorites(req, res) {

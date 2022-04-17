@@ -45,7 +45,7 @@ const placeController = {
         };
         const insertPlace = await Place.insert(place);
         if (!insertPlace) {
-            throw new ApiError('Data not fount', { statusCode: 404 });
+            throw new ApiError('Data not found', { statusCode: 404 });
         }
         const data = {
             place_id: insertPlace.id,

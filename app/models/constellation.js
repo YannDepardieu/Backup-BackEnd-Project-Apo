@@ -100,8 +100,8 @@ class Constellation extends CoreModel {
             values: [id],
         };
         const result = await client.query(SQL);
-        if (result.rows.length === 0) {
-            throw new ApiError(`${this.tableName} not found, id doesn't exist`, {
+        if (result.rowCount === 0) {
+            throw new ApiError(`${this.tableName} not found for this id`, {
                 statusCode: 404,
             });
         }
@@ -128,12 +128,7 @@ class Constellation extends CoreModel {
             `,
             values: [userId, constellationId],
         };
-        const output = await client.query(SQL);
-        if (output.rowCount === 0) {
-            throw new ApiError(`User or Constellation not found`, {
-                statusCode: 404,
-            });
-        }
+        await client.query(SQL);
         return { insert: true };
     }
 
@@ -150,6 +145,11 @@ class Constellation extends CoreModel {
             values: [userId, constellationId],
         };
         const result = await client.query(SQL);
+        if (result.rows.length > 0) {
+            throw new ApiError('Constellation already in favorite for this userId', {
+                statusCode: 400,
+            });
+        }
         return result.rows;
     }
 
@@ -205,9 +205,10 @@ class Constellation extends CoreModel {
         };
         const result = await client.query(query);
         if (result.rows.length === 0) {
-            throw new ApiError(`${this.tableName} not found for this user`, {
-                statusCode: 404,
-            });
+            throw new ApiError(
+                `${this.tableName} to delete from favorite not found for this constellationId and this userId`,
+                { statusCode: 404 },
+            );
         }
         return { delete: true };
     }

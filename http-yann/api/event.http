@@ -12,7 +12,7 @@
 ### Insert un nouvel event
 POST {{ endpoint }}/
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTk1NjQ2MiwiZXhwIjoxNjUwMDQyODYyfQ.2o8luXc_ATX1SbFzmw76r0kTdcoO8jD02PW-hcgGq38
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDIyMjY3NCwiZXhwIjoxNjUwMzA5MDc0fQ.7evXt4muqm-L8c64ACrhW-ZwEqTt-0cR-pmCGhaPrFs
 
 {
     "name": "Soirée",
@@ -23,7 +23,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2L
 
 ### Get all events of a user
 GET {{ endpoint }}/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTk1NjQ2MiwiZXhwIjoxNjUwMDQyODYyfQ.2o8luXc_ATX1SbFzmw76r0kTdcoO8jD02PW-hcgGq38
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDIyMjY3NCwiZXhwIjoxNjUwMzA5MDc0fQ.7evXt4muqm-L8c64ACrhW-ZwEqTt-0cR-pmCGhaPrFs
 
 ### Get one event of a user
 GET {{ endpoint }}/11
@@ -39,5 +39,5 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2L
 }
 
 ### Delete an event of a user
-DELETE {{ endpoint }}/10
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY0OTk1NjQ2MiwiZXhwIjoxNjUwMDQyODYyfQ.2o8luXc_ATX1SbFzmw76r0kTdcoO8jD02PW-hcgGq38
+DELETE {{ endpoint }}/6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDIyMjY3NCwiZXhwIjoxNjUwMzA5MDc0fQ.7evXt4muqm-L8c64ACrhW-ZwEqTt-0cR-pmCGhaPrFs
