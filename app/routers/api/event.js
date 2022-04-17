@@ -39,7 +39,7 @@ router
      * @summary Select one event of a user by its userId and eventId
      * @tags Event
      * @security BearerAuth
-     * @param {integer} id.path.required event identifier
+     * @param {integer} id.path.required event primary key
      * @return {EventOutput} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Event not found - application/json
@@ -50,7 +50,7 @@ router
      * @summary Update an event of a user by its userId and eventId
      * @tags Event
      * @security BearerAuth
-     * @param {integer} id.path.required event identifier
+     * @param {integer} id.path.required event primary key
      * @param {EventInput} request.body.required Express req.object
      * @return {EventOutput} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
@@ -62,8 +62,8 @@ router
      * @summary Delete an event of a user by its userId and eventId
      * @tags Event
      * @security BearerAuth
-     * @param {integer} id.path.required event identifier
-     * @return {object} 200 - success response - application/json
+     * @param {integer} id.path.required event primary key
+     * @return {boolean} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Event not found - application/json
      */

@@ -4,7 +4,7 @@ const schemas = require('../schemas');
 /**
  * Generic middleware generator that validate an object fron a request propriety
  * @param {string} prop - Propriety request object name that needs validation
- * @returns {Function} -
+ * @return {Function} -
  * Send back a middleware that validates the body of the request using the parameter schema
  * Send back an error 400 if the validation fail
  */

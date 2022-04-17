@@ -23,7 +23,7 @@ router
      * GET /v1/api/constellation/{id}
      * @summary Select one constellation by its ID with attributes (Myths, Stars, Galaxies)
      * @tags Constellation
-     * @param {integer} id.path.required constellation identifier
+     * @param {integer} id.path.required constellation primary key
      * @return {ConstellationWithAttributes} 200 - success response - application/json
      */
     .get(asyncWrapper(constellationController.selectByPk));
@@ -34,19 +34,19 @@ router
      * GET /v1/api/constellation/names
      * @summary Select all the constellations names
      * @tags Constellation
-     * @return {ConstellationName} 200 - success response - application/json
+     * @return {array<ConstellationName>} 200 - success response - application/json
      */
     .get(asyncWrapper(constellationController.selectAllNames));
 
 router
     .route('/favorite')
     /**
-     * POST /v1/api/constellation/favorites
+     * POST /v1/api/constellation/favorite
      * @summary Add a constellation on user's favorite constellation list
      * @tags Constellation
      * @security BearerAuth
-     * @param {integer} request.body.constellation_id Express req.object
-     * @return {string} 200 - success response - application/json
+     * @param {ConstellationAddFavorite} request.body.required Express req.object
+     * @return {boolean} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      */
     .post(
@@ -55,7 +55,7 @@ router
         asyncWrapper(constellationController.insertFavorite),
     )
     /**
-     * GET /v1/api/constellation/favorites
+     * GET /v1/api/constellation/favorite
      * @summary Select all user´s favorites constellations
      * @tags Constellation
      * @security BearerAuth
@@ -67,12 +67,12 @@ router
 router
     .route('/favorite/:id(\\d+)')
     /**
-     * DELETE /v1/api/constellation/favorites/{id}
+     * DELETE /v1/api/constellation/favorite/{id}
      * @summary Delete a constellation from user's favorites
      * @tags Constellation
      * @security BearerAuth
-     * @param {integer} id.path.required constellation identifier
-     * @return {string} 200 - success response - application/json
+     * @param {integer} id.path.required constellation primary key
+     * @return {boolean} 200 - success response - application/json
      * @return {ApiError} 400 - Bad request response - application/json
      */
     .delete(security.checkJWT, asyncWrapper(constellationController.deleteFavorite));

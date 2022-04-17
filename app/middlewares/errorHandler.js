@@ -5,7 +5,7 @@ const logger = require('../helpers/logger');
 /**
  * Middleware that respond to a next method with an error as argument
  * We go into this function only if an error is thrown before, the code error and the error message are passed
- * to the function and that returns a custom response depending on the error type
+ * to the function and that return a custom response depending on the error type
  * @param {object} err Error class
  * @param {object} res Express response object
  */

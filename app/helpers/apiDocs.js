@@ -31,6 +31,6 @@ const options = {
 /**
  * Swagger middleware factory
  * @param {object} app Express application
- * @returns {object} Express JSDoc Swagger middleware that create web documentation
+ * @return {object} Express JSDoc Swagger middleware that create web documentation
  */
 module.exports = (app) => expressJSDocSwagger(app)(options);

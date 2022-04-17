@@ -10,20 +10,43 @@ const constellationController = {
     /**
      * A constellation with its attributes
      * @typedef {object} ConstellationWithAttributes
-     * @property {integer} id - The event name
-     * @property {string} name - Event date
-     * @property {string} latin_name - Event position latitude
-     * @property {string} scientific_name - Event position longitude
-     * @property {string} img_url - Email notification recall date
-     * @property {string} history - Email notification recall date
-     * @property {string} spotting - Email notification recall date
-     * @property {Myth} Myth notification recall date
+     * @property {integer} id - Constellation id
+     * @property {string} name - Constellation name
+     * @property {string} latin_name - Constellation latin_name
+     * @property {string} scientific_name - Constellation scientific name
+     * @property {string} img_url - Constellation img_url
+     * @property {string} history - Constellation history
+     * @property {string} spotting - Constellation spoting
+     * @property {array<Myth>} Myths All myths related to the constellation
+     * @property {array<Star>} Stars All stars forming the constellation
+     * @property {array<Galaxy>} Galaxies All galaxies forming the constellation
      */
     /**
-     * Myths
+     * All Myths related to the constellation
      * @typedef {object} Myth
-     * @property {string} origin - Email notification recall date
-     * @property {string} legend - Email notification recall date
+     * @property {integer} id - Myth id
+     * @property {string} origin - Myth origin
+     * @property {string} legend - Myth legend
+     * @property {string} img_url - Myth img_url
+     */
+    /**
+     * All Stars related to the constellation
+     * @typedef {object} Star
+     * @property {integer} id - Star id
+     * @property {string} letter - Myth origin
+     * @property {string} traditional_name - Myth traditional_name
+     * @property {string} tradition -  Myth name tradition
+     * @property {string} name -  Myth name (traduction)
+     * @property {string} img_url - Myth img_url
+     */
+    /**
+     * All Stars related to the constellation
+     * @typedef {object} Galaxy
+     * @property {integer} id - Galaxy id
+     * @property {string} scientific_name - Galaxy scientific_name
+     * @property {string} traditional_name - Galaxy traditional_name
+     * @property {string} name -  Galaxy name
+     * @property {string} img_url - Galaxy img_url
      */
 
     /**
@@ -31,7 +54,7 @@ const constellationController = {
      * ExpressMiddleware signature
      * @param {object} req Express req.object
      * @param {object} res Express response object
-     * @returns {string} Route API JSON data
+     * @return {string} Route API JSON data
      */
     async selectAll(_, res) {
         const output = await Constellation.selectAll();
@@ -56,6 +79,11 @@ const constellationController = {
         return res.status(200).json(output);
     },
 
+    /**
+     * Add constellation in favorite using it's id
+     * @typedef {object} ConstellationAddFavorite
+     * @property {integer} constellation_id - Constellation id
+     */
     async insertFavorite(req, res) {
         const userId = req.decoded.user.id;
         const constId = req.body.constellation_id;

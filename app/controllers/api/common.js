@@ -96,7 +96,7 @@ const commonController = {
      * ExpressMiddleware signature
      * @param {InscriptionUser} req Express req.object
      * @param {InscriptionUser} res Express response object with crypted password
-     * @returns {string} Route API JSON data
+     * @return {string} Route API JSON data
      */
     async insert(req, res) {
         const { Model } = res.locals;

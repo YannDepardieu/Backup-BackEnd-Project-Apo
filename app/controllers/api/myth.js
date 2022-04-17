@@ -9,7 +9,7 @@ const mythController = {
      * ExpressMiddleware signature
      * @param {object} req Express req.object
      * @param {object} res Express response object
-     * @returns {string} Route API JSON data
+     * @return {string} Route API JSON data
      */
 
     /**
