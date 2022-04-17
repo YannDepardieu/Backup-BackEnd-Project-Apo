@@ -2,431 +2,689 @@
     {
         "origin": "grecque",
         "legend": "Elle doit représenter soit l'Aigle de Zeus, soit l'Aigle du Caucase qui, chaque jour, atterrit près d'un rocher où est enchaîné Prométhée pour grignoter son foie. Un des douze travaux d'Hercule fut de se procurer les pommes d'or du jardin des Hespérides. Sur le chemin, le héros découvrit le pauvre Prométhée, enchaînée à un rocher. Zeus, le père des Dieux, avait imposé cette sanction, car Prométhée avait apporté le feu et le savoir à l'espèce humaine à son insu. Hercule tua l'aigle avec une flèche et libéra Prométhée de son calvaire.",
-        "constellation_id": 1
+        "constellation_id": 1,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente Andromède, la fille de Céphée, le roi éthiopien de Joppé, et de Cassiopée. Cassiopée s'était vantée qu'elle et (ou) sa fille étaient plus belles que les Néréides; celles-ci se plaignirent de cette insulte à Poséidon; leur protecteur envoya un déluge et un monstre marin femelle pour dévaster Philistia, et, lorsque Céphée consulta l'oracle de Zeus-Ammon, il lui fut répondu qu'il n'avait qu'une seule chance d'être délivré c'était de sacrifier Andromède au monstre marin. Ses sujets l'avaient donc contraint de l'attacher à un rocher, nue, portant seulement quelques bijoux, et de l'abandonner là pour être dévorée. En revenant de son aventure contre Méduse, Persée longeait la côte de Philistia, monté sur son cheval Pégase, il vit Andromède et vola vers elle, puis il aperçut Céphée et Cassiopée qui l'observaient anxieusement du rivage proche et il se posa à terre auprès d'eux pour les consulter hâtivement. A la condition que, s'il la sauvait, elle deviendrait son épouse et reviendrait avec lui en Grèce, Persée s'éleva à nouveau dans les airs et, tenant fermement sa serpe, il plongea vers la mer et trancha la tête du monstre.",
-        "constellation_id": 2
+        "constellation_id": 2,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "Il est identifié comme l'autel du centaure Chiron (ou, moins souvent, comme celui de Noé, de Moïse, de Salomon ou de Dionysos).",
-        "constellation_id": 3
+        "constellation_id": 3,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "comme le nom des étoiles principales de cette constellation l'atteste, la Balance était à l'origine (chez les Grecs en particulier) soit considérée comme les pinces de la constellation du Scorpion, soit considérée comme la balance où Zeus plaça le sort des Grecs et des Troyens pendant la guerre de Troie, soit considérée comme étant la balance d'Astrée (ou Thémis), la déesse vierge de la Justice, qui quitta la terre pour devenir la constellation de la Vierge.",
-        "constellation_id": 4
+        "constellation_id": 4,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "le kètos, monstre marin à l'origine de la constellation de la Baleine, fait partie de la légende d'Andromède.",
-        "constellation_id": 5
+        "constellation_id": 5,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "il représente le bélier volant Chrysomallos, chevauché par Phrixos, dont la Toison d'or a inspiré la saga de Jason. Il semblerait que les Babyloniens, les Grecs, les Perses, et les Égyptiens aient tous nommé cette constellation « Bélier ».",
-        "constellation_id": 6
+        "constellation_id": 6,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "les quatre étoiles principales de la Boussole représentent le mât du légendaire Navire Argo de Jason",
-        "constellation_id": 7
+        "constellation_id": 7,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "il s'agit d'un laboureur qui conduit les sept bœufs (septem triones) de la constellation de la Grande Ourse à l'aide de ses deux chiens Chara et Astérion (de la constellation des Chiens de chasse). Les bœufs seraient liés à l'axe polaire et le Bouvier perpétuerait la rotation des cieux.",
-        "constellation_id": 8
+        "constellation_id": 8,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "Le Bouvier représente Philomelos l'inventeur de la charrue, ce qui plut à sa mère Déméter, déesse des moissons, qui le fixa définitivement sur la voûte céleste. On dit aussi du Bouvier qu'il est Jasion. Un héros Curète qui, inventant la charrue pour assurer sa subsistance, s'assura encore des sentiments de Cérès qui le considérait déjà comme un de ses favoris. C'est cette même Déesse qu'est Cérès/Déméter qui le plaça dans le ciel.",
-        "constellation_id": 8
+        "constellation_id": 8,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "le Bouvier représente un vigneron nommé Icarius, qui autorisa Bacchus à inspecter ses vignes, lequel lui révéla le secret de la fabrication du vin. Icarius invita ses amis à déguster le breuvage, mais tous en burent trop et ne se réveillèrent que le lendemain, pensant qu'Icarius avait tenté de les empoisonner. Par vengeance, ils l'assassinèrent dans son sommeil.",
-        "constellation_id": 8
+        "constellation_id": 8,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "égyptienne",
         "legend": "on la connait sous le nom de Porte des Hommes, là d'où les âmes provenaient pour pénétrer les corps à la naissance.",
-        "constellation_id": 11
+        "constellation_id": 11,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "il s'agit d'un crabe qui prit parti pour l'Hydre et, qui dans son combat avec Hercule, fut écrasé. Il sera ressuscité par Poséidon en monstre géant pour servir son armée. Pour ses efforts, à sa mort, il fut élevé au ciel par Héra.",
-        "constellation_id": 11
+        "constellation_id": 11,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "on l'identifie à Amalthée, la chèvre qui nourrit Zeus lors de son enfance. D'autres pensent qu'elle représente Pan lorsqu'il fuyait le monstre Typhon. Il s'était transformé en chèvre et en voulant plonger dans l'eau, il rata sa transformation et seul l'arrière-train devint poisson. Selon d'autres versions il s'agirait de la divinité sumérienne Enki sous la forme du Sukhurmashu.",
-        "constellation_id": 12
+        "constellation_id": 12,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "Argo est le nom de la monère (galère) à bord de laquelle Jason et les Argonautes naviguèrent depuis Pagases, port d'Iolcos, d'où ils embarquèrent pour retrouver la Toison d'or. Athéna présida sa construction. L’Argo disposait des dons de parole et de voyance3, car il était fait de bois de chêne provenant du bois sacré de l'oracle de Dodone. L’Argo et son équipage étaient protégés par la déesse Héra.",
-        "constellation_id": 13
+        "constellation_id": 13,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "la constellation représente Cassiopée, la reine d'Éthiopie de la mythologie grecque, femme du roi Céphée et mère d'Andromède, à côté desquels elle se trouve. Cassiopée et son mari ont commis le péché de vanité. Cassiopée a déclaré être plus belle que les Néréides, nymphes des mers de la mythologie grecque. Les Néréides s'en sont plaintes à Poséidon, le Dieu de la mer, qui réagit rapidement en envoyant le monstre des mers Ketos, qui dévasta les côtes du pays. D'après un oracle, le pays ne pourrait être débarrassé de la malédiction que si Andromède, la fille unique de la famille royale, était sacrifiée au monstre des mers. Sans merci, Andromède fut attachée à un rocher au bord de la mer, en attendant que le monstre vienne la dévorer vivante. Persée vainquit le monstre, sauva Andromède et l'épousa. On dit aussi que, pour châtier son orgueil, la reine a été enchaînée à son trône, condamnée à tourner autour du pôle Nord et parfois de pendre à l'envers de façon très peu digne.",
-        "constellation_id": 14
+        "constellation_id": 14,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "le centaure (créature mi-homme, mi-cheval) que cette constellation désigne est Chiron, le plus sage des centaures, précepteur de Jason et d'Hercule. Certaines sources lui attribuent aussi le Sagittaire, bien que Pholos ou Crotos soient plus souvent associés à ce dernier.",
-        "constellation_id": 15
+        "constellation_id": 15,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "la constellation de Céphée tire son nom de Céphée. Ce dernier était roi d’Ethiopie, héritier de Phénix, mari de Cassiopée, et géniteur d’Andromède, célèbre pour être soumise à un géant marin, et qui prit Persée comme épouse après l’avoir sauvée du monstre.",
-        "constellation_id": 16
+        "constellation_id": 16,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "son nom fait référence à la reine Bérénice II, qui fit la promesse de sacrifier sa longue chevelure sous la forme d'une offrande votive à Aphrodite afin que Ptolémée rentre sain et sauf de la Troisième guerre de Syrie.",
-        "constellation_id": 17
+        "constellation_id": 17,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "Érichthonios, héros athénien, fils d'Athéna, est le premier à utiliser le quadrige ou chariot à quatre chevaux",
-        "constellation_id": 19
+        "constellation_id": 19,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "babylonienne",
         "legend": "La constellation célébrait Adad, le dieu de la pluie et des orages ; durant le second millénaire, son lever héliaque se produisait juste avant la saison des pluies automnales. John H. Rogers a observé que l'Hydre représentait Ningishzida, le dieu des Enfers, dans le recueil babylonien de MUL.APIN. Il a proposé que le Corbeau et la Coupe (avec l'Hydre) soient des symboles associés à la mort et marquant l'entrée vers les Enfers.",
-        "constellation_id": 22
+        "constellation_id": 22,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "le Corbeau est associé au mythe d'Apollon et de son amante Coronis des Lapithes dans la mythologie grecque. Coronis a été infidèle et le dieu l'apprend par l'intermédiaire d'un corbeau blanc. Dans sa colère, il change en noir la couleur de son plumage 4. Une autre légende associée à la constellation dit qu'il s'agirait du corbeau devant porter de l'eau à Apollon dans la Coupe, mais qui s'est arrêté en chemin pour manger des figues. Plutôt que d'avouer la vérité, il a menti à Apollon en prétendant avoir été retenu par un serpent, l'Hydre, qui l'empêchait d'accéder à l'eau. Mais Apollon, devinant le mensonge, expédia corbeau, coupe et serpent (l'Hydre) dans le ciel. Il condamna aussi l'oiseau à avoir éternellement soif, la Coupe étant tout juste hors de sa portée.",
-        "constellation_id": 22
+        "constellation_id": 22,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "Il s'agit de la coupe tenue par Apollon ou de la coupe de Dionysos.",
-        "constellation_id": 23
+        "constellation_id": 23,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "il représente le centaure Pholos, bien que certaines sources l’associent plutôt à Crotos ou même à Chiron (lui-même associé à la constellation du Centaure) ; il serait en train de viser le Scorpion avec son arc.",
-        "constellation_id": 24
+        "constellation_id": 24,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente la couronne offerte à Ariane lors de son mariage avec Dionysos.",
-        "constellation_id": 25
+        "constellation_id": 25,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "le dieu Zeus s'était déguisé en cygne pour séduire Léda, dont il eut pour enfants les Gémeaux et Hélène de Troie.",
-        "constellation_id": 27
+        "constellation_id": 27,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente Orphée, métamorphosé en cygne après son assassinat et placé dans les cieux à côté de sa lyre.",
-        "constellation_id": 27
+        "constellation_id": 27,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "on dit qu'un jeune homme nommé Cycnus était l'amant (ou le demi-frère) du malheureux Phaéton. Après que celui-ci a été foudroyé par Zeus pour avoir conduit les chevaux du Soleil et ainsi fait brûler la terre, Cycnus se mit à chercher son corps désespérément dans le fleuve Éridan où il était tombé. Cycnus plongea tant de fois dans le fleuve que Zeus eut pitié de lui et le changea en l'oiseau aquatique qui depuis porte son nom.",
-        "constellation_id": 27
+        "constellation_id": 27,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "chinoise",
         "legend": "la constellation du Cygne héberge une fois par an le pont qui relie les amants Niu Lang et Zhi Nu.",
-        "constellation_id": 27
+        "constellation_id": 27,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "Dauphin",
         "legend": "elle concerne la Néréide Amphitrite, dont Poséidon tomba amoureux et qu'il kidnappa. S'étant enfuie, elle fut convaincue par un dauphin que le dieu des Mers était une personne correcte. En récompense, Poséidon plaça le dauphin sur la voûte céleste.",
-        "constellation_id": 28
+        "constellation_id": 28,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "Dauphin",
         "legend": "on raconte que le poète Arion de Méthymne, faisant route vers Tarente, fut menacé d'être jeté par-dessus bord par l'équipage qui voulait le voler et ne dut son salut qu'à un dauphin, attiré par la musique que le poète avait demandé à jouer avant son exécution, et qui le transporta à bon port.",
-        "constellation_id": 28
+        "constellation_id": 28,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "Dauphin",
         "legend": "on raconte le voyage de Dionysos. Il voulait aller à Argos, sa patrie, mais découvre qu'il est sur un navire de pirates. Il fait pousser une vigne pour arrêter le navire, puis il transforme les pirates qui voulaient le voler en dauphins. Mais Poséidon eut pitié du chef qui faisait grand nombre d'offrandes et de sacrifices au dieu. Il décida de le prendre et le mit au ciel.",
-        "constellation_id": 28
+        "constellation_id": 28,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "sumérienne",
         "legend": "il représente le dragon de la déesse sumérienne Tiamat",
-        "constellation_id": 30
+        "constellation_id": 30,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "il s'agit du dragon qui attaqua Athéna dans la guerre entre les dieux de l'Olympe et les Titans",
-        "constellation_id": 30
+        "constellation_id": 30,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "il s'agit du dragon tué par Cadmos près du lieu où il fonda Thèbes",
-        "constellation_id": 30
+        "constellation_id": 30,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "il représente le dragon de celui qui gardait la Toison d'or",
-        "constellation_id": 30
+        "constellation_id": 30,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "il s'agit du dragon Ladon qui gardait les pommes d'or du jardin des Hespérides et fut tué par Héraclès",
-        "constellation_id": 30
+        "constellation_id": 30,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "égyptienne",
         "legend": "on raconte que le fils du Dieu soleil « Phaéton » est tombé dans ce fleuve et depuis celui-ci en porte le nom. Les Héliades, sœurs de Phaéton, firent éclater leurs douleurs et furent changées en Peupliers.",
-        "constellation_id": 32
+        "constellation_id": 32,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "la Flèche aurait été lancée par Hercule en direction du Cygne ou de l'Aigle",
-        "constellation_id": 33
+        "constellation_id": 33,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "ce pourrait être la flèche de Cupidon, ou même celle du Sagittaire.",
-        "constellation_id": 33
+        "constellation_id": 33,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente Castor et Pollux, les frères jumeaux d'Hélène de Troie.",
-        "constellation_id": 35
+        "constellation_id": 35,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "romaine",
         "legend": "elle représente Romulus et Rémus.",
-        "constellation_id": 35
+        "constellation_id": 35,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "'elle représente le chien d'Orion pourchassant le Lièvre dans le ciel.",
-        "constellation_id": 37
+        "constellation_id": 37,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle provient d'Aurore qui donna à Céphale un chien capable de vaincre un renard extraordinaire à la course. Il fut placé dans les cieux par Zeus en récompense.",
-        "constellation_id": 37
+        "constellation_id": 37,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente le chien Lélaps d'Actéon ",
-        "constellation_id": 37
+        "constellation_id": 37,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente le chien extraordinaire offert à Procris par Artémis, fille du roi Érechthée d'Athènes ;",
-        "constellation_id": 37
+        "constellation_id": 37,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente le chien Argos d'Ulysse.",
-        "constellation_id": 37
+        "constellation_id": 37,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente Callisto, une nymphe aimée de Zeus. Quand Héra, l'épouse de Zeus, découvrit leur relation, elle changea Callisto en Grande Ourse et son fils Arcas en Petite Ourse. Outrée par cette offense à son honneur, Héra demanda justice à l'Océan, et les ourses furent alors condamnées à tourner perpétuellement autour du pôle Nord, jamais autorisées à se reposer sous la mer.",
-        "constellation_id": 38
+        "constellation_id": 38,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente Hercule. Héraclès signifiant « Gloire d'Héra », de son premier nom Alcide, fils de Zeus et d’Alcmène, est l'un des héros les plus vénérés de la Grèce antique. La mythologie grecque lui prête un très grand nombre d’aventures qui le voient voyager à travers le monde connu des Doriens puis dans toute la Méditerranée, à partir de l’expansion de la Grande-Grèce, jusqu’aux Enfers. Les plus célèbres de ses exploits sont les douze travaux.",
-        "constellation_id": 40
+        "constellation_id": 40,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente l'Hydre de Lerne, tuée par Hercule dans le cadre de ses douze travaux.",
-        "constellation_id": 42
+        "constellation_id": 42,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "mésopotamienne",
         "legend": "elle est associée au dieu Ningishzida",
-        "constellation_id": 42
+        "constellation_id": 42,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle est liée à Déméter où cette dernière recherche sa fille Perséphone. Le roi Céléos lui offre alors l'hospitalité. Mais alors qu'elle est en train de manger, le fils du roi lui fait une remarque insultante, et Déméter le change en lézard",
-        "constellation_id": 45
+        "constellation_id": 45,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle correspond dans la mythologie grecque au lion de Némée tué par Héraclès lors du premier de ses douze travaux.",
-        "constellation_id": 48
+        "constellation_id": 48,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente un vautour qui selon la légende d'Hercule qui, pour son 6e travail, tua les oiseaux du lac Stymphale. La constellation est d'ailleurs proche du Cygne et de l'Aigle. La lyre représenterait pour sa part l'instrument de musique d'Orphée.",
-        "constellation_id": 51
+        "constellation_id": 51,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "Ophiuchus",
         "legend": "elle représente Asclépios, élève de Chiron, médecin qui aurait tué un serpent et aurait eu la surprise de voir un autre serpent le ranimer avec des herbes. Le savoir médical d'Asclépios aurait été tel qu'il était capable de ressusciter les morts. Ceci inquiéta Hadès, dieu des Enfers, qui craignit de ne plus recevoir d'âmes. Aussi convainquit-il son frère Zeus de foudroyer Asclépios, et de décréter que tous les mortels doivent mourir un jour. Afin d'honorer ses talents de guérisseur, Zeus l'a placé avec son serpent dans les cieux. Il n'est pas très facile d'y discerner la figure d'un homme sans faire preuve d'un peu d'imagination.",
-        "constellation_id": 57
+        "constellation_id": 57,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente Orion, un chasseur légendaire qui se vantait de pouvoir tuer n'importe quel animal. Gaia, déesse de la terre pour le punir, crée un énorme scorpion qui l’a tué. Artémis, fille préférée de Zeus, compagnonne de chasse d’Orion, lui supplie de lui ramener à la vie, mais Zeus, prudent quant à contrarier sa mère, lui promet de placer son corps dans un endroit où il ne pourrait plus jamais être oublié. Dans certaines versions de la légende, le Scorpion a été placé à l'opposé de la voûte céleste par les dieux qui les ont ainsi séparés afin qu'ils ne soient jamais au-dessus de l'horizon en même temps. Sirius est le chien d’Orion, ainsi que le nom de l'étoile principale de la constellation voisine du Grand Chien.",
-        "constellation_id": 58
+        "constellation_id": 58,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "égyptienne",
         "legend": "elle était une offrande à Osiris, dieu de la Mort et de l'outre-monde : le sarcophage du dieu, figuré par le Baudrier, est veillé par les quatre fils d'Horus, Amset, Hâpy, Douamoutef et Qebehsenouf, respectivement symbolisés par Saïph, Betelgeuse, Bellatrix et Rigel.",
-        "constellation_id": 58
+        "constellation_id": 58,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "l'inspiration pour le nom de la constellation proviendrait de l'animal consacré à Héra, la femme de Zeus",
-        "constellation_id": 59
+        "constellation_id": 59,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente Pégase est un cheval ailé divin, l'une des créatures fantastiques les plus célèbres de la mythologie grecque. Généralement blanc, ayant pour père Poséidon, Pégase naît avec son frère Chrysaor du sang de la Gorgone Méduse, lorsqu'elle est décapitée par le héros Persée. D'après les poètes gréco-romains, il monte au ciel après sa naissance et se met au service de Zeus, qui le charge d'apporter les éclairs et le tonnerre sur l’Olympe.",
-        "constellation_id": 61
+        "constellation_id": 61,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente Persée, le héros de la mythologie grecque qui sauva Andromède. La constellation appartient au cycle qui décrit le mythe d'Andromède. Persée, héros mythologique qui se charge de donner la mort à la terrible Méduse, Gorgone qui pétrifie avec le regard, et qui sauve et épouse Andromède, princesse qui allait être livrée à un monstre divin pour apaiser la colère des dieux. ",
-        "constellation_id": 62
+        "constellation_id": 62,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente le cheval Celeris le frère de Pégase, qu’Hermès donna à Castor.",
-        "constellation_id": 63
+        "constellation_id": 63,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente le cheval Cyllarus qu’Héra confia à Pollux, un jeune dieu à peine en âge de porter d’armes, protecteur des situations désespérées et des marins.",
-        "constellation_id": 63
+        "constellation_id": 63,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "romaine",
         "legend": "elle représente le plus petit des chiens de chasse d’Orion.",
-        "constellation_id": 64
+        "constellation_id": 64,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "babylonienne",
         "legend": "elle est connue comme le « Chariot du Paradis »",
-        "constellation_id": 67
+        "constellation_id": 67,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "on raconte que deux ourses ont sauvé Zeus de son père meurtrier Cronos en l'abritant au Mont Ida. Ultérieurement Zeus les plaça dans le ciel, mais leurs queues grandirent énormément lorsque le dieu les fit se balancer dans le ciel.",
-        "constellation_id": 67
+        "constellation_id": 67,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "inuit",
         "legend": "on raconte que les trois étoiles les plus brillantes de la constellation (Polaris, Kochab et Pherkad) étaient appelées Nuutuittut « ne bouge jamais », en se référant à Polaris seule. À ces latitudes très septentrionales, l'étoile polaire est en effet trop haute pour être utile à la navigation.",
-        "constellation_id": 67
+        "constellation_id": 67,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "babyloniens",
         "legend": "Poissons est une des constellations les plus anciennes. Son origine remonte vraisemblablement aux babyloniens qui la décrivaient déjà comme composée de deux poissons poussant un œuf géant (l’astérisme de « l’Anneau »).",
-        "constellation_id": 71
+        "constellation_id": 71,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "égyptienne",
         "legend": "il s'agit du poisson inet, dans lequel se réfugie l'âme des défunts. On représente le défunt en train de pêcher à la ligne deux inet représentant son âme d'hier et son âme de demain. Il assure ainsi son devenir en prenant possession des deux bornes entre lesquelles il cheminera vers l'éternité. Le défunt est alors retenu dans les eaux primordiales et va revenir à la saison d'inondation pour sa régénération",
-        "constellation_id": 71
+        "constellation_id": 71,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "ils sont les formes assumées par Aphrodite et Éros (ou selon les versions Thétis et Thétys) poursuivis par le monstre Typhon. Ils auraient relié leurs queues avec de la corde afin de ne pas se séparer.",
-        "constellation_id": 71
+        "constellation_id": 71,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle provient du Navire Argo qui représente le navire avec lequel Jason partit à la recherche de la Toison d'or.",
-        "constellation_id": 72
+        "constellation_id": 72,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle le centaure Pholos, bien que certaines sources l’associent plutôt à Crotos ou même à Chiron (lui-même associé à la constellation du Centaure) ; il serait en train de viser le Scorpion avec son arc.",
-        "constellation_id": 75
+        "constellation_id": 75,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "Il s'agit du Scorpion de feu envoyé par Artémis pour tuer le chasseur Orion. Ainsi il se trouve opposé à la constellation Orion, se levant en été lorsqu’Orion se couche.",
-        "constellation_id": 76
+        "constellation_id": 76,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "Il s'agit du Scorpion de feu envoyé par Apollon par jalousie envers l’attention qu’Orion portait à Artémis. ",
-        "constellation_id": 76
+        "constellation_id": 76,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "le Scorpion fut créé par Géa, la titanide, mère de Zeus, pour punir l’orgueil d’Orion qui se vantait de pouvoir tuer toute créature vivante.",
-        "constellation_id": 76
+        "constellation_id": 76,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "on l'identifie parfois à Dédale ou à Icare.",
-        "constellation_id": 77
+        "constellation_id": 77,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "Il s’identifie au serpent qui révéla à Asclépios (héros homérique fils d’Apollon) les secrets de la médecine",
-        "constellation_id": 78
+        "constellation_id": 78,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "Il s’identifie au serpent qu'Apollon tua dans sa jeunesse.",
-        "constellation_id": 78
+        "constellation_id": 78,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "Il représente Ladon (le reptil chargé par Héra de garder les pommes d’or du jardin d’Hespérides) quand Héraclès l'a tué. En conséquence, il est toujours représenté porté par l’Ophiuchus (le Serpentaire), celui-ci contrôlant le pouvoir de l’animal.",
-        "constellation_id": 78
+        "constellation_id": 78,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "Il s’identifie au serpent qui révéla à Asclépios (héros homérique fils d’Apollon) les secrets de la médecine",
-        "constellation_id": 79
+        "constellation_id": 79,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "Il s’identifie au serpent qu'Apollon tua dans sa jeunesse.",
-        "constellation_id": 79
+        "constellation_id": 79,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "Il représente Ladon (le reptil chargé par Héra de garder les pommes d’or du jardin d’Hespérides) quand Héraclès l'a tué. En conséquence, il est toujours représenté porté par l’Ophiuchus (le Serpentaire), celui-ci contrôlant le pouvoir de l’animal.",
-        "constellation_id": 79
+        "constellation_id": 79,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "Le Taureau est la forme bovine utilisée par Zeus afin de commettre le rapt d’Europe.",
-        "constellation_id": 82
+        "constellation_id": 82,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "il représente le taureau blanc envoyé par Poséidon à Minos.",
-        "constellation_id": 82
+        "constellation_id": 82,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "il représente Ganymède, que Zeus enleva pour devenir son amant et échanson.",
-        "constellation_id": 87
+        "constellation_id": 87,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente la déesse de la Justice, Astrée (fusionnant avec sa demi-sœur Artémis) fille de Thémis, qui aurait quitté la Terre par dégoût de la grossièreté des hommes. La Vierge est depuis lors quasiment toujours dessinée portant la Balance, ainsi qu’un épi de blé.",
-        "constellation_id": 88
+        "constellation_id": 88,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "elle représente le navire avec lequel Jason est parti à la recherche de la Toison d’or. Tâche imposée par son oncle, le roi d’Iolcos qui pensait le mener à une mort certaine pour l’écarter comme probable danger à son trône. Jason trouve à Colchide, le royaume où il doit parvenir à récupérer la Toison, l’aide de Médée, terrible magicienne, fille du roi, qui, amoureuse de Jason trahit les siens et part avec lui et la Toison d’or dans l’Argo vers Iolcos.",
-        "constellation_id": 89
+        "constellation_id": 89,
+        "star_id": null,
+        "planet_id": null,
+        "img_url": null
     },
     {
         "origin": "grecque",
         "legend": "c’est Apollon, fils de Zeus et de la titane Léto, qui incarne le soleil. Citons aussi Hélios, personnification du Soleil lui-même. Dans le dixième des douze travaux d'Héraclès, le héros grec emprunte à Hélios le « char du Soleil » pour aller tuer Géryon qui vivait à l'extrémité occidentale du monde et ramener son troupeau de bœufs du jardin des Hespérides, les colonnes d'Atlas marquant la fin de ses aventures. Dans la mythologie romaine, Sol est le dieu du soleil, de la lumière et de la chaleur. Frère de Luna, il symbolise le cycle des saisons.",
-        "star_id": 1
+        "constellation_id": null,
+        "star_id": 1,
+        "planet_id": null,
+        "img_url": null
     }
 ]

@@ -87,7 +87,7 @@ const tables = Object.keys(allTables);
             await Promise.all(queries);
             // console.log('results = ', results);;
             if (tables.length === i + 1) {
-                await client.end();
+                await client.originalClient.end();
                 console.log('Fin connection - Seeding terminé');
             }
         });

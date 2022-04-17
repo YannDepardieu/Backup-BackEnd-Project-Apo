@@ -13,4 +13,4 @@
 GET {{ endpoint }}/random
 
 ### Select one Myth by Id
-GET {{ endpoint }}/2 
+GET {{ endpoint }}/86
