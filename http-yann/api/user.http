@@ -34,7 +34,7 @@ content-type: application/json
 
 ### Disconnect user
 GET {{ endpoint }}/logout
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDAyMzA3OCwiZXhwIjoxNjUwMTA5NDc4fQ.B8izslzqmUPLTbZ_HBQ1OgPcPZy2bjYXV55l2dkhZm4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJmaXJzdG5hbWUiOiJ5IiwibGFzdG5hbWUiOiJ5IiwiZW1haWwiOiJ5eUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDMxMTM4MywiZXhwIjoxNjUwMzk3NzgzfQ.Qrk9EX-OxUOPbCxqnOSmSK9xIEfnP7OHe5g8BeBIZTA
 
 ### Select user
 GET {{ endpoint }}/
@@ -49,17 +49,17 @@ content-type: application/json
     "firstname": "b",
     "lastname": "b",
     "email": "bb@gmail.com",
-    "oldPassword": "yy",
-    "newPassword": "xx"
+    "oldPassword": "xx",
+    "newPassword": "yy"
 }
 
 ### Delete user
 DELETE {{ endpoint }}/
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDMwMjcyNywiZXhwIjoxNjUwMzg5MTI3fQ.j-CMGPQEjQT0YInOojwCQGL9scByAvlODbq3hNCY4s8
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo4LCJmaXJzdG5hbWUiOiJ5IiwibGFzdG5hbWUiOiJ5IiwiZW1haWwiOiJ5eUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDMwNDI5OCwiZXhwIjoxNjUwMzkwNjk4fQ.2qWzWiw5hwCBTt5rWvLqPhOAhJDK2FDQnjoIOT9C_zc
 content-type: application/json
 
 {
-    "password": "xx"
+    "password": "yy"
 }
 
 ###########################

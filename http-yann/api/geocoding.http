@@ -37,5 +37,8 @@ GET {{ endpoint }}/reverse/?gps=40.7638435,-73.9729691
 ### Forward ERROR
 GET {{ endpoint }}/forward/?address=sdgqegezegzer
 
-### Reverse
+### Reverse ERROR
 GET {{ endpoint }}/reverse/?gps=-90,188
+
+### Reverse
+GET {{ endpoint }}/reverse/?gps=2

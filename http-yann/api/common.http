@@ -37,8 +37,8 @@ GET {{ endpoint }}/user/3
 ### TEST d'ERREUR
 DELETE {{ endpoint }}/user/2
 
-### Select all places
+### TEST d'ERREUR
 GET {{ endpoint }}/place
 
-### Select all events
+### TEST d'ERREUR
 GET {{ endpoint }}/event

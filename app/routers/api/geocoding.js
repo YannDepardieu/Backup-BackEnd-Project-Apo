@@ -28,6 +28,7 @@ router
      * @example request - Latitude and longitude payload
      * { 0.7638435,-73.9729691 }
      * @return {Address} 200 - success response - application/json
+     * @return {ApiError} 400 - Bad Request : Missing latitude and/or longitude value(s) - application/json
      * @return {ApiError} 400 - Bad Request : Wrong latitude and longitude range - application/json
      * @return {ApiError} 404 - No address for this latitude and longitude - application/json
      */
