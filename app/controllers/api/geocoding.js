@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const debug = require('debug')('geocodingController');
 
 const positionStack = require('../../services/positionStack');
@@ -10,9 +11,7 @@ const geocodingController = {
      * @property {string} longitude - The address position longitude
      */
     async forward(req, res) {
-        debug(req.query);
         const gps = await positionStack.forward(req.query);
-        debug(gps);
         res.status(200).json(gps);
     },
     // pas utile.....
@@ -27,9 +26,7 @@ const geocodingController = {
      * @property {string} country - The address country
      */
     async reverse(req, res) {
-        debug(req.query);
         const address = await positionStack.reverse(req.query);
-        debug(address);
         res.status(200).json(address);
     },
 };

@@ -69,20 +69,20 @@ class CoreModel {
         return obj;
     }
 
-    static async selectOne(data) {
-        if (data.password) {
+    static async selectOne(input) {
+        if (input.password) {
             // eslint-disable-next-line no-param-reassign
-            delete data.password;
+            delete input.password;
         }
-        const fields = Object.keys(data).map((prop, index) => `"${prop}" = $${index + 1}`);
-        const values = Object.values(data);
+        const fields = Object.keys(input).map((prop, index) => `"${prop}" = $${index + 1}`);
+        const values = Object.values(input);
         const SQL = {
             text: `SELECT * FROM "${this.tableName}" WHERE (${fields.join(' AND ')})`,
             values: [...values],
         };
         // const SQL = {
-        //     text: `SELECT * FROM "${this.tableName}" WHERE ${Object.keys(data)[0]} = $1`,
-        //     values: [Object.values(data)[0]],
+        //     text: `SELECT * FROM "${this.tableName}" WHERE ${Object.keys(input)[0]} = $1`,
+        //     values: [Object.values(input)[0]],
         // };
         const result = await client.query(SQL);
         debug(result.rows);
@@ -95,14 +95,14 @@ class CoreModel {
         return new this(result.rows[0]);
     }
 
-    static async insert(data) {
-        if (data.password) {
+    static async insert(input) {
+        if (input.password) {
             // eslint-disable-next-line no-param-reassign
-            data.password = bcrypt.hashSync(data.password, 10);
+            input.password = bcrypt.hashSync(input.password, 10);
         }
-        const props = Object.keys(data).map((prop) => `"${prop}"`);
-        const fields = Object.keys(data).map((_, index) => `$${index + 1}`);
-        const values = Object.values(data);
+        const props = Object.keys(input).map((prop) => `"${prop}"`);
+        const fields = Object.keys(input).map((_, index) => `$${index + 1}`);
+        const values = Object.values(input);
         const SQL = {
             text: `INSERT INTO "${this.tableName}" (${props})
             VALUES (${fields}) RETURNING *`,
@@ -116,7 +116,7 @@ class CoreModel {
         const fields = Object.keys(input).map((prop, index) => `"${prop}" = $${index + 1}`);
         const values = Object.values(input);
 
-        const output = await client.query(
+        const result = await client.query(
             `
                 UPDATE "${this.tableName}" SET ${fields}
                 WHERE id = $${fields.length + 1} RETURNING *
@@ -124,7 +124,7 @@ class CoreModel {
             [...values, id],
         );
 
-        return output.rows[0];
+        return result.rows[0];
     }
 
     static async isUnique(inputData, id) {
@@ -171,24 +171,20 @@ class CoreModel {
         const result = await client.query(preparedQuery);
 
         if (result.rowCount > 0) {
-            throw new ApiError(`This ${this.tableName} is not unique`, { statusCode: 400 });
+            throw new ApiError(`This ${this.tableName} new entry is not unique`, {
+                statusCode: 400,
+            });
         }
 
         return `This ${this.tableName} is unique`;
     }
 
     static async delete(id) {
-        const found = await this.selectByPk(id);
-        // debug('entry found !');
-        if (found.rowCount === 0) {
-            return null;
-        }
         const query = {
             text: `DELETE FROM "${this.tableName}" WHERE id=$1`,
             values: [id],
         };
         const result = await client.query(query);
-        debug(result);
         if (result.rowCount === 0) {
             return null;
         }

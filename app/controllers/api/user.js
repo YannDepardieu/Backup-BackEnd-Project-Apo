@@ -36,16 +36,16 @@ const userController = {
         await User.isUnique(req.body);
         // Another security to be sure a user cannot set role to admin
         if (req.body.role) req.body.role = 'user';
-        const user = await User.insert(req.body);
-        delete user.password;
-        return res.status(200).json(user);
+        const output = await User.insert(req.body);
+        delete output.password;
+        return res.status(200).json(output);
     },
 
     async selectByPk(req, res) {
         debug('req.decoded = ', req.decoded.user);
-        const data = await User.selectByPk(req.decoded.user.id);
-        delete data.password;
-        return res.status(200).json(data);
+        const output = await User.selectByPk(req.decoded.user.id);
+        delete output.password;
+        return res.status(200).json(output);
     },
 
     async update(req, res, next) {

@@ -17,7 +17,7 @@ router
      * @param {User} request.body.required Express req.object
      * @return {User} 200 - success response - application/json
      * @return {ApiError} 400 - Bad Request : Input data is not in the valid format - application/json
-     * @return {ApiError} 400 - Bad Request : User is not unique - application/json
+     * @return {ApiError} 400 - Bad Request : This User new entry is not unique - application/json
      */
     .post(validator('body', createUserSchema), asyncWrapper(userController.insert))
     /**
@@ -41,7 +41,7 @@ router
      * @return {ApiError} 400 - Bad Request : Input data is not in the valid format - application/json
      * @return {ApiError} 404 - User not found for this id - application/json
      * @return {ApiError} 403 - Bad Request : Old password is not correct - application/json
-     * @return {ApiError} 400 - Bad Request : User is not unique (meaning with the new data) - application/json
+     * @return {ApiError} 400 - Bad Request : This User new entry is not unique - application/json
      */
     .patch(
         security.checkJWT,

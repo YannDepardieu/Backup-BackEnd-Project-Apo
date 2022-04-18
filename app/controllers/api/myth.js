@@ -51,13 +51,13 @@ const mythController = {
      * @return {string} Route API JSON data
      */
     async selectRandom(_, res) {
-        const data = await Model.selectRandom();
-        return res.status(200).json(data);
+        const output = await Model.selectRandom();
+        return res.status(200).json(output);
     },
 
     async selectByPk(req, res) {
-        const data = await Model.selectByPk(req.params.id);
-        return res.status(200).json(data);
+        const output = await Model.selectByPk(req.params.id);
+        return res.status(200).json(output);
     },
 };
 

@@ -32,16 +32,16 @@ const eventController = {
      */
     async insert(req, res) {
         const input = req.body;
-        const gps = await forward(req.body);
+        const gps = await forward(input);
         input.latitude = gps[0].latitude;
         input.longitude = gps[0].longitude;
         delete input.address;
-        const event = await Event.insert(input);
+        const output = await Event.insert(input);
         await ReserveEvent.insert({
-            event_id: event.id,
+            event_id: output.id,
             user_id: req.decoded.user.id,
         });
-        return res.status(201).json({ id: event.id, ...event });
+        return res.status(201).json({ id: output.id, ...output });
     },
 
     async selectAll(req, res) {
