@@ -11,10 +11,13 @@ router
     .route('/')
     /**
      * POST /v1/api/place
-     * @summary Creates a new place and sets it as a user's favorite place
+     * @summary Insert a place and insert user's favorite place
      * @tags Place
      * @security BearerAuth
-     * @return {FavoritePlace} 200 - success response - application/json
+     * @return {Place} 200 - success response - application/json
+     * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
+     * @return {ApiError} 400 - Bad Request : Input data is not in the valid format - application/json
+     * @return {ApiError} 404 - Cannot find a location for this address - application/json
      */
     .post(
         security.checkJWT,
@@ -27,6 +30,7 @@ router
      * @tags Place
      * @security BearerAuth
      * @return {array<Place>} 200 - success response - application/json
+     * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
      */
     .get(security.checkJWT, asyncWrapper(placeController.selectAll));
 
@@ -39,6 +43,8 @@ router
      * @security BearerAuth
      * @param {integer} id.path.required identifier
      * @return {Place} 200 - success response - application/json
+     * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
+     * @return {ApiError} 404 - Place not found for this placeId and this userId - application/json
      */
     .get(security.checkJWT, asyncWrapper(placeController.selectByPk))
     /**
@@ -47,6 +53,10 @@ router
      * @tags Place
      * @param {integer} id.path.required identifier
      * @return {Place} 200 - success response - application/json
+     * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
+     * @return {ApiError} 400 - Bad Request : Input data is not in the valid format - application/json
+     * @return {ApiError} 404 - Cannot find a location for this address - application/json
+     * @return {ApiError} 404 - Place to update not found for this placeId and this userId - application/json
      */
     .patch(security.checkJWT, asyncWrapper(placeController.update))
     /**
@@ -56,6 +66,8 @@ router
      * @security BearerAuth
      * @param {integer} id.path.required identifier
      * @return {string} 200 - success response - application/json
+     * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
+     * @return {ApiError} 404 - Place to delete not found for this placeId and this userId - application/json
      */
     .delete(security.checkJWT, asyncWrapper(placeController.delete));
 

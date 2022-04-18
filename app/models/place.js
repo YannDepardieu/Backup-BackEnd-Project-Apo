@@ -41,11 +41,6 @@ class Place extends CoreModel {
             WHERE save_place.user_id = $1;`,
             [userId],
         );
-        if (result.rows.length === 0) {
-            throw new ApiError(`No Place found for this user`, {
-                statusCode: 404,
-            });
-        }
         const resultAsClasses = [];
         result.rows.forEach((obj) => {
             const newObj = new this(obj);

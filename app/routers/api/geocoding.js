@@ -11,7 +11,7 @@ router
      * @summary You send an address to get latitude and longitude
      * @tags Geocoding
      * @param {string} address.query.required address to get a position
-     * @example query - Address payload
+     * @example request - Address payload
      * { Avenida Mariscal Santa Cruz 1066, La Paz }
      * @return {array<Position>} 200 - success response - application/json
      * @return {ApiError} 404 - No latitude and longitude for this address - application/json

@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 const debug = require('debug')('placeController');
-const ApiError = require('../../errors/apiError');
 
 const Place = require('../../models/place');
 const SavePlace = require('../../models/savePlace');
@@ -18,18 +17,11 @@ const placeController = {
     /**
      * A place
      * @typedef {object} Place
-     * @property {string} name - The place name
+     * @property {string} id - Place id
+     * @property {string} name - Place name
      * @property {string} address - Place address
-     * @property {string} postalcode - Place address postal code
-     * @property {string} city - Place address city
      * @property {integer} latitude - Place position latitude
      * @property {integer} longitude - Place position longitude
-     */
-    /**
-     * A favorite place
-     * @typedef {object} FavoritePlace
-     * @property {integer} place_id - The place id
-     * @property {integer} user_id - The user id
      */
 
     async insert(req, res) {
@@ -44,9 +36,6 @@ const placeController = {
             longitude: location[0].longitude,
         };
         const insertPlace = await Place.insert(place);
-        if (!insertPlace) {
-            throw new ApiError('Data not found', { statusCode: 404 });
-        }
         const data = {
             place_id: insertPlace.id,
             user_id: req.decoded.user.id,
@@ -80,7 +69,6 @@ const placeController = {
             input.latitude = gps[0].latitude;
             input.longitude = gps[0].longitude;
         }
-        debug(userId, placeId, input);
         const place = await Place.update(userId, placeId, input);
         const output = { id: place.id, ...place };
         return res.status(200).json(output);
