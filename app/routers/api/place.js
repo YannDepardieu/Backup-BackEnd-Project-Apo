@@ -6,6 +6,7 @@ const asyncWrapper = require('../../middlewares/asyncWrapper');
 const security = require('../../middlewares/security');
 const validator = require('../../middlewares/validator');
 const createPlaceSchema = require('../../schemas/createPlace');
+const updatePlaceSchema = require('../../schemas/updatePlace');
 
 router
     .route('/')
@@ -60,7 +61,11 @@ router
      * @return {ApiError} 404 - Cannot find a location for this address - application/json
      * @return {ApiError} 404 - Place to update not found for this placeId and this userId - application/json
      */
-    .patch(security.checkJWT, asyncWrapper(placeController.update))
+    .patch(
+        security.checkJWT,
+        validator('body', updatePlaceSchema),
+        asyncWrapper(placeController.update),
+    )
     /**
      * DELETE /v1/api/place{id}
      * @summary Delete user's place by its userId and placeId

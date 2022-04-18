@@ -33,9 +33,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2L
 content-type: application/json
 
 {
-    "name": "At Francis"
+    "name": 6,
+    "address": "Nîmes"
 }
 
 ### Delete a place
-DELETE {{ endpoint }}/18
+DELETE {{ endpoint }}/6
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDI4Mzk3OSwiZXhwIjoxNjUwMzcwMzc5fQ.jTYHWaKqtKHIRVzrecHg5wYKVYhUVQXpsLXvbVjMgBk
