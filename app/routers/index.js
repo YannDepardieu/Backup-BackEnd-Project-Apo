@@ -18,7 +18,7 @@ router.use('/backoffice', backofficeRouter);
  * @param {object} _ Express request object (not used)
  * @param {object} res Express response object
  * @param {function} next Express next function
- * @return {ApiError|BackofficeError} JSON error response
+ * @return {ApiError|BackofficeError} - JSON error response
  */
 router.use((err, _, response, next) => {
     // Error manager that send back a custom error response
@@ -30,7 +30,8 @@ router.use((err, _, response, next) => {
  * ExpressMiddleware signature
  * @param {object} _ Express request object (not used)
  * @param {object} res Express response object
- * @return {Error} JSON error response
+ * @return {object} 404 - No route found - application/json
+ *
  */
 router.use((_, res) => {
     res.status(404).json({ name: 'General', version: '1.0', status: 404, message: 'not_found' });

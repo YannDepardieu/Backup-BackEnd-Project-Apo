@@ -48,8 +48,8 @@ router
      * @security BearerAuth
      * @param {ConstellationAddFavoriteInput} request.body.required Express req.object
      * @return {boolean} 201 - New row created in favorite_constellation - application/json
-     * @return {ApiError} 401 - Unauthorized Authentification needed - application/json
-     * @return {ApiError} 400 - Input data is not validated - application/json
+     * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
+     * @return {ApiError} 400 - Bad Request : Input data is not in the valid format - application/json
      * @return {ApiError} 400 - Constellation already in favorite for this userId - application/json
      * @return {ApiError} 404 - Constellation not found for this id - application/json
      */
@@ -64,7 +64,7 @@ router
      * @tags Constellation
      * @security BearerAuth
      * @return {array<ConstellationWithAttributesOutput>} 200 - success response - application/json
-     * @return {ApiError} 401 - Unauthorized Authentification needed - application/json
+     * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
      */
     .get(security.checkJWT, asyncWrapper(constellationController.selectAllFavorites));
 
@@ -77,7 +77,7 @@ router
      * @security BearerAuth
      * @param {integer} id.path.required constellation primary key
      * @return {boolean} 200 - success response - application/json
-     * @return {ApiError} 401 - Unauthorized Authentification needed - application/json
+     * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
      * @return {ApiError} 404 - Constellation to delete from favorite not found for this constellationId and this userId - application/json
      */
     .delete(security.checkJWT, asyncWrapper(constellationController.deleteFavorite));

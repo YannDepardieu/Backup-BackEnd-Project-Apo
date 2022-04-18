@@ -30,7 +30,7 @@ router.use((_, res, next) => {
 });
 
 /**
- * Default API route that handle all methods (GET, PUT, PATCH, DELETE, POST) to provide a documentation link
+ * Default API route handling all methods (GET, PUT, PATCH, DELETE, POST) and providing the documentation link
  * to help front developper when they forget to specify the routes
  * ALL v1/main-api/
  * @summary All verbs

@@ -17,7 +17,7 @@ module.exports = {
             if (data.length > 0) {
                 return data;
             }
-            throw new ApiError('Pas de résultat pour cette adresse', {
+            throw new ApiError('No latitude and longitude for this address', {
                 statusCode: 404,
             });
         }
@@ -40,14 +40,14 @@ module.exports = {
                 if (data.length > 0) {
                     return data;
                 }
-                throw new ApiError('Pas de résultat pour ces coordonnées de latitude longitude', {
+                throw new ApiError('No address for these latitude and longitude', {
                     statusCode: 404,
                 });
             }
             throw new ApiError('Problem with external API', { statusCode: 500 });
         }
-        throw new ApiError('Pas de résultat pour ces coordonnées de latitude longitude', {
-            statusCode: 404,
+        throw new ApiError('Wrong latitude and longitude range', {
+            statusCode: 400,
         });
     },
 };

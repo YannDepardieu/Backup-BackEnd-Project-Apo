@@ -5,14 +5,6 @@ const Model = require('../../models/myth');
 
 const mythController = {
     /**
-     * Api controller to get one constellation myth by its ID.
-     * ExpressMiddleware signature
-     * @param {object} req Express req.object
-     * @param {object} res Express response object
-     * @return {string} Route API JSON data
-     */
-
-    /**
      * A constellation with its myth
      * @typedef {object} RandomMyth
      * @property {integer} id - The myth id
@@ -27,6 +19,13 @@ const mythController = {
      * @property {string} scientific_name - Myth's constellation scientific name
      * @property {string} history - Myth's constellation history
      * @property {string} spotting - Myth's constellation spotting advices
+     */
+    /**
+     * Api controller to get one constellation myth by its ID.
+     * ExpressMiddleware signature
+     * @param {object} req Express req.object
+     * @param {object} res Express response object
+     * @return {string} Route API JSON data
      */
     async selectRandom(_, res) {
         const data = await Model.selectRandom();

@@ -8,12 +8,13 @@ router
     .route('/forward')
     /**
      * GET /v1/api/geocoding/forward/
-     * @summary Give an address to get latitude and longitude
-     * @tags geocoding
+     * @summary You send an address to get latitude and longitude
+     * @tags Geocoding
      * @param {string} address.query.required address to get a position
-     * @return {Position} 200 - success response - application/json
-     * @exemple request - Latitude and longitude payload
+     * @example query - Address payload
      * { Avenida Mariscal Santa Cruz 1066, La Paz }
+     * @return {array<Position>} 200 - success response - application/json
+     * @return {ApiError} 404 - No latitude and longitude for this address - application/json
      */
     .get(asyncWrapper(geocodingController.forward));
 
@@ -21,12 +22,14 @@ router
     .route('/reverse')
     /**
      * GET /v1/api/geocoding/reverse/
-     * @summary Give a latitude and longitude to get an address
-     * @tags geocoding
+     * @summary You send a latitude and longitude to get an address
+     * @tags Geocoding
      * @param {string} gps.query.required gps to get an address
-     * @return {Address} 200 - success response - application/json
-     * @exemple request - Latitude and longitude payload
+     * @example request - Latitude and longitude payload
      * { 0.7638435,-73.9729691 }
+     * @return {Address} 200 - success response - application/json
+     * @return {ApiError} 400 - Bad Request : Wrong latitude and longitude range - application/json
+     * @return {ApiError} 404 - No address for this latitude and longitude - application/json
      */
     .get(asyncWrapper(geocodingController.reverse));
 
