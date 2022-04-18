@@ -105,7 +105,7 @@ class Constellation extends CoreModel {
                 statusCode: 404,
             });
         }
-        return result.rows;
+        return result.rows[0];
     }
 
     static async selectAllNames() {
@@ -150,7 +150,7 @@ class Constellation extends CoreModel {
                 statusCode: 400,
             });
         }
-        return result.rows;
+        return result.rows[0];
     }
 
     static async selectAllFavorites(userId) {

@@ -22,6 +22,7 @@ router
      * @tags Myth
      * @param {integer} id.path.required constellation identifier
      * @return {Myth} 200 - success response - application/json
+     * @return {ApiError} 404 - Myth not found for this id - application/json
      */
     .get(asyncWrapper(mythController.selectByPk));
 

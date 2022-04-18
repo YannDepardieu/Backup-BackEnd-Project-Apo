@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const debug = require('debug')('Model:Myth');
 const CoreModel = require('./coreModel');
 const client = require('../db/postgres');
@@ -67,14 +68,7 @@ class Myth extends CoreModel {
         // WHERE LENGTH(legend) > 0 ORDER BY  random() LIMIT 1;
 
         const result = await client.query(SQL);
-        debug(result);
-        if (result.rows.length === 0) {
-            throw new ApiError(`${this.tableName} not found, id doesn't exist`, {
-                statusCode: 404,
-            });
-        }
-
-        return result.rows;
+        return result.rows[0];
     }
 
     static async selectByPk(id) {
@@ -107,9 +101,13 @@ class Myth extends CoreModel {
             `,
             values: [id],
         };
-        const data = await client.query(SQL);
-        debug(data.rows);
-        return data.rows;
+        const result = await client.query(SQL);
+        if (result.rows.length === 0) {
+            throw new ApiError(`${this.tableName} not found for this id`, {
+                statusCode: 404,
+            });
+        }
+        return result.rows[0];
     }
 }
 

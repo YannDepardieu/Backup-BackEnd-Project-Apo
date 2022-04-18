@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 const debug = require('debug')('eventController');
-// const ApiError = require('../../errors/apiError');
 const Event = require('../../models/event');
 const ReserveEvent = require('../../models/reserveEvent');
 const { forward } = require('../../services/positionStack');

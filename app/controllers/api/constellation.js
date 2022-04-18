@@ -15,7 +15,7 @@ const constellationController = {
      * @property {string} scientific_name - Constellation scientific name
      * @property {string} img_url - Constellation img_url
      * @property {string} history - Constellation history
-     * @property {string} spotting - Constellation spoting
+     * @property {string} spotting - Constellation spotting
      * @property {array<Myth>} Myths All myths related to the constellation
      * @property {array<Star>} Stars All stars forming the constellation
      * @property {array<Galaxy>} Galaxies All galaxies forming the constellation
