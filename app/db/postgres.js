@@ -1,9 +1,10 @@
+/* eslint-disable no-console */
 const debug = require('debug')('db:postgres:sql');
 
-// Plutôt que créer et connecter un Client on va plutôt créer un "pool" de client et laisser notre module manager
-// les connexions de plusieurs client en fonction des besoins.
+// Rather than created and connected a Client, we will create a "pool" of client and let our module manage
+// the connections of several clients depending on the needs
 
-// tableau de client, on va pouvoir exécuter plusieurs requêtes
+// The Pool will be able to do several queries at the same time providing a faster access to the database
 const { Pool } = require('pg');
 
 const config = {
@@ -11,8 +12,8 @@ const config = {
 };
 
 if (process.env.NODE_ENV === 'production') {
-    // petit truc de config pour la version en prod sur heroku
-    // ça nous évitera des messages d'erreurs concernant ssl
+    // This is a special configuration for the Heroku production version
+    // It will avoir errors messages concerning the SSL
     config.ssl = {
         rejectUnauthorized: false,
     };
@@ -20,18 +21,18 @@ if (process.env.NODE_ENV === 'production') {
 
 const pool = new Pool(config);
 
-pool.connect((err) => (err ? debug(`ERREUR${err}`) : debug('DB connectée')));
+pool.connect((err) => (err ? debug(`ERREUR :::::: ${err}`) : debug('DB connectée')));
+// pool.connect((err) => (err ? console.log(`ERREUR :::::: ${err}`) : console.log('DB connectée')));
 
 module.exports = {
-    // On expose quand même le client original "au cas ou"
+    // We expose the original client just in case
     originalClient: pool,
-
-    // On fait une méthode pour "intercepter" les requêtes afin de pouvoir les afficher
-    // L'opérateur de "rest" permet de transformer ici X variables en param. en un tableau
+    // This method will intercept the queries in order to display them in the terminal with debug to be able to track
+    // the queries. The spread operator transform several variables, that are passed in parameter, into an array
     async query(...params) {
         debug(...params);
-        // L'opérateur ici fait l'effet inverse on transforme un tableau en une liste de variables / paramétre ce
-        // qui fait que la méthode query du client sera appelé exactement de la même façon que celle de notre module
+        // The spread operator does the exact opposite and transform an array into a list of variable in parameter
+        // So the query method of the client will be called exactly the same way as our module
         return this.originalClient.query(...params);
     },
 };

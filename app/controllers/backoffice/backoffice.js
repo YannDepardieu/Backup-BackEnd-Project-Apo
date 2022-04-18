@@ -12,7 +12,7 @@ module.exports = {
      * ExpressMiddleware signature
      * @param {object} _ Express request object (not used)
      * @param {object} res Express response object
-     * @returns {string} Route API JSON response
+     * @return {string} Route API JSON response
      */
     home(_, res) {
         res.render('home', { title: 'Starry Night Backoffice Home' });

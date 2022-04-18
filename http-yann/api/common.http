@@ -1,0 +1,44 @@
+################################################################################
+# Fichier de test des routes HTTP de l'API
+# Nécessite l'extension REST Client pour VSCode
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+################################################################################
+@endpoint = http://localhost:{{$dotenv PORT}}/v1/api/common
+
+########################################################
+#                  Common  (  Not User )               #
+########################################################
+
+### Select all constellations
+GET {{ endpoint }}/constellation
+
+### Select all myths
+GET {{ endpoint }}/myth
+
+### get one constellation
+GET {{ endpoint }}/constellation/2
+
+###########################
+#         ERROR           #
+###########################
+
+### TEST d'ERREUR
+GET {{ endpoint }}/sdfsqdgsdg
+
+### TEST d'ERREUR
+GET {{ endpoint }}/constellation/gg
+
+### TEST d'ERREUR
+GET {{ endpoint }}/user
+
+### TEST d'ERREUR
+GET {{ endpoint }}/user/3
+
+### TEST d'ERREUR
+DELETE {{ endpoint }}/user/2
+
+### TEST d'ERREUR
+GET {{ endpoint }}/place
+
+### TEST d'ERREUR
+GET {{ endpoint }}/event

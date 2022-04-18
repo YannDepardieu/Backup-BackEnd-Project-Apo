@@ -11,7 +11,7 @@ module.exports = {
     },
     rules: {
         indent: ['error', 4],
-        'max-len': [2, 130, 4],
+        'max-len': [2, 140, 4],
     },
     overrides: [
         {

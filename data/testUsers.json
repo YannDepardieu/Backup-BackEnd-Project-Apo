@@ -1,0 +1,42 @@
+[
+    {
+        "firstname": "Denver",
+        "lastname": "Blaskett",
+        "email": "dblaskett0@ifeng.com",
+        "password": "aa",
+        "role": "user",
+        "notification": true
+    },
+    {
+        "firstname": "Maisie",
+        "lastname": "Frarey",
+        "email": "mfrarey1@sun.com",
+        "password": "bb",
+        "role": "user",
+        "notification": false
+    },
+    {
+        "firstname": "Aharon",
+        "lastname": "Matuszkiewicz",
+        "email": "amatuszkiewicz2@printfriendly.com",
+        "password": "cc",
+        "role": "user",
+        "notification": false
+    },
+    {
+        "firstname": "Glenda",
+        "lastname": "Rummings",
+        "email": "grummings3@cpanel.net",
+        "password": "dd",
+        "role": "admin",
+        "notification": true
+    },
+    {
+        "firstname": "Hamlin",
+        "lastname": "Balderson",
+        "email": "hbalderson4@domainmarket.com",
+        "password": "ee",
+        "role": "user",
+        "notification": true
+    }
+]

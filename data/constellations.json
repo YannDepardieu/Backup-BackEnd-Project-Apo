@@ -1,0 +1,803 @@
+[
+    {
+        "id": 1,
+        "name": "Aigle",
+        "scientific_name": "Aquila",
+        "latin_name": "Aquila",
+        "img_url": "/img/1-aql.png",
+        "history": "Elle fut répertoriée par Aratus de Soles, puis par Ptolémée dès le IIe siècle.",
+        "spotting": "L'Aigle est une constellation située à peu près sur l'équateur céleste. Facilement reconnaissable et dotée d'étoiles assez brillantes. La constellation de l'Aigle fait partie du triangle d'été. Elle se reconnaît directement par l'alignement de trois étoiles qui forme la « tête » de l'aigle. Si le grand carré de Pégase est visible, la constellation se trouve dans l'alignement du carré vers l'ouest."
+    },
+    {
+        "id": 2,
+        "name": "Andromède",
+        "scientific_name": "Andromeda",
+        "latin_name": "Andromeda",
+        "img_url": "/img/2-and.png",
+        "history": "Longue, en forme de « A », Andromède fut l’une des 48 constellations identifiées par Ptolémée. L'histoire d'Andromède commence essentiellement avec la tradition grecque, mais une forme féminine apparaît plus tôt dans l'astronomie babylonienne.",
+        "spotting": "Andromède est une constellation de l’hémisphère nord."
+    },
+    {
+        "id": 3,
+        "name": "Autel",
+        "scientific_name": "Ara",
+        "latin_name": "Ara",
+        "img_url": "/img/3-ara.png",
+        "history": "L'Autel (Ara en latin) était l’une des 48 constellations identifiées par Ptolémée.",
+        "spotting": "L'Autel est une constellation de l'hémisphère céleste sud, localisée entre le Scorpion et le Triangle austral. L'autel fait partie du groupe d'étoiles à l'est de l'alignement formé par Alpha et Bêta du Centaure (les deux pieds du Centaure). Il est situé au sud de la queue du Scorpion, dans l'alignement assez net que forment les « yeux du chat »."
+    },
+    {
+        "id": 4,
+        "name": "Balance",
+        "scientific_name": "Libra",
+        "latin_name": "Libra",
+        "img_url": "/img/4-lib.png",
+        "history": "La Balance est une constellation du zodiaque. La constellation de la Balance a été placée à l'équinoxe d'automne pour représenter l'équilibre entre la durée du jour et de la nuit. La Balance était l’une des 48 constellations identifiées par Ptolémée. On pense que ce sont les Romains qui ont introduit cette constellation dans le corpus. Elle apparaît dans le Calendrier julien en 46 av. J.-C. mais elle était déjà présente à l'époque de l’Égypte antique, notamment sur le zodiaque retrouvé dans le temple d'Esna construit par Ptolémée VIII.",
+        "spotting": "Comme le nom des étoiles principales de cette constellation l'atteste, la Balance était à l'origine (chez les Grecs en particulier) soit considérée comme les pinces de la constellation du Scorpion, soit considérée comme la balance où Zeus plaça le sort des Grecs et des Troyens pendant la guerre de Troie, soit considérée comme étant la balance d'Astrée (ou Thémis) lorsque cette dernière quitta la terre pour devenir la constellation de la Vierge. On pense que ce sont les Romains qui ont introduit cette constellation dans le corpus. Elle apparaît dans le Calendrier julien en 46 av. J.-C. mais elle était déjà présente à l'époque de l’Égypte antique, notamment sur le zodiaque retrouvé dans le temple d'Esna construit par Ptolémée VIII."
+    },
+    {
+        "id": 5,
+        "name": "Baleine",
+        "scientific_name": "Cetus",
+        "latin_name": "Cetus",
+        "img_url": "/img/5-cet.png",
+        "history": "Elle est l’une des 48 constellations identifiées par Ptolémée.",
+        "spotting": "La Baleine est une énorme constellation située dans le ciel méridional sur un alignement qui part dans le Taureau, et atteint le Poisson austral. Cet alignement passe sensiblement par les deux étoiles permanentes les plus brillantes de la baleine."
+    },
+    {
+        "id": 6,
+        "name": "Bélier",
+        "scientific_name": "Aries",
+        "latin_name": "Aries",
+        "img_url": "/img/6-ari.png",
+        "history": "Le Bélier (Aries en latin) était l’une des quarante-huit constellations identifiées par Ptolémée. Cette constellation était également la première constellation du Zodiaque lorsqu'il fut établi il y a plus de 2 000 ans : du fait de la précession des équinoxes, l'équinoxe de printemps était alors situé dans le Bélier (il est désormais dans les Poissons). Il semblerait que les Babyloniens, les Grecs, les Perses, et les Égyptiens aient tous nommé cette constellation « Bélier ».",
+        "spotting": "Dans l'ordre du zodiaque, la constellation se situe entre les Poissons à l'ouest et le Taureau à l'est. Sinon, La constellation se repère à partir de son entourage : au sud de Persée et d'Andromède, et à l'ouest du Taureau."
+    },
+    {
+        "id": 7,
+        "name": "Boussole",
+        "scientific_name": "Pyxis",
+        "latin_name": "Pyxis",
+        "img_url": "/img/7-pyx.png",
+        "history": "Elle fut créée par l'astronome français Nicolas-Louis de Lacaille en 1752. Il a ainsi délimité quatorze nouvelles constellations dans les pans du ciel de l'hémisphère sud qui ne sont pas visibles de l'Europe. ",
+        "spotting": "La Boussole est une petite constellation du ciel austral, sans étoile particulièrement lumineuse. La constellation de la Boussole est limitrophe de l'immense Navire Argo répertoriée par Claude Ptolémée."
+    },
+    {
+        "id": 8,
+        "name": "Bouvier",
+        "scientific_name": "Boötes",
+        "latin_name": "Bootes",
+        "img_url": "/img/8-boo.png",
+        "history": "Le Bouvier est une constellation boréale. Cette constellation porte le nom de Bouvier depuis longtemps (elle fut compilée sous cette dénomination par Aratus de Soles, puis par Ptolémée), cependant il est difficile de dire à qui ce bouvier fait référence.",
+        "spotting": "Ses étoiles principales dessinent dans le ciel un grand cerf-volant (ou un parachute). Elle est traditionnellement repéré à partir de la Grande Ourse : partant du manche de la « Grande Casserole », on prolonge l'arc de cercle."
+    },
+    {
+        "id": 9,
+        "name": "Burin",
+        "scientific_name": "Caelum",
+        "latin_name": "Caelum",
+        "img_url": "/img/9-cae.png",
+        "history": "Le Burin est l'une des 14 nouvelles constellations introduites par Nicolas-Louis de Lacaille en 1752. Son nom vient de la proximité du Sculpteur, dont le burin serait un outil. Lacaille nomma cette constellation « Caelum Sculptoris » (mot à mot « l'outil du sculpteur ») lors de la publication de son Coelum australe stelliferum, en 1763.",
+        "spotting": "Le Burin est une constellation mineure de l'hémisphère sud, coincée entre l'Éridan et la Colombe. Du sud de l'Europe, elle est visible uniquement à la fin de l'automne et en hiver, près de l'horizon."
+    },
+    {
+        "id": 10,
+        "name": "Caméléon",
+        "scientific_name": "Chamaeleon",
+        "latin_name": "Chamaeleon",
+        "img_url": "/img/10-cha.png",
+        "history": "Cette constellation fut proposée par les navigateurs hollandais Pieter Dirkszoon Keyser et Frederick de Houtman à la fin du xive siècle et présentée par l'astronome Johann Bayer dans son atlas stellaire Uranometria en 1603. Elle tire vraisemblablement son nom du caméléon, Johann Bayer ayant sûrement voulu placer dans les cieux un animal connu depuis peu des Européens et qu'on ne trouvait que dans l'hémisphère sud.",
+        "spotting": "Le Caméléon est une constellation de l'hémisphère sud. Il s'agit de plusieurs étoiles pâles que l'on a reliées entre elles pour former un caméléon. Elle se trouve à proximité du pôle sud céleste."
+    },
+    {
+        "id": 11,
+        "name": "Cancer",
+        "scientific_name": "Cancer",
+        "latin_name": "Cancer",
+        "img_url": "/img/11-cnc.png",
+        "history": "Elle était l’une des 48 constellations identifiées par Ptolémée. Cette constellation était appelée Tortue par les Babyloniens ou Scarabée par les Égyptiens. Son nom grec καρκινος, karkinos, fait plutôt référence à une écrevisse, terme repris en français par Diderot dans son encyclopédie.",
+        "spotting": "Le Cancer est une constellation située sur l'écliptique entre les constellations des Gémeaux et du Lion. Elle est entourée par les constellations du Lynx, de l'Hydre et du Petit Chien. Le Cancer est également un signe astrologique du zodiaque situé entre les Gémeaux et le Lion."
+    },
+    {
+        "id": 12,
+        "name": "Capricorne",
+        "scientific_name": "Capricornus",
+        "latin_name": "Capricornus",
+        "img_url": "/img/12-cap.png",
+        "history": "Le Capricorne, ou la Chèvre, est une constellation du zodiaque. Cette constellation est une des plus anciennes qui existent, peut-être la plus ancienne, malgré sa faible luminosité. Des descriptions d'une chèvre ou d'une chèvre-poisson ont été trouvées sur des tablettes babyloniennes datant de 3 000 ans. Il est vrai qu'à cette époque, le solstice d'hiver avait lieu quand le Soleil s'y trouvait et cette position d'un Soleil renaissant avant son essor durant le printemps a probablement contribué à sa création. Le Capricorne était l’une des 48 constellations identifiées par Ptolémée. La planète Neptune fut découverte dans cette constellation par l'astronome allemand Johann Galle, le 23 septembre 1846.",
+        "spotting": "La constellation est relativement facile à situer par rapport à des grands alignements : Elle se situe sur le chemin (presque) droit qui part de la Grande Ourse, passe par le cœur du Dragon et par sa tête, pour venir toucher Véga de la Lyre, puis Altaïr. Dans l'autre sens, le Capricorne est entre Pégase et le Verseau d'un côté, et le Sagittaire de l'autre, dans un immense alignement qui fait le tour du globe, et qui est un axe de repérage majeur de la voûte céleste."
+    },
+    {
+        "id": 13,
+        "name": "Carène",
+        "scientific_name": "Carina",
+        "latin_name": "Carina",
+        "img_url": "/img/13-car.png",
+        "history": "À l'origine le Navire Argo est une ancienne énorme constellation, parmi celles décrites par Aratos, puis par Ptolémée (Almageste). Cette constellation représentait l’Argo, le navire utilisé par Jason et les Argonautes. La constellation de la Carène en fut séparée par Nicolas-Louis de Lacaille qui divisa le navire en trois constellations plus petites.",
+        "spotting": "Traversée par la Voie lactée, la constellation de la Carène, bien qu'elle ne soit pas la plus grande du ciel, possède un nombre assez important d'étoiles brillantes, dont Canopus, la deuxième de la voûte céleste."
+    },
+    {
+        "id": 14,
+        "name": "Cassiopée",
+        "scientific_name": "Cassiopeia",
+        "latin_name": "Cassiopeia",
+        "img_url": "/img/14-cas.png",
+        "history": "Citée par Aratos de Soles, puis par Ptolémée dans l'Almageste.",
+        "spotting": "Cassiopée est visible dans l'hémisphère nord. C'est une constellation circumpolaire, très facilement reconnaissable grâce à sa forme de « W »."
+    },
+    {
+        "id": 15,
+        "name": "Centaure",
+        "scientific_name": "Centaurus",
+        "latin_name": "Centaurus",
+        "img_url": "/img/15-cen.png",
+        "history": "La constellation du Centaure fait partie des 48 constellations répertoriées par Ptolémée dans son Almageste. Elle était déjà mentionnée par Eudoxe (ive siècle av. J.-C.) et Aratos de Soles (iiie siècle av. J.-C.)",
+        "spotting": "Le Centaure est une splendide constellation de l'hémisphère sud, l'une des plus vastes du ciel. Elle contient un nombre assez considérable d'étoiles brillantes. Sa forme générale n'est toutefois pas très facile à tracer."
+    },
+    {
+        "id": 16,
+        "name": "Céphée",
+        "scientific_name": "Cepheus",
+        "latin_name": "Cepheus",
+        "img_url": "/img/16-cep.png",
+        "history": "Céphée était l’une des 48 constellations identifiées par Ptolémée.",
+        "spotting": "Céphée est une constellation circumpolaire de l'hémisphère nord. Elle est reconnaissable à sa forme de pentagone irrégulier, ou de dessin enfantin d'une maison à toit pointu."
+    },
+    {
+        "id": 17,
+        "name": "Chevelure de Bérénice",
+        "scientific_name": "Coma Berenices",
+        "latin_name": "Coma Berenices",
+        "img_url": "/img/17-com.png",
+        "history": "À l'origine, la Chevelure de Bérénice n'était qu'un astérisme. Elle fut reconnue en tant que tel depuis l'époque hellénistique (ou bien plus tôt, selon certains auteurs), et c'est l'une des seules des 88 constellations modernes nommée d'après une figure historique avec l'Écu de Sobieski. Elle a été introduite dans l'astronomie occidentale durant le troisième siècle av. J.-C. par Conon de Samos, l'astronome de la cour du roi égyptien Ptolémée III Evergètes (fl. -246/-221), afin d'honorer son épouse, Bérénice II. Elle est décrite comme une constellation à partir du xvie siècle par Gérard Mercator puis par Tycho Brahe notamment. La Chevelure de Bérénice est l'une des seules constellations modernes avec l'Écu de Sobieski qui est nommée d'après un personnage historique.",
+        "spotting": "La Chevelure de Bérénice partage une frontière avec le Bouvier à l'est, les Chiens de chasse au nord, le Lion à l'ouest et la Vierge au sud. Elle est visible des deux hémisphères."
+    },
+    {
+        "id": 18,
+        "name": "Chiens de Chasse",
+        "scientific_name": "Canes Venatici",
+        "latin_name": "Canes Venatici",
+        "img_url": "/img/18-cvn.png",
+        "history": "Cette constellation a été introduite par Johannes Hevelius en 1687 pour combler un vide à l'ouest de la Grande Ourse. D'après lui, ils représentent les chiens du Bouvier « Chara » et « Astérion ». Les «chiens de chasse» est ce qu'on appelle une «constellation moderne», qui a été enregistrée par Johannes Hevelius dans son Atlas du ciel assez tardivement.",
+        "spotting": ""
+    },
+    {
+        "id": 19,
+        "name": "Cocher",
+        "scientific_name": "Auriga",
+        "latin_name": "Auriga",
+        "img_url": "/img/19-aur.png",
+        "history": "Le Cocher fait partie des 48 constellations originellement répertoriées par Ptolémée dans son Almageste. Elle est aussi appelée Érichton. L'astronome grec Ératosthène l'a assimilée à Érichthonios. Cette constellation est traditionnellement représentée comme un chariot avec son conducteur, de temps en temps il porte sur son dos une chèvre, suivi de deux ou trois chevreaux. Il est possible que sa dénomination remonte aux babyloniens qui la surnommaient Rubiki (le chariot). ",
+        "spotting": "Le Cocher (Auriga en latin) est une constellation de l'hémisphère nord, La constellation se repère par la position de Capella, son étoile la plus brillante. Si la Grande Ourse est visible, Capella se situe dans la direction pointée par le grand chariot, à une vingtaine de degrés côté ouest."
+    },
+    {
+        "id": 20,
+        "name": "Colombe",
+        "scientific_name": "Columba",
+        "latin_name": "Columba",
+        "img_url": "/img/20-col.png",
+        "history": "La Colombe est une constellation relativement récente. Elle fut introduite en 1603 par Johann Bayer et elle représente la colombe de l'Arche de Noé (sa proximité avec l'ancienne constellation du Navire Argo est sûrement à l'origine de cette dénomination).",
+        "spotting": "La Colombe est une petite constellation de l'hémisphère sud, située au sud du Grand Chien et du Lièvre, ainsi qu’au Nord-Nord-Ouest de Canopus."
+    },
+    {
+        "id": 21,
+        "name": "Compas",
+        "scientific_name": "Circinus",
+        "latin_name": "Circinus",
+        "img_url": "/img/21-cir.png",
+        "history": "Le Compas est l'une des 14 nouvelles constellations introduites en 1752 par Nicolas-Louis de Lacaille afin de combler les derniers pans de ciel sans désignation",
+        "spotting": "Le Compas (dont le nom latin est Circinus) est une toute petite constellation de l'hémisphère sud. Le compas est une annexe au pied du Centaure. Partant des étoiles brillantes de alpha et bêta du Centaure."
+    },
+    {
+        "id": 22,
+        "name": "Corbeau",
+        "scientific_name": "Corvus",
+        "latin_name": "Corvus",
+        "img_url": "/img/22-crv.png",
+        "history": "Dans les catalogues d'étoiles babyloniens remontant à au moins 1100 av. J.-C., la constellation était déjà représentée en tant que Corbeau. Comme en astronomie grecque classique, il était placé assis sur la queue du Serpent (l'Hydre grec). Le Corbeau, la Coupe, ainsi que l'Aigle et le Poisson austral, ont été introduits chez les Grecs vers 500 av. J.-C. ; elles marquaient respectivement les solstices d'hiver et d'été. L'Hydre constituait par ailleurs un point de repère car elle était située à cheval sur l'équateur céleste durant l'Antiquité. Le Corbeau et la Coupe apparaissaient également dans l'iconographie du culte de Mithra, qui semble avoir été originaire du Moyen-Orient, puis qui s'est diffusé vers les Grecs anciens et la Rome antique.",
+        "spotting": "Le Corbeau est une petite constellation de l'hémisphère sud. Ses quatre étoiles les plus brillantes, Gamma, Delta, Epsilon, et Beta Corvi, forment un quadrilatère très caractéristique et facilement identifiable dans le ciel nocturne."
+    },
+    {
+        "id": 23,
+        "name": "Coupe",
+        "scientific_name": "Crater",
+        "latin_name": "Crater",
+        "img_url": "/img/23-crt.png",
+        "history": "La Coupe est une constellation ancienne, car déjà répertoriée au iie siècle par Ptolémée dans son Almageste.",
+        "spotting": "La Coupe est une petite constellation de l'hémisphère sud. La Coupe est à l'ouest du Corbeau et, plus loin, de α Virginis (Spica). Si les conditions de visibilité sont excellentes, on peut voir non seulement la base de la coupe (les quatre étoiles les plus brillantes) mais également un arc de cercle d'étoiles plus faibles, qui forment le calice proprement dit."
+    },
+    {
+        "id": 24,
+        "name": "Couronne Australe",
+        "scientific_name": "Corona Austrina",
+        "latin_name": "Corona Australis",
+        "img_url": "/img/24-cra.png",
+        "history": "Répertoriée par Ptolémée, le nom de cette constellation fait pendant à celui de la Couronne boréale. Ses étoiles sont en effet disposées selon un arc-de-cercle qui rappelle une couronne. Il s'agirait de celle du Sagittaire, tout proche.",
+        "spotting": "La Couronne australe est une petite constellation de l'hémisphère sud. La constellation se repère à partir du Scorpion, plein Est par rapport à la queue, et du Sagittaire, plein Sud par rapport au cou Nunki."
+    },
+    {
+        "id": 25,
+        "name": "Couronne Boréale",
+        "scientific_name": "Corona Borealis",
+        "latin_name": "Corona Borealis",
+        "img_url": "/img/25-crb.png",
+        "history": "Cette constellation était déjà répertoriée par Ptolémée dans son Almageste. Elle est effectivement formée d'étoiles disposées en un arc-de-cercle",
+        "spotting": "Elle est le pendant septentrional de la Couronne australe. La constellation est faible, mais ramassée, et donne un spectacle plaisant quand les conditions d'observation sont bonnes. La couronne boréale se repère assez facilement (quand elle est visible) entre α Lyrae (Véga) et α Bootis (Arcturus), et dans le prolongement du « manche de la casserole » que forme la partie gauche de la Grande Ourse. Sa forme en couronne est assez nette, contrairement à celle de son homologue austral."
+    },
+    {
+        "id": 26,
+        "name": "Croix du Sud",
+        "scientific_name": "Crux",
+        "latin_name": "Crux",
+        "img_url": "/img/26-cru.png",
+        "history": "À cause de la précession des équinoxes, la Croix du Sud était visible depuis la Méditerranée pendant l'Antiquité. Cependant, les astronomes grecs n'ont jamais considéré ces étoiles autrement que comme une partie du Centaure. On attribue généralement la paternité de la Croix du Sud comme constellation indépendante à Augustin Royer en 1679. Elle était cependant reconnue sous cette forme bien auparavant. La Croix du Sud — dont le nom s'oppose à la « Croix du Nord » qu'est la constellation du Cygne — est désormais l'une des constellations les plus connues de l'hémisphère sud et ses cinq étoiles les plus brillantes apparaissent sur plusieurs drapeaux",
+        "spotting": "La Croix du Sud est une petite constellation de l'hémisphère sud. Elle est entourée sur trois côtés par le Centaure et au sud par la Mouche. La Croix du Sud est utile pour trouver le pôle sud céleste. En l'absence d'une étoile similaire à l'étoile polaire de l'hémisphère nord (α Ursae Minoris) dans l'hémisphère sud (σ Oct est la plus proche du pôle, mais elle est trop peu lumineuse pour être utile), deux des étoiles de la Croix du Sud sont utilisées pour le déterminer : en suivant la ligne formée par Gacrux (γ) et Acrux (α), dans ce sens, sur 4,5 fois la distance entre ces deux étoiles, (soit ~25° au Sud de Acrux) on tombe sur un point proche du sud céleste."
+    },
+    {
+        "id": 27,
+        "name": "Cygne",
+        "scientific_name": "Cygnus",
+        "latin_name": "Cygnus",
+        "img_url": "/img/27-cyg.png",
+        "history": "Son nom lui est donné par Ptolémée dans le Livre VIII de l'Almageste datant du iie siècle. Répertoriée par les astronomes grecs, cette constellation était alors désignée sous le nom de l'Oiseau. Elle fut également désignée sous le nom de Croix de Sainte-Hélène par Julius Schiller en 1627 à une époque de christianisation massive du ciel (la constellation de la Croix du Sud en est contemporaine). Cette constellation est associée à plusieurs oiseaux légendaires de la mythologie grecque.",
+        "spotting": "Le Cygne est une grande et brillante constellation, parfois appelée la Croix du nord (en référence à la Croix du Sud) car ses étoiles sont principalement disposées selon une grande croix. L'oiseau qu'elle représente s'étend sur la Voie lactée estivale, paraissant en migration vers le sud. L'étoile α Cygni (Deneb) marque l'un des angles du triangle d'été, visible dès que la nuit tombe. Des trois étoiles du triangle d'été, Deneb est la moins brillante."
+    },
+    {
+        "id": 28,
+        "name": "Dauphin",
+        "scientific_name": "Delphinus",
+        "latin_name": "Delphinus",
+        "img_url": "/img/28-del.png",
+        "history": "Le Dauphin est cité par Aratos de Soles et était déjà l'une des 48 constellations répertoriées par Ptolémée. L'origine de son nom, en revanche, n'est pas explicite et trois légendes s'y rattachent. Cette constellation fut également connue sous le nom du Chameau chez les astronomes arabes.",
+        "spotting": "Le Dauphin est une petite constellation de l'hémisphère nord, proche de l'équateur céleste. Le Dauphin est une constellation faible, mais sa forme est très caractéristique et se dégage facilement quand la visibilité est suffisamment bonne. Il se situe immédiatement au Sud-Est du triangle d'été, directement à l'est de l'œil d'aigle de Altaïr, et au sud du Cygne."
+    },
+    {
+        "id": 29,
+        "name": "Dorade",
+        "scientific_name": "Dorado",
+        "latin_name": "Dorado",
+        "img_url": "/img/29-dor.png",
+        "history": "La Dorade est l'une des 11 constellations inventées par les navigateurs néerlandais Pieter Dirkszoon Keyser et Frederick de Houtman entre 1595 et 1597. Elle fut popularisée par Johann Bayer lors de la publication de son Uranometria en 1603. Sa disposition tout en longueur rappelle également le « poisson-épée », comme elle est parfois appelée. Elle a également été répertoriée sous le nom de l' « espadon » ou encore du « requin » au cours de l'histoire.",
+        "spotting": "La Dorade est une constellation de l'hémisphère sud. Seules ses étoiles les plus au nord peuvent être aperçues au-dessus de 20° de latitude nord et elle s'étend quasiment jusqu'au pôle sud céleste. La Dorade se trouve à mi-chemin entre Canopus, de la Carène, et Achernar, terminus de la rivière Éridan. Elle est un peu plus faible que sa voisine le Réticule."
+    },
+    {
+        "id": 30,
+        "name": "Dragon",
+        "scientific_name": "Draco",
+        "latin_name": "Draco",
+        "img_url": "/img/30-dra.png",
+        "history": "Malgré sa longueur, elle ne contient pas d'étoile véritablement brillante. Le Dragon était l’une des 48 constellations identifiées par Ptolémée.",
+        "spotting": "Elle est composée d'une longue suite d'étoiles qui longe une partie de la Petite Ourse. Globalement, le Dragon entoure la Petite Ourse en direction de Véga. Le repérage du Dragon peut être fait soit à partir de la Grande Ourse, soit à partir du Triangle d'été. La tête du Dragon est située entre Véga de la Lyre et la tête de la Petite Ourse, Kochab (β UMi). On peut également la repérer à partir de la constellation du Cygne, les deux yeux sont dans le prolongement de l'aile nord."
+    },
+    {
+        "id": 31,
+        "name": "Écu de Sobieski",
+        "scientific_name": "Scutum",
+        "latin_name": "Scutum",
+        "img_url": "/img/31-sct.png",
+        "history": "Cette constellation est l'une des seules (avec la Chevelure de Bérénice) qui doive son nom à un personnage historique, en l'occurrence le roi de Pologne Jean III Sobieski. Il conduisit la défense de la Pologne et de Vienne contre les armées de l'Empire ottoman et remporta une bataille importante le 12 septembre 1683. Un an plus tard, l'astronome polonais Johannes Hevelius nomma cette petite partie du ciel coincée entre l'Aigle et le Sagittaire en son honneur (Scutum Sobiescianum), et parce qu'il l'a aidé à reconstruire son observatoire, endommagé après un incendie.",
+        "spotting": "Le Bouclier ou l'Écu de Sobieski (Scutum) est une petite constellation qui se trouve juste à l'est de la Queue du Serpent. Située en dessous de l'équateur céleste, cette constellation est visible depuis quasiment n'importe quelle latitude terrestre. La constellation se repère assez facilement à partir de la queue de l'Aigle. "
+    },
+    {
+        "id": 32,
+        "name": "Éridan",
+        "scientific_name": "Eridanus",
+        "latin_name": "Eridanus",
+        "img_url": "/img/32-eri.png",
+        "history": "Cette constellation de l'hémisphère austral doit son nom à un fleuve de la mythologie grecque. On dit parfois qu'il s'agirait du Pô ou du Rhône mais certains Grecs, dont Diodore et Théon d'Alexandrie, assurent que le nom d’Eridan remplaça le nom du Nil, Ératosthène dit même qu'Aratus appelle Éridan le fleuve d'Orion. Elle fut répertoriée pour la première fois par Ptolémée, mais c'est William Herschel qui la catalogua en 1783. Elle se terminait jadis à Acamar. ",
+        "spotting": "L'Éridan est une constellation de l'hémisphère sud, située aux abords d'Orion, du Taureau et de l'Hydre mâle. "
+    },
+    {
+        "id": 33,
+        "name": "Flèche",
+        "scientific_name": "Sagitta",
+        "latin_name": "Sagitta",
+        "img_url": "/img/33-sge.png",
+        "history": "La Flèche est l’une des 48 constellations répertoriées par Ptolémée.",
+        "spotting": "La Flèche est une constellation de l'hémisphère nord, la troisième plus petite du ciel (seuls la Croix du Sud et le Petit Cheval sont plus petits). Située loin au nord du plan de l'écliptique, elle peut être aperçue partout à partir de l'hémisphère nord et n'est invisible que dans la partie la plus méridionale de la Terre. La Flèche se trouve dans le triangle d'été, au nord de la constellation de l'Aigle. Elle est à mi-chemin entre la tête du Cygne et Altaïr."
+    },
+    {
+        "id": 34,
+        "name": "Fourneau",
+        "scientific_name": "Fornax",
+        "latin_name": "Fornax",
+        "img_url": "/img/34-for.png",
+        "history": "Le Fourneau est l'une des 14 nouvelles constellations introduites par Nicolas-Louis de Lacaille en 1752 afin de combler les derniers espaces de ciel austral sans dénomination. Elle était originellement nommée Fornax Chemica, le fourneau du chimiste en latin. Son nom peut également être rapproché de Fornax, la divinité romaine du pain et des fours ou au fourneau d'Héphaïstos, dieu grec du fer, du marteau et des fourneaux.",
+        "spotting": "Le Fourneau est entièrement situé dans la grande boucle Est-Sud-Ouest que fait la rivière Éridan. La rivière elle-même est difficile à repérer, et le Fourneau plus encore."
+    },
+    {
+        "id": 35,
+        "name": "Gémeaux",
+        "scientific_name": "Gemini",
+        "latin_name": "Gemini",
+        "img_url": "/img/35-gem.png",
+        "history": "Les Gémeaux étaient l’une des 48 constellations identifiées par Ptolémée. Le programme d'exploration spatial Gemini, mené par la NASA dans les années 1960, a été ainsi dénommé d'après cette constellation.Les Gémeaux sont une constellation du zodiaque.",
+        "spotting": "Dans l'ordre du zodiaque, la constellation se situe entre le Taureau à l'ouest et le Cancer à l'est. Elle est entourée par le Cocher et le Lynx à peine visible au nord et la Licorne et le Petit Chien au sud. La constellation des Gémeaux peut se repérer à partir de la Grande Ourse : la diagonale du grand chariot pointe sur Pollux, et cet alignement se prolonge sur la diagonale d'Orion. Inversement, les Gémeaux peuvent se repérer à partir d'Orion : l'alignement entre Rigel et Bételgeuse passe par le pied du Gémeaux (Almeisan, ou Alhena, γ Gem) et pointe sur Pollux."
+    },
+    {
+        "id": 36,
+        "name": "Girafe",
+        "scientific_name": "Camelopardalis",
+        "latin_name": "Camelopardalis",
+        "img_url": "/img/36-cam.png",
+        "history": "Cette grande région qui s'étend entre l'étoile polaire et la constellation du Cocher est dépourvue d'étoile significative, ce qui peut expliquer que, bien qu'elle soit visible toute l'année depuis l'hémisphère nord, elle n'ait été répertoriée pour la première fois qu'en 1624 par le mathématicien allemand Jakob Bartsch, gendre de Johannes Kepler, même si elle a probablement été repérée préalablement par l'astronome et cartographe néerlandais Petrus Plancius. Le nom de la constellation est directement lié à sa forme : longue et effilée, comme un cou de girafe.",
+        "spotting": "La Girafe est une constellation assez étendue mais peu lumineuse de l'hémisphère nord. La position de la constellation est en un sens facile à repérer: c'est une zone où il n'y a rien à voir. La Girafe est en effet située en bordure de la voie lactée, au nord-est de trois constellations très riches et facilement repérables : Cassiopée, Céphée et le Cocher. On reconnaît au sommet de l'image α Ursae Minoris, l'étoile polaire, qui marque le début de la Petite Ourse."
+    },
+    {
+        "id": 37,
+        "name": "Grand Chien",
+        "scientific_name": "Canis Major",
+        "latin_name": "Canis Maior",
+        "img_url": "/img/37-cma.png",
+        "history": "Au ier siècle, le Grand Chien fait partie des 48 constellations répertoriées par Ptolémée dans son Almageste. Le Grand Chien est l'une des plus anciennes constellations. Dans la mythologie grecque, plusieurs légendes proposent une explication sur l'origine de cette constellation.",
+        "spotting": "Elle est située dans l'hémisphère nord, du fait de la présence en son sein de Sirius, l'étoile la plus brillante du ciel (après le Soleil). Située relativement loin de l'écliptique, elle n'est visible que quelques mois par an aux latitudes voisines du 45° nord, vers le solstice d'été (21 juin) et elle n'est alors pas visible pendant la nuit. Pendant les autres saisons, elle est visible soit très tôt le matin (fin d'été - début automne) soit toute la nuit (fin automne - début hiver), soit le soir (fin hiver - début printemps). La localisation n'est pas difficile, Sirius étant l'étoile la plus brillante du ciel nocturne. Sirius se situe sur l'Hexagone d'hiver (centré sur Orion) dont il occupe l'angle sud-ouest. Cette étoile est dans le prolongement sud des « trois rois mages » qui forment le baudrier d'Orion."
+    },
+    {
+        "id": 38,
+        "name": "Grande Ourse",
+        "scientific_name": "Ursa Major",
+        "latin_name": "Ursa Maior",
+        "img_url": "/img/38-uma.png",
+        "history": "Elle fait partie des 48 constellations identifiées par Ptolémée",
+        "spotting": "La Grande Ourse est la troisième constellation du ciel par son étendue. Elle contient la « grande casserole » (ou « grand chariot »), l'un des astérismes les plus connus de l'hémisphère nord. Elle est très facilement reconnaissable par la forme de casserole que composent ses sept plus brillantes étoiles. La Grande Ourse est une constellation circumpolaire pour les observateurs situés au-dessus de 41° de latitude Nord : elle ne semble jamais se coucher."
+    },
+    {
+        "id": 39,
+        "name": "Grue",
+        "scientific_name": "Grus",
+        "latin_name": "Grus",
+        "img_url": "/img/39-gru.png",
+        "history": "D'après Ian Ridpath, la Grue est une des douze constellations introduites à la fin du xvie siècle par les navigateurs et explorateurs néerlandais Pieter Dirkszoon Keyser et Frederik de Houtman à la suite de leurs observations du ciel austral. La constellation est représentée pour la première fois sur un globe céleste par Petrus Plancius et Jodocus Hondius en 1598 sous les noms de Krane et Grus, « Grue » respectivement en néerlandais et en latin.",
+        "spotting": "La Grue est une constellation de l'hémisphère austral, située juste en dessous du Poisson austral. Elle ne contient pas beaucoup d'étoiles visibles à l'œil nu."
+    },
+    {
+        "id": 40,
+        "name": "Hercule",
+        "scientific_name": "Hercules",
+        "latin_name": "Hercules",
+        "img_url": "/img/40-her.png",
+        "history": "L'une des 48 constellations répertoriées par Ptolémée dans son Almageste, Hercule porte le nom romain du héros grec Héraclès. Les étoiles d'Hercule semblent en effet former un homme couché ou à genoux, ce qui était d'ailleurs le nom originel de la constellation.",
+        "spotting": "Hercule est une vaste constellation de l'hémisphère nord, la cinquième plus grande de la voûte céleste. Hercule est située au Sud-Est de Véga, de la constellation de la Lyre, sur la ligne joignant Véga à Arcturus, de la constellation du Bouvier. La constellation est globalement peu brillante, et demande de bonnes conditions de visibilité (mag 4) pour être repérée et tracée. Partant de Véga, on commence par repérer Gemma de la Couronne boréale, l'étoile la plus brillante dans la direction d'Arcturus. À mi-chemin entre Gemma et Véga, on voit quatre étoiles en forme de « clef de voûte », qui forment la tête d'Hercule, et sont au centre de la constellation."
+    },
+    {
+        "id": 41,
+        "name": "Horloge",
+        "scientific_name": "Horologium",
+        "latin_name": "Horologium",
+        "img_url": "/img/41-hor.png",
+        "history": "",
+        "spotting": "L'Horloge est une des 15 nouvelles constellations introduites par Nicolas-Louis de Lacaille afin de combler les derniers pans de ciel austral sans désignation. Appelée à l'origine Horologium Oscillitorium (soit horloge à balancier en latin), son nom a ensuite été raccourci pour être plus maniable. Cette dénomination était un hommage à Christian Huygens, inventeur, entre autres, de l'horloge à balancier."
+    },
+    {
+        "id": 42,
+        "name": "Hydre Femelle",
+        "scientific_name": "Hydra",
+        "latin_name": "Hydra",
+        "img_url": "/img/42-hya.png",
+        "history": "La constellation de l'Hydre fut citée par le poète Aratus puis par l'astronome Ptolémée, répertoriée dans son Almageste.",
+        "spotting": "L'Hydre (parfois nommée « Hydre femelle » pour éviter la confusion avec l'Hydre mâle) est la plus vaste et la plus longue des 88 constellations, s'étendant sur plus de 1 300 degrés carrés. La tête de l'Hydre se trouve au sud du Cancer et son corps sinueux s'étend jusqu'à la Balance. Malgré sa taille, elle ne contient que deux étoiles réellement brillantes. La constellation ne peut être repérée que par morceaux. C'est une constellation d'étoiles peu brillantes et assez éparses, dont les formes sont rarement suggestives."
+    },
+    {
+        "id": 43,
+        "name": "Hydre Mâle",
+        "scientific_name": "Hydrus",
+        "latin_name": "Hydrus",
+        "img_url": "/img/43-hyi.png",
+        "history": "La constellation de l'Hydre mâle est une création moderne. Elle fut inventée par les navigateurs hollandais Pieter Dirkszoon Keyser et Frederick de Houtman à la fin du xvie siècle pour remplir un espace sans dénomination près du pôle sud céleste. Elle fut popularisée par Johann Bayer lors de la publication de son Uranometria en 1603. Parfois appelée « Serpent de mer », elle n'a rien à voir avec l'Hydre de Lerne de la mythologie grecque.",
+        "spotting": "L’Hydre mâle (à ne pas confondre avec l'immense Hydre, dite « Hydre femelle ») est une petite constellation située près du pôle sud céleste et découpe une partie de l'espace située sous le plan de la Voie lactée. L'Hydre mâle fait partie du petit groupe de constellations situées autour de Achernar, le terminus de la rivière Éridan. Elle se situe à l'immédiat sud de cette étoile."
+    },
+    {
+        "id": 44,
+        "name": "Indien",
+        "scientific_name": "Indus",
+        "latin_name": "Indus",
+        "img_url": "/img/44-ind.png",
+        "history": "L'Indien est une constellation vraisemblablement inventée par les navigateurs néerlandais Pieter Dirkszoon Keyser et Frederick de Houtman à la fin du xvie siècle et introduite par Johann Bayer dans son Uranometria en 1603. Elle est supposée représenter un Indien d'Amérique, que Bayer voulait honorer d'une place sur la voûte céleste.",
+        "spotting": "Partant des deux étoiles les plus brillantes de la Grue, on tombe vers l'ouest sur α de l'Indien, l'étoile la plus brillante de la constellation. L'étoile brillante au Sud de α Ind est α Pav, à l'extrême limite du Paon. L'Indien se glisse entre la Grue et le Toucan à l'est, et le Paon à l'ouest, sans étoile très visible."
+    },
+    {
+        "id": 45,
+        "name": "Lézard",
+        "scientific_name": "Lacerta",
+        "latin_name": "Lacerta",
+        "img_url": "/img/45-lac.png",
+        "history": "La constellation du Lézard fut nommée par Johannes Hevelius en 1687 pour combler une région du ciel pauvre en étoiles brillantes. Son nom provient visiblement de la forme en zig-zag décrite par ses étoiles les plus lumineuses.",
+        "spotting": "Le Lézard est une petite constellation de l'hémisphère nord, située entre Andromède, Cassiopée et le Cygne. Sa forme est assez ramassée, mais les étoiles qui la constituent sont faibles. Il faut donc des conditions de visibilité assez bonnes pour la deviner. La constellation se situe au Sud de l'axe Cassiopée - Deneb du Cygne. La constellation se trouve dans le prolongement de la chaîne d'Andromède, et la limite entre ces deux groupes n'est pas très facile à établir."
+    },
+    {
+        "id": 46,
+        "name": "Licorne",
+        "scientific_name": "Monoceros",
+        "latin_name": "Monoceros",
+        "img_url": "/img/46-mon.png",
+        "history": "La constellation de la Licorne est vraisemblablement nommée par l'astronome Petrus Plancius en 1613 et cartographiée par Jakob Bartsch en 1624. Heinrich Olbers et Ludwig Ideler indiquent cependant qu'elle apparaît sur des travaux datant de 1564 et Joseph Juste Scaliger rapporte l'avoir vue sur un ancien globe céleste perse. Comme il s'agit d'une constellation moderne, la Licorne n'est associée à aucune mythologie. Une licorne est un animal merveilleux ressemblant à un cheval et possédant une corne sur le front.",
+        "spotting": "La Licorne est une constellation moderne relativement peu lumineuse; située quelques degrés au-dessus de l'équateur céleste, elle est visible depuis une grande partie du globe terrestre, à l'exception des pôles. Elle occupe une grande partie de l'espace situé à l'intérieur du Triangle d'hiver, ce qui permet de la localiser facilement."
+    },
+    {
+        "id": 47,
+        "name": "Lièvre",
+        "scientific_name": "Lepus",
+        "latin_name": "Lepus",
+        "img_url": "/img/47-lep.png",
+        "history": "Le Lièvre est une constellation ancienne. Les astronomes égyptiens la considéraient comme la Barque d'Osiris (la proximité de l'Éridan, représentant le Nil, aidant). Nommée pour la première fois Lièvre par Eudoxe de Cnide au ive siècle av. J.-C., elle fut l'une des constellations répertoriées par Ptolémée dans son Almageste. Il est possible qu'elle représente un lièvre chassé par Orion.",
+        "spotting": "Le Lièvre est une constellation de l'hémisphère sud. Elle possède deux étoiles brillantes : Arneb (α Leporis) et Nihal (β Leporis). Le Lièvre se situe immédiatement au sud de la constellation d'Orion, le grand chasseur, et à l'est de Sirius, le grand chien. Sa localisation est donc très facile. Il ne doit sa survie dans un tel entourage qu'à sa relative discrétion, ses étoiles étant relativement plus faibles (mag 3) que celles de ses glorieux voisins."
+    },
+    {
+        "id": 48,
+        "name": "Lion",
+        "scientific_name": "Leo",
+        "latin_name": "Leo",
+        "img_url": "/img/48-leo.png",
+        "history": "Comme toutes les constellations du Zodiaque, le Lion a des origines très anciennes. Elle fut mentionnée par Aratus, puis par Ptolémée dans son Almageste.",
+        "spotting": "Le Lion peut être localisé à partir de la Grande Ourse, en prenant l'alignement des deux étoiles internes à la « casserole ». Cet alignement arrive sur Alpha Leonis (Régulus). Le Lion est à l'opposé du Taureau par rapport aux Gémeaux, sur l'axe qui passe ensuite par α Virginis. Localement, le Lion peut se reconnaître directement par sa forme générale, et si les conditions de visibilité sont bonnes, par la forme de la « faucille » qui forme sa tête."
+    },
+    {
+        "id": 49,
+        "name": "Loup",
+        "scientific_name": "Lupus",
+        "latin_name": "Lupus",
+        "img_url": "/img/49-lup.png",
+        "history": "Le Loup est une vieille constellation. Pour les Grecs, il s'agissait d'un animal que le Centaure portait empalé sur sa lance. Elle faisait partie des constellations répertoriées par Ptolémée dans son Almageste.",
+        "spotting": "Le Loup est une petite constellation de l'hémisphère Sud, située en dessous de la constellation de la Balance, à l'ouest de la constellation du Scorpion et à l'est de la constellation du Centaure. Le Loup est situé dans la Voie lactée, entre le Scorpion et le Centaure."
+    },
+    {
+        "id": 50,
+        "name": "Lynx",
+        "scientific_name": "Lynx",
+        "latin_name": "Lynx",
+        "img_url": "/img/50-lyn.png",
+        "history": "Cette constellation fut introduite par Johannes Hevelius en 1687 pour remplir le vide entre la Grande Ourse et le Cocher. Son nom proviendrait du fait qu'il faudrait des très bons yeux pour voir les étoiles de cette constellation",
+        "spotting": "Le Lynx est une constellation de l'hémisphère nord située au sud et à l'ouest de la Grande Ourse. Malgré sa grande taille (plus grande que les Gémeaux par exemple), elle ne contient que peu d'étoiles brillantes car elle découpe un pan du ciel opposé au centre de la Voie lactée, dans une direction nettement au-dessus de l'équateur céleste."
+    },
+    {
+        "id": 51,
+        "name": "Lyre",
+        "scientific_name": "Lyra",
+        "latin_name": "Lyra",
+        "img_url": "/img/51-lyr.png",
+        "history": "La Lyre est une constellation ancienne. Les civilisations antiques au Moyen-Orient et en Inde y voyaient un vautour. Les astronomes grecs y voyaient une lyre (ou plutôt une « kithara ») et les cartes du ciel les plus vieilles la représentent généralement tenue dans les griffes d'un vautour. La Lyre était l’une des 48 constellations identifiées par Ptolémée.",
+        "spotting": "Elle se situe dans l'hémisphère nord. Notre étoile tend progressivement à se rapprocher des étoiles qui composent cette constellation. La constellation se reconnaît à sa forme : Véga est une étoile très brillante, qui se reconnaît par son association avec les deux étoiles plus faibles β et γ Lyr, l'ensemble évoquant un club de golf. Quand les conditions de visibilité sont meilleures, Véga se trouve à la pointe d'un petit « V » qui rappelle son nom. Véga est l'un des sommets du grand triangle d'été, facilement repérable par lui-même."
+    },
+    {
+        "id": 52,
+        "name": "Machine Pneumatique",
+        "scientific_name": "Antlia",
+        "latin_name": "Antlia",
+        "img_url": "/img/52-ant.png",
+        "history": "La constellation Antlia fut décrite par Nicolas Louis de Lacaille qui est un astronome de nationalité Française. Ceci dit, elle n’a pas d’histoire mythologique. Le nom de la constellation renvoie à la machine pneumatique qui a été inventée par Denis Papin et est ainsi une sorte d’hommage rendue à celle-ci. Les étoiles de la constellation Antlia sont bel et bien visibles par les grecs mais elles sont jugées comme étant peu lumineuses par certains. La surface sur laquelle se trouvent les étoiles de la constellation Antlia désigne l’ancienne constellation navire Argo. Cependant, un écrivain britannique affirme que les étoiles de la constellation Antlia ne font pas partie de la représentation du navire Argo car elles ne sont pas assez lumineuses.",
+        "spotting": "La Machine pneumatique est une constellation peu lumineuse de l'hémisphère sud. Localisée près des étoiles formant l'ancienne constellation du navire Argo, la Machine pneumatique est visible en direction du sud à partir du 49e parallèle nord."
+    },
+    {
+        "id": 53,
+        "name": "Microscope",
+        "scientific_name": "Microscopium",
+        "latin_name": "Microscopium",
+        "img_url": "/img/53-mic.png",
+        "history": "La constellation du Microscope fut créée par Nicolas-Louis de Lacaille en 1752 afin de remplir les derniers pans de ciel austral sans dénomination. Comme beaucoup des 14 autres constellations créées par Lacaille, elle porte le nom d'un appareil scientifique, le microscope, inventé semble-t-il par le hollandais Zacharias Janssen en 1590.",
+        "spotting": "Le Microscope est une constellation de l'hémisphère sud, peu lumineuse. La constellation est située dans un « désert » stellaire, et n'a guère de forme sensible ni d'étoile facilement repérable.Si les conditions de visibilités sont très bonnes (mag 5), on repère assez facilement ε, γ et α, faibles étoiles dans le prolongement de l'alignement du Poisson austral. Le reste de la constellation est difficilement identifiable."
+    },
+    {
+        "id": 54,
+        "name": "Mouche",
+        "scientific_name": "Musca",
+        "latin_name": "Musca",
+        "img_url": "/img/54-mus.png",
+        "history": "La constellation de la Mouche fut proposée par les navigateurs hollandais Pieter Dirkszoon Keyser et Frederick de Houtman en 1536. L'astronome Johann Bayer l'introduisit dans son Uranometria en 1603 sous le nom de l'Abeille. Plus tard, Nicolas-Louis de Lacaille la rebaptisa Mouche australe, afin de la différencier de la Mouche boréale, une constellation maintenant disparue située près du Bélier. La suppression de cette constellation permit de la rebaptiser simplement Mouche.",
+        "spotting": "La Mouche est une petite constellation, l'une des plus au sud de la voûte céleste."
+    },
+    {
+        "id": 55,
+        "name": "Octant",
+        "scientific_name": "Octans",
+        "latin_name": "Octans",
+        "img_url": "/img/55-oct.png",
+        "history": "La constellation de l'Octant fut créée par Nicolas-Louis de Lacaille en 1752 avec 13 autres constellations afin de remplir les derniers pans de ciel austral sans dénomination. Elle est nommée comme les autres d'après un appareil scientifique : l'octant est un instrument de navigation permettant de connaître sa position.",
+        "spotting": "L'Octant est une constellation de l'hémisphère sud. L'une de ses étoiles, Polaris Australis (σ Octantis), est l'étoile visible à l'œil nu la plus proche du pôle sud céleste."
+    },
+    {
+        "id": 56,
+        "name": "Oiseau de Paradis",
+        "scientific_name": "Apus",
+        "latin_name": "Apus",
+        "img_url": "/img/56-aps.png",
+        "history": "La constellation Apus fait partie des douze constellations que Petrus Plancius a publiées sur la base des observations de Pieter Dirkszoon Keyser et Frederick Houtman. Elle est apparue la première fois en 1598 au niveau d’un globe céleste qui a été publié par Plancius à Amsterdam par Plancius. Elle a par la suite été intégrée dans le catalogue d‘étoiles du sud d’Houtman et portait le nom de paradjis Voghel qui signifie oiseau du paradis en langue hollandaise. Suite à son intégration au globe de Plancius, la constellation apparue dans la cartographie uranométria de Johann Bayer en 1603. Celui-ci lui donna le nom d’Apis Indica alors que les astronomes Johannes Kepler et Jakob Bartsch lui donnèrent le nom d’Avis Indica ou Apus. Ainsi l’appellation Apus provient du grec « Apous » signifiant sans pieds. C’est une fausse idée qu’on avait de l’oiseau de paradis et selon laquelle celui-ci n’avait pas de pieds. Ceci est dû au fait que les spécimens qui étaient disponibles n’avaient pas d’ailes ni de pieds",
+        "spotting": "L’Oiseau de Paradis est une constellation méridionale "
+    },
+    {
+        "id": 57,
+        "name": "Ophiuchus",
+        "scientific_name": "Ophiuchus",
+        "latin_name": "Ophiuchus",
+        "img_url": "/img/57-oph.png",
+        "history": "Normalement 13e constellation du zodiaque, le Serpentaire est une constellation ancienne. Elle fut répertoriée par Aratos de Soles, puis avec 47 autres constellations par Ptolémée dans son Almageste et était parfois appelée Serpentarius, le serpentaire. La constellation représente un homme portant un serpent autour de lui ; le Serpentaire divise justement la constellation du Serpent en deux parties. ",
+        "spotting": "Ophiuchus, également connu sous le nom d’origine latine de Serpentaire, est une constellation de l'hémisphère nord. Elle se situe entre le Scorpion à l'ouest et le Sagittaire à l'est. Représentant un homme portant un serpent à bout de bras, le Serpentaire divise la constellation du Serpent en deux parties : la tête et la queue."
+    },
+    {
+        "id": 58,
+        "name": "Orion",
+        "scientific_name": "Orion",
+        "latin_name": "Orion",
+        "img_url": "/img/58-ori.png",
+        "history": "La constellation d'Orion (« le Chasseur »)  est mentionnée sous cette dénomination dans l’Odyssée d'Homère, les Odes d'Horace, les Phénomènes d'Aratus de Soles et l’Énéide de Virgile. Elle est répertoriée parmi les quarante-huit constellations de l’Almageste de Ptolémée. Avec autant d'étoiles brillantes facilement visibles depuis l'hémisphère nord, Orion est peut-être la constellation la plus ancienne et de nombreuses civilisations l'ont tracée, quoique sous des images différentes. Les Sumériens y voyaient un mouton.",
+        "spotting": "Orion est une constellation située quasiment sur l'équateur céleste. Orion fait partie des rares constellations immédiatement reconnaissables par leur forme. Ses sept étoiles les plus brillantes forment un nœud papillon (ou un sablier) facilement identifiable : quatre étoiles très brillantes forment un rectangle caractéristique au milieu duquel se trouve un alignement de trois autres étoiles, la ceinture ou le baudrier d'Orion, qui constituent une signature remarquable."
+    },
+    {
+        "id": 59,
+        "name": "Paon",
+        "scientific_name": "Pavo",
+        "latin_name": "Pavo",
+        "img_url": "/img/59-pav.png",
+        "history": "La constellation du Paon était trop au sud pour être connue par les astronomes antiques du pourtour méditerranéen. La première mention de cette constellation revient aux navigateurs néerlandais Pieter Dirkszoon Keyser et Frederick de Houtman à la fin du xvie siècle. Comme une douzaine d'autres, elle fut popularisée par Johann Bayer dans son Uranometria en 1603.",
+        "spotting": "Le Paon est une constellation de l'hémisphère sud, peu lumineuse à l'exception d'une étoile de première magnitude. Il s'agit de l'une des constellations les plus méridionales de la voûte céleste et elle est quasiment invisible au nord de l'Équateur."
+    },
+    {
+        "id": 60,
+        "name": "Peintre",
+        "scientific_name": "Pictor",
+        "latin_name": "Pictor",
+        "img_url": "/img/60-pic.png",
+        "history": "L'abbé Nicolas-Louis de Lacaille a introduit cette constellation en 1752 pour dénommer un pan du ciel austral dépourvu de nom. Appelée à l'origine le Chevalet du peintre, son nom a été simplifié au xixe siècle.",
+        "spotting": "Le Peintre est une constellation de l'hémisphère sud. Le Peintre constitue le voisinage Sud de Canopus, de la Carène. Les limites de la constellation comprennent une zone sans étoile marquante, plus au Nord, au SO du pied de la Colombe."
+    },
+    {
+        "id": 61,
+        "name": "Pégase",
+        "scientific_name": "Pegasus",
+        "latin_name": "Pegasus",
+        "img_url": "/img/61-peg.png",
+        "history": "Cette constellation doit son nom à Pégase, le cheval ailé de la mythologie grecque. Elle est rattachée à la légende d'Andromède (voir cette constellation). Elle fut répertoriée dès le ier siècle apr. J.-C. par Ptolémée dans son Almageste et cataloguée par William Herschel en 1783.",
+        "spotting": "Pégase est une constellation de l'hémisphère nord, située au sud d'Andromède, au nord des Poissons et au nord-ouest du Verseau."
+    },
+    {
+        "id": 62,
+        "name": "Persée",
+        "scientific_name": "Perseus",
+        "latin_name": "Perseus",
+        "img_url": "/img/62-per.png",
+        "history": "La constellation de Persée est ancienne. Déjà répertoriée par Aratus de Soles, puis par Ptolémée dans son Almageste au Ier siècle.",
+        "spotting": "Persée est une constellation de l’hémisphère nord. Relativement grande, elle possède plusieurs étoiles brillantes, dont l’étoile variable Algol (β Persei). Sa position peut être repérée en prenant l'alignement qui part du Grand carré de Pégase et remonte le long de la diagonale d'Andromède jusqu'à Algol de Persée et Capella du Cocher. Persée est généralement dessiné tenant dans sa main la tête de Méduse et celle-ci est représentée par les étoiles Gorgonea Secunda, Gorgonea Tertia et Gorgonea Quarta."
+    },
+    {
+        "id": 63,
+        "name": "Petit Cheval",
+        "scientific_name": "Equuleus",
+        "latin_name": "Equuleus",
+        "img_url": "/img/63-equ.png",
+        "history": "Elle est l’une des 48 constellations considérées par Ptolémée dans son « Almageste ».",
+        "spotting": "Le Petit Cheval est une constellation de l’hémisphère nord, la plus petite de cet hémisphère. Le repérage le plus simple consiste à partir du Dauphin (que l'on devine à la limite Nord de la figure), la constellation la plus facilement reconnaissable de la zone. Les étoiles du Petit Cheval sont à une dizaine de degrés au Sud-Est du Dauphin. On peut la repérer à partir du Verseau : les deux étoiles γ et α Aqr, les deux plus brillantes de la «tête«. Au nord du groupe, on peut repérer la petite paire d'étoiles Equ (respectivement à l'est et à l'ouest), par l'alignement qu'elles forment en pointant vers Peg, le pied de Pégase, situé à l'Est. Le reste de la constellation est à peine visible et sans forme particulière."
+    },
+    {
+        "id": 64,
+        "name": "Petit Chien",
+        "scientific_name": "Canis Minor",
+        "latin_name": "Canis Minor",
+        "img_url": "/img/64-cmi.png",
+        "history": "Elle était déjà présente dans la liste de 48 constellations établie par Ptolémée au iie siècle. ",
+        "spotting": "Le Petit Chien est une petite constellation de l’hémisphère nord.  La position de la constellation se repère directement par celle de son étoile Procyon, de première grandeur, qui se distingue facilement à l'est d'Orion et au sud des Gémeaux dans une zone par ailleurs sans étoiles brillantes."
+    },
+    {
+        "id": 65,
+        "name": "Petit Lion",
+        "scientific_name": "Leo Minor",
+        "latin_name": "Leo Minor",
+        "img_url": "/img/65-lmi.png",
+        "history": "Cette constellation a été introduite par l’astronome polonais Johannes Hevelius vers 1660 pour combler un espace entre la Grande Ourse et le Lion.",
+        "spotting": "Le Petit Lion est une constellation de l’hémisphère nord. Comme beaucoup d’autres constellations modernes, elle ne comporte que peu d’étoiles vraiment lumineuses. La constellation est encadrée par deux constellations très faciles à identifier, la Grande Ourse au nord, et le Lion au sud. Elle se situe sous les trois petites paires d'étoiles qui forment les pattes de la Grande Ourse, les « sauts de gazelle ». Si les conditions de visibilité sont excellentes, on la voit accompagnée de deux petites étoiles côté Sud-Est, qui appartiennent à la Grande Ourse: la limite moderne passe juste à cet endroit."
+    },
+    {
+        "id": 66,
+        "name": "Petit Renard",
+        "scientific_name": "Vulpecula",
+        "latin_name": "Vulpecula",
+        "img_url": "/img/66-vul.png",
+        "history": "La constellation du Petit Renard fut créée à la fin du xviie siècle par l’astronome polonais Johannes Hevelius sous le nom de « Vulpecula cum Anser », « le petit renard et l’oie ». L’oie, qui était représentée dans la gueule du renard, n’est plus présente officiellement, mais a donné son nom à l’étoile Anser.",
+        "spotting": "Le Petit Renard est une constellation de l’hémisphère nord située au milieu du Triangle d’été, un astérisme constitué des étoiles Deneb, Véga et Altaïr. L’étoile la plus brillante de la constellation est Anser (α Vulpeculae), une géante rouge."
+    },
+    {
+        "id": 67,
+        "name": "Petite Ourse",
+        "scientific_name": "Ursa Minor",
+        "latin_name": "Ursa Minor",
+        "img_url": "/img/67-umi.png",
+        "history": "Le « petit chariot » (par contraste au « grand chariot » de la Grande Ourse) est, tout comme l'autre Ourse, formé de sept étoiles principales. Elle est l'une des 48 constellations listées par l'astronome Ptolémée, et demeure l'une des 88 constellations modernes.  Il semble que le nommage des constellations boréales comme les « ourses » soit issu de la tradition grecque, bien qu'Homère ne fasse référence qu'à une seule « ourse ». L'« ourse » originale est la Grande Ourse, et la Petite Ourse a été admise comme la deuxième, ou comme l'« Ourse phénicienne ».",
+        "spotting": "La Petite Ourse, ou en latin Ursa Minor, est une constellation de l'hémisphère céleste nord. La Petite Ourse a traditionnellement été d'une grande importance pour la navigation, particulièrement pour les marins, parce que Polaris marque le pôle nord céleste. Polaris, la plus brillante de la constellation, est une étoile variable supergéante jaune-blanche."
+    },
+    {
+        "id": 68,
+        "name": "Phénix",
+        "scientific_name": "Phoenix",
+        "latin_name": "Phoenix",
+        "img_url": "/img/68-phe.png",
+        "history": "Les astronomes arabes incluaient ses étoiles dans la constellation de l’Éridan. Elle fut introduite par les navigateurs néerlandais Pieter Dirkszoon Keyser et Frederick de Houtman à la fin du xvie siècle sous son nom actuel et inventoriée par l’astronome Johann Bayer en 1603 dans son « Uranometria ».",
+        "spotting": "Le Phénix est une constellation de l’hémisphère sud, peu lumineuse. Elle peut être observée par les habitants de l’hémisphère nord à moins de 30° de latitude. Le Phénix se situe dans l'hémisphère sud, entre l’étoile Achernar de l’Éridan, l'extrémité de sa rivière, et Fomalhaut, étoile solitaire du Poisson austral."
+    },
+    {
+        "id": 69,
+        "name": "Poisson Austral",
+        "scientific_name": "Piscis Austrinus",
+        "latin_name": "Piscis Austrinus",
+        "img_url": "/img/69-psa.png",
+        "history": "Il semble que la constellation du Poisson Austral était déjà connue sous un nom similaire dans l’Égypte antique. C’est donc une constellation ancienne, répertoriée par le grec Aratos, puis par Ptolémée dans son Almageste. Son nom fait référence à la constellation des Poissons, visible dans l’hémisphère nord.",
+        "spotting": "Le Poisson austral est une petite constellation de l’hémisphère sud. Elle est surtout remarquable pour son étoile principale, Fomalhaut. La constellation se remarque avant tout par son étoile principale, Fomalhaut. Les autres étoiles sont peu lumineuses et la constellation ne possède pas de forme très marquée."
+    },
+    {
+        "id": 70,
+        "name": "Poisson Volant",
+        "scientific_name": "Volans",
+        "latin_name": "Volans",
+        "img_url": "/img/70-vol.png",
+        "history": "La constellation du Poisson volant, comme nombre de constellations du ciel austral, ne date pas de l’époque antique. Elle a été créée par les navigateurs néerlandais Pieter Dirkszoon Keyser et Frederick de Houtman à la fin du xvie siècle et popularisée par Johann Bayer en 1603.",
+        "spotting": "Le Poisson volant est une petite constellation de l’hémisphère sud, localisée au sud de la Carène."
+    },
+    {
+        "id": 71,
+        "name": "Poissons",
+        "scientific_name": "Pisces",
+        "latin_name": "Pisces",
+        "img_url": "/img/71-psc.png",
+        "history": "Elle était l’une des 48 constellations identifiées par Ptolémée.",
+        "spotting": "Elle se situe entre le Verseau à l'ouest et le Bélier à l'est. Bien qu’assez grande, elle découpe un pan du ciel éloigné du plan de la Voie lactée et ne contient que peu d’étoiles visibles, toutes assez peu lumineuses. Cette constellation est dans le voisinage immédiat du Grand carré de Pégase, à partir duquel elle peut être repérée si les conditions de visibilité sont suffisantes. Elle occupe l'intérieur de l’astérisme nommé Triangle d'automne, dont elle traverse les 3 côtés au niveau de leurs milieux."
+    },
+    {
+        "id": 72,
+        "name": "Poupe",
+        "scientific_name": "Puppis",
+        "latin_name": "Puppis",
+        "img_url": "/img/72-pup.png",
+        "history": "Incluse à l’origine par Ptolémée dans l’immense constellation du Navire Argo, elle fut créée par Nicolas-Louis de Lacaille lorsqu’il divisa le navire en constellations distinctes. La Poupe est la plus grande de ces constellations. Ptolémée l’avait répertoriée dans son Almageste. À cause de sa taille et de son étendue, Nicolas-Louis de Lacaille la divisa en trois constellations en 1752 afin de pouvoir la manier plus aisément. Les trois constellations résultantes sont la Carène, la Poupe et les Voiles.",
+        "spotting": "La Poupe est visible principalement de l’hémisphère sud. Pour trouver la Poupe, il faut imaginer une ligne entre Sirius, l’étoile la plus brillante du Grand Chien, et Canopus. La Poupe se trouve à l’est de cette ligne."
+    },
+    {
+        "id": 73,
+        "name": "Règle",
+        "scientific_name": "Norma",
+        "latin_name": "Norma",
+        "img_url": "/img/73-nor.png",
+        "history": "La constellation de la Règle fut créée par Nicolas-Louis de Lacaille en 1752 afin de remplir les derniers pans de ciel austral sans dénomination. Comme beaucoup des 14 autres constellations créées par Lacaille, elle porte le nom d'un appareil scientifique. Il l'appela d'ailleurs à l'origine L'Équerre et la Règle, outils utilisés à l'époque pour bâtir les charpentes. Elle fut également appelée Triangle du sud (sans lien avec l'actuel Triangle austral) et Carré d'Euclide.",
+        "spotting": "La Règle est une constellation de l'hémisphère sud faiblement visible. La partie principale forme le petit groupe de quatre étoiles au sud-ouest de la queue de la constellation Scorpion et au sud-est du Loup"
+    },
+    {
+        "id": 74,
+        "name": "Réticule",
+        "scientific_name": "Reticulum",
+        "latin_name": "Reticulum",
+        "img_url": "/img/74-ret.png",
+        "history": "La constellation fut créée en 1621 par Isaac Habrecht II, qui la nomma Rhombus, « le Rhombe ». Réintroduite par Nicolas-Louis de Lacaille en 1752, elle prit le nom de Réticule Rhomboïde avant d'être simplement nommée Réticule au xixe siècle. Comme plusieurs autres constellations modernes, elle porte le nom d'un appareil scientifique, un réticule étant un instrument permettant de mesurer la position des étoiles.",
+        "spotting": "Le Réticule est une constellation de l'hémisphère sud, l'une des plus petites et les moins lumineuses du ciel. La constellation n'est pas très brillante, mais sa forme assez ramassée la rend tout de même relativement facile à repérer. La constellation se repère à partir de Achernar, terminus sud de Éridan. Au sud de cette étoile on repère d'abord l'Hydre mâle, et plus à l'est un paquet d'étoiles qui forment le réticule. Encore plus à l'est, on tombe sur  la constellation de la Dorade."
+    },
+    {
+        "id": 75,
+        "name": "Sagittaire",
+        "scientific_name": "Sagittarius",
+        "latin_name": "Sagittarius",
+        "img_url": "/img/75-sgr.png",
+        "history": "Le Sagittaire « l’Archer » était l’une des 48 constellations identifiées par Ptolémée. La Voie lactée est la plus dense à l’endroit où elle traverse le Sagittaire ; c’est aussi là que se trouve son centre. Par conséquent, le Sagittaire contient un bon nombre d’étoiles brillantes, d’amas stellaires, et de nébuleuses.",
+        "spotting": "La constellation se situe entre Ophiuchus à l'ouest et le Capricorne à l'est. Quand la constellation du Scorpion est visible, le Sagittaire se repère facilement, par sa forme. Il se situe dans l'axe des deux « yeux du chat » de la queue du Scorpion. "
+    },
+    {
+        "id": 76,
+        "name": "Scorpion",
+        "scientific_name": "Scorpius",
+        "latin_name": "Scorpius",
+        "img_url": "/img/76-sco.png",
+        "history": "Le Scorpion était l’une des 48 constellations identifiées par Ptolémée. Le Scorpion est l’objet de plusieurs légendes selon la mythologie grecque.",
+        "spotting": "Il se situe entre la constellation de Balance à l'ouest et celle d’Ophiuchus (le Serpentaire) à l'est. Il appartient à l’hémisphère sud céleste, et une grande partie de la constellation est sous l'écliptique. "
+    },
+    {
+        "id": 77,
+        "name": "Sculpteur",
+        "scientific_name": "Sculptor",
+        "latin_name": "Sculptor",
+        "img_url": "/img/77-scl.png",
+        "history": "Introduite par Nicolas-Louis de Lacaille en 1752 en même temps que 13 autres pour nommer un pan du ciel austral sans dénomination, elle était originellement nommée « l'Atelier du sculpteur » avant que son nom ne soit raccourci.",
+        "spotting": "Le Sculpteur est une constellation de l’hémisphère sud, peu lumineuse. Si les conditions de visibilité sont bonnes, elle peut se repérer assez facilement à partir du Poisson austral : une de ses étoiles (γ  Sculpteur) est l'étoile faible qui ferme les deux alignements du Poisson. Le Pôle galactique Sud (de la Voie Lactée) est situé à trois degrés au nord-ouest de α Scl."
+    },
+    {
+        "id": 78,
+        "name": "Serpent (La Queue)",
+        "scientific_name": "Serpens Cauda",
+        "latin_name": "Serpens Cauda",
+        "img_url": "/img/78-sercauda.png",
+        "history": "Serpent était l’une des 48 constellations identifiées par Ptolémée. Le Serpent est une constellation qui représente le serpent dompté par Ophiuchus, la constellation du Serpentaire. C’est la seule constellation divisée en deux parties ; la Tête et la Queue du Serpent sont séparées par l’entreposition d’Ophiuchus, mais leurs étoiles sont nommés comme si elles faisaient partie d’une zone contiguë et la désignation génitive Serpentis est utilisée pour toutes les deux. la Queue du Serpent essentiellement dans l’hémisphère céleste sud.",
+        "spotting": "Aucune des étoiles du Serpent n’est très brillante, ce qui rend la constellation assez difficile à discerner."
+    },
+    {
+        "id": 79,
+        "name": "Serpent (La Tête)",
+        "scientific_name": "Serpens Caput",
+        "latin_name": "Serpens Caput",
+        "img_url": "/img/79-sercaput.png",
+        "history": "Serpent était l’une des 48 constellations identifiées par Ptolémée. Le Serpent est une constellation qui représente le serpent dompté par Ophiuchus, la constellation du Serpentaire. C’est la seule constellation divisée en deux parties ; la Tête et la Queue du Serpent sont séparées par l’entreposition d’Ophiuchus, mais leurs étoiles sont nommés comme si elles faisaient partie d’une zone contiguë et la désignation génitive Serpentis est utilisée pour toutes les deux. La Tête du Serpent se trouve principalement dans l’hémisphère céleste nord.",
+        "spotting": "Aucune des étoiles du Serpent n’est très brillante, ce qui rend la constellation assez difficile à discerner."
+    },
+    {
+        "id": 80,
+        "name": "Sextant",
+        "scientific_name": "Sextans",
+        "latin_name": "Sextans",
+        "img_url": "/img/80-sex.png",
+        "history": "Introduite par Johannes Hevelius en 1690, elle tire son nom d'un appareil de mesure permettant de mesurer la hauteur d'un astre au-dessus de l'horizon, instrument qu'Hevelius utilisait précisément pour ses relevés.",
+        "spotting": "Le Sextant est une constellation très peu lumineuse. Située sur l'équateur céleste, elle peut être vue quasiment de n'importe quelle latitude, sauf aux pôles. Le Sextant se situe immédiatement au Sud de Régulus, l’étoile de la constellation du Lion, et au Nord-Est de Alphard, de l'Hydre. Si la tête de l'Hydre est bien visible, l'alignement des deux yeux, prolongé vers l'Est, tombe sur l’étoile Sextantis."
+    },
+    {
+        "id": 81,
+        "name": "Table",
+        "scientific_name": "Mensa",
+        "latin_name": "Mensa",
+        "img_url": "/img/81-men.png",
+        "history": "La constellation de la Table a été introduite par Nicolas-Louis de Lacaille en 1752 afin de combler un pan du ciel austral sans dénomination. Originellement nommée Mensa Mons (« la Montagne de la Table »), son nom vient de la montagne de la Table, une montagne surplombant Le Cap (Afrique du Sud), où Lacaille réalisait ses relevés. Il s'était souvenu que les Nuages de Magellan étaient parfois connus sous le nom de « Nuages du Cap » et que la montagne de la Table était souvent couverte de nuages lorsqu'un vent orageux soufflait du sud-est. C'est pourquoi il délimita une « table » dans le ciel sous les Nuages. La Table est la seule de ces constellations qui n'honore pas un instrument symbolique du siècle des Lumières. ",
+        "spotting": "Est une constellation de l'hémisphère sud, impossible à observer au nord de l'équateur. Elle est peu lumineuse et découpe un pan de ciel quasiment vide d'étoiles et d'objets célestes. La Table ne contient aucune étoile lumineuse : Mensae, la plus brillante, c'est une étoile très similaire au Soleil."
+    },
+    {
+        "id": 82,
+        "name": "Taureau",
+        "scientific_name": "Taurus",
+        "latin_name": "Taurus",
+        "img_url": "/img/82-tau.png",
+        "history": "Le Taureau était l’une des 48 constellations identifiées par Ptolémée.",
+        "spotting": "Grande constellation majeure du ciel hivernal de l’hémisphère nord, traversée par le Soleil du 14 mai au 22 juin, cette constellation se situe entre le Bélier à l'ouest et les Gémeaux à l'est. On peut y voir un corps de taureau et quelques pattes, la forme imaginée variant avec les conditions de visibilité."
+    },
+    {
+        "id": 83,
+        "name": "Télescope",
+        "scientific_name": "Telescopium",
+        "latin_name": "Telescopium",
+        "img_url": "/img/83-tel.png",
+        "history": "Introduite par Nicolas-Louis de Lacaille en 1752 pour désigner un pan de ciel sans dénomination, elle porte le nom d'un appareil scientifique comme plusieurs autres constellations créées par Lacaille. La constellation du Télescope héberge une nébuleuse planétaire, un amas globulaire, et plusieurs galaxies.",
+        "spotting": "Le Télescope est une constellation de l'hémisphère sud. Telescopii, l'étoile la plus brillante de la constellation,est une sous-géante bleue, environ 6 fois plus massive que le Soleil et 200 fois plus brillante."
+    },
+    {
+        "id": 84,
+        "name": "Toucan",
+        "scientific_name": "Tucana",
+        "latin_name": "Tucana",
+        "img_url": "/img/84-tuc.png",
+        "history": "Inventée par les navigateurs néerlandais Pieter Dirkszoon Keyser et Frederick de Houtman à la fin du xvie siècle, elle fut popularisée par Johann Bayer lors de la publication de son Uranometria en 1603. Cette constellation contient surtout le Petit Nuage de Magellan, une galaxie irrégulière satellite de notre Voie lactée.",
+        "spotting": "Le Toucan est une constellation de l'hémisphère sud, légèrement plus lumineuse que les autres constellations de cette partie du ciel austral. Le Toucan est situé sur l'alignement entre Achernar (terminal de la constellation Éridan) et l'étoile principale du Paon."
+    },
+    {
+        "id": 85,
+        "name": "Triangle",
+        "scientific_name": "Triangulum",
+        "latin_name": "Triangulum",
+        "img_url": "/img/85-tri.png",
+        "history": "Le Triangle figurait déjà dans la liste des 48 constellations répertoriées par Ptolémée dans son Almageste, l'une des rares constellations antiques (avec la Balance) à ne pas provenir d'un mythe et la seule qui soit décrite par une figure géométrique. À l'époque grecque, cette constellation portait le nom de Deltoton, le Delta (vraisemblablement celui du Nil). Les Romains conservèrent cette appellation en la nommant Deltotum.",
+        "spotting": "Le Triangle est une petite constellation de l'hémisphère nord dont les trois étoiles principales forment un triangle allongé. Il est situé sous la diagonale d'Andromède, entre la jambe d'Andromède et les étoiles du Bélier."
+    },
+    {
+        "id": 86,
+        "name": "Triangle Austral",
+        "scientific_name": "Triangulum Australe",
+        "latin_name": "Triangulum Australe",
+        "img_url": "/img/86-tra.png",
+        "history": "Le Triangle austral fut introduit pour la première fois par le navigateur italien Amerigo Vespucci en 1503. Réinventée par les navigateurs néerlandais Pieter Dirkszoon Keyser et Frederick de Houtman à la fin du xvie siècle et introduite par Johann Bayer dans son Uranometria en 1603.",
+        "spotting": "Le Triangle austral est une petite constellation de l'hémisphère sud dont les trois étoiles les plus lumineuses, de deuxième et troisième magnitude apparente, forment approximativement un triangle équilatéral. Le triangle austral est situé aux pieds du Centaure. Partant de Alpha et Bêta du Centaure, le triangle est situé au Sud-Est."
+    },
+    {
+        "id": 87,
+        "name": "Verseau",
+        "scientific_name": "Aquarius",
+        "latin_name": "Aquarius",
+        "img_url": "/img/87-aqr.png",
+        "history": "C'est une agglomération d'étoiles qui figurait déjà dans la liste des 48 constellations répertoriées par l'astronome Ptolémée. Comme les autres constellations du Zodiaque, le Verseau est très ancien. Il semble qu’elle était déjà appelée Daulo par les Chaldéens, un peuple de Babylonie.",
+        "spotting": "C'est l'une des 12 constellations du zodiaque, ce qui signifie qu'elle est située sur la ligne que le soleil suit dans le ciel. Traversée par le Soleil du 16 février au 11 mars, c'est l'une des plus importantes car elle est également considérée comme l'une des plus anciennes constellations. Elle peut se repérer dans l'axe des ailes du Cygne, axe qui passe par les pieds de Pégase et aboutit côté Sud sur le Poisson austral."
+    },
+    {
+        "id": 88,
+        "name": "Vierge",
+        "scientific_name": "Virgo",
+        "latin_name": "Virgo",
+        "img_url": "/img/88-vir.png",
+        "history": "Vierge était l’une des 48 constellations identifiées par Ptolémée.",
+        "spotting": "Elle est traversée par le Soleil du 16 septembre au 30 octobre. La Vierge se repère progressivement autour de son étoile majeure Spica. Dans l'hémisphère Nord, Spica se repère facilement à partir de la Grande Ourse : le manche de la « casserole » poursuit un grand arc de cercle jusqu'à Arcturus, dans le Bouvier (en haut dans l'image ci-contre), et le prolongement de cet arc conduit à Spica. Les alignements dessinant la Vierge sont peu suggestifs, l'image d'une Vierge est difficile à visualiser : La forme de la tête (entre Heze et Denebola) dépend beaucoup des conditions de visibilité. Partant de Spica en direction d'Arcturus, on tombe (un peu à droite) sur Heze, le genou. De là, la « jupe » de la Vierge s'étend vers l'est, sans forme très convaincante."
+    },
+    {
+        "id": 89,
+        "name": "Voiles",
+        "scientific_name": "Vela",
+        "latin_name": "Vela",
+        "img_url": "/img/89-vel.png",
+        "history": "Visible essentiellement de l’hémisphère sud. Incluse à l’origine par Ptolémée dans l’immense constellation du Navire Argo, elle fut créée par Nicolas-Louis de Lacaille lorsqu’il divisa le Navire en trois constellations distinctes. Les Voiles sont la deuxième constellation résultante par la taille.",
+        "spotting": "Les Voiles se trouvent sur une partie du ciel traversée par la Voie lactée et contiennent plusieurs amas et nébuleuses, l’une desquelles s’étend en grande partie sur les Voiles (elle déborde un peu sur la Poupe)."
+    }
+]

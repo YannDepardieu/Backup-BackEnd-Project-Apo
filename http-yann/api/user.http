@@ -1,0 +1,74 @@
+################################################################################
+# Fichier de test des routes HTTP de l'API
+# Nécessite l'extension REST Client pour VSCode
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+################################################################################
+@endpoint = http://localhost:{{$dotenv PORT}}/v1/api/user
+
+########################################################
+#                         User                         #
+########################################################
+
+### Insert user
+POST {{ endpoint }}/
+content-type: application/json
+
+{
+    "firstname": "y",
+    "lastname": "y",
+    "email": "yy@gmail.com",
+    "password": "xx",
+    "role": "user",
+    "notification": true
+}
+
+### Connect user
+### If it's ok you he gets a token in the header => Authorization: Bearer [token]
+POST {{ endpoint }}/login
+content-type: application/json
+
+{
+    "email": "yy@gmail.com",
+    "password": "xx"
+}
+
+### Disconnect user
+GET {{ endpoint }}/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJmaXJzdG5hbWUiOiJ5IiwibGFzdG5hbWUiOiJ5IiwiZW1haWwiOiJ5eUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDMxMTM4MywiZXhwIjoxNjUwMzk3NzgzfQ.Qrk9EX-OxUOPbCxqnOSmSK9xIEfnP7OHe5g8BeBIZTA
+
+### Select user
+GET {{ endpoint }}/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo4LCJmaXJzdG5hbWUiOiJ5IiwibGFzdG5hbWUiOiJ5IiwiZW1haWwiOiJ5eUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDMwNDI4NywiZXhwIjoxNjUwMzkwNjg3fQ.RjNxdDWpyLfH96XSJKjlgIWAOYdubwO1IWTtlrLMo90
+
+### Update user
+PATCH {{ endpoint }}/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo4LCJmaXJzdG5hbWUiOiJ5IiwibGFzdG5hbWUiOiJ5IiwiZW1haWwiOiJ5eUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDMwNDI5OCwiZXhwIjoxNjUwMzkwNjk4fQ.2qWzWiw5hwCBTt5rWvLqPhOAhJDK2FDQnjoIOT9C_zc
+content-type: application/json
+
+{
+    "firstname": "b",
+    "lastname": "b",
+    "email": "bb@gmail.com",
+    "oldPassword": "xx",
+    "newPassword": "yy"
+}
+
+### Delete user
+DELETE {{ endpoint }}/
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo4LCJmaXJzdG5hbWUiOiJ5IiwibGFzdG5hbWUiOiJ5IiwiZW1haWwiOiJ5eUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDMwNDI5OCwiZXhwIjoxNjUwMzkwNjk4fQ.2qWzWiw5hwCBTt5rWvLqPhOAhJDK2FDQnjoIOT9C_zc
+content-type: application/json
+
+{
+    "password": "yy"
+}
+
+###########################
+#         ERROR           #
+###########################
+
+### Select user
+GET {{ endpoint }}/
+
+### Select user
+GET {{ endpoint }}/
+Authorization: Bearer qdfgsfds

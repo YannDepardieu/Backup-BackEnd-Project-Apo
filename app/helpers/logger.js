@@ -1,10 +1,11 @@
+/* eslint-disable no-console */
 /**
  * Liste des niveaux de log
  *
  * "fatal" (60):
  *     The service/app is going to stop or
  *     become unusable now. An operator should definitely look into this soon.
- *     "error" (50): Fatal for a particular request,
+ * "error" (50): Fatal for a particular request,
  *     but the service/app continues servicing other requests.
  *     An operator should look at this soon(ish).
  * "warn" (40):
@@ -22,22 +23,23 @@ const bunyan = require('bunyan');
 
 const streams = [];
 
-// On n'affiche pas les erreurs dans le terminal en production ou en test
-// nb : ce fragment de code ne peut pas être testé par Jest.
-if (!process.env.NODE_ENV !== 'production') {
+// No errors will be displayed in the terminal while the project is in production
+// nb : This part of code cannot be tested with Jest.
+if (process.env.NODE_ENV === 'dev') {
     streams.push({
         level: 'error',
-        // créer un affichage dans le terminal
+        // Create a display in the terminal
         stream: process.stdout,
     });
-} else {
+}
+if (process.env.NODE_ENV === 'production') {
     streams.push({
-        level: 'error', // On ne conserve que les logs a partir du niveau error
-        path: './log/error.log', // Le chemin du fichier de log (on pense à l'ignorer dans git)
-        type: 'rotating-file', // on précise que l'on va faire une rotation de fichiers
-        // (Nouveau fichier dans une période défini + historique de fichiers conservés)
-        period: '1d', // rotation des fichiers de log journalière
-        count: 3, // On garde un historique de 3 fichiers de log (Donc ici 3 jours)
+        level: 'error', // Starting at error level, the logs won't be kept
+        path: './log/error.log', // Path to the log file (Don't forget to put it in the .gitignore)
+        type: 'rotating-file', // Indicates that there will be a rotation between the files
+        // (New file in a definite period + history of the files that are kept)
+        period: '1d', // Rotation of the daily log files
+        count: 3, // An history of 3 log files is allowed (Donc ici 3 jours)
     });
 }
 

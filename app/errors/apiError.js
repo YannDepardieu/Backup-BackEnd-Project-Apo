@@ -1,10 +1,8 @@
+const debug = require('debug')('ApiError');
 /**
- * On implémente notre propre type d'erreur.
- * Cela s'appelle une exception
- * On en profite pour lui permettre de prendre
- * une information supplémentaire : un code de status HTTP
- * Les instance transporteront cette info avec elles
- * et elle pourra être exploité ultérieurment
+ * This a custom homemade error. It is called an "exception". The native error can already take a message.
+ * The custom one can take another information : a status code HTTP
+ * Instances will carry these informations that will be exploited later
  * @typedef {object} ApiError
  * @property {string} status - Status
  * @property {number} statusCode - HTTP Status code
@@ -12,7 +10,8 @@
  */
 module.exports = class ApiError extends Error {
     constructor(message, infos) {
-        // super fait référence à la Class Error qui est native à JS
+        // super references the native JS Error Class
+        debug(infos);
         super(message);
         this.infos = infos;
     }

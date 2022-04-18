@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Poison Ivy II",
+        "address": "68298 Fairview Place, Huoqiu Chengguanzhen",
+        "latitude": 32.331736,
+        "longitude": 116.273391
+    },
+    {
+        "name": "Star of Midnight",
+        "address": "472 Hauk Road, 3859 Nkandla",
+        "latitude": -28.5860306,
+        "longitude": 30.8843434
+    },
+    {
+        "name": "Looking to Get Out",
+        "address": "95 Hoard Plaza, H9K Revelstoke",
+        "latitude": 50.98317,
+        "longitude": -118.2023
+    },
+    {
+        "name": "Hotel Terminus: The Life and Times of Klaus Barbie (Hôtel Terminus)",
+        "address": "139 Bluestem Drive, 97308 CEDEX Cayenne",
+        "latitude": 4.9237913,
+        "longitude": -52.3205637
+    },
+    {
+        "name": "White Lightning",
+        "address": "902 Hoepker Parkway, San Miguel",
+        "latitude": -26.5380045,
+        "longitude": -57.0421483
+    }
+]
