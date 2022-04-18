@@ -29,8 +29,8 @@ router
     )
     /**
      * POST /v1/api/common/{entity}
-     * @summary Create one entity entry
      * @tags Entities routes
+     * @summary Create one entity entry
      * @security BearerAuth
      * @param {string} entity.path.required Entities availables: constellation, myth, planet, star, user
      * @param {Constellation|Event|Myth|Place|Planet|Star} request.body Express req.object
@@ -43,8 +43,8 @@ router
     .route('/:entity(constellation|myth|planet|star)/:id(\\d+)')
     /**
      * GET /v1/api/common/{entity}/{id}
-     * @summary Get one entity entry by its ID
      * @tags Entities routes
+     * @summary Get one entity entry by its ID
      * @param {string} entity.path.required entities availables: constellation, event, myth, place, planet, star, user
      * @param {integer} id.path.required identifier
      * @return {Constellation|Event|Myth|Place|Planet|Star} 200 - success response - application/json
@@ -60,8 +60,8 @@ router
     )
     /**
      * PATCH /v1/api/common/{entity}/{id}
-     * @summary Update one entity entry by its ID
      * @tags Entities routes
+     * @summary Update one entity entry by its ID
      * @security BearerAuth
      * @param {string} entity.path.required entities availables: constellation, event, myth, place, planet, star, user
      * @param {integer} id.path.required identifier
@@ -72,8 +72,8 @@ router
     .patch(security.checkJWT, commonValidator('body'), asyncWrapper(commonController.update))
     /**
      * DELETE /v1/api/common/{entity}/{id}
-     * @summary Delete one entity entry by its ID
      * @tags Entities routes
+     * @summary Delete one entity entry by its ID
      * @security BearerAuth
      * @param {string} entity.path.required entities availables: constellation, event, myth, place, planet, star, user
      * @param {integer} id.path.required identifier

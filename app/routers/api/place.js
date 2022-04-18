@@ -12,8 +12,8 @@ router
     .route('/')
     /**
      * POST /v1/api/place
-     * @summary Insert a place and insert favorite place to bind the place to the user
      * @tags Place
+     * @summary Insert a place and insert favorite place to bind the place to the user
      * @security BearerAuth
      * @param {PlaceInput} request.body.required Express req.object
      * @return {PlaceOutput} 200 - success response - application/json
@@ -28,8 +28,8 @@ router
     )
     /**
      * GET /v1/api/place
-     * @summary Gets all user's favorites places
      * @tags Place
+     * @summary Gets all user's favorites places
      * @security BearerAuth
      * @return {array<PlaceOutput>} 200 - success response - application/json
      * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
@@ -40,8 +40,8 @@ router
     .route('/:id(\\d+)')
     /**
      * GET /v1/api/place{id}
-     * @summary Select a user's place by its userId and placeId
      * @tags Place
+     * @summary Select a user's place by its userId and placeId
      * @security BearerAuth
      * @param {integer} id.path.required place primary key
      * @return {PlaceOutput} 200 - success response - application/json
@@ -51,8 +51,9 @@ router
     .get(security.checkJWT, asyncWrapper(placeController.selectByPk))
     /**
      * PATCH /v1/api/place{id}
-     * @summary Update user's place by its userId and placeId
      * @tags Place
+     * @summary Update user's place by its userId and placeId
+     * @security BearerAuth
      * @param {integer} id.path.required place primary key
      * @param {PlaceInput} request.body.required Express req.object
      * @return {PlaceOutput} 200 - success response - application/json
@@ -68,8 +69,8 @@ router
     )
     /**
      * DELETE /v1/api/place{id}
-     * @summary Delete user's place by its userId and placeId
      * @tags Place
+     * @summary Delete user's place by its userId and placeId
      * @security BearerAuth
      * @param {integer} id.path.required place primary key
      * @return {boolean} 200 - success response - application/json

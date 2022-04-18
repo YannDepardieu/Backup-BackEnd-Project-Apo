@@ -11,20 +11,19 @@ const { createToken, disableToken } = require('../../services/tokensManager');
 
 const userController = {
     /**
-     * Authentication Request
-     * @typedef {object} AuthenticationRequest
-     * @property {string} email - Authentication email
-     * @property {string} password - Authentication password
-     */
-    /**
-     * Authenticated User
-     * @typedef {object} AuthenticatedUser
+     * User
+     * @typedef {object} User
      * @property {integer} id - User's id
      * @property {string} firstname - User's firstname
      * @property {string} lastname - User's lastname
      * @property {string} email - User's email
-     * @property {string} role - User's role
      * @property {boolean} notification - User's authorisation to get email notifications
+     */
+    /**
+     * Authentification
+     * @typedef {object} Authentification
+     * @property {string} email - Authentication email
+     * @property {string} password - Authentication password
      */
     /**
      * Api controller to get one user myth by its ID.
@@ -34,12 +33,9 @@ const userController = {
      * @return {string} Route API JSON data
      */
     async insert(req, res) {
-        const found = await User.isUnique(req.body);
+        await User.isUnique(req.body);
         // Another security to be sure a user cannot set role to admin
         if (req.body.role) req.body.role = 'user';
-        if (found) {
-            throw new ApiError(`${User.tableName} is not unique`, { statusCode: 404 });
-        }
         const user = await User.insert(req.body);
         delete user.password;
         return res.status(200).json(user);
@@ -60,10 +56,7 @@ const userController = {
                 throw new Error(err);
             }
             if (response) {
-                const notUnique = await User.isUnique(req.body, id);
-                if (notUnique) {
-                    return next(new ApiError('This user is not unique', { statusCode: 400 }));
-                }
+                await User.isUnique(req.body, id);
                 // Another security to be sure a user cannot set role to admin
                 if (req.body.role) req.body.role = 'user';
                 delete req.body.oldPassword;
@@ -75,7 +68,7 @@ const userController = {
                 delete output.password;
                 return res.status(200).json(output);
             }
-            return next(new ApiError('Old password is not correct', { statusCode: 400 }));
+            return next(new ApiError('Old password is not correct', { statusCode: 403 }));
         });
     },
 
@@ -90,7 +83,7 @@ const userController = {
                 const output = await User.delete(id);
                 return res.status(200).json(output);
             }
-            return next(new ApiError('password is not correct', { statusCode: 400 }));
+            return next(new ApiError('Password is not correct', { statusCode: 403 }));
         });
     },
 

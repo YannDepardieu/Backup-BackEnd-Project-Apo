@@ -12,8 +12,8 @@ router
     .route('/')
     /**
      * POST /v1/api/event/
-     * @summary Insert one event and insert reserve_table to bind the event to the user
      * @tags Event
+     * @summary Insert one event and insert reserve_table to bind the event to the user
      * @security BearerAuth
      * @param {EventInput} request.body.required Express req.object
      * @return {EventOutput} 201 - Event created - application/json
@@ -28,8 +28,8 @@ router
     )
     /**
      * GET /v1/api/event/
-     * @summary Select all events of a user
      * @tags Event
+     * @summary Select all events of a user
      * @security BearerAuth
      * @return {array<EventOutput>} 200 - success response - application/json
      * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
@@ -40,8 +40,8 @@ router
     .route('/:id(\\d+)')
     /**
      * GET /v1/api/event/{id}
-     * @summary Select a user's event by its userId and eventId
      * @tags Event
+     * @summary Select a user's event by its userId and eventId
      * @security BearerAuth
      * @param {integer} id.path.required event primary key
      * @return {EventOutput} 200 - success response - application/json
@@ -51,8 +51,8 @@ router
     .get(security.checkJWT, asyncWrapper(eventController.selectByPk))
     /**
      * PATCH /v1/api/event/{id}
-     * @summary Update a user's event by its userId and eventId
      * @tags Event
+     * @summary Update a user's event by its userId and eventId
      * @security BearerAuth
      * @param {integer} id.path.required event primary key
      * @param {EventInput} request.body.required Express req.object
@@ -69,8 +69,8 @@ router
     )
     /**
      * DELETE /v1/api/event/{id}
-     * @summary Delete a user's event by its userId and eventId
      * @tags Event
+     * @summary Delete a user's event by its userId and eventId
      * @security BearerAuth
      * @param {integer} id.path.required event primary key
      * @return {boolean} 200 - success response - application/json

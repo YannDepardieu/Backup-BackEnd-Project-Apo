@@ -100,10 +100,7 @@ const commonController = {
      */
     async insert(req, res) {
         const { Model } = res.locals;
-        const notUnique = await Model.isUnique(req.body);
-        if (notUnique) {
-            throw new ApiError(`This ${Model.tableName} is not unique`, { statusCode: 400 });
-        }
+        await Model.isUnique(req.body);
         const data = await Model.insert(req.body);
         // debug(data);
         return res.status(200).json(data);
@@ -121,13 +118,8 @@ const commonController = {
         const { Model } = res.locals;
         const { id } = req.params;
         await Model.selectByPk(id);
-        const notUnique = await Model.isUnique(req.body, id);
-        if (notUnique) {
-            throw new ApiError(`This ${Model.tableName} is not unique`, { statusCode: 400 });
-        }
-
+        await Model.isUnique(req.body, id);
         const output = await Model.update(id, req.body);
-
         return res.status(200).json(output);
     },
 };

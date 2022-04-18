@@ -8,8 +8,8 @@ router
     .route('/forward')
     /**
      * GET /v1/api/geocoding/forward/
-     * @summary You send an address to get latitude and longitude
      * @tags Geocoding
+     * @summary You send an address to get latitude and longitude
      * @param {string} address.query.required address to get a position
      * @example request - Address payload
      * { Avenida Mariscal Santa Cruz 1066, La Paz }
@@ -22,8 +22,8 @@ router
     .route('/reverse')
     /**
      * GET /v1/api/geocoding/reverse/
-     * @summary You send a latitude and longitude to get an address
      * @tags Geocoding
+     * @summary You send a latitude and longitude to get an address
      * @param {string} gps.query.required gps to get an address
      * @example request - Latitude and longitude payload
      * { 0.7638435,-73.9729691 }

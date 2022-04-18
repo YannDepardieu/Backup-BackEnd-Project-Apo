@@ -61,7 +61,7 @@ class CoreModel {
         const result = await client.query(SQL);
 
         if (result.rows.length === 0) {
-            throw new ApiError(`${this.tableName} not found, id doesn't exist`, {
+            throw new ApiError(`${this.tableName} not found for this id`, {
                 statusCode: 404,
             });
         }
@@ -87,7 +87,7 @@ class CoreModel {
         const result = await client.query(SQL);
         debug(result.rows);
         if (result.rows.length === 0) {
-            throw new ApiError(`${this.tableName} not found, id doesn't exist`, {
+            throw new ApiError(`${this.tableName} not found for this data`, {
                 statusCode: 404,
             });
         }
@@ -128,7 +128,6 @@ class CoreModel {
     }
 
     static async isUnique(inputData, id) {
-        // debug('on isUnique ', inputData, id);
         let uniquesConstraints = await client.query(`
             SELECT con.conname
             FROM pg_catalog.pg_constraint con
@@ -171,11 +170,11 @@ class CoreModel {
         }
         const result = await client.query(preparedQuery);
 
-        if (result.rowCount === 0) {
-            return null;
+        if (result.rowCount > 0) {
+            throw new ApiError(`This ${this.tableName} is not unique`, { statusCode: 400 });
         }
 
-        return result.rows[0];
+        return `This ${this.tableName} is unique`;
     }
 
     static async delete(id) {

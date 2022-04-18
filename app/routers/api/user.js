@@ -5,46 +5,58 @@ const { userController } = require('../../controllers/api');
 const asyncWrapper = require('../../middlewares/asyncWrapper');
 const security = require('../../middlewares/security');
 const validator = require('../../middlewares/validator');
-const updateSchema = require('../../schemas/updateUser');
-const createSchema = require('../../schemas/createUser');
+const updateUserSchema = require('../../schemas/updateUser');
+const createUserSchema = require('../../schemas/createUser');
 
 router
     .route('/')
     /**
      * POST /v1/api/user/
-     * @summary Create one new user's profil
      * @tags User
+     * @summary Insert a user
      * @param {User} request.body.required Express req.object
      * @return {User} 200 - success response - application/json
-     * @return {ApiError} 404 - Not found response - application/json
+     * @return {ApiError} 400 - Bad Request : Input data is not in the valid format - application/json
+     * @return {ApiError} 400 - Bad Request : User is not unique - application/json
      */
-    .post(validator('body', createSchema), asyncWrapper(userController.insert))
+    .post(validator('body', createUserSchema), asyncWrapper(userController.insert))
     /**
      * GET /v1/api/user/
-     * @summary Get one user's profil details
      * @tags User
+     * @summary Select user's profil details by its id (in the token)
      * @security BearerAuth
-     * @return {AuthenticatedUser} 200 - success response - application/json
-     * @return {ApiError} 404 - Not found response - application/json
+     * @return {User} 200 - success response - application/json
+     * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
+     * @return {ApiError} 404 - User not found for this id - application/json
      */
     .get(security.checkJWT, asyncWrapper(userController.selectByPk))
     /**
      * PATCH /v1/api/user/
-     * @summary Update one entity entry by its ID
-     * @tags Entities routes
-     * @param {object} request.body identifier
-     * @return {Constellation|Event|Myth|Place|Planet|Star|User} 200 - success response - application/json
-     * @return {ApiError} 400 - Bad request response - application/json
-     * @return {ApiError} 404 - Entities no found - application/json
+     * @tags User
+     * @summary Update user by its id (in the token)
+     * @security BearerAuth
+     * @param {User} request.body identifier
+     * @return {User} 200 - success response - application/json
+     * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
+     * @return {ApiError} 400 - Bad Request : Input data is not in the valid format - application/json
+     * @return {ApiError} 404 - User not found for this id - application/json
+     * @return {ApiError} 403 - Bad Request : Old password is not correct - application/json
+     * @return {ApiError} 400 - Bad Request : User is not unique (meaning with the new data) - application/json
      */
-    .patch(security.checkJWT, validator('body', updateSchema), asyncWrapper(userController.update))
+    .patch(
+        security.checkJWT,
+        validator('body', updateUserSchema),
+        asyncWrapper(userController.update),
+    )
     /**
      * DELETE /v1/api/user/
-     * @summary Deletes one user
-     * @tags Entities routes
-     * @return {string} 200 - success response - application/json
-     * @return {ApiError} 400 - Bad request response - application/json
-     * @return {ApiError} 404 - Entities no found - application/json
+     * @tags User
+     * @summary Delete user by its id (in the token)
+     * @security BearerAuth
+     * @return {boolean} 200 - success response - application/json
+     * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
+     * @return {ApiError} 404 - User not found for this id - application/json
+     * @return {ApiError} 403 - Bad Request : Password is not correct - application/json
      */
     .delete(security.checkJWT, asyncWrapper(userController.delete));
 
@@ -52,10 +64,12 @@ router
     .route('/login')
     /**
      * POST /v1/api/user/login
-     * @summary Post email and password to validate user et return a token
      * @tags User
-     * @param {AuthenticationRequest} request.body Express req.object
-     * @return {string} 200 - success response - application/json AND a token in the header
+     * @summary User send his email and password to login and get back a token
+     * @param {Authentification} request.body Express req.object
+     * @return {boolean} 200 - success response - application/json AND a token in the header
+     * @return {ApiError} 404 - User not found for this data (email) - application/json
+     * @return {ApiError} 403 - Forbidden : Wrong Email or password - application/json
      */
     .post(asyncWrapper(userController.login));
 
@@ -63,11 +77,11 @@ router
     .route('/logout')
     /**
      * GET /v1/api/user/logout
-     * @summary Logout user's session
      * @tags User
+     * @summary Logout user's session
      * @security BearerAuth
-     * @return {string} 200 - success response - application/json
-     * @return {ApiError} 404 - Not found response - application/json
+     * @return {boolean} 200 - success response - application/json
+     * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
      */
     .get(security.checkJWT, asyncWrapper(userController.logout));
 
