@@ -60,7 +60,7 @@ class Place extends CoreModel {
             [userId, placeId],
         );
         if (result.rows.length === 0) {
-            throw new ApiError(`Place not found for this user`, {
+            throw new ApiError(`Place not found for this userId and this placeId`, {
                 statusCode: 404,
             });
         }
@@ -86,7 +86,7 @@ class Place extends CoreModel {
         );
         debug(result.rows);
         if (result.rows.length === 0) {
-            throw new ApiError(`Place not found for this user`, {
+            throw new ApiError(`Place to update not found for this placeId and this userId`, {
                 statusCode: 404,
             });
         }
@@ -110,7 +110,7 @@ class Place extends CoreModel {
         };
         const result = await client.query(query);
         if (result.rows.length === 0) {
-            throw new ApiError(`Place not found for this user`, {
+            throw new ApiError(`Place to delete not found for this placeId and this userId`, {
                 statusCode: 404,
             });
         }

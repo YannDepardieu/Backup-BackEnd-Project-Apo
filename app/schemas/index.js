@@ -7,15 +7,13 @@ const updateEvent = require('./updateEvent');
 const updatePlace = require('./updatePlace');
 const updateUser = require('./updateUser');
 const createFavorite_constellation = require('./createFavConst');
-const createUserPlace = require('./createUserPlace');
 
 module.exports = {
     createEvent,
-    // createPlace,
+    createPlace,
     createUser,
     updateEvent,
     updatePlace,
     updateUser,
     createFavorite_constellation,
-    createUserPlace,
 };

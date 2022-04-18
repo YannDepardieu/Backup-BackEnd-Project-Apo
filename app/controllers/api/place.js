@@ -15,8 +15,14 @@ const placeController = {
      */
 
     /**
-     * A place
-     * @typedef {object} Place
+     * Input object place to insert or update
+     * @typedef {object} PlaceInput
+     * @property {string} name - Place name
+     * @property {string} address - Place address
+     */
+    /**
+     * Output object place
+     * @typedef {object} PlaceOutput
      * @property {string} id - Place id
      * @property {string} name - Place name
      * @property {string} address - Place address
