@@ -34,6 +34,7 @@ const cache = {
         }
         debug(`log = ${infos.log}`);
         debug(`entity = ${infos.entity}`);
+        debug(`infos.key = ${infos.key}`);
         debug(`keys = ${keys[infos.log][infos.entity]}`);
         return infos;
     },
@@ -73,10 +74,22 @@ const cache = {
         const infos = cache.prepare(req);
         debug(`Flush Data Redis`);
         const promises = [];
-        keys[infos.log][infos.entity].forEach((key) => promises.push(rdClient.del(key)));
+        keys[infos.log][infos.entity].forEach((key, index) => {
+            if (infos.log === 'connectKeys') {
+                const regex = new RegExp(
+                    `^${PREFIX}${req.decoded.user.id}/${infos.entity}${req.url}$`,
+                    'mi',
+                );
+                if (key.match(regex)) {
+                    promises.push(rdClient.del(key));
+                    debug(`MATCH : keys = ${keys[infos.log][infos.entity]}`);
+                    keys[infos.log][infos.entity].splice(index, 1);
+                    debug(`MATCH : keys = ${keys[infos.log][infos.entity]}`);
+                }
+            }
+        });
         await Promise.all(promises);
         // We empty the array
-        keys[infos.log][infos.entity].length = 0;
         next();
     },
 };
