@@ -20,7 +20,7 @@ router
      * @return {ApiError} 400 - Bad Request : Input data is not in the valid format - application/json
      * @return {ApiError} 400 - Bad Request : This User new entry is not unique - application/json
      */
-    .post(validator('body', createUserSchema), flushCache, asyncWrapper(userController.insert))
+    .post(validator('body', createUserSchema), asyncWrapper(userController.insert))
     /**
      * GET /v1/api/user/
      * @tags User
