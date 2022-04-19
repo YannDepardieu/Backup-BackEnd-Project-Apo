@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 const debug = require('debug')('Model:Myth');
 const CoreModel = require('./coreModel');
-const client = require('../db/postgres');
+const pgPool = require('../db/pgPool');
 const ApiError = require('../errors/apiError');
 
 class Myth extends CoreModel {
@@ -67,7 +67,7 @@ class Myth extends CoreModel {
         // SELECT * FROM "myth" JOIN "constellation" ON constellation.id = myth.constellation_id
         // WHERE LENGTH(legend) > 0 ORDER BY  random() LIMIT 1;
 
-        const result = await client.query(SQL);
+        const result = await pgPool.query(SQL);
         return result.rows[0];
     }
 
@@ -101,7 +101,7 @@ class Myth extends CoreModel {
             `,
             values: [id],
         };
-        const result = await client.query(SQL);
+        const result = await pgPool.query(SQL);
         if (result.rows.length === 0) {
             throw new ApiError(`${this.tableName} not found for this id`, {
                 statusCode: 404,

@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 const debug = require('debug')('CoreModel');
 const bcrypt = require('bcryptjs');
-const client = require('../db/postgres');
+const pgPool = require('../db/pgPool');
 const ApiError = require('../errors/apiError');
 
 class CoreModel {
@@ -33,7 +33,7 @@ class CoreModel {
     static async selectAll() {
         // Dans une méthode static this fait référence notre classe (Tag, Article)
         // donc this.tableName permet d'accéder a la propriété statique
-        const result = await client.query(`SELECT * FROM "${this.tableName}"`);
+        const result = await pgPool.query(`SELECT * FROM "${this.tableName}"`);
         // sinon, on va fabriquer un tableau de class
         const resultAsClasses = [];
         result.rows.forEach((obj) => {
@@ -58,7 +58,7 @@ class CoreModel {
             text: `SELECT * FROM "${this.tableName}" WHERE id=$1`,
             values: [id],
         };
-        const result = await client.query(SQL);
+        const result = await pgPool.query(SQL);
 
         if (result.rows.length === 0) {
             throw new ApiError(`${this.tableName} not found for this id`, {
@@ -84,7 +84,7 @@ class CoreModel {
         //     text: `SELECT * FROM "${this.tableName}" WHERE ${Object.keys(input)[0]} = $1`,
         //     values: [Object.values(input)[0]],
         // };
-        const result = await client.query(SQL);
+        const result = await pgPool.query(SQL);
         debug(result.rows);
         if (result.rows.length === 0) {
             throw new ApiError(`${this.tableName} not found for this data`, {
@@ -108,7 +108,7 @@ class CoreModel {
             VALUES (${fields}) RETURNING *`,
             values: [...values],
         };
-        const inserted = await client.query(SQL);
+        const inserted = await pgPool.query(SQL);
         return new this(inserted.rows[0]);
     }
 
@@ -116,7 +116,7 @@ class CoreModel {
         const fields = Object.keys(input).map((prop, index) => `"${prop}" = $${index + 1}`);
         const values = Object.values(input);
 
-        const result = await client.query(
+        const result = await pgPool.query(
             `
                 UPDATE "${this.tableName}" SET ${fields}
                 WHERE id = $${fields.length + 1} RETURNING *
@@ -128,7 +128,7 @@ class CoreModel {
     }
 
     static async isUnique(inputData, id) {
-        let uniquesConstraints = await client.query(`
+        let uniquesConstraints = await pgPool.query(`
             SELECT con.conname
             FROM pg_catalog.pg_constraint con
             INNER JOIN pg_catalog.pg_class rel
@@ -168,7 +168,7 @@ class CoreModel {
             preparedQuery.text += ` AND id <> $${values.length + 1}`;
             preparedQuery.values.push(id);
         }
-        const result = await client.query(preparedQuery);
+        const result = await pgPool.query(preparedQuery);
 
         if (result.rowCount > 0) {
             throw new ApiError(`This ${this.tableName} new entry is not unique`, {
@@ -184,7 +184,7 @@ class CoreModel {
             text: `DELETE FROM "${this.tableName}" WHERE id=$1`,
             values: [id],
         };
-        const result = await client.query(query);
+        const result = await pgPool.query(query);
         if (result.rowCount === 0) {
             return null;
         }

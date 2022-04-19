@@ -1,6 +1,5 @@
 // const debug = require('debug')('Model:Galaxy');
 const CoreModel = require('./coreModel');
-// const client = require('../db/postgres');
 // const ApiError = require('../errors/apiError');
 
 class FavConst extends CoreModel {

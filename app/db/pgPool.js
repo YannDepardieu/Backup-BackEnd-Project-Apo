@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-const debug = require('debug')('db:postgres:sql');
+const debug = require('debug')('db:pgPool:sql');
 
 // Rather than created and connected a Client, we will create a "pool" of client and let our module manage
 // the connections of several clients depending on the needs
@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const pool = new Pool(config);
 
-pool.connect((err) => (err ? debug(`ERREUR :::::: ${err}`) : debug('DB connectée')));
+pool.connect((err) => (err ? debug(`ERREUR :::::: ${err}`) : debug('pgPool Connected')));
 // pool.connect((err) => (err ? console.log(`ERREUR :::::: ${err}`) : console.log('DB connectée')));
 
 module.exports = {

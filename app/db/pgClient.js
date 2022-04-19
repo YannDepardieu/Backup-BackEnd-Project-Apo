@@ -8,7 +8,7 @@ console.log('process.env.PG_URL === ', process.env.DATABASE_URL);
 
 const client = new Client(process.env.DATABASE_URL);
 
-client.connect((err) => (err ? console.log(`ERREUR${err}`) : console.log('DB connectée')));
+client.connect((err) => (err ? console.log(`ERREUR${err}`) : console.log('pgClient connected')));
 
 // module.exports = client;
 

@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 const debug = require('debug')('Model:Constellation');
 const CoreModel = require('./coreModel');
-const client = require('../db/postgres');
+const pgPool = require('../db/pgPool');
 const ApiError = require('../errors/apiError');
 
 class Constellation extends CoreModel {
@@ -32,7 +32,7 @@ class Constellation extends CoreModel {
     }
 
     static async selectAll() {
-        const result = await client.query(`
+        const result = await pgPool.query(`
             SELECT
                 constellation.id,
                 constellation.name as name,
@@ -99,7 +99,7 @@ class Constellation extends CoreModel {
             `,
             values: [id],
         };
-        const result = await client.query(SQL);
+        const result = await pgPool.query(SQL);
         if (result.rowCount === 0) {
             throw new ApiError(`${this.tableName} not found for this id`, {
                 statusCode: 404,
@@ -110,7 +110,7 @@ class Constellation extends CoreModel {
 
     static async selectAllNames() {
         const SQL = 'SELECT id, name FROM constellation';
-        const result = await client.query(SQL);
+        const result = await pgPool.query(SQL);
         const resultAsClasses = [];
         result.rows.forEach((obj) => {
             const newObj = new this(obj);
@@ -128,7 +128,7 @@ class Constellation extends CoreModel {
             `,
             values: [userId, constellationId],
         };
-        await client.query(SQL);
+        await pgPool.query(SQL);
         return { insert: true };
     }
 
@@ -144,7 +144,7 @@ class Constellation extends CoreModel {
             `,
             values: [userId, constellationId],
         };
-        const result = await client.query(SQL);
+        const result = await pgPool.query(SQL);
         if (result.rows.length > 0) {
             throw new ApiError('Constellation already in favorite for this userId', {
                 statusCode: 400,
@@ -184,7 +184,7 @@ class Constellation extends CoreModel {
             `,
             values: [userId],
         };
-        const result = await client.query(SQL);
+        const result = await pgPool.query(SQL);
         return result.rows;
     }
 
@@ -203,7 +203,7 @@ class Constellation extends CoreModel {
             `,
             values: [userId, constellationId],
         };
-        const result = await client.query(query);
+        const result = await pgPool.query(query);
         if (result.rows.length === 0) {
             throw new ApiError(
                 `${this.tableName} to delete from favorite not found for this constellationId and this userId`,

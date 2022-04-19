@@ -1,6 +1,6 @@
 const debug = require('debug')('Model:Event');
 const CoreModel = require('./coreModel');
-const client = require('../db/postgres');
+const pgPool = require('../db/pgPool');
 const ApiError = require('../errors/apiError');
 
 class Event extends CoreModel {
@@ -29,7 +29,7 @@ class Event extends CoreModel {
     }
 
     static async selectAll(userId) {
-        const result = await client.query(
+        const result = await pgPool.query(
             `
             SELECT *, event.id FROM "event"
             JOIN reserve_event
@@ -46,7 +46,7 @@ class Event extends CoreModel {
     }
 
     static async selectByPk(userId, eventId) {
-        const result = await client.query(
+        const result = await pgPool.query(
             `
             SELECT *, event.id FROM "event"
             JOIN reserve_event
@@ -68,7 +68,7 @@ class Event extends CoreModel {
         const fields = Object.keys(input).map((prop, index) => `"${prop}" = $${index + 1}`);
         const values = Object.values(input);
 
-        const result = await client.query(
+        const result = await pgPool.query(
             `
             UPDATE "event"
             SET ${fields}
@@ -104,7 +104,7 @@ class Event extends CoreModel {
             `,
             values: [userId, eventId],
         };
-        const result = await client.query(query);
+        const result = await pgPool.query(query);
         if (result.rows.length === 0) {
             throw new ApiError(
                 `${this.tableName} to delete not found for this eventId and this userId`,

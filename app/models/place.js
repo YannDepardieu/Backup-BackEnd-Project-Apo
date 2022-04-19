@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 const debug = require('debug')('Model:Place');
 const CoreModel = require('./coreModel');
-const client = require('../db/postgres');
+const pgPool = require('../db/pgPool');
 const ApiError = require('../errors/apiError');
 
 class Place extends CoreModel {
@@ -33,7 +33,7 @@ class Place extends CoreModel {
     }
 
     static async selectAll(userId) {
-        const result = await client.query(
+        const result = await pgPool.query(
             `
             SELECT place.id, place.name, place.address, place.latitude, place.longitude FROM "place"
             JOIN save_place
@@ -50,7 +50,7 @@ class Place extends CoreModel {
     }
 
     static async selectByPk(userId, placeId) {
-        const result = await client.query(
+        const result = await pgPool.query(
             `
             SELECT place.id, place.name, place.address, place.latitude, place.longitude FROM "place"
             JOIN save_place
@@ -72,7 +72,7 @@ class Place extends CoreModel {
         const fields = Object.keys(input).map((prop, index) => `"${prop}" = $${index + 1}`);
         const values = Object.values(input);
         debug(fields, values);
-        const result = await client.query(
+        const result = await pgPool.query(
             `
             UPDATE "place"
             SET ${fields}
@@ -108,7 +108,7 @@ class Place extends CoreModel {
             `,
             values: [userId, placeId],
         };
-        const result = await client.query(query);
+        const result = await pgPool.query(query);
         if (result.rows.length === 0) {
             throw new ApiError(`Place to delete not found for this placeId and this userId`, {
                 statusCode: 404,

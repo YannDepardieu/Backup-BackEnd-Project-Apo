@@ -5,16 +5,18 @@ require('dotenv').config({ path: '../.env' });
 // If you launch node data/1-importData.js from the project root in the terminal, you don't need to expose the path
 require('dotenv').config();
 
-const client = require('../app/db/postgres');
+const pgClient = require('../app/db/pgClient');
 
 (async () => {
     try {
-        await client.query(
+        await pgClient.query(
             `TRUNCATE TABLE
             "user", place, event, planet, constellation, galaxy, star, myth, reserve_event,
             save_place, favorite_constellation, prefer_planet RESTART IDENTITY;`,
         );
+        await pgClient.originalClient.end();
+        console.log('Connection ended - Seeding ok');
     } catch (error) {
-        console.log('ERROOOOR = ');
+        console.log('ERROOOOR = ', error);
     }
 })();

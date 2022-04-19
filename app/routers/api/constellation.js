@@ -6,6 +6,7 @@ const asyncWrapper = require('../../middlewares/asyncWrapper');
 const security = require('../../middlewares/security');
 const validator = require('../../middlewares/validator');
 const favConstSchema = require('../../schemas/createFavConst');
+const { fillCache, flushCache } = require('../../middlewares/cache');
 
 router
     .route('/')
@@ -15,7 +16,7 @@ router
      * @summary Select all constellations with attributes (Myths, Stars, Galaxies)
      * @return {array<ConstellationWithAttributesOutput>} 200 - success response - application/json
      */
-    .get(asyncWrapper(constellationController.selectAll));
+    .get(fillCache, asyncWrapper(constellationController.selectAll));
 
 router
     .route('/:id(\\d+)')
@@ -27,7 +28,7 @@ router
      * @return {ConstellationWithAttributesOutput} 200 - success response - application/json
      * @return {ApiError} 404 - Constellation not found for this id - application/json
      */
-    .get(asyncWrapper(constellationController.selectByPk));
+    .get(fillCache, asyncWrapper(constellationController.selectByPk));
 
 router
     .route('/names')
@@ -37,7 +38,7 @@ router
      * @summary Select all the constellations names
      * @return {array<ConstellationNameOutput>} 200 - success response - application/json
      */
-    .get(asyncWrapper(constellationController.selectAllNames));
+    .get(fillCache, asyncWrapper(constellationController.selectAllNames));
 
 router
     .route('/favorite')
@@ -56,6 +57,7 @@ router
     .post(
         security.checkJWT,
         validator('body', favConstSchema),
+        flushCache,
         asyncWrapper(constellationController.insertFavorite),
     )
     /**
@@ -66,7 +68,7 @@ router
      * @return {array<ConstellationWithAttributesOutput>} 200 - success response - application/json
      * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
      */
-    .get(security.checkJWT, asyncWrapper(constellationController.selectAllFavorites));
+    .get(security.checkJWT, fillCache, asyncWrapper(constellationController.selectAllFavorites));
 
 router
     .route('/favorite/:id(\\d+)')
@@ -80,6 +82,6 @@ router
      * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
      * @return {ApiError} 404 - Constellation to delete from favorite not found for this constellationId and this userId - application/json
      */
-    .delete(security.checkJWT, asyncWrapper(constellationController.deleteFavorite));
+    .delete(security.checkJWT, flushCache, asyncWrapper(constellationController.deleteFavorite));
 
 module.exports = router;

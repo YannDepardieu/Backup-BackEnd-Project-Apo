@@ -1,6 +1,5 @@
 // const debug = require('debug')('Model:User');
 const CoreModel = require('./coreModel');
-// const client = require('../db/postgres');
 // const ApiError = require('../errors/apiError');
 
 class User extends CoreModel {

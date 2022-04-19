@@ -1,6 +1,5 @@
 // const debug = require('debug')('Model:Planet');
 const CoreModel = require('./coreModel');
-// const client = require('../db/postgres');
 // const ApiError = require('../errors/apiError');
 
 class Planet extends CoreModel {

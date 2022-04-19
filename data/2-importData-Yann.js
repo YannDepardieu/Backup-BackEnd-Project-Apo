@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const bcrypt = require('bcryptjs');
 
-const client = require('../app/db/client');
+const pgClient = require('../app/db/pgClient');
 
 const user = require('./testUsers.json');
 const place = require('./testPlaces.json');
@@ -33,7 +33,7 @@ const tables = Object.keys(allTables);
 
 (async () => {
     try {
-        await client.query(
+        await pgClient.query(
             `TRUNCATE TABLE
             "user", place, event, planet, constellation, galaxy, star, myth, reserve_event,
             save_place, favorite_constellation, prefer_planet RESTART IDENTITY;`,
@@ -76,7 +76,7 @@ const tables = Object.keys(allTables);
                 //     '-------------------------------------------------------------------------',
                 // );
 
-                const query = client.query(
+                const query = pgClient.query(
                     `INSERT INTO "${table}" (${columns}) VALUES (${fields}) RETURNING *;`,
                     [...values],
                 );
@@ -87,13 +87,13 @@ const tables = Object.keys(allTables);
             await Promise.all(queries);
             // console.log('results = ', results);;
             if (tables.length === i + 1) {
-                await client.originalClient.end();
-                console.log('Fin connection - Seeding terminé');
+                await pgClient.originalClient.end();
+                console.log('Connection ended - Seeding ok');
             }
         });
         // setTimeout(async () => {
-        //     await client.end();
-        //     // await client.originalClient.end();
+        //     await pgClient.end();
+        //     // await pgClient.originalClient.end();
         //     console.log('Fin');
         // }, 5000);
     } catch (error) {
