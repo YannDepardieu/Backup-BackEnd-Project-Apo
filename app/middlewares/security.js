@@ -12,7 +12,6 @@ const { JWTOKEN_KEY } = process.env;
 exports.checkJWT = async (req, res, next) => {
     // Get the token from the request header
     const token = seekToken(req);
-
     // If the token exist we check it
     if (token) {
         return jwt.verify(token, JWTOKEN_KEY, async (err, decoded) => {

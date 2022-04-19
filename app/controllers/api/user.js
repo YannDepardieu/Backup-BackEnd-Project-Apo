@@ -81,6 +81,10 @@ const userController = {
             }
             if (response) {
                 const output = await User.delete(id);
+                // Delete the stored token from client side upon log out
+                res.removeHeader('Authorization');
+                // Disable user token by putting in redis DB
+                disableToken(req);
                 return res.status(200).json(output);
             }
             return next(new ApiError('Password is not correct', { statusCode: 403 }));

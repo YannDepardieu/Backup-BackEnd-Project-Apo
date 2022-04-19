@@ -5,7 +5,7 @@ const rdClient = createClient();
 
 const connect = async () => {
     await rdClient.connect();
-    debug('Client connected');
+    debug('RedisClient connected');
 };
 
 module.exports = {

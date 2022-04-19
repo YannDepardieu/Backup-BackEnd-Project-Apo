@@ -6,43 +6,18 @@ const TTL = 60 * 30;
 const PREFIX = 'starrynight:';
 
 // Storage of all the keys inserted in redis
-const keys = {
-    logoutKeys: {
-        constellation: [],
-        myth: [],
-    },
-    loginKeys: {
-        user: [],
-        constellation: [],
-        event: [],
-        place: [],
-    },
-};
+const keys = [];
 
 const cache = {
-    prepare(req) {
-        const infos = {};
-        const regex = /^\/v1\/api\/(?:([a-z-]+))\//im;
-        // eslint-disable-next-line prefer-destructuring
-        infos.entity = req.originalUrl.match(regex)[1];
-        if (req.decoded) {
-            infos.key = `${PREFIX}${req.decoded.user.id}/${infos.entity}${req.url}`;
-            infos.log = 'loginKeys';
-        } else {
-            infos.key = `${PREFIX}/${infos.entity}${req.url}`;
-            infos.log = 'logoutKeys';
-        }
-        debug('infos = ', infos);
-        return infos;
-    },
-
     async fillCache(req, res, next) {
-        const infos = cache.prepare(req);
+        debug('req.url = ', req.url);
+        const key = `${PREFIX}/myth/${req.url}`;
+        // key will have for value for example : starrynight:/v1/api/constellation/names
         // If the key is already inside the redis cache
-        if (keys[infos.log][infos.entity].includes(infos.key)) {
+        if (keys.includes(key)) {
             debug('GET Cache Data via Redis');
             // We get back the data in JSON string
-            const cachedString = await rdClient.get(infos.key);
+            const cachedString = await rdClient.get(key);
             // We transform it in object JS
             const cachedValue = JSON.parse(cachedString);
             // We send back the data to the front
@@ -58,23 +33,22 @@ const cache = {
         // Now we redefines the method res.json : we put inside the datas caching with the original method.
         // When a controller call res.json it will have the custom version
         res.json = async (data) => {
-            debug('Fill Redis with data using customed res.json called after in controller');
+            debug('SAVE Data via Redis via res.json customifiée appelée dans le controller');
             const jsonData = JSON.stringify(data);
-            await rdClient.setEx(infos.key, TTL, jsonData);
-            keys[infos.log][infos.entity].push(infos.key);
+            await rdClient.setEx(key, TTL, jsonData);
+            keys.push(key);
             originalJson(data);
         };
         return next();
     },
-    // Delete all
-    async flushCache(req, _, next) {
-        const infos = cache.prepare(req);
+    async flushCache(_, __, next) {
+        // Delete all
         debug('Flush Data Redis : Delete all');
         const promises = [];
-        keys[infos.log][infos.entity].forEach((key) => promises.push(rdClient.del(key)));
+        keys.forEach((key) => promises.push(rdClient.del(key)));
         await Promise.all(promises);
         // We empty the array
-        keys[infos.log][infos.entity].length = 0;
+        keys.length = 0;
         next();
     },
 };

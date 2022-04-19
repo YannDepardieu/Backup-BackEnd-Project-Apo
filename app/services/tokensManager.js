@@ -1,9 +1,8 @@
 const debug = require('debug')('tokensManager');
-const { createClient } = require('redis');
 const jwt = require('jsonwebtoken');
+const { rdClient } = require('../db/redisClient');
 const ApiError = require('../errors/apiError');
 
-const redis = createClient();
 const expiresIn = 24 * 60 * 60;
 const PREFIX = 'disabledToken';
 const { JWTOKEN_KEY } = process.env;
@@ -25,21 +24,21 @@ const tokensManager = {
         try {
             const key = `${PREFIX}${req.decoded.iat}`;
             const token = tokensManager.seekToken(req);
-            await redis.connect();
-            await redis.setEx(key, expiresIn, token);
-            await redis.quit();
+            // await rdClient.connect();
+            await rdClient.setEx(key, expiresIn, token);
+            // await rdClient.quit();
         } catch (error) {
             debug(error);
         }
     },
     checkDisabledToken: async (decoded, token) => {
         try {
-            await redis.connect();
+            // await rdClient.connect();
             const key = `${PREFIX}${decoded.iat}`;
-            // const timeToLive = await redis.ttl(key);
+            // const timeToLive = await rdClient.ttl(key);
             // debug('Token life in hr: ', Math.round((timeToLive / 60 / 60) * 100) / 100);
-            const disabledToken = await redis.get(key);
-            await redis.quit();
+            const disabledToken = await rdClient.get(key);
+            // await rdClient.quit();
             if (disabledToken === token) {
                 // debug(decoded.exp, timeToLive);
                 return true;
