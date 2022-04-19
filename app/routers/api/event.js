@@ -7,6 +7,7 @@ const security = require('../../middlewares/security');
 const validator = require('../../middlewares/validator');
 const createEventSchema = require('../../schemas/createEvent');
 const updateEventSchema = require('../../schemas/updateEvent');
+const { fillCache, flushCache } = require('../../middlewares/cache');
 
 router
     .route('/')
@@ -24,6 +25,7 @@ router
     .post(
         security.checkJWT,
         validator('body', createEventSchema),
+        flushCache,
         asyncWrapper(eventController.insert),
     )
     /**
@@ -34,7 +36,7 @@ router
      * @return {array<EventOutput>} 200 - success response - application/json
      * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
      */
-    .get(security.checkJWT, asyncWrapper(eventController.selectAll));
+    .get(security.checkJWT, fillCache, asyncWrapper(eventController.selectAll));
 
 router
     .route('/:id(\\d+)')
@@ -48,7 +50,7 @@ router
      * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
      * @return {ApiError} 404 - Event not found for this eventId and this userId - application/json
      */
-    .get(security.checkJWT, asyncWrapper(eventController.selectByPk))
+    .get(security.checkJWT, fillCache, asyncWrapper(eventController.selectByPk))
     /**
      * PATCH /v1/api/event/{id}
      * @tags Event
@@ -65,6 +67,7 @@ router
     .patch(
         security.checkJWT,
         validator('body', updateEventSchema),
+        flushCache,
         asyncWrapper(eventController.update),
     )
     /**
@@ -77,6 +80,6 @@ router
      * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
      * @return {ApiError} 404 - Event to delete not found for this eventId and this userId - application/json
      */
-    .delete(security.checkJWT, asyncWrapper(eventController.delete));
+    .delete(security.checkJWT, flushCache, asyncWrapper(eventController.delete));
 
 module.exports = router;

@@ -10,7 +10,7 @@
 ########################################################
 
 ### Select one Constellation By Id with all attributes (myths, stars, galaxies)
-GET {{ endpoint }}/87
+GET {{ endpoint }}/84
 
 ### Select all Constellations with all attributes (myths, stars, galaxies)
 GET {{ endpoint }}/
@@ -21,16 +21,16 @@ GET {{ endpoint }}/names
 ### Insert favorite constellation
 POST {{ endpoint }}/favorite
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo4LCJmaXJzdG5hbWUiOiJ5IiwibGFzdG5hbWUiOiJ5IiwiZW1haWwiOiJ5eUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDM4ODE3NiwiZXhwIjoxNjUwNDc0NTc2fQ.sPXXr1lF5Ik6HCriZrVTrstwbthwTlsyKoGRtA9uJMI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJmaXJzdG5hbWUiOiJhIiwibGFzdG5hbWUiOiJhIiwiZW1haWwiOiJhYUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDM5MDA3MywiZXhwIjoxNjUwNDc2NDczfQ.H2teDFjVokVjnKbcvZL8P6C253InsamwD_BXlQXV6Gs
 
 {
-    "constellation_id": 87
+    "constellation_id": 82
 }
 
 ### Select All favorites constellations
 GET {{ endpoint }}/favorite
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo4LCJmaXJzdG5hbWUiOiJ5IiwibGFzdG5hbWUiOiJ5IiwiZW1haWwiOiJ5eUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDM4ODE3NiwiZXhwIjoxNjUwNDc0NTc2fQ.sPXXr1lF5Ik6HCriZrVTrstwbthwTlsyKoGRtA9uJMI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJmaXJzdG5hbWUiOiJhIiwibGFzdG5hbWUiOiJhIiwiZW1haWwiOiJhYUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDM5MDA3MywiZXhwIjoxNjUwNDc2NDczfQ.H2teDFjVokVjnKbcvZL8P6C253InsamwD_BXlQXV6Gs
 
 ### Delete favorite constellation
-DELETE {{ endpoint }}/favorite/87
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo4LCJmaXJzdG5hbWUiOiJ5IiwibGFzdG5hbWUiOiJ5IiwiZW1haWwiOiJ5eUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDM4ODE3NiwiZXhwIjoxNjUwNDc0NTc2fQ.sPXXr1lF5Ik6HCriZrVTrstwbthwTlsyKoGRtA9uJMI
+DELETE {{ endpoint }}/favorite/82
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJmaXJzdG5hbWUiOiJhIiwibGFzdG5hbWUiOiJhIiwiZW1haWwiOiJhYUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDM5MDA3MywiZXhwIjoxNjUwNDc2NDczfQ.H2teDFjVokVjnKbcvZL8P6C253InsamwD_BXlQXV6Gs

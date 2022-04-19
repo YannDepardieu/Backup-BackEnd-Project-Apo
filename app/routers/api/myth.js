@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const { mythController } = require('../../controllers/api');
 const asyncWrapper = require('../../middlewares/asyncWrapper');
+const { fillCache } = require('../../middlewares/cache');
 
 router
     .route('/random')
@@ -12,7 +13,7 @@ router
      * @summary Get one random myth with its constellation or star or galaxy
      * @return {Myth} 200 - success response - application/json
      */
-    .get(asyncWrapper(mythController.selectRandom));
+    .get(fillCache, asyncWrapper(mythController.selectRandom));
 
 router
     .route('/:id(\\d+)')
@@ -24,6 +25,6 @@ router
      * @return {Myth} 200 - success response - application/json
      * @return {ApiError} 404 - Myth not found for this id - application/json
      */
-    .get(asyncWrapper(mythController.selectByPk));
+    .get(fillCache, asyncWrapper(mythController.selectByPk));
 
 module.exports = router;

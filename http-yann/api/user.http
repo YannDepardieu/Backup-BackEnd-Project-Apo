@@ -14,9 +14,9 @@ POST {{ endpoint }}/
 content-type: application/json
 
 {
-    "firstname": "y",
-    "lastname": "y",
-    "email": "yy@gmail.com",
+    "firstname": "a",
+    "lastname": "a",
+    "email": "aa@gmail.com",
     "password": "xx",
     "role": "user",
     "notification": true
@@ -28,7 +28,7 @@ POST {{ endpoint }}/login
 content-type: application/json
 
 {
-    "email": "yy@gmail.com",
+    "email": "aa@gmail.com",
     "password": "xx"
 }
 

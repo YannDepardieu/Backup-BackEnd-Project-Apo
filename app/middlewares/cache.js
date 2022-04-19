@@ -7,11 +7,11 @@ const PREFIX = 'starrynight:';
 
 // Storage of all the keys inserted in redis
 const keys = {
-    logoutKeys: {
+    disconnectKeys: {
         constellation: [],
         myth: [],
     },
-    loginKeys: {
+    connectKeys: {
         user: [],
         constellation: [],
         event: [],
@@ -27,12 +27,14 @@ const cache = {
         infos.entity = req.originalUrl.match(regex)[1];
         if (req.decoded) {
             infos.key = `${PREFIX}${req.decoded.user.id}/${infos.entity}${req.url}`;
-            infos.log = 'loginKeys';
+            infos.log = 'connectKeys';
         } else {
             infos.key = `${PREFIX}/${infos.entity}${req.url}`;
-            infos.log = 'logoutKeys';
+            infos.log = 'disconnectKeys';
         }
-        debug('infos = ', infos);
+        debug(`log = ${infos.log}`);
+        debug(`entity = ${infos.entity}`);
+        debug(`keys = ${keys[infos.log][infos.entity]}`);
         return infos;
     },
 
@@ -69,7 +71,7 @@ const cache = {
     // Delete all
     async flushCache(req, _, next) {
         const infos = cache.prepare(req);
-        debug('Flush Data Redis : Delete all');
+        debug(`Flush Data Redis`);
         const promises = [];
         keys[infos.log][infos.entity].forEach((key) => promises.push(rdClient.del(key)));
         await Promise.all(promises);
