@@ -7,6 +7,7 @@ const security = require('../../middlewares/security');
 const validator = require('../../middlewares/validator');
 const createPlaceSchema = require('../../schemas/createPlace');
 const updatePlaceSchema = require('../../schemas/updatePlace');
+const { fillCache, flushCache } = require('../../middlewares/cache');
 
 router
     .route('/')
@@ -24,6 +25,7 @@ router
     .post(
         security.checkJWT,
         validator('body', createPlaceSchema),
+        flushCache,
         asyncWrapper(placeController.insert),
     )
     /**
@@ -34,7 +36,7 @@ router
      * @return {array<PlaceOutput>} 200 - success response - application/json
      * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
      */
-    .get(security.checkJWT, asyncWrapper(placeController.selectAll));
+    .get(security.checkJWT, fillCache, asyncWrapper(placeController.selectAll));
 
 router
     .route('/:id(\\d+)')
@@ -48,7 +50,7 @@ router
      * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
      * @return {ApiError} 404 - Place not found for this placeId and this userId - application/json
      */
-    .get(security.checkJWT, asyncWrapper(placeController.selectByPk))
+    .get(security.checkJWT, fillCache, asyncWrapper(placeController.selectByPk))
     /**
      * PATCH /v1/api/place{id}
      * @tags Place
@@ -65,6 +67,7 @@ router
     .patch(
         security.checkJWT,
         validator('body', updatePlaceSchema),
+        flushCache,
         asyncWrapper(placeController.update),
     )
     /**
@@ -77,6 +80,6 @@ router
      * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
      * @return {ApiError} 404 - Place to delete not found for this placeId and this userId - application/json
      */
-    .delete(security.checkJWT, asyncWrapper(placeController.delete));
+    .delete(security.checkJWT, flushCache, asyncWrapper(placeController.delete));
 
 module.exports = router;

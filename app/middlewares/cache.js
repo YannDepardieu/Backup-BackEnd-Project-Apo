@@ -1,8 +1,8 @@
 const debug = require('debug')('cache');
 const { rdClient } = require('../db/redisClient');
 
-// Time To Live : 30min (60 secondes x 30 = 30 min)
-const TTL = 60 * 30;
+// Time To Live : 60 * 30 = 30min (60 secondes x 30 = 30 min)
+const TTL = 30;
 const PREFIX = 'starrynight:';
 
 // Storage of all the keys inserted in redis
@@ -46,10 +46,17 @@ const cache = {
             debug('GET Cache Data via Redis');
             // We get back the data in JSON string
             const cachedString = await rdClient.get(infos.key);
-            // We transform it in object JS
-            const cachedValue = JSON.parse(cachedString);
-            // We send back the data to the front
-            return res.json(cachedValue);
+            if (cachedString) {
+                // We transform it in object JS
+                const cachedValue = JSON.parse(cachedString);
+                // We send back the data to the front
+                return res.json(cachedValue);
+            }
+            debug('cachedString = ', cachedString);
+            const index = keys[infos.log][infos.entity].indexOf(infos.key);
+            debug('splice keys[infos.log][infos.entity] = ', keys[infos.log][infos.entity]);
+            keys[infos.log][infos.entity].splice(index, 1);
+            debug('splice keys[infos.log][infos.entity] = ', keys[infos.log][infos.entity]);
         }
         // If the key is not inside the redis cache, then we'll need to put it inside with the data.
         // For that I need the datas from postgres, that will be send back after this middleware
@@ -61,7 +68,7 @@ const cache = {
         // Now we redefines the method res.json : we put inside the datas caching with the original method.
         // When a controller call res.json it will have the custom version
         res.json = async (data) => {
-            debug('Fill Redis with data using customed res.json called after in controller');
+            debug('Fill Redis with data using customed res.json called in controller');
             const jsonData = JSON.stringify(data);
             await rdClient.setEx(infos.key, TTL, jsonData);
             keys[infos.log][infos.entity].push(infos.key);
@@ -86,6 +93,12 @@ const cache = {
                     keys[infos.log][infos.entity].splice(index, 1);
                     debug(`MATCH : keys = ${keys[infos.log][infos.entity]}`);
                 }
+            } else {
+                keys[infos.log][infos.entity].forEach((value) =>
+                    promises.push(rdClient.del(value)),
+                );
+                // We empty the array
+                keys[infos.log][infos.entity].length = 0;
             }
         });
         await Promise.all(promises);

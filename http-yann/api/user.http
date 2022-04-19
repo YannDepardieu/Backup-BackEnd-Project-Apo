@@ -28,29 +28,29 @@ POST {{ endpoint }}/login
 content-type: application/json
 
 {
-    "email": "aa@gmail.com",
-    "password": "xx"
+    "email": "bb@gmail.com",
+    "password": "yy"
 }
 
 ### Disconnect user
 GET {{ endpoint }}/logout
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJmaXJzdG5hbWUiOiJ5IiwibGFzdG5hbWUiOiJ5IiwiZW1haWwiOiJ5eUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDM4ODA2MCwiZXhwIjoxNjUwNDc0NDYwfQ.uxob4SUqxwS-Ue3jZgwVu50kZGjjA7nNgEg1VUx7zv4
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMCwiZmlyc3RuYW1lIjoiZSIsImxhc3RuYW1lIjoiZSIsImVtYWlsIjoiZWVAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJub3RpZmljYXRpb24iOnRydWV9LCJpYXQiOjE2NTAzOTUyMTQsImV4cCI6MTY1MDQ4MTYxNH0.mWH26EhaimQ0wxMl0WAUPHOAgSc9QHagblj8E4AgVqw
 
 ### Select user
 GET {{ endpoint }}/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJmaXJzdG5hbWUiOiJ5IiwibGFzdG5hbWUiOiJ5IiwiZW1haWwiOiJ5eUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDM4ODA2MCwiZXhwIjoxNjUwNDc0NDYwfQ.uxob4SUqxwS-Ue3jZgwVu50kZGjjA7nNgEg1VUx7zv4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDM5NTM2NiwiZXhwIjoxNjUwNDgxNzY2fQ.dvUOtm1bA9VpJBjGv443LShCYIjnF0mAqSP8IuwdvkQ
 
 ### Update user
 PATCH {{ endpoint }}/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJmaXJzdG5hbWUiOiJ5IiwibGFzdG5hbWUiOiJ5IiwiZW1haWwiOiJ5eUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDM4ODA2MCwiZXhwIjoxNjUwNDc0NDYwfQ.uxob4SUqxwS-Ue3jZgwVu50kZGjjA7nNgEg1VUx7zv4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJmaXJzdG5hbWUiOiJiIiwibGFzdG5hbWUiOiJiIiwiZW1haWwiOiJiYkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIm5vdGlmaWNhdGlvbiI6dHJ1ZX0sImlhdCI6MTY1MDM5NTM2NiwiZXhwIjoxNjUwNDgxNzY2fQ.dvUOtm1bA9VpJBjGv443LShCYIjnF0mAqSP8IuwdvkQ
 content-type: application/json
 
 {
-    "firstname": "b",
-    "lastname": "b",
+    "firstname": "d",
+    "lastname": "d",
     "email": "bb@gmail.com",
-    "oldPassword": "xx",
-    "newPassword": "yy"
+    "oldPassword": "yy",
+    "newPassword": "xx"
 }
 
 ### Delete user

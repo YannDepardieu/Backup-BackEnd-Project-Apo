@@ -7,6 +7,7 @@ const security = require('../../middlewares/security');
 const validator = require('../../middlewares/validator');
 const updateUserSchema = require('../../schemas/updateUser');
 const createUserSchema = require('../../schemas/createUser');
+const { fillCache, flushCache } = require('../../middlewares/cache');
 
 router
     .route('/')
@@ -19,7 +20,7 @@ router
      * @return {ApiError} 400 - Bad Request : Input data is not in the valid format - application/json
      * @return {ApiError} 400 - Bad Request : This User new entry is not unique - application/json
      */
-    .post(validator('body', createUserSchema), asyncWrapper(userController.insert))
+    .post(validator('body', createUserSchema), flushCache, asyncWrapper(userController.insert))
     /**
      * GET /v1/api/user/
      * @tags User
@@ -29,7 +30,7 @@ router
      * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
      * @return {ApiError} 404 - User not found for this id - application/json
      */
-    .get(security.checkJWT, asyncWrapper(userController.selectByPk))
+    .get(security.checkJWT, fillCache, asyncWrapper(userController.selectByPk))
     /**
      * PATCH /v1/api/user/
      * @tags User
@@ -46,6 +47,7 @@ router
     .patch(
         security.checkJWT,
         validator('body', updateUserSchema),
+        flushCache,
         asyncWrapper(userController.update),
     )
     /**
@@ -58,7 +60,7 @@ router
      * @return {ApiError} 404 - User not found for this id - application/json
      * @return {ApiError} 403 - Forbidden : Password is not correct - application/json
      */
-    .delete(security.checkJWT, asyncWrapper(userController.delete));
+    .delete(security.checkJWT, flushCache, asyncWrapper(userController.delete));
 
 router
     .route('/login')
@@ -83,6 +85,6 @@ router
      * @return {boolean} 200 - success response - application/json
      * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
      */
-    .get(security.checkJWT, asyncWrapper(userController.logout));
+    .get(security.checkJWT, flushCache, asyncWrapper(userController.logout));
 
 module.exports = router;
