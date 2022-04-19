@@ -10,8 +10,7 @@ const keys = [];
 
 const cache = {
     async fillCache(req, res, next) {
-        debug('req = ', req);
-        debug('req.originalUrl = ', req.originalUrl);
+        debug('req.url = ', req.url);
         const key = `${PREFIX}${req.url}`;
         // key will have for value for example : starrynight:/v1/api/constellation/names
         // If the key is already inside the redis cache
