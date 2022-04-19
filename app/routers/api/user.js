@@ -40,7 +40,7 @@ router
      * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
      * @return {ApiError} 400 - Bad Request : Input data is not in the valid format - application/json
      * @return {ApiError} 404 - User not found for this id - application/json
-     * @return {ApiError} 403 - Bad Request : Old password is not correct - application/json
+     * @return {ApiError} 403 - Forbidden : Old password is not correct - application/json
      * @return {ApiError} 400 - Bad Request : This User new entry is not unique - application/json
      */
     .patch(
@@ -56,7 +56,7 @@ router
      * @return {boolean} 200 - success response - application/json
      * @return {ApiError} 401 - Unauthorized : Authentification needed - application/json
      * @return {ApiError} 404 - User not found for this id - application/json
-     * @return {ApiError} 403 - Bad Request : Password is not correct - application/json
+     * @return {ApiError} 403 - Forbidden : Password is not correct - application/json
      */
     .delete(security.checkJWT, asyncWrapper(userController.delete));
 
