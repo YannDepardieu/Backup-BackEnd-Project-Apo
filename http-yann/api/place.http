@@ -24,11 +24,11 @@ GET {{ endpoint }}/
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMSwiZmlyc3RuYW1lIjoiYSIsImxhc3RuYW1lIjoiYSIsImVtYWlsIjoiYWFAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJub3RpZmljYXRpb24iOnRydWV9LCJpYXQiOjE2NTA0ODIzMzEsImV4cCI6MTY1MDU2ODczMX0.WadisbyFyRS5pm1tFWX8pmtxEGXu9TWS-Upte_kH1dU
 
 ### Select a place
-GET {{ endpoint }}/16
+GET {{ endpoint }}/15
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMSwiZmlyc3RuYW1lIjoiYSIsImxhc3RuYW1lIjoiYSIsImVtYWlsIjoiYWFAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJub3RpZmljYXRpb24iOnRydWV9LCJpYXQiOjE2NTA0ODIzMzEsImV4cCI6MTY1MDU2ODczMX0.WadisbyFyRS5pm1tFWX8pmtxEGXu9TWS-Upte_kH1dU
 
 ### Update a place
-PATCH {{ endpoint }}/10
+PATCH {{ endpoint }}/16
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMSwiZmlyc3RuYW1lIjoiYSIsImxhc3RuYW1lIjoiYSIsImVtYWlsIjoiYWFAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJub3RpZmljYXRpb24iOnRydWV9LCJpYXQiOjE2NTA0ODIzMzEsImV4cCI6MTY1MDU2ODczMX0.WadisbyFyRS5pm1tFWX8pmtxEGXu9TWS-Upte_kH1dU
 content-type: application/json
 

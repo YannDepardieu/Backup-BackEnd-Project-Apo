@@ -69,38 +69,47 @@ const cache = {
         // When a controller call res.json it will have the custom version
         res.json = async (data) => {
             debug('Fill Redis with data using customed res.json called in controller');
-            if (!data.statusCode) {
-                const jsonData = JSON.stringify(data);
-                await rdClient.setEx(infos.key, TTL, jsonData);
-                keys[infos.log][infos.entity].push(infos.key);
-            }
+            const jsonData = JSON.stringify(data);
+            await rdClient.setEx(infos.key, TTL, jsonData);
+            keys[infos.log][infos.entity].push(infos.key);
             originalJson(data);
         };
         return next();
     },
 
-    async flushCache(req, _, next) {
-        const infos = cache.prepare(req);
-        debug(`Flush Data Redis`);
-        const promises = [];
-        if (infos.log === 'connectKeys') {
-            const regex = new RegExp(`^${PREFIX}${req.decoded.user.id}/${infos.entity}/`, 'mi');
-            keys[infos.log][infos.entity] = keys[infos.log][infos.entity].filter((key) => {
-                debug(`key = ${key}`);
-                if (key.match(regex)) {
-                    debug(`MATCH`);
-                    promises.push(rdClient.del(key));
-                    return false;
+    async flushCache(req, res, next) {
+        const originalJson = res.json.bind(res);
+        res.json = async (data) => {
+            if (!data.statusCode) {
+                const infos = cache.prepare(req);
+                debug(`Flush Data Redis`);
+                const promises = [];
+                if (infos.log === 'connectKeys') {
+                    const regex = new RegExp(
+                        `^${PREFIX}${req.decoded.user.id}/${infos.entity}/`,
+                        'mi',
+                    );
+                    keys[infos.log][infos.entity] = keys[infos.log][infos.entity].filter((key) => {
+                        debug(`key = ${key}`);
+                        if (key.match(regex)) {
+                            debug(`MATCH`);
+                            promises.push(rdClient.del(key));
+                            return false;
+                        }
+                        return true;
+                    });
+                    debug(`Leftover : KEYS = ${keys[infos.log][infos.entity]}`);
+                } else {
+                    keys[infos.log][infos.entity].forEach((key) =>
+                        promises.push(rdClient.del(key)),
+                    );
+                    // We empty the array
+                    keys[infos.log][infos.entity].length = 0;
                 }
-                return true;
-            });
-            debug(`Leftover : KEYS = ${keys[infos.log][infos.entity]}`);
-        } else {
-            keys[infos.log][infos.entity].forEach((key) => promises.push(rdClient.del(key)));
-            // We empty the array
-            keys[infos.log][infos.entity].length = 0;
-        }
-        await Promise.all(promises);
+                await Promise.all(promises);
+            }
+            originalJson(data);
+        };
         // We empty the array
         next();
     },
