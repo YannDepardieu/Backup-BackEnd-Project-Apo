@@ -78,7 +78,7 @@ const cache = {
         };
         return next();
     },
-    // Delete all
+
     async flushCache(req, _, next) {
         const infos = cache.prepare(req);
         debug(`Flush Data Redis`);
