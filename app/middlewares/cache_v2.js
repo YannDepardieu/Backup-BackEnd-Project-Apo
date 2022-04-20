@@ -32,10 +32,11 @@ const cache = {
             infos.key = `${PREFIX}/${infos.entity}${req.url}`;
             infos.log = 'disconnectKeys';
         }
+        debug(`log = ${infos.log}`);
         debug(`entity = ${infos.entity}`);
         debug(`req.url = ${req.url}`);
         debug(`infos.key = ${infos.key}`);
-        debug(`KEYS = ${keys[infos.log][infos.entity]}`);
+        debug(`keys = ${keys[infos.log][infos.entity]}`);
         return infos;
     },
 
@@ -69,11 +70,9 @@ const cache = {
         // When a controller call res.json it will have the custom version
         res.json = async (data) => {
             debug('Fill Redis with data using customed res.json called in controller');
-            if (!data.statusCode) {
-                const jsonData = JSON.stringify(data);
-                await rdClient.setEx(infos.key, TTL, jsonData);
-                keys[infos.log][infos.entity].push(infos.key);
-            }
+            const jsonData = JSON.stringify(data);
+            await rdClient.setEx(infos.key, TTL, jsonData);
+            keys[infos.log][infos.entity].push(infos.key);
             originalJson(data);
         };
         return next();
@@ -83,23 +82,31 @@ const cache = {
         const infos = cache.prepare(req);
         debug(`Flush Data Redis`);
         const promises = [];
-        if (infos.log === 'connectKeys') {
-            const regex = new RegExp(`^${PREFIX}${req.decoded.user.id}/${infos.entity}/`, 'mi');
-            keys[infos.log][infos.entity] = keys[infos.log][infos.entity].filter((key) => {
+        debug(`keys = ${keys[infos.log][infos.entity]}`);
+        keys[infos.log][infos.entity].forEach((key, index) => {
+            debug('INDEX = ', index);
+            debug('LENGTH = ', keys[infos.log][infos.entity].length);
+            if (infos.log === 'connectKeys') {
+                // const urlRegex = /^(?:(\/(([a-z-]+)|([0-9]+))?))(?:(\/[0-9]+)?)/im;
+                // const cleanedUrl = req.url.match(urlRegex)[1];
+                // debug('req.url.match(urlRegex) = ', req.url.match(urlRegex));
+                const regex = new RegExp(`^${PREFIX}${req.decoded.user.id}/${infos.entity}/`, 'mi');
                 debug(`key = ${key}`);
+                debug(`regex = ^${PREFIX}${req.decoded.user.id}/${infos.entity}/`);
                 if (key.match(regex)) {
-                    debug(`MATCH`);
                     promises.push(rdClient.del(key));
-                    return false;
+                    debug(`MATCH : keys = ${keys[infos.log][infos.entity]}`);
+                    keys[infos.log][infos.entity].splice(index, 1);
+                    debug(`MATCH : keys = ${keys[infos.log][infos.entity]}`);
                 }
-                return true;
-            });
-            debug(`Leftover : KEYS = ${keys[infos.log][infos.entity]}`);
-        } else {
-            keys[infos.log][infos.entity].forEach((key) => promises.push(rdClient.del(key)));
-            // We empty the array
-            keys[infos.log][infos.entity].length = 0;
-        }
+            } else {
+                keys[infos.log][infos.entity].forEach((value) =>
+                    promises.push(rdClient.del(value)),
+                );
+                // We empty the array
+                keys[infos.log][infos.entity].length = 0;
+            }
+        });
         await Promise.all(promises);
         // We empty the array
         next();

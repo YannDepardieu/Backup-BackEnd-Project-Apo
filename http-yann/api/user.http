@@ -28,7 +28,7 @@ POST {{ endpoint }}/login
 content-type: application/json
 
 {
-    "email": "bb@gmail.com",
+    "email": "aa@gmail.com",
     "password": "xx"
 }
 
