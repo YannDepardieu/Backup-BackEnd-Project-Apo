@@ -2,7 +2,7 @@ const debug = require('debug')('cache');
 const { rdClient } = require('../db/redisClient');
 
 // Time To Live : 60 * 30 = 30min (60 secondes x 30 = 30 min)
-const TTL = 60 * 30;
+const TTL = 10;
 const PREFIX = 'starrynight:';
 
 // Storage of all the keys inserted in redis
