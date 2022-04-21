@@ -26,36 +26,7 @@ AND LENGTH(legend) > 0
 ORDER BY myth.id
 LIMIT 1;
 
-
---
-BEGIN;
-CREATE DOMAIN posint AS INT CHECK (VALUE > 0);
-COMMIT;
-
-BEGIN;
--- Ici le domain n'est pas nécessaire car il n'est utilisé qu'une seule fois.
--- Cette utilisation à un but pédagogique
-CREATE DOMAIN slug AS TEXT CHECK( VALUE ~ '^[^-][a-zA-Z0-9-]+[^-]*$');
-ALTER TABLE "post" ALTER COLUMN "slug" TYPE slug;
-
-ALTER TABLE "category" ADD CONSTRAINT route_check CHECK (route ~ '^\/[a-zA-Z\/]*[^\/]*$');
-COMMIT;
-
-
-BEGIN;
-ALTER TABLE package ADD CONSTRAINT dates_order CHECK(request_time < delivered_time);
--- On créé un nouveau domaine (comme un nouveau type) à partir d'un type existant
--- Le domaine doit bien sûr être créé avant son utilisation
--- Un seul champ value possible
-CREATE DOMAIN posint AS INT CHECK(VALUE > 0 AND VALUE < 60000);
-
-ALTER TABLE package
-    ALTER COLUMN width TYPE posint,
-    ALTER COLUMN depth TYPE posint,
-    ALTER COLUMN height TYPE posint,
-    ALTER COLUMN worth TYPE posint;
-COMMIT;
-
+--!--------------------------------------------------------------------------------
 
 
 BEGIN;
@@ -91,8 +62,87 @@ ALTER TABLE place ALTER COLUMN postal_code TYPE text_postal;
 
 COMMIT;
 
+--!--------------------------------------------------------------------------------
+----------------------- VIEWS ------------------------------------------------------------------
+--!--------------------------------------------------------------------------------
 
 
+-- XXX Add DDLs here.
+CREATE VIEW post_with_category AS
+SELECT post.*, category.label AS category
+FROM post
+JOIN category ON category.id=post.category_id;
+
+--!--------------------------------------------------------------------------------
+
+CREATE VIEW identified_visitor AS
+    SELECT *,
+        (validity_start <= now() AND validity_end >= now()) AS valid_ticket, -- Boolean
+        ((SELECT COUNT(*) FROM booking WHERE visitor_id=visitor.id) < 3) AS can_book -- Boolean
+    FROM visitor;
+
+
+CREATE VIEW opened_events AS
+SELECT
+    "event".*,
+    -- on calcule l'heure de fermeture
+    opening_hour + open_duration AS closing_hour,
+    (
+        -- l'attraction est ouverte sur une journée
+        now() > current_date + opening_hour
+        AND now() < current_date + opening_hour + open_duration
+
+    OR
+        -- l'attraction (nocturne) est ouverte sur 2 jours
+        now() > current_date - '24 hours'::interval + opening_hour
+        AND now() < current_date - '24 hours'::interval + opening_hour + open_duration
+    ) AS "open"
+FROM "event"
+WHERE "event".id NOT IN (
+    -- on exclut les attractions ayant un incident ouvert
+    SELECT DISTINCT event_id FROM incident
+    WHERE close_date IS NULL
+);
+
+
+CREATE VIEW detailed_incident AS
+    SELECT
+        incident.*,
+        -- pour la lisibilité de l'interface web, on ajoute le nom de l'attraction à la liste des incidents
+        (SELECT public_name FROM event WHERE id=incident.event_id) AS event_name
+    FROM incident
+    WHERE close_date IS NULL
+    ORDER BY open_date;
+
+CREATE VIEW detailed_incident AS
+SELECT
+    incident.*,
+    (SELECT public_name FROM event WHERE id=incident.event_id) AS event_name,
+	case
+		when count(comment.*) > 0
+		then
+			array_agg(json_build_object('text', comment.text, 'date', comment.date) ORDER BY comment.date DESC)
+		else
+			'{}'
+		end
+	AS comments
+FROM incident
+-- ce JOIN par la gauche pour ne pas zapper les incidents n'ayant pas de commentaires
+LEFT JOIN comment ON comment.incident_id=incident.id
+WHERE close_date IS NULL
+GROUP BY incident.id
+ORDER BY open_date;
+
+
+CREATE VIEW incident_events AS
+SELECT id, public_name AS name, opening_hour, opening_hour+open_duration AS closing_hour FROM "event"
+WHERE id NOT IN (
+    SELECT event_id FROM incident WHERE close_date IS NULL
+) ORDER BY id;
+
+--!--------------------------------------------------------------------------------
+----------------------- FUNCTIONS ------------------------------------------------------------------
+--!--------------------------------------------------------------------------------
 
 BEGIN;
 
@@ -136,3 +186,40 @@ $$ LANGUAGE SQL STRICT;
 
 
 COMMIT;
+
+-- Utilisation des fonctions
+
+
+SELECT * FROM insert_package('{
+	"serial_number":"12349",
+ 	"content_description":"taser",
+	"weight":0.350,
+	"height":50,
+	"worth":98,
+	"sender_id":2,
+	"recipient_id":1,
+	"width":100,
+	"depth":50}
+');
+
+SELECT * FROM add_expedition('{
+	"driver_name": "Nico",
+	"vehicle_plate":"NN-123-CC",
+	"packages": [4, 5]
+}') AS id;
+
+------ TEST direct dans PG admin
+
+SELECT UNNEST(
+	(
+		SELECT *
+		FROM json_to_record('{
+			"driver_name": "Nico",
+			"vehicle_plate":"NN-123-CC",
+			"packages": [4, 5]
+		}')
+		AS x(packages int[])
+	)
+)
+
+--!--------------------------------------------------------------------------------

@@ -11,6 +11,9 @@ ALTER TABLE "user"
     ADD CONSTRAINT password_check
     CHECK (password ~ '^[a-zA-Z0-9²&é~"#{(|è`\\ç^à@)=}~ø$*ù%µ£°+§!/:.;?,><_-]{8,100}$');
 
+-- On créé un nouveau domaine (comme un nouveau type) à partir d'un type existant
+-- Le domaine doit bien sûr être créé avant son utilisation
+-- Un seul champ value possible
 CREATE DOMAIN lat_range AS REAL CHECK (VALUE >= -90 AND VALUE <= 90);
 CREATE DOMAIN long_range AS REAL CHECK (VALUE >= -180 AND VALUE <= 180);
 
