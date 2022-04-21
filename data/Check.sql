@@ -17,6 +17,15 @@ ALTER TABLE "event"
 
 ALTER TABLE "event"
     ADD CONSTRAINT event_datetime_check
-    CHECK (event_datetime ~ VALUE >= NOW())
+    CHECK (event_datetime >= NOW())
     ADD CONSTRAINT recall_datetime_check
-    CHECK (recall_datetime ~ VALUE <= event_datetime);
+    CHECK (recall_datetime <= event_datetime);
+
+CREATE DOMAIN img_syntax AS TEXT CHECK (VALUE ~ '^\/img\/[a-z0-9_-]+\.((jpg)|(jpeg)|(png)|(svg))$');
+
+ALTER TABLE "planet" ALTER COLUMN img_url TYPE img_syntax;
+ALTER TABLE "constellation" ALTER COLUMN img_url TYPE img_syntax;
+ALTER TABLE "galaxy" ALTER COLUMN img_url TYPE img_syntax;
+ALTER TABLE "star" ALTER COLUMN img_url TYPE img_syntax;
+ALTER TABLE "myth" ALTER COLUMN img_url TYPE img_syntax;
+
