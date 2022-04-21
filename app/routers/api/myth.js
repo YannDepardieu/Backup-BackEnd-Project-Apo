@@ -13,7 +13,7 @@ router
      * @summary Get one random myth with its constellation or star or galaxy
      * @return {Myth} 200 - success response - application/json
      */
-    .get(asyncWrapper(mythController.selectRandom));
+    .get(fillCache, asyncWrapper(mythController.selectRandom));
 
 router
     .route('/:id(\\d+)')
