@@ -3,3 +3,5 @@
 
 1-inital 2022-03-31T13:29:28Z tatoberres <palm.sins@gmail.com> # first SQL code for setup the relations and references
 2-constraints-domains 2022-04-21T13:10:33Z yannoclock <yanndepardieu@outlook.fr> # Ajout de constraints et de domains
+3-view_constellations_with_attributes 2022-04-22T16:48:37Z yannoclock <yanndepardieu@outlook.fr> # Récupération de toutes les constellations avec ses mythes, ses étoiles et ses galaxies
+4-view_favorites_constellations 2022-04-22T16:57:58Z yannoclock <yanndepardieu@outlook.fr> # All users favorites constellations with attributes
