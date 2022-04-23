@@ -3,6 +3,6 @@
 BEGIN;
 
 -- XXX Add DDLs here.
-DROP VIEW view_favorites_constellations
+DROP VIEW view_favorites_constellations;
 
 COMMIT;
