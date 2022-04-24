@@ -34,11 +34,7 @@ class Place extends CoreModel {
 
     static async selectAll(userId) {
         const result = await pgPool.query(
-            `
-            SELECT place.id, place.name, place.address, place.latitude, place.longitude FROM "place"
-            JOIN save_place
-            ON place.id = save_place.place_id
-            WHERE save_place.user_id = $1;`,
+            ` SELECT * FROM view_saved_places_details WHERE user_id = $1; `,
             [userId],
         );
         const resultAsClasses = [];
@@ -51,12 +47,7 @@ class Place extends CoreModel {
 
     static async selectByPk(userId, placeId) {
         const result = await pgPool.query(
-            `
-            SELECT place.id, place.name, place.address, place.latitude, place.longitude FROM "place"
-            JOIN save_place
-            ON place.id = save_place.place_id
-            WHERE save_place.user_id = $1
-            AND place.id = $2;`,
+            ` SELECT * FROM view_saved_places_details WHERE user_id = $1 AND place_id = $2;`,
             [userId, placeId],
         );
         if (result.rows.length === 0) {
@@ -98,11 +89,7 @@ class Place extends CoreModel {
             text: `
                 DELETE FROM "place"
                 WHERE place.id = (
-                    SELECT place.id FROM "place"
-                    JOIN save_place
-                    ON place.id = save_place.place_id
-                    WHERE save_place.user_id = $1
-                    AND place.id = $2
+                    SELECT place_id FROM view_saved_places_details WHERE user_id = $1 AND place_id = $2
                 )
                 RETURNING *;
             `,

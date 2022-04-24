@@ -24,7 +24,7 @@ content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMSwiZmlyc3RuYW1lIjoiYSIsImxhc3RuYW1lIjoiYSIsImVtYWlsIjoiYWFAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJub3RpZmljYXRpb24iOnRydWV9LCJpYXQiOjE2NTA3Mzk3MzUsImV4cCI6MTY1MDgyNjEzNX0.tK4qgnJ3QwHStWZLLr4RnVM-SqW9YVorX_1GgS1UsW4
 
 {
-    "constellation_id": 84
+    "constellation_id": 83
 }
 
 ### Select All favorites constellations

@@ -79,9 +79,7 @@ class Constellation extends CoreModel {
         const SQL = {
             text: `
                 SELECT *
-                FROM constellation
-                JOIN favorite_constellation
-                ON constellation.id = favorite_constellation.constellation_id
+                FROM favorite_constellation
                 WHERE favorite_constellation.user_id = $1
                 AND favorite_constellation.constellation_id = $2;
             `,
@@ -110,11 +108,10 @@ class Constellation extends CoreModel {
             text: `
                 DELETE FROM favorite_constellation
                 WHERE favorite_constellation.constellation_id = (
-                    SELECT constellation.id FROM constellation
-                    JOIN favorite_constellation
-                    ON constellation.id = favorite_constellation.constellation_id
+                    SELECT constellation_id
+                    FROM favorite_constellation
                     WHERE favorite_constellation.user_id = $1
-                    AND constellation.id = $2
+                    AND favorite_constellation.constellation_id = $2
                 )
                 RETURNING *;
             `,

@@ -2,7 +2,8 @@
 
 BEGIN;
 
--- XXX Add DDLs here.
+-- XXX Add DDLs here.*
+
 CREATE VIEW view_favorites_constellations AS
 	SELECT
 		constellation.id,
@@ -30,10 +31,9 @@ CREATE VIEW view_favorites_constellations AS
 	GROUP BY constellation.id, favorite_constellation.user_id
 	ORDER BY constellation.id;
 
-COMMIT;
-
 --! Equivalent à :
 
+-- CREATE VIEW view_favorites_constellations AS
     -- SELECT
     --     constellation.id,
     --     constellation.name as name,
@@ -69,6 +69,8 @@ COMMIT;
     -- ON constellation.id = favorite_constellation.constellation_id
     -- GROUP BY constellation.id, star.stars, myth.myths, galaxy.galaxies, favorite_constellation.user_id
     -- ORDER BY constellation.id;
+
+COMMIT;
 
 --! More or less equivalent : Version without JOIN. Here I've put the VIEW inside the request that should be in
 --! the Model Constellation to show what I should change in the Model when calling the VIEW. Indeed, in this

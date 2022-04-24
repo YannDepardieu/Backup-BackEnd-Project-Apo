@@ -30,11 +30,7 @@ class Event extends CoreModel {
 
     static async selectAll(userId) {
         const result = await pgPool.query(
-            `
-            SELECT *, event.id FROM "event"
-            JOIN reserve_event
-            ON event.id = reserve_event.event_id
-            WHERE reserve_event.user_id = $1;`,
+            ` SELECT * FROM view_reserved_events_details WHERE user_id = $1; `,
             [userId],
         );
         const resultAsClasses = [];
@@ -47,12 +43,7 @@ class Event extends CoreModel {
 
     static async selectByPk(userId, eventId) {
         const result = await pgPool.query(
-            `
-            SELECT *, event.id FROM "event"
-            JOIN reserve_event
-            ON event.id = reserve_event.event_id
-            WHERE reserve_event.user_id = $1
-            AND event.id = $2;`,
+            ` SELECT * FROM view_reserved_events_details WHERE user_id = $1 AND event_id = $2; `,
             [userId, eventId],
         );
         if (result.rows.length === 0) {
@@ -94,11 +85,7 @@ class Event extends CoreModel {
             text: `
                 DELETE FROM "event"
                 WHERE event.id = (
-                    SELECT event.id FROM "event"
-                    JOIN reserve_event
-                    ON event.id = reserve_event.event_id
-                    WHERE reserve_event.user_id = $1
-                    AND event.id = $2
+                    SELECT event_id FROM view_reserved_events_details WHERE user_id = $1 AND event_id = $2
                 )
                 RETURNING *;
             `,

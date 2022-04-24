@@ -34,34 +34,11 @@ class Myth extends CoreModel {
     static async selectRandom() {
         const SQL = {
             text: `
-            SELECT
-                myth.id, myth.origin, myth.img_url, myth.legend,
-                (
-                    SELECT json_build_object(
-                        'id', constellation.id, 'name', constellation.name, 'latin_name', constellation.latin_name,
-                        'scientific_name', constellation.scientific_name, 'img_url', constellation.img_url,
-                        'history', constellation.history, 'spotting', constellation.spotting
-                    )AS constellation
-                    FROM "constellation" WHERE constellation.id = myth.constellation_id
-                ),
-                (
-                    SELECT json_build_object('id', planet.id, 'name', planet.name, 'img_url', planet.img_url) AS planet
-                    FROM planet WHERE planet.id = myth.planet_id
-                ),
-                (
-                    SELECT json_build_object(
-                        'id', star.id, 'letter', star.letter, 'name', star.name, 'tradition_name', star.traditional_name,
-                        'tradition', star.tradition, 'img_url', star.img_url, 'constellation_id', star.constellation_id
-                    ) AS star
-                    FROM star WHERE star.id = myth.star_id
-                )
-            FROM "myth"
-            WHERE myth.id >= (
+            SELECT * FROM view_myths_with_attributes
+            WHERE id >= (
                 SELECT random()*(max(myth.id)-min(myth.id)) + min(myth.id) FROM "myth"
             )
-            AND LENGTH(legend) > 0
-            ORDER BY myth.id
-            LIMIT 1;`,
+            ORDER BY id LIMIT 1;`,
         };
         // Fonctionne aussi :
         // SELECT * FROM "myth" JOIN "constellation" ON constellation.id = myth.constellation_id
@@ -73,32 +50,7 @@ class Myth extends CoreModel {
 
     static async selectByPk(id) {
         const SQL = {
-            text: `
-            SELECT
-                myth.id, myth.origin, myth.img_url, myth.legend,
-                (
-                    SELECT json_build_object(
-                        'id', constellation.id, 'name', constellation.name, 'latin_name', constellation.latin_name,
-                        'scientific_name', constellation.scientific_name, 'img_url', constellation.img_url,
-                        'history', constellation.history, 'spotting', constellation.spotting
-                    )AS constellation
-                    FROM "constellation" WHERE constellation.id = myth.constellation_id
-                ),
-                (
-                    SELECT json_build_object('id', planet.id, 'name', planet.name, 'img_url', planet.img_url) AS planet
-                    FROM planet WHERE planet.id = myth.planet_id
-                ),
-                (
-                    SELECT json_build_object(
-                        'id', star.id, 'letter', star.letter, 'name', star.name, 'tradition_name', star.traditional_name,
-                        'tradition', star.tradition, 'img_url', star.img_url, 'constellation_id', star.constellation_id
-                    ) AS star
-                    FROM star WHERE star.id = myth.star_id
-                )
-            FROM "myth"
-            WHERE myth.id = $1
-            AND LENGTH(legend) > 0;
-            `,
+            text: ` SELECT * FROM view_myths_with_attributes WHERE id = $1; `,
             values: [id],
         };
         const result = await pgPool.query(SQL);
