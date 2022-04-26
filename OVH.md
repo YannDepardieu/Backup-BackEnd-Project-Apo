@@ -1,4 +1,4 @@
-# OVH
+# OVH - Setup
 
 ## Se connecter au serveur OVH depuis le terminal local
 
@@ -149,3 +149,16 @@ ssh-copy-id starrynight@54.38.188.38
 http://54.38.188.38:5000/api-docs/
 http://54.38.188.38:5000/v1/api/
 ```
+
+## Sécurité
+
+Eviter que le serveur soit utilisé pour faire des attaques SSH, on sécurise le tout davantage et on essaie de le relancer !
+On reset tous les users qui ont été exploités pour ajouter des scripts custom (root notamment)
+On renforce la connexion SSH avec des clés RSA pour l'authentification histoire de s'assurer que personne d'autre puisse aller sur le serveur en ligne de commande.
+La clé basique va devenir une clé d'une cinquantaine de caractères, vive le copié/collé.
+
+```s
+last -a
+```
+
+Permet d’avoir l’historique du plus récent au plus ancien sur les connexions effectuées sur tout le système, comme ça on peut voir toutes les connexions sur le serveur.
