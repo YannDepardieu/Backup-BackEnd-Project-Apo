@@ -19,18 +19,18 @@ CREATE VIEW view_saved_places_details AS
 
 --! Equivalent  à :
 
-CREATE VIEW view_saved_places_details AS
-    SELECT
-        place.id,
-        place.name,
-        place.address,
-        place.latitude,
-        place.longitude,
-        save_place.user_id,
-        save_place.place_id
-	FROM "place", (
-		SELECT * FROM save_place
-	) AS save_place
-    WHERE place.id = save_place.place_id
+-- CREATE VIEW view_saved_places_details AS
+--     SELECT
+--         place.id,
+--         place.name,
+--         place.address,
+--         place.latitude,
+--         place.longitude,
+--         save_place.user_id,
+--         save_place.place_id
+-- 	FROM "place", (
+-- 		SELECT * FROM save_place
+-- 	) AS save_place
+--     WHERE place.id = save_place.place_id
 
 COMMIT;
