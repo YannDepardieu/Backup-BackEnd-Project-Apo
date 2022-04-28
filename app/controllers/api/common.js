@@ -82,6 +82,7 @@ const commonController = {
 
     async insert(req, res) {
         const { Model } = res.locals;
+        // Throw an error if the properties of the element to insert, that should be unique, are not unique
         await Model.isUnique(req.body);
         const output = await Model.insert(req.body);
         // debug(data);
@@ -93,6 +94,8 @@ const commonController = {
         debug(Model);
         const data = await Model.selectAll();
         const output = [];
+        // Create copies of the objects, returned by the model query, adding the hidden private
+        // property "id" that wouldn't be return in the json otherwise
         data.forEach((element) => output.push({ id: element.id, ...element }));
         res.status(200).json(output);
     },
@@ -100,6 +103,7 @@ const commonController = {
     async selectByPk(req, res) {
         const { Model } = res.locals;
         const output = await Model.selectByPk(req.params.id);
+        // If the query returns a user then the password won't be returned to the client (security)
         if (output.password) {
             delete output.password;
         }
@@ -109,7 +113,9 @@ const commonController = {
     async update(req, res) {
         const { Model } = res.locals;
         const { id } = req.params;
+        // Check if the element to update really exist
         await Model.selectByPk(id);
+        // Throw an error if the properties of the element to update, that should be unique, are not unique
         await Model.isUnique(req.body, id);
         const output = await Model.update(id, req.body);
         return res.status(200).json(output);
@@ -117,6 +123,7 @@ const commonController = {
 
     async delete(req, res) {
         const { Model } = res.locals;
+        // Check if the element to update really exist
         await Model.selectByPk(req.params.id);
         const output = await Model.delete(req.params.id);
         return res.status(200).json(output);

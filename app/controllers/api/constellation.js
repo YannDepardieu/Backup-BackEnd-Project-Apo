@@ -74,6 +74,8 @@ const constellationController = {
     async selectAllNames(_, res) {
         const result = await Constellation.selectAllNames();
         const output = [];
+        // Create copies of the objects returned by the model query, adding the hidden private
+        // property "id" that wouldn't be return in the json otherwise
         result.forEach((element) => output.push({ id: element.id, ...element }));
         return res.status(200).json(output);
     },
@@ -86,7 +88,9 @@ const constellationController = {
     async insertFavorite(req, res) {
         const userId = req.decoded.user.id;
         const constId = req.body.constellation_id;
+        // Check if this constellation exist
         await Constellation.selectByPk(constId);
+        // Check if this constellation is not yet in favorite
         await Constellation.selectFavoriteByPk(userId, constId);
         const output = await Constellation.insertFavorite(userId, constId);
         return res.status(201).json(output);
@@ -101,6 +105,7 @@ const constellationController = {
     async deleteFavorite(req, res) {
         const userId = req.decoded.user.id;
         const constId = req.params.id;
+        // Check if the constellation is in favorite before trying to remove it from favorite
         const output = await Constellation.deleteFavorite(userId, constId);
         return res.status(200).json(output);
     },
